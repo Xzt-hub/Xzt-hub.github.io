@@ -239,7 +239,7 @@
 <p><strong>代码实现：</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">double</span>&gt; arr; <span class="comment">// 将两个数组合并后的数组</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; nums1.<span class="built_in">size</span>() &amp;&amp; j &lt; nums2.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[i] &lt;= nums2[j])</span><br><span class="line">                arr.<span class="built_in">push_back</span>(nums1[i++]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                arr.<span class="built_in">push_back</span>(nums2[j++]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; nums1.<span class="built_in">size</span>()) arr.<span class="built_in">push_back</span>(nums1[i++]);</span><br><span class="line">        <span class="keyword">while</span>(j &lt; nums2.<span class="built_in">size</span>()) arr.<span class="built_in">push_back</span>(nums2[j++]);</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> len = arr.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt; arr.<span class="built_in">size</span>(); k++) cout &lt;&lt; arr[k] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="keyword">if</span>(len % <span class="number">2</span> != <span class="number">0</span>)&#123; <span class="comment">// 合并后的数组长度是奇数</span></span><br><span class="line">            <span class="keyword">return</span> arr[len / <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123; <span class="comment">// 合并后的数组长度是偶数</span></span><br><span class="line">            <span class="built_in">return</span> (arr[len / <span class="number">2</span>] + arr[len / <span class="number">2</span> - <span class="number">1</span>]) / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Let-5：最长回文子串"><a href="#Let-5：最长回文子串" class="headerlink" title="Let 5：最长回文子串"></a>Let 5：最长回文子串</h2><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
+<h2 id="Let-5：最长回文子串"><a href="#Let-5：最长回文子串" class="headerlink" title="Let 5：最长回文子串 *"></a>Let 5：最长回文子串 *</h2><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
 <p><strong>示例 1：</strong></p>
 <figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
 
@@ -280,6 +280,106 @@
 <p><strong>代码实现：</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">convert</span><span class="params">(string s, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++ ) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || i == n - <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; s.<span class="built_in">size</span>(); j += <span class="number">2</span> * n - <span class="number">2</span>)</span><br><span class="line">                    res += s[j];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = i, k = <span class="number">2</span> * n - <span class="number">2</span> - i; j &lt; s.<span class="built_in">size</span>() || k &lt; s.<span class="built_in">size</span>(); j += <span class="number">2</span> * n - <span class="number">2</span>, k += <span class="number">2</span> * n - <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (j &lt; s.<span class="built_in">size</span>()) res += s[j];</span><br><span class="line">                    <span class="keyword">if</span> (k &lt; s.<span class="built_in">size</span>()) res += s[k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<h2 id="Let-7：整数反转"><a href="#Let-7：整数反转" class="headerlink" title="Let 7：整数反转"></a>Let 7：整数反转</h2><p>给你一个 32 位的有符号整数 <code>x</code> ，返回将 <code>x</code> 中的数字部分反转后的结果。</p>
+<p>如果反转后整数超过 32 位的有符号整数的范围 <code>[−231,  231 − 1]</code> ，就返回 0。</p>
+<p><strong>假设环境不允许存储 64 位整数（有符号或无符号）。</strong></p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 123</span><br><span class="line">输出：321</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = -123</span><br><span class="line">输出：-321</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 120</span><br><span class="line">输出：21</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 4：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 0</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>-231 &lt;= x &lt;= 231 - 1</code></li>
+</ul>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reverse</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &gt;= <span class="number">-9</span> &amp;&amp; x &lt;= <span class="number">9</span>) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x)&#123;</span><br><span class="line">            ans = ans * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span>(ans &lt; <span class="number">-2147483648</span> || ans &gt; <span class="number">2147483647</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Let-8：字符串转换整数-atoi"><a href="#Let-8：字符串转换整数-atoi" class="headerlink" title="Let 8：字符串转换整数(atoi) *"></a>Let 8：字符串转换整数(atoi) *</h2><p>请你来实现一个 <code>myAtoi(string s)</code> 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C&#x2F;C++ 中的 <code>atoi</code> 函数）。</p>
+<p>函数 <code>myAtoi(string s)</code> 的算法如下：</p>
+<ol>
+<li>读入字符串并丢弃无用的前导空格</li>
+<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。</li>
+<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。</li>
+<li>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为<code> 0</code> 。必要时更改符号（从步骤 2 开始）。</li>
+<li>如果整数数超过 32 位有符号整数范围 <code>[−231,  231 − 1]</code> ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 <code>−231</code> 的整数应该被固定为 <code>−231</code>，大于 <code>231 − 1</code> 的整数应该被固定为 <code>231 − 1</code> 。</li>
+<li>返回整数作为最终结果。</li>
+</ol>
+<p><strong>注意：</strong></p>
+<ul>
+<li>本题中的空白字符只包括空格字符<code> &#39; &#39;</code> 。</li>
+<li>除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。</li>
+</ul>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;42&quot;</span><br><span class="line">输出：42</span><br><span class="line">解释：加粗的字符串为已经读入的字符，插入符号是当前读取的字符。</span><br><span class="line">第 1 步：&quot;42&quot;（当前没有读入字符，因为没有前导空格）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 2 步：&quot;42&quot;（当前没有读入字符，因为这里不存在 &#x27;-&#x27; 或者 &#x27;+&#x27;）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 3 步：&quot;42&quot;（读入 &quot;42&quot;）</span><br><span class="line">           <span class="built_in">^</span></span><br><span class="line">解析得到整数 42 。</span><br><span class="line">由于 &quot;42&quot; 在范围 [-231, 231 - 1] 内，最终结果为 42 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;   -42&quot;</span><br><span class="line">输出：-42</span><br><span class="line">解释：</span><br><span class="line">第 1 步：&quot;   -42&quot;（读入前导空格，但忽视掉）</span><br><span class="line">            <span class="built_in">^</span></span><br><span class="line">第 2 步：&quot;   -42&quot;（读入 &#x27;-&#x27; 字符，所以结果应该是负数）</span><br><span class="line">             <span class="built_in">^</span></span><br><span class="line">第 3 步：&quot;   -42&quot;（读入 &quot;42&quot;）</span><br><span class="line">               <span class="built_in">^</span></span><br><span class="line">解析得到整数 -42 。</span><br><span class="line">由于 &quot;-42&quot; 在范围 [-231, 231 - 1] 内，最终结果为 -42 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;4193 with words&quot;</span><br><span class="line">输出：4193</span><br><span class="line">解释：</span><br><span class="line">第 1 步：&quot;4193 with words&quot;（当前没有读入字符，因为没有前导空格）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 2 步：&quot;4193 with words&quot;（当前没有读入字符，因为这里不存在 &#x27;-&#x27; 或者 &#x27;+&#x27;）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 3 步：&quot;4193 with words&quot;（读入 &quot;4193&quot;；由于下一个字符不是一个数字，所以读入停止）</span><br><span class="line">             <span class="built_in">^</span></span><br><span class="line">解析得到整数 4193 。</span><br><span class="line">由于 &quot;4193&quot; 在范围 [-231, 231 - 1] 内，最终结果为 4193 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= s.length &lt;= 200</code></li>
+<li><code>s</code> 由英文字母（大写和小写）、数字<code>（0-9）</code>、<code>&#39; &#39;</code>、<code>&#39;+&#39;</code>、<code>&#39;-&#39;</code> 和 <code>&#39;.&#39;</code> 组成</li>
+</ul>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">myAtoi</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(k &lt; s.<span class="built_in">size</span>() &amp;&amp; s[k] == <span class="string">&#x27; &#x27;</span>) k++; <span class="comment">//去掉前导空格</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> minus = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(s[k] == <span class="string">&#x27;-&#x27;</span>) minus = <span class="number">-1</span>, k++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[k] == <span class="string">&#x27;+&#x27;</span>) k++;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(k &lt; s.<span class="built_in">size</span>() &amp;&amp; s[k] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; s[k] &lt;= <span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">            <span class="type">int</span> x = s[k] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(minus &gt; <span class="number">0</span> &amp;&amp; res &gt; (INT_MAX - x) / <span class="number">10</span>) <span class="keyword">return</span> INT_MAX; <span class="comment">//加上x后会超出上界</span></span><br><span class="line">            <span class="keyword">if</span>(minus &lt; <span class="number">0</span> &amp;&amp; -res &lt; (INT_MIN + x) / <span class="number">10</span>) <span class="keyword">return</span> INT_MIN; <span class="comment">//加上x后会超出下界</span></span><br><span class="line">            <span class="keyword">if</span> (-res * <span class="number">10</span> - x == INT_MIN) <span class="keyword">return</span> INT_MIN; <span class="comment">//加上x刚好等于下界</span></span><br><span class="line">            res = res * <span class="number">10</span> + x;</span><br><span class="line">            k++;</span><br><span class="line">            <span class="keyword">if</span>(res &gt; INT_MAX) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res *= minus;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Let-9：回文数"><a href="#Let-9：回文数" class="headerlink" title="Let 9：回文数"></a>Let 9：回文数</h2><p>给你一个整数 <code>x</code> ，如果 <code>x </code>是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<p>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<ul>
+<li>例如，<code>121</code> 是回文，而 <code>123</code> 不是。</li>
+</ul>
+<p>示例 1：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 121</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+
+<p>示例 2：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = -121</span><br><span class="line">输出：false</span><br><span class="line">解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
+
+<p>示例 3：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 10</span><br><span class="line">输出：false</span><br><span class="line">解释：从右向左读, 为 01 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
+
+
+<p>提示：</p>
+<ul>
+<li><code>-231 &lt;= x &lt;= 231 - 1</code></li>
+</ul>
+<p><strong>代码实现</strong> </p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">int</span> m = x;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(m)&#123;</span><br><span class="line">            ans = ans * <span class="number">10</span> + m % <span class="number">10</span>;</span><br><span class="line">            m /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(ans == x) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Let-10：正则表达式匹配"><a href="#Let-10：正则表达式匹配" class="headerlink" title="Let 10：正则表达式匹配 *"></a>Let 10：正则表达式匹配 *</h2><p>给你一个字符串 <code>s</code> 和一个字符规律 <code>p</code>，请你来实现一个支持<code>&#39;.&#39;</code>和<code> &#39;*&#39;</code> 的正则表达式匹配。</p>
+<ul>
+<li><code>&#39;.&#39;</code>匹配任意单个字符</li>
+<li><code>&#39;*&#39;</code> 匹配零个或多个前面的那一个元素</li>
+</ul>
+<p>所谓匹配，是要涵盖 <strong>整个</strong> 字符串 <code>s</code>的，而不是部分字符串。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;aa&quot;, p = &quot;a&quot;</span><br><span class="line">输出：false</span><br><span class="line">解释：&quot;a&quot; 无法匹配 &quot;aa&quot; 整个字符串。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;aa&quot;, p = &quot;a*&quot;</span><br><span class="line">输出：true</span><br><span class="line">解释：因为 &#x27;*&#x27; 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 &#x27;a&#x27;。因此，字符串 &quot;aa&quot; 可被视为 &#x27;a&#x27; 重复了一次。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;ab&quot;, p = &quot;.*&quot;</span><br><span class="line">输出：true</span><br><span class="line">解释：&quot;.*&quot; 表示可匹配零个或多个（&#x27;*&#x27;）任意字符（&#x27;.&#x27;）。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 20</code></li>
+<li><code>1 &lt;= p.length &lt;= 30</code></li>
+<li><code>s</code> 只包含从 <code>a-z</code> 的小写字母。</li>
+<li><code>p</code> 只包含从 <code>a-z</code> 的小写字母，以及字符 <code>. </code>和<code>*</code>。</li>
+<li>保证每次出现字符<code>*</code>时，前面都匹配到有效的字符</li>
+</ul>
 ]]></content>
       <categories>
         <category>AcWing</category>
