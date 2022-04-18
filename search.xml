@@ -961,8 +961,8 @@
       </tags>
   </entry>
   <entry>
-    <title>JAVA 基础入门</title>
-    <url>/2022/04/18/JAVA/JavaBasic/</url>
+    <title>JAVA 基础入门 阶段1 &amp; 阶段2</title>
+    <url>/2022/04/18/JAVA/01JavaBasic/</url>
     <content><![CDATA[<h1 id="JAVA程序执行过程"><a href="#JAVA程序执行过程" class="headerlink" title="JAVA程序执行过程"></a>JAVA程序执行过程</h1><ul>
 <li>编写<code>Hello.java</code>类，</li>
 </ul>
@@ -1864,6 +1864,17 @@
 </tr>
 </tbody></table>
 ]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JAVA 基础入门 阶段3</title>
+    <url>/2022/04/18/JAVA/02JavaBasic/</url>
+    <content><![CDATA[<h1 id="类变量和类方法"><a href="#类变量和类方法" class="headerlink" title="类变量和类方法"></a>类变量和类方法</h1>]]></content>
       <categories>
         <category>JAVA</category>
       </categories>
