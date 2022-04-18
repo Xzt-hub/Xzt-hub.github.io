@@ -1815,13 +1815,55 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// String类中重写的equals方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object anObject)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span> == anObject) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">anotherString</span> <span class="operator">=</span> (String)anObject;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> value.length;</span><br><span class="line">        <span class="keyword">if</span> (n == anotherString.value.length) &#123;</span><br><span class="line">            <span class="type">char</span> v1[] = value;</span><br><span class="line">            <span class="type">char</span> v2[] = anotherString.value;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="hashcode方法"><a href="#hashcode方法" class="headerlink" title="hashcode方法"></a><code>hashcode</code>方法</h3><ul>
+<h3 id="hashCode方法"><a href="#hashCode方法" class="headerlink" title="hashCode方法"></a><code>hashCode</code>方法</h3><ul>
 <li>提高具有哈希表结构的容器的效率</li>
 <li>两个引用，如果指向的是同一个对象，则哈希值肯定是一样</li>
 <li>两个引用，如果指向的是不同对象，则哈希值不一样</li>
 <li>哈希值主要是根据地址号来的，不能完全将哈希值等价于地址</li>
 </ul>
-<h3 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a><code>toString</code>方法</h3>]]></content>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">AA</span> <span class="variable">aa</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AA</span>();</span><br><span class="line">        <span class="type">AA</span> <span class="variable">aa1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AA</span>();</span><br><span class="line">        <span class="type">AA</span> <span class="variable">aa2</span> <span class="operator">=</span> aa;</span><br><span class="line">        System.out.println(aa.hashCode);</span><br><span class="line">        System.out.println(aa1.hashCode);  <span class="comment">//aa1 和 aa的hashcode相同</span></span><br><span class="line">        System.out.println(aa2.hashCode);  <span class="comment">// aa2 和 aa的hashcode相同</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AA</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a><code>toString</code>方法</h3><p>默认返回：<code>全类名 + @ + 哈希值的十六进制</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Object 类中的toString方法</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> getClass().getName() + <span class="string">&quot;@&quot;</span> + Integer.toHexString(hashCode());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Integer.toHexString(hashCode()); 将对象以hashcode值转成十六进制返回</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重写<code>toString</code>方法，在类中使用快捷键<code>alt + insert</code> 然后选中<code>toString</code>即可</li>
+<li>当直接输出一个对象时，<code>toString</code>方法会被默认调用</li>
+</ul>
+<h3 id="finalize方法"><a href="#finalize方法" class="headerlink" title="finalize方法"></a><code>finalize</code>方法</h3><ul>
+<li>当对象被回收时，系统会自动调用该对象的<code>finalize</code>方法。子类可以重写该方法，做一些释放资源的操作</li>
+<li>什么时候被回收：当某个对象没有任何引用时，则<code>jvm</code>就认为该对象是一个垃圾对象，就会使用垃圾回收机制来销毁该对象，在销毁该对象前，会先调用<code>finalize</code>方法</li>
+<li>垃圾回收机制的调用，是由系统来决定（即有自己的<code>GC算法</code>），也可以通过<code>System.gc()</code>主动触发垃圾回收机制。</li>
+</ul>
+<h2 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h2><p>在断点调试过程中，试运行状态，是以对象的运行类型来执行的。</p>
+<ul>
+<li>断点调试是指在程序的某一行设置一个断点，调试时，程序运行到这一行就会停住，然后你可以一步一步往下调试，调试过程中可以看各个变量当前的值，出错的话，调试到出错的代码行即显示错误，停下。进行分析从而会找到这个Bug</li>
+</ul>
+<h3 id="快捷键-1"><a href="#快捷键-1" class="headerlink" title="快捷键"></a>快捷键</h3><table>
+<thead>
+<tr>
+<th align="center">快捷键</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>F7</code></td>
+<td align="center">跳入方法内</td>
+</tr>
+<tr>
+<td align="center"><code>F8</code></td>
+<td align="center">跳过，逐行执行代码</td>
+</tr>
+<tr>
+<td align="center"><code>shift + F8</code></td>
+<td align="center">跳出方法</td>
+</tr>
+<tr>
+<td align="center"><code>F9</code></td>
+<td align="center">resume，执行到下一个断点</td>
+</tr>
+</tbody></table>
+]]></content>
       <categories>
         <category>JAVA</category>
       </categories>
