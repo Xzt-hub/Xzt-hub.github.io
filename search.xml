@@ -961,7 +961,7 @@
       </tags>
   </entry>
   <entry>
-    <title>JAVA 基础入门 阶段1 &amp; 阶段2</title>
+    <title>Java 基础入门 阶段1 &amp; 阶段2</title>
     <url>/2022/04/18/JAVA/01JavaBasic/</url>
     <content><![CDATA[<h1 id="JAVA程序执行过程"><a href="#JAVA程序执行过程" class="headerlink" title="JAVA程序执行过程"></a>JAVA程序执行过程</h1><ul>
 <li>编写<code>Hello.java</code>类，</li>
@@ -1872,9 +1872,51 @@
       </tags>
   </entry>
   <entry>
-    <title>JAVA 基础入门 阶段3</title>
+    <title>Java 基础入门 阶段3</title>
     <url>/2022/04/18/JAVA/02JavaBasic/</url>
-    <content><![CDATA[<h1 id="类变量和类方法"><a href="#类变量和类方法" class="headerlink" title="类变量和类方法"></a>类变量和类方法</h1>]]></content>
+    <content><![CDATA[<h1 id="类变量和类方法"><a href="#类变量和类方法" class="headerlink" title="类变量和类方法"></a>类变量和类方法</h1><h2 id="类变量"><a href="#类变量" class="headerlink" title="类变量"></a>类变量</h2><p>也叫静态变量&#x2F;静态属性，用<code>static</code> 修饰，可以被本类的所有对象实例共享。任何对象去访问它时访问的都是同一个变量</p>
+<ul>
+<li>语法：<code>访问修饰符 static 变量类型 变量名</code></li>
+<li>访问方法：<code>类名.类变量名</code>、<code>对象名.类变量名</code>，推荐使用：<code>类名.类变量名</code></li>
+<li>类变量是随着类的加载而创建，所以即使没有创建对象实例也可以访问。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt._static;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VisitStatic</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> A.name; <span class="comment">// 通过类名访问</span></span><br><span class="line">        System.out.println(name);  <span class="comment">//xzt</span></span><br><span class="line"></span><br><span class="line">        <span class="type">A</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">A</span>();</span><br><span class="line">        System.out.println(a.name); <span class="comment">//xzt</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;xzt&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意事项</strong></p>
+<ul>
+<li>当需要让某个类变量都共享一个变量时，可以使用类变量(静态变量)</li>
+<li>类变量时所有对象共享的，而实例变量时每个对象独享的</li>
+<li>加上<code>static</code>成为类变量或静态变量，否则成为实例变量&#x2F;普通变量</li>
+</ul>
+<h2 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h2><p>也叫静态方法，用<code>static</code>修饰</p>
+<ul>
+<li>语法：<code>访问修饰符 static 返回类型 方法名(参数列表) &#123;&#125;</code></li>
+<li>访问方法：<code>类名.类方法名</code>、<code>对象名.类方法名</code>，推荐使用：<code>类名.类方法名</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt._static;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StaticMethod</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Stu</span> <span class="variable">tom</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Stu</span>(<span class="string">&quot;tom&quot;</span>);</span><br><span class="line">        tom.payFee(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">Stu</span> <span class="variable">jack</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Stu</span>(<span class="string">&quot;jack&quot;</span>);</span><br><span class="line">        jack.payFee(<span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">        Stu.showFee();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Stu</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">double</span> <span class="variable">fee</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">// 学费</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Stu</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//静态方法可以使用静态变量</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">payFee</span><span class="params">(<span class="type">double</span> fee)</span>&#123;</span><br><span class="line">        Stu.fee += fee;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">showFee</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;总学费有&quot;</span> + Stu.fee);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用场景：</strong>当方法中不涉及任何和对象相关的成员，则可以将方法设计成静态方法，提高开发效率，例如工具类：<code>Math 类</code></p>
+<p><strong>注意事项</strong></p>
+<ul>
+<li>类方法和普通方法都是随着类的加载而加载，将结构信息存储在方法区<ul>
+<li>类方法中不能使用<code>this</code>关键字</li>
+</ul>
+</li>
+<li>类方法可以通过类名调用，普通方法不能通过类名调用。</li>
+</ul>
+<h3 id="main-方法"><a href="#main-方法" class="headerlink" title="main 方法"></a><code>main</code> 方法</h3><p>语法：<code>public static void main(String[] args) &#123;&#125;</code></p>
+<ul>
+<li><code>main</code>是java虚拟机调用，所以类方法需要是<code>public</code></li>
+<li>java虚拟机在执行<code>main</code>方法时不需要创建对象，所以需要是<code>static</code></li>
+<li>该方法接收<code>String</code>类型的数组参数，该数组中保存执行java命令时传递给所运行的类的参数</li>
+<li><code>java 执行的程序 参数1 参数2 参数3</code>，参数组成<code>String[] args</code></li>
+</ul>
+<p><strong>注意事项</strong></p>
+<ul>
+<li>在<code>main</code> 方法中可以直接调用<code>main</code>方法所在类的静态方法或静态属性。</li>
+<li>但是不能直接访问该类中的非静态成员，必须创建该类的一个实例对象后，才能通过这个对象去访问类中的静态成员</li>
+</ul>
+]]></content>
       <categories>
         <category>JAVA</category>
       </categories>
