@@ -1031,7 +1031,7 @@
 <li><code>char</code> 字符型，占2字节</li>
 <li><code>String</code> 字符串类型，</li>
 </ul>
-<h1 id="JAVA数据类型"><a href="#JAVA数据类型" class="headerlink" title="JAVA数据类型 *"></a>JAVA数据类型 *</h1><p>java 中定义数据必须指定明确的数据类型，可以看出java 是<strong>强类型语言</strong></p>
+<h1 id="JAVA数据类型-⭐"><a href="#JAVA数据类型-⭐" class="headerlink" title="JAVA数据类型 ⭐"></a>JAVA数据类型 ⭐</h1><p>java 中定义数据必须指定明确的数据类型，可以看出java 是<strong>强类型语言</strong></p>
 <h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
 <li>数值型<ul>
 <li>整数类型，存放整数<code>byte[1], short[2], int[4], long[8]</code></li>
@@ -1663,7 +1663,7 @@
 <li>修饰符可以用来修饰类中的属性，成员方法以及类</li>
 <li>只有默认的和<code>public</code>才可以修饰类</li>
 </ul>
-<h2 id="三大特征"><a href="#三大特征" class="headerlink" title="三大特征 ***"></a>三大特征 ***</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p><strong>定义：</strong> 把抽象出来数据[属性]和对数据的操作[方法]封装在一起，数据被保护在内部，程序的其他部分只有通过被授权的操作[方法]，才能对数据进行操作。</p>
+<h2 id="三大特征-⭐"><a href="#三大特征-⭐" class="headerlink" title="三大特征 ⭐"></a>三大特征 ⭐</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p><strong>定义：</strong> 把抽象出来数据[属性]和对数据的操作[方法]封装在一起，数据被保护在内部，程序的其他部分只有通过被授权的操作[方法]，才能对数据进行操作。</p>
 <p><strong>优点</strong></p>
 <ul>
 <li>隐藏实现细节，直接调用即可</li>
@@ -1791,7 +1791,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Base</span> <span class="variable">base</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Sub</span>();</span><br><span class="line">        System.out.println(base.count); <span class="comment">// 10，看编译类型</span></span><br><span class="line">        </span><br><span class="line">        System.out.println(base <span class="keyword">instanceof</span> Sub); <span class="comment">// True</span></span><br><span class="line">        System.out.println(base <span class="keyword">instanceof</span> Base); <span class="comment">// True</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">Sub</span> <span class="variable">sub</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Sub</span>();</span><br><span class="line">        System.out.println(sub <span class="keyword">instanceof</span> Sub); <span class="comment">// True</span></span><br><span class="line">        System.out.println(sub <span class="keyword">instanceof</span> Base); <span class="comment">// True</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Sub</span> <span class="keyword">extends</span> <span class="title class_">Base</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="java动态绑定机制"><a href="#java动态绑定机制" class="headerlink" title="java动态绑定机制 ***"></a>java动态绑定机制 ***</h4><ul>
+<h4 id="java动态绑定机制-⭐"><a href="#java动态绑定机制-⭐" class="headerlink" title="java动态绑定机制 ⭐"></a>java动态绑定机制 ⭐</h4><ul>
 <li>Java重要特性：<code>动态绑定机制</code></li>
 <li>当调用对象方法的时候，该方法会和该对象的内存地址&#x2F;运行类型绑定</li>
 <li>当调用对象属性时，没有动态绑定机制，哪里声明，哪里使用</li>
@@ -1915,6 +1915,50 @@
 <ul>
 <li>在<code>main</code> 方法中可以直接调用<code>main</code>方法所在类的静态方法或静态属性。</li>
 <li>但是不能直接访问该类中的非静态成员，必须创建该类的一个实例对象后，才能通过这个对象去访问类中的静态成员</li>
+</ul>
+<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p>代码块又称初始化块，属于类中的成员，类似于方法，将逻辑语句封装在方法体中，通过<code>&#123;&#125;</code>包围起来。但和方法不同，没有方法名，没有参数，只有方法体，而且不用通过对象或类显式调用，二十加载类时，或创建对象时隐士调用。</p>
+<ul>
+<li>基本语法：<code>[修饰符] &#123; 代码 &#125;;</code></li>
+<li>修饰符可选，要写的话，也只能写<code>static</code></li>
+<li>代码块分为两类，使用<code>static</code>修饰的叫静态代码块，没有<code>static</code>修饰的叫普通代码块</li>
+<li>逻辑语句可以为任何逻辑语句，（输入、输出、方法调用、循环、判断等）</li>
+<li><code>;</code>可以写上，也可以省略</li>
+</ul>
+<p><strong>优点</strong></p>
+<ul>
+<li>相当于另一种形式的构造器，可以做初始化的操作</li>
+<li>场景：如果多个构造器中都有重复的语句，可以抽取到初始化块中，提高代码的重用性</li>
+<li><strong>代码块的调用优先于构造器的调用</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt.codeblock_;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CodeBlock01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Movie</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">double</span> price;</span><br><span class="line">    <span class="keyword">private</span> String director;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;屏幕开启&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;广告开始&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;电影开始&quot;</span>);</span><br><span class="line">    &#125;;  <span class="comment">// 代码块，当任何一个构造器被调用时都会优先调用构造器</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Movie</span><span class="params">(String name, <span class="type">double</span> price, String director)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.price = price;</span><br><span class="line">        <span class="built_in">this</span>.director = director;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Movie</span><span class="params">(String name, <span class="type">double</span> price)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.price = price;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Movie</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意事项</strong></p>
+<ul>
+<li>用<code>static</code>修饰的代码块也叫静态代码块，作用就是对类进行初始化，而且它<strong>随着类的加载而执行</strong>，并且<strong>只会执行一次</strong>，如果是普通代码块，每创建一个对象，就执行。</li>
+<li>**类什么时候被加载 ** ⭐<ul>
+<li>创建对象实例时<code>(new)</code></li>
+<li>创建子类对象实例时，父类也会被加载</li>
+<li>使用类的静态成员时（静态属性、静态方法）</li>
+</ul>
+</li>
+<li>普通代码块，会在创建对象实例时被隐士调用，创建一次则执行一次，如果使用类的静态成员时，普通代码块并不会执行。</li>
+<li><strong>创建一个对象时，在一个类调用顺序是：</strong>⭐⭐<ol>
+<li><strong>调用静态代码块和静态属性初始化</strong>（注意：静态代码块和静态属性初始化调用的优先级一样，如果有多个静态代码块和多个静态变量初始化，则按他们定义的先后顺序调用）</li>
+<li><strong>调用普通代码块和普通属性的初始化</strong>（注意：普通代码块和普通属性初始化调用的优先级一样，如果有多个普通代码块和多个普通变量初始化，则按他们定义的先后顺序调用）</li>
+<li><strong>调用构造方法</strong></li>
+</ol>
+</li>
+<li>构造器最前面其实隐含了<code>super()</code>和 调用普通代码块，</li>
+<li><strong>创建一个子类时（继承关系），他们的静态代码块，静态属性初始化，普通代码块，普通属性初始化，构造方法的调用顺序如下：</strong>⭐⭐<ol>
+<li>父类的静态代码块和静态属性初始化（优先级一样，按定义顺序执行）</li>
+<li>子类的静态代码块和静态属性初始化（优先级一样，按定义顺序执行）</li>
+<li>父类的普通代码块和普通属性初始化（优先级一样，按定义顺序执行）</li>
+<li>父类的构造方法</li>
+<li>子类的普通代码块和普通属性初始化（优先级一样，按定义顺序执行）</li>
+<li>子类的构造方法</li>
+</ol>
+</li>
+<li>静态代码块只能直接调用静态成员（静态属性和静态方法），普通代码块可以调用任意成员</li>
 </ul>
 ]]></content>
       <categories>
