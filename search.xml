@@ -2106,6 +2106,7 @@
 
 <p><strong>注意：</strong>当类C继承了类A，实现了接口B，并且类A和接口B中有同名的属性，直接调用时则会造成模糊，所以调用父类的可以使用 <code>super.属性名</code>,调用接口的可以使用<code>接口名.属性名</code>。</p>
 <p><strong>类的五大成员：</strong>属性、方法、构造器、代码块、内部类。</p>
+<h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><p>一个类的内部又完整的嵌套了另一个类结构，被嵌套的类称为内部类（<code>inner class</code>），嵌套其他类的类称为外部类（<code>outer class</code>）。是我们类的第五大成员。内部类最大的特点就是可以访问私有属性，并且可以体现类与类之间的包含关系。</p>
 ]]></content>
       <categories>
         <category>JAVA</category>
