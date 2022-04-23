@@ -19,246 +19,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>AcWing LeetCode究极班 Week1</title>
-    <url>/2022/03/22/AcWing/LeetCode_Week1/</url>
-    <content><![CDATA[<h2 id="学习平台"><a href="#学习平台" class="headerlink" title="学习平台"></a>学习平台</h2><p><strong><a href="https://www.acwing.com/activity/content/31/"> AcWing LeetCode究极班 </a></strong> </p>
-<p><strong><a href="https://leetcode-cn.com/"> LeetCode </a></strong> </p>
-<h2 id="Let-1：两数之和"><a href="#Let-1：两数之和" class="headerlink" title="Let 1：两数之和"></a>Let 1：两数之和</h2><p>给定一个整数数组<code>nums</code>和一个整数目标值<code>target</code>，请你在该数组中找出<strong>和为目标值</strong><code>target</code>的那 两个 整数，并返回它们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
-<p>你可以按任意顺序返回答案。</p>
-<p>示例 1：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：nums = [2,7,11,15], target = 9</span><br><span class="line">输出：[0,1]</span><br><span class="line">解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。</span><br></pre></td></tr></table></figure>
-
-<p>示例 2：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：nums = [3,2,4], target = 6</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
-
-<p>示例 3：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：nums = [3,3], target = 6</span><br><span class="line">输出：[0,1]</span><br></pre></td></tr></table></figure>
-
-<p>提示：</p>
-<ul>
-<li><code>2 &lt;= nums.length &lt;= 104</code></li>
-<li><code>109 &lt;= nums[i] &lt;= 109</code></li>
-<li><code>109 &lt;= target &lt;= 109</code></li>
-<li><strong>只会存在一个有效答案</strong></li>
-</ul>
-<p><strong>进阶：</strong>你可以想出一个时间复杂度小于 <code>O(n^2)</code> 的算法吗？</p>
-<p><strong>代码实现：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i &lt; nums.<span class="built_in">size</span>() - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>;j&lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j] == target)&#123;</span><br><span class="line">                    arr.<span class="built_in">push_back</span>(i);</span><br><span class="line">                    arr.<span class="built_in">push_back</span>(j);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Let-2：两数相加"><a href="#Let-2：两数相加" class="headerlink" title="Let 2：两数相加"></a>Let 2：两数相加</h2><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 一位 数字。</p>
-<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
-<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/02/addtwonumber1.jpg" alt="img"></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：l1 = [2,4,3], l2 = [5,6,4]</span><br><span class="line">输出：[7,0,8]</span><br><span class="line">解释：342 + 465 = 807.</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：l1 = [0], l2 = [0]</span><br><span class="line">输出：[0]</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]</span><br><span class="line">输出：[8,9,9,9,0,0,0,1]</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li>每个链表中的节点数在范围 <code>[1, 100]</code> 内</li>
-<li><code>0 &lt;= Node.val &lt;= 9</code></li>
-<li>题目数据保证列表表示的数字不含前导零</li>
-</ul>
-<p><strong>代码实现：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>); <span class="comment">// 生成一个新的头节点，指向结果</span></span><br><span class="line">        <span class="keyword">auto</span> cur = dummy; <span class="comment">// 一个指针，指向结果链表的尾节点</span></span><br><span class="line">        <span class="type">int</span> t = <span class="number">0</span>; <span class="comment">//用来保存进位</span></span><br><span class="line">        <span class="keyword">while</span>(l1 || l2 || t)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1) t += l1 -&gt; val, l1 = l1 -&gt; next;</span><br><span class="line">            <span class="keyword">if</span>(l2) t += l2 -&gt; val, l2 = l2 -&gt; next;</span><br><span class="line">            cur -&gt; next = <span class="keyword">new</span> <span class="built_in">ListNode</span>(t % <span class="number">10</span>); <span class="comment">// 取出个位加入生成新节点</span></span><br><span class="line">            cur = cur -&gt; next; <span class="comment">// 更新尾指针</span></span><br><span class="line">            t /= <span class="number">10</span>;  <span class="comment">// 去除进位</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Let-3：无重复字符的最长子串"><a href="#Let-3：无重复字符的最长子串" class="headerlink" title="Let 3：无重复字符的最长子串"></a>Let 3：无重复字符的最长子串</h2><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 最长子串 的长度。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入: s = &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入: s = &quot;bbbbb&quot;</span><br><span class="line">输出: 1</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3:</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入: s = &quot;pwwkew&quot;</span><br><span class="line">输出: 3</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span><br><span class="line">     请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
-
-
-<p>提示：</p>
-<ul>
-<li><code>0 &lt;= s.length &lt;= 5 * 104</code></li>
-<li><code>s</code>由英文字母、数字、符号和空格组成</li>
-</ul>
-<p><strong>代码实现：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; head; <span class="comment">// hash map</span></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; s.<span class="built_in">length</span>(); i ++)&#123;</span><br><span class="line">            head[s[i]]++;</span><br><span class="line">            <span class="keyword">while</span>(head[s[i]] &gt; <span class="number">1</span>) head[s[j++]]--;</span><br><span class="line">            res = <span class="built_in">max</span>(res, i - j + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Let-4：寻找两个正序数组的中位数"><a href="#Let-4：寻找两个正序数组的中位数" class="headerlink" title="Let 4：寻找两个正序数组的中位数"></a>Let 4：寻找两个正序数组的中位数</h2><p>给定两个大小分别为 <code>m</code> 和 <code>n</code> 的正序（从小到大）数组 <code>nums1</code> 和 <code>nums2</code>。请你找出并返回这两个正序数组的 <strong>中位数</strong> 。</p>
-<p>算法的时间复杂度应该为 <code>O(log (m+n))</code> 。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：nums1 = [1,3], nums2 = [2]</span><br><span class="line">输出：2.00000</span><br><span class="line">解释：合并数组 = [1,2,3] ，中位数 2</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：nums1 = [1,2], nums2 = [3,4]</span><br><span class="line">输出：2.50000</span><br><span class="line">解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>nums1.length == m</code></li>
-<li><code>nums2.length == n</code></li>
-<li><code>0 &lt;= m &lt;= 1000</code></li>
-<li><code>0 &lt;= n &lt;= 1000</code></li>
-<li><code>1 &lt;= m + n &lt;= 2000</code></li>
-<li><code>-106 &lt;= nums1[i], nums2[i] &lt;= 106</code></li>
-</ul>
-<p><strong>代码实现：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">double</span>&gt; arr; <span class="comment">// 将两个数组合并后的数组</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; nums1.<span class="built_in">size</span>() &amp;&amp; j &lt; nums2.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[i] &lt;= nums2[j])</span><br><span class="line">                arr.<span class="built_in">push_back</span>(nums1[i++]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                arr.<span class="built_in">push_back</span>(nums2[j++]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; nums1.<span class="built_in">size</span>()) arr.<span class="built_in">push_back</span>(nums1[i++]);</span><br><span class="line">        <span class="keyword">while</span>(j &lt; nums2.<span class="built_in">size</span>()) arr.<span class="built_in">push_back</span>(nums2[j++]);</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> len = arr.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt; arr.<span class="built_in">size</span>(); k++) cout &lt;&lt; arr[k] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="keyword">if</span>(len % <span class="number">2</span> != <span class="number">0</span>)&#123; <span class="comment">// 合并后的数组长度是奇数</span></span><br><span class="line">            <span class="keyword">return</span> arr[len / <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123; <span class="comment">// 合并后的数组长度是偶数</span></span><br><span class="line">            <span class="built_in">return</span> (arr[len / <span class="number">2</span>] + arr[len / <span class="number">2</span> - <span class="number">1</span>]) / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Let-5：最长回文子串"><a href="#Let-5：最长回文子串" class="headerlink" title="Let 5：最长回文子串 *"></a>Let 5：最长回文子串 *</h2><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;cbbd&quot;</span><br><span class="line">输出：&quot;bb&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-<li>s 仅由数字和英文字母组成</li>
-</ul>
-<p><strong>代码实现：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="type">int</span> l = i - <span class="number">1</span>, r = i + <span class="number">1</span>;<span class="comment">//回文串为偶数个的情况</span></span><br><span class="line">            <span class="keyword">while</span>(l &gt;= <span class="number">0</span> &amp;&amp; r &lt;= s.<span class="built_in">size</span>() &amp;&amp; s[l] == s[r]) l --, r ++;</span><br><span class="line">            <span class="keyword">if</span>(res.<span class="built_in">size</span>() &lt; r - l - <span class="number">1</span>) res = s.<span class="built_in">substr</span>(l + <span class="number">1</span>, r - l - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            l = i, r = i + <span class="number">1</span>; <span class="comment">//回文串为奇数个的情况</span></span><br><span class="line">            <span class="keyword">while</span>(l &gt;= <span class="number">0</span> &amp;&amp; r &lt;= s.<span class="built_in">size</span>() &amp;&amp; s[l] == s[r]) l --, r ++;</span><br><span class="line">            <span class="keyword">if</span>(res.<span class="built_in">size</span>() &lt; r - l <span class="number">-1</span>) res = s.<span class="built_in">substr</span>(l + <span class="number">1</span>, r - l <span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Let-6：Z-字形变换"><a href="#Let-6：Z-字形变换" class="headerlink" title="Let 6：Z 字形变换"></a>Let 6：Z 字形变换</h2><p>将一个给定字符串 <code>s</code> 根据给定的行数 <code>numRows</code> ，以从上往下、从左到右进行 Z 字形排列。</p>
-<p>比如输入字符串为 <code>&quot;PAYPALISHIRING&quot;</code> 行数为 <code>3</code> 时，排列如下：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure>
-
-<p>之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：<code>&quot;PAHNAPLSIIGYIR&quot;</code>。</p>
-<p>请你实现这个将字符串进行指定行数变换的函数：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">string convert(string s, int numRows);</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 1：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;PAYPALISHIRING&quot;, numRows = 3</span><br><span class="line">输出：&quot;PAHNAPLSIIGYIR&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;PAYPALISHIRING&quot;, numRows = 4</span><br><span class="line">输出：&quot;PINALSIGYAHRPI&quot;</span><br><span class="line">解释：</span><br><span class="line">P     I    N</span><br><span class="line">A   L S  I G</span><br><span class="line">Y A   H R</span><br><span class="line">P     I</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;A&quot;, numRows = 1</span><br><span class="line">输出：&quot;A&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-<li><code>s</code> 由英文字母（小写和大写）、<code>&#39;,&#39;</code> 和 <code>&#39;.&#39;</code> 组成</li>
-<li><code>1 &lt;= numRows &lt;= 1000</code></li>
-</ul>
-<p><strong>代码实现：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">convert</span><span class="params">(string s, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++ ) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || i == n - <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; s.<span class="built_in">size</span>(); j += <span class="number">2</span> * n - <span class="number">2</span>)</span><br><span class="line">                    res += s[j];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = i, k = <span class="number">2</span> * n - <span class="number">2</span> - i; j &lt; s.<span class="built_in">size</span>() || k &lt; s.<span class="built_in">size</span>(); j += <span class="number">2</span> * n - <span class="number">2</span>, k += <span class="number">2</span> * n - <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (j &lt; s.<span class="built_in">size</span>()) res += s[j];</span><br><span class="line">                    <span class="keyword">if</span> (k &lt; s.<span class="built_in">size</span>()) res += s[k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Let-7：整数反转"><a href="#Let-7：整数反转" class="headerlink" title="Let 7：整数反转"></a>Let 7：整数反转</h2><p>给你一个 32 位的有符号整数 <code>x</code> ，返回将 <code>x</code> 中的数字部分反转后的结果。</p>
-<p>如果反转后整数超过 32 位的有符号整数的范围 <code>[−231,  231 − 1]</code> ，就返回 0。</p>
-<p><strong>假设环境不允许存储 64 位整数（有符号或无符号）。</strong></p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 123</span><br><span class="line">输出：321</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = -123</span><br><span class="line">输出：-321</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 120</span><br><span class="line">输出：21</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 4：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 0</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>-231 &lt;= x &lt;= 231 - 1</code></li>
-</ul>
-<p><strong>代码实现：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reverse</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &gt;= <span class="number">-9</span> &amp;&amp; x &lt;= <span class="number">9</span>) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x)&#123;</span><br><span class="line">            ans = ans * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span>(ans &lt; <span class="number">-2147483648</span> || ans &gt; <span class="number">2147483647</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Let-8：字符串转换整数-atoi"><a href="#Let-8：字符串转换整数-atoi" class="headerlink" title="Let 8：字符串转换整数(atoi) *"></a>Let 8：字符串转换整数(atoi) *</h2><p>请你来实现一个 <code>myAtoi(string s)</code> 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C&#x2F;C++ 中的 <code>atoi</code> 函数）。</p>
-<p>函数 <code>myAtoi(string s)</code> 的算法如下：</p>
-<ol>
-<li>读入字符串并丢弃无用的前导空格</li>
-<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。</li>
-<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。</li>
-<li>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为<code> 0</code> 。必要时更改符号（从步骤 2 开始）。</li>
-<li>如果整数数超过 32 位有符号整数范围 <code>[−231,  231 − 1]</code> ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 <code>−231</code> 的整数应该被固定为 <code>−231</code>，大于 <code>231 − 1</code> 的整数应该被固定为 <code>231 − 1</code> 。</li>
-<li>返回整数作为最终结果。</li>
-</ol>
-<p><strong>注意：</strong></p>
-<ul>
-<li>本题中的空白字符只包括空格字符<code> &#39; &#39;</code> 。</li>
-<li>除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。</li>
-</ul>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;42&quot;</span><br><span class="line">输出：42</span><br><span class="line">解释：加粗的字符串为已经读入的字符，插入符号是当前读取的字符。</span><br><span class="line">第 1 步：&quot;42&quot;（当前没有读入字符，因为没有前导空格）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 2 步：&quot;42&quot;（当前没有读入字符，因为这里不存在 &#x27;-&#x27; 或者 &#x27;+&#x27;）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 3 步：&quot;42&quot;（读入 &quot;42&quot;）</span><br><span class="line">           <span class="built_in">^</span></span><br><span class="line">解析得到整数 42 。</span><br><span class="line">由于 &quot;42&quot; 在范围 [-231, 231 - 1] 内，最终结果为 42 。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;   -42&quot;</span><br><span class="line">输出：-42</span><br><span class="line">解释：</span><br><span class="line">第 1 步：&quot;   -42&quot;（读入前导空格，但忽视掉）</span><br><span class="line">            <span class="built_in">^</span></span><br><span class="line">第 2 步：&quot;   -42&quot;（读入 &#x27;-&#x27; 字符，所以结果应该是负数）</span><br><span class="line">             <span class="built_in">^</span></span><br><span class="line">第 3 步：&quot;   -42&quot;（读入 &quot;42&quot;）</span><br><span class="line">               <span class="built_in">^</span></span><br><span class="line">解析得到整数 -42 。</span><br><span class="line">由于 &quot;-42&quot; 在范围 [-231, 231 - 1] 内，最终结果为 -42 。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;4193 with words&quot;</span><br><span class="line">输出：4193</span><br><span class="line">解释：</span><br><span class="line">第 1 步：&quot;4193 with words&quot;（当前没有读入字符，因为没有前导空格）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 2 步：&quot;4193 with words&quot;（当前没有读入字符，因为这里不存在 &#x27;-&#x27; 或者 &#x27;+&#x27;）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 3 步：&quot;4193 with words&quot;（读入 &quot;4193&quot;；由于下一个字符不是一个数字，所以读入停止）</span><br><span class="line">             <span class="built_in">^</span></span><br><span class="line">解析得到整数 4193 。</span><br><span class="line">由于 &quot;4193&quot; 在范围 [-231, 231 - 1] 内，最终结果为 4193 。</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>0 &lt;= s.length &lt;= 200</code></li>
-<li><code>s</code> 由英文字母（大写和小写）、数字<code>（0-9）</code>、<code>&#39; &#39;</code>、<code>&#39;+&#39;</code>、<code>&#39;-&#39;</code> 和 <code>&#39;.&#39;</code> 组成</li>
-</ul>
-<p><strong>代码实现：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">myAtoi</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(k &lt; s.<span class="built_in">size</span>() &amp;&amp; s[k] == <span class="string">&#x27; &#x27;</span>) k++; <span class="comment">//去掉前导空格</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> minus = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(s[k] == <span class="string">&#x27;-&#x27;</span>) minus = <span class="number">-1</span>, k++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[k] == <span class="string">&#x27;+&#x27;</span>) k++;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(k &lt; s.<span class="built_in">size</span>() &amp;&amp; s[k] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; s[k] &lt;= <span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">            <span class="type">int</span> x = s[k] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(minus &gt; <span class="number">0</span> &amp;&amp; res &gt; (INT_MAX - x) / <span class="number">10</span>) <span class="keyword">return</span> INT_MAX; <span class="comment">//加上x后会超出上界</span></span><br><span class="line">            <span class="keyword">if</span>(minus &lt; <span class="number">0</span> &amp;&amp; -res &lt; (INT_MIN + x) / <span class="number">10</span>) <span class="keyword">return</span> INT_MIN; <span class="comment">//加上x后会超出下界</span></span><br><span class="line">            <span class="keyword">if</span> (-res * <span class="number">10</span> - x == INT_MIN) <span class="keyword">return</span> INT_MIN; <span class="comment">//加上x刚好等于下界</span></span><br><span class="line">            res = res * <span class="number">10</span> + x;</span><br><span class="line">            k++;</span><br><span class="line">            <span class="keyword">if</span>(res &gt; INT_MAX) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res *= minus;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Let-9：回文数"><a href="#Let-9：回文数" class="headerlink" title="Let 9：回文数"></a>Let 9：回文数</h2><p>给你一个整数 <code>x</code> ，如果 <code>x </code>是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
-<p>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
-<ul>
-<li>例如，<code>121</code> 是回文，而 <code>123</code> 不是。</li>
-</ul>
-<p>示例 1：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 121</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-
-<p>示例 2：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = -121</span><br><span class="line">输出：false</span><br><span class="line">解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
-
-<p>示例 3：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 10</span><br><span class="line">输出：false</span><br><span class="line">解释：从右向左读, 为 01 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
-
-
-<p>提示：</p>
-<ul>
-<li><code>-231 &lt;= x &lt;= 231 - 1</code></li>
-</ul>
-<p><strong>代码实现</strong> </p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">int</span> m = x;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(m)&#123;</span><br><span class="line">            ans = ans * <span class="number">10</span> + m % <span class="number">10</span>;</span><br><span class="line">            m /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(ans == x) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Let-10：正则表达式匹配"><a href="#Let-10：正则表达式匹配" class="headerlink" title="Let 10：正则表达式匹配 *"></a>Let 10：正则表达式匹配 *</h2><p>给你一个字符串 <code>s</code> 和一个字符规律 <code>p</code>，请你来实现一个支持<code>&#39;.&#39;</code>和<code> &#39;*&#39;</code> 的正则表达式匹配。</p>
-<ul>
-<li><code>&#39;.&#39;</code>匹配任意单个字符</li>
-<li><code>&#39;*&#39;</code> 匹配零个或多个前面的那一个元素</li>
-</ul>
-<p>所谓匹配，是要涵盖 <strong>整个</strong> 字符串 <code>s</code>的，而不是部分字符串。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;aa&quot;, p = &quot;a&quot;</span><br><span class="line">输出：false</span><br><span class="line">解释：&quot;a&quot; 无法匹配 &quot;aa&quot; 整个字符串。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;aa&quot;, p = &quot;a*&quot;</span><br><span class="line">输出：true</span><br><span class="line">解释：因为 &#x27;*&#x27; 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 &#x27;a&#x27;。因此，字符串 &quot;aa&quot; 可被视为 &#x27;a&#x27; 重复了一次。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;ab&quot;, p = &quot;.*&quot;</span><br><span class="line">输出：true</span><br><span class="line">解释：&quot;.*&quot; 表示可匹配零个或多个（&#x27;*&#x27;）任意字符（&#x27;.&#x27;）。</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= s.length &lt;= 20</code></li>
-<li><code>1 &lt;= p.length &lt;= 30</code></li>
-<li><code>s</code> 只包含从 <code>a-z</code> 的小写字母。</li>
-<li><code>p</code> 只包含从 <code>a-z</code> 的小写字母，以及字符 <code>. </code>和<code>*</code>。</li>
-<li>保证每次出现字符<code>*</code>时，前面都匹配到有效的字符</li>
-</ul>
-]]></content>
-      <categories>
-        <category>AcWing</category>
-      </categories>
-      <tags>
-        <tag>AcWing</tag>
-        <tag>LeetCode</tag>
-        <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AcWing 算法基础课</title>
     <url>/2022/03/20/AcWing/Algorithm_Basic/</url>
     <content><![CDATA[<h2 id="学习平台"><a href="#学习平台" class="headerlink" title="学习平台"></a>学习平台</h2><p><strong><a href="https://www.acwing.com/activity/content/11/">AcWing 算法基础课 </a></strong> </p>
@@ -569,99 +329,243 @@
       </tags>
   </entry>
   <entry>
-    <title>故障注入&amp;检测流程</title>
-    <url>/2022/03/22/LLVM/01faultInjection/</url>
-    <content><![CDATA[<h1 id="故障注入-amp-检测流程"><a href="#故障注入-amp-检测流程" class="headerlink" title="故障注入&amp;检测流程"></a>故障注入&amp;检测流程</h1><h2 id="CPU故障注入-amp-检测流程"><a href="#CPU故障注入-amp-检测流程" class="headerlink" title="CPU故障注入&amp;检测流程"></a>CPU故障注入&amp;检测流程</h2><h3 id="处理源程序"><a href="#处理源程序" class="headerlink" title="处理源程序"></a>处理源程序</h3><ol>
-<li><strong>将源代码转换成中间代码，划分了基本块</strong></li>
+    <title>AcWing LeetCode究极班 Week1</title>
+    <url>/2022/03/22/AcWing/LeetCode_Week1/</url>
+    <content><![CDATA[<h2 id="学习平台"><a href="#学习平台" class="headerlink" title="学习平台"></a>学习平台</h2><p><strong><a href="https://www.acwing.com/activity/content/31/"> AcWing LeetCode究极班 </a></strong> </p>
+<p><strong><a href="https://leetcode-cn.com/"> LeetCode </a></strong> </p>
+<h2 id="Let-1：两数之和"><a href="#Let-1：两数之和" class="headerlink" title="Let 1：两数之和"></a>Let 1：两数之和</h2><p>给定一个整数数组<code>nums</code>和一个整数目标值<code>target</code>，请你在该数组中找出<strong>和为目标值</strong><code>target</code>的那 两个 整数，并返回它们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
+<p>你可以按任意顺序返回答案。</p>
+<p>示例 1：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：nums = [2,7,11,15], target = 9</span><br><span class="line">输出：[0,1]</span><br><span class="line">解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。</span><br></pre></td></tr></table></figure>
+
+<p>示例 2：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：nums = [3,2,4], target = 6</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
+
+<p>示例 3：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：nums = [3,3], target = 6</span><br><span class="line">输出：[0,1]</span><br></pre></td></tr></table></figure>
+
+<p>提示：</p>
+<ul>
+<li><code>2 &lt;= nums.length &lt;= 104</code></li>
+<li><code>109 &lt;= nums[i] &lt;= 109</code></li>
+<li><code>109 &lt;= target &lt;= 109</code></li>
+<li><strong>只会存在一个有效答案</strong></li>
+</ul>
+<p><strong>进阶：</strong>你可以想出一个时间复杂度小于 <code>O(n^2)</code> 的算法吗？</p>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i &lt; nums.<span class="built_in">size</span>() - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>;j&lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j] == target)&#123;</span><br><span class="line">                    arr.<span class="built_in">push_back</span>(i);</span><br><span class="line">                    arr.<span class="built_in">push_back</span>(j);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Let-2：两数相加"><a href="#Let-2：两数相加" class="headerlink" title="Let 2：两数相加"></a>Let 2：两数相加</h2><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 一位 数字。</p>
+<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/02/addtwonumber1.jpg" alt="img"></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：l1 = [2,4,3], l2 = [5,6,4]</span><br><span class="line">输出：[7,0,8]</span><br><span class="line">解释：342 + 465 = 807.</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：l1 = [0], l2 = [0]</span><br><span class="line">输出：[0]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]</span><br><span class="line">输出：[8,9,9,9,0,0,0,1]</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>每个链表中的节点数在范围 <code>[1, 100]</code> 内</li>
+<li><code>0 &lt;= Node.val &lt;= 9</code></li>
+<li>题目数据保证列表表示的数字不含前导零</li>
+</ul>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>); <span class="comment">// 生成一个新的头节点，指向结果</span></span><br><span class="line">        <span class="keyword">auto</span> cur = dummy; <span class="comment">// 一个指针，指向结果链表的尾节点</span></span><br><span class="line">        <span class="type">int</span> t = <span class="number">0</span>; <span class="comment">//用来保存进位</span></span><br><span class="line">        <span class="keyword">while</span>(l1 || l2 || t)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1) t += l1 -&gt; val, l1 = l1 -&gt; next;</span><br><span class="line">            <span class="keyword">if</span>(l2) t += l2 -&gt; val, l2 = l2 -&gt; next;</span><br><span class="line">            cur -&gt; next = <span class="keyword">new</span> <span class="built_in">ListNode</span>(t % <span class="number">10</span>); <span class="comment">// 取出个位加入生成新节点</span></span><br><span class="line">            cur = cur -&gt; next; <span class="comment">// 更新尾指针</span></span><br><span class="line">            t /= <span class="number">10</span>;  <span class="comment">// 去除进位</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Let-3：无重复字符的最长子串"><a href="#Let-3：无重复字符的最长子串" class="headerlink" title="Let 3：无重复字符的最长子串"></a>Let 3：无重复字符的最长子串</h2><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 最长子串 的长度。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入: s = &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入: s = &quot;bbbbb&quot;</span><br><span class="line">输出: 1</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3:</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入: s = &quot;pwwkew&quot;</span><br><span class="line">输出: 3</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span><br><span class="line">     请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
+
+
+<p>提示：</p>
+<ul>
+<li><code>0 &lt;= s.length &lt;= 5 * 104</code></li>
+<li><code>s</code>由英文字母、数字、符号和空格组成</li>
+</ul>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; head; <span class="comment">// hash map</span></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; s.<span class="built_in">length</span>(); i ++)&#123;</span><br><span class="line">            head[s[i]]++;</span><br><span class="line">            <span class="keyword">while</span>(head[s[i]] &gt; <span class="number">1</span>) head[s[j++]]--;</span><br><span class="line">            res = <span class="built_in">max</span>(res, i - j + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Let-4：寻找两个正序数组的中位数"><a href="#Let-4：寻找两个正序数组的中位数" class="headerlink" title="Let 4：寻找两个正序数组的中位数"></a>Let 4：寻找两个正序数组的中位数</h2><p>给定两个大小分别为 <code>m</code> 和 <code>n</code> 的正序（从小到大）数组 <code>nums1</code> 和 <code>nums2</code>。请你找出并返回这两个正序数组的 <strong>中位数</strong> 。</p>
+<p>算法的时间复杂度应该为 <code>O(log (m+n))</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：nums1 = [1,3], nums2 = [2]</span><br><span class="line">输出：2.00000</span><br><span class="line">解释：合并数组 = [1,2,3] ，中位数 2</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：nums1 = [1,2], nums2 = [3,4]</span><br><span class="line">输出：2.50000</span><br><span class="line">解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>nums1.length == m</code></li>
+<li><code>nums2.length == n</code></li>
+<li><code>0 &lt;= m &lt;= 1000</code></li>
+<li><code>0 &lt;= n &lt;= 1000</code></li>
+<li><code>1 &lt;= m + n &lt;= 2000</code></li>
+<li><code>-106 &lt;= nums1[i], nums2[i] &lt;= 106</code></li>
+</ul>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">double</span>&gt; arr; <span class="comment">// 将两个数组合并后的数组</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; nums1.<span class="built_in">size</span>() &amp;&amp; j &lt; nums2.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[i] &lt;= nums2[j])</span><br><span class="line">                arr.<span class="built_in">push_back</span>(nums1[i++]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                arr.<span class="built_in">push_back</span>(nums2[j++]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; nums1.<span class="built_in">size</span>()) arr.<span class="built_in">push_back</span>(nums1[i++]);</span><br><span class="line">        <span class="keyword">while</span>(j &lt; nums2.<span class="built_in">size</span>()) arr.<span class="built_in">push_back</span>(nums2[j++]);</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> len = arr.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt; arr.<span class="built_in">size</span>(); k++) cout &lt;&lt; arr[k] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="keyword">if</span>(len % <span class="number">2</span> != <span class="number">0</span>)&#123; <span class="comment">// 合并后的数组长度是奇数</span></span><br><span class="line">            <span class="keyword">return</span> arr[len / <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123; <span class="comment">// 合并后的数组长度是偶数</span></span><br><span class="line">            <span class="built_in">return</span> (arr[len / <span class="number">2</span>] + arr[len / <span class="number">2</span> - <span class="number">1</span>]) / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Let-5：最长回文子串"><a href="#Let-5：最长回文子串" class="headerlink" title="Let 5：最长回文子串 *"></a>Let 5：最长回文子串 *</h2><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;cbbd&quot;</span><br><span class="line">输出：&quot;bb&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+<li>s 仅由数字和英文字母组成</li>
+</ul>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="type">int</span> l = i - <span class="number">1</span>, r = i + <span class="number">1</span>;<span class="comment">//回文串为偶数个的情况</span></span><br><span class="line">            <span class="keyword">while</span>(l &gt;= <span class="number">0</span> &amp;&amp; r &lt;= s.<span class="built_in">size</span>() &amp;&amp; s[l] == s[r]) l --, r ++;</span><br><span class="line">            <span class="keyword">if</span>(res.<span class="built_in">size</span>() &lt; r - l - <span class="number">1</span>) res = s.<span class="built_in">substr</span>(l + <span class="number">1</span>, r - l - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            l = i, r = i + <span class="number">1</span>; <span class="comment">//回文串为奇数个的情况</span></span><br><span class="line">            <span class="keyword">while</span>(l &gt;= <span class="number">0</span> &amp;&amp; r &lt;= s.<span class="built_in">size</span>() &amp;&amp; s[l] == s[r]) l --, r ++;</span><br><span class="line">            <span class="keyword">if</span>(res.<span class="built_in">size</span>() &lt; r - l <span class="number">-1</span>) res = s.<span class="built_in">substr</span>(l + <span class="number">1</span>, r - l <span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Let-6：Z-字形变换"><a href="#Let-6：Z-字形变换" class="headerlink" title="Let 6：Z 字形变换"></a>Let 6：Z 字形变换</h2><p>将一个给定字符串 <code>s</code> 根据给定的行数 <code>numRows</code> ，以从上往下、从左到右进行 Z 字形排列。</p>
+<p>比如输入字符串为 <code>&quot;PAYPALISHIRING&quot;</code> 行数为 <code>3</code> 时，排列如下：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure>
+
+<p>之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：<code>&quot;PAHNAPLSIIGYIR&quot;</code>。</p>
+<p>请你实现这个将字符串进行指定行数变换的函数：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">string convert(string s, int numRows);</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;PAYPALISHIRING&quot;, numRows = 3</span><br><span class="line">输出：&quot;PAHNAPLSIIGYIR&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;PAYPALISHIRING&quot;, numRows = 4</span><br><span class="line">输出：&quot;PINALSIGYAHRPI&quot;</span><br><span class="line">解释：</span><br><span class="line">P     I    N</span><br><span class="line">A   L S  I G</span><br><span class="line">Y A   H R</span><br><span class="line">P     I</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;A&quot;, numRows = 1</span><br><span class="line">输出：&quot;A&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+<li><code>s</code> 由英文字母（小写和大写）、<code>&#39;,&#39;</code> 和 <code>&#39;.&#39;</code> 组成</li>
+<li><code>1 &lt;= numRows &lt;= 1000</code></li>
+</ul>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">convert</span><span class="params">(string s, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++ ) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || i == n - <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; s.<span class="built_in">size</span>(); j += <span class="number">2</span> * n - <span class="number">2</span>)</span><br><span class="line">                    res += s[j];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = i, k = <span class="number">2</span> * n - <span class="number">2</span> - i; j &lt; s.<span class="built_in">size</span>() || k &lt; s.<span class="built_in">size</span>(); j += <span class="number">2</span> * n - <span class="number">2</span>, k += <span class="number">2</span> * n - <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (j &lt; s.<span class="built_in">size</span>()) res += s[j];</span><br><span class="line">                    <span class="keyword">if</span> (k &lt; s.<span class="built_in">size</span>()) res += s[k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Let-7：整数反转"><a href="#Let-7：整数反转" class="headerlink" title="Let 7：整数反转"></a>Let 7：整数反转</h2><p>给你一个 32 位的有符号整数 <code>x</code> ，返回将 <code>x</code> 中的数字部分反转后的结果。</p>
+<p>如果反转后整数超过 32 位的有符号整数的范围 <code>[−231,  231 − 1]</code> ，就返回 0。</p>
+<p><strong>假设环境不允许存储 64 位整数（有符号或无符号）。</strong></p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 123</span><br><span class="line">输出：321</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = -123</span><br><span class="line">输出：-321</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 120</span><br><span class="line">输出：21</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 4：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 0</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>-231 &lt;= x &lt;= 231 - 1</code></li>
+</ul>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reverse</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &gt;= <span class="number">-9</span> &amp;&amp; x &lt;= <span class="number">9</span>) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x)&#123;</span><br><span class="line">            ans = ans * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span>(ans &lt; <span class="number">-2147483648</span> || ans &gt; <span class="number">2147483647</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Let-8：字符串转换整数-atoi"><a href="#Let-8：字符串转换整数-atoi" class="headerlink" title="Let 8：字符串转换整数(atoi) *"></a>Let 8：字符串转换整数(atoi) *</h2><p>请你来实现一个 <code>myAtoi(string s)</code> 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C&#x2F;C++ 中的 <code>atoi</code> 函数）。</p>
+<p>函数 <code>myAtoi(string s)</code> 的算法如下：</p>
+<ol>
+<li>读入字符串并丢弃无用的前导空格</li>
+<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。</li>
+<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。</li>
+<li>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为<code> 0</code> 。必要时更改符号（从步骤 2 开始）。</li>
+<li>如果整数数超过 32 位有符号整数范围 <code>[−231,  231 − 1]</code> ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 <code>−231</code> 的整数应该被固定为 <code>−231</code>，大于 <code>231 − 1</code> 的整数应该被固定为 <code>231 − 1</code> 。</li>
+<li>返回整数作为最终结果。</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang -S -g -emit-llvm dm_dist.c -o dm_dist.ll</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong></p>
+<ul>
+<li>本题中的空白字符只包括空格字符<code> &#39; &#39;</code> 。</li>
+<li>除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。</li>
+</ul>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;42&quot;</span><br><span class="line">输出：42</span><br><span class="line">解释：加粗的字符串为已经读入的字符，插入符号是当前读取的字符。</span><br><span class="line">第 1 步：&quot;42&quot;（当前没有读入字符，因为没有前导空格）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 2 步：&quot;42&quot;（当前没有读入字符，因为这里不存在 &#x27;-&#x27; 或者 &#x27;+&#x27;）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 3 步：&quot;42&quot;（读入 &quot;42&quot;）</span><br><span class="line">           <span class="built_in">^</span></span><br><span class="line">解析得到整数 42 。</span><br><span class="line">由于 &quot;42&quot; 在范围 [-231, 231 - 1] 内，最终结果为 42 。</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li><strong>给中间代码添加全局变量：</strong>调用<code>Pass</code> <code> AddGlobalSig.so</code></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../AddGlobalSig.so -AddGlobalSig -S dm_dist.ll -o dm_dist.ll</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;   -42&quot;</span><br><span class="line">输出：-42</span><br><span class="line">解释：</span><br><span class="line">第 1 步：&quot;   -42&quot;（读入前导空格，但忽视掉）</span><br><span class="line">            <span class="built_in">^</span></span><br><span class="line">第 2 步：&quot;   -42&quot;（读入 &#x27;-&#x27; 字符，所以结果应该是负数）</span><br><span class="line">             <span class="built_in">^</span></span><br><span class="line">第 3 步：&quot;   -42&quot;（读入 &quot;42&quot;）</span><br><span class="line">               <span class="built_in">^</span></span><br><span class="line">解析得到整数 -42 。</span><br><span class="line">由于 &quot;-42&quot; 在范围 [-231, 231 - 1] 内，最终结果为 -42 。</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li><strong>对每个基本块进行脆弱性分析；</strong>并将结果输出至<code>allindex.txt</code>文件中</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../Index.so -Index -disable-output dm_dist.ll 2&gt; allindex.txt</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;4193 with words&quot;</span><br><span class="line">输出：4193</span><br><span class="line">解释：</span><br><span class="line">第 1 步：&quot;4193 with words&quot;（当前没有读入字符，因为没有前导空格）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 2 步：&quot;4193 with words&quot;（当前没有读入字符，因为这里不存在 &#x27;-&#x27; 或者 &#x27;+&#x27;）</span><br><span class="line">         <span class="built_in">^</span></span><br><span class="line">第 3 步：&quot;4193 with words&quot;（读入 &quot;4193&quot;；由于下一个字符不是一个数字，所以读入停止）</span><br><span class="line">             <span class="built_in">^</span></span><br><span class="line">解析得到整数 4193 。</span><br><span class="line">由于 &quot;4193&quot; 在范围 [-231, 231 - 1] 内，最终结果为 4193 。</span><br></pre></td></tr></table></figure>
 
-<p><code>allindex.txt</code>文件里面的内容为（基本块号，每个基本块里的指令数量）</p>
-<ol start="4">
-<li><strong>执行排序程序，</strong>将<code>allindex.txt</code>文件的内容按照基本块指令数量从小到大排序，并输出前n&#x2F;3-1个基本块的块号至<code>index.txt</code></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pthon3 sort.py &gt; index.txt</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= s.length &lt;= 200</code></li>
+<li><code>s</code> 由英文字母（大写和小写）、数字<code>（0-9）</code>、<code>&#39; &#39;</code>、<code>&#39;+&#39;</code>、<code>&#39;-&#39;</code> 和 <code>&#39;.&#39;</code> 组成</li>
+</ul>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">myAtoi</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(k &lt; s.<span class="built_in">size</span>() &amp;&amp; s[k] == <span class="string">&#x27; &#x27;</span>) k++; <span class="comment">//去掉前导空格</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> minus = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(s[k] == <span class="string">&#x27;-&#x27;</span>) minus = <span class="number">-1</span>, k++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[k] == <span class="string">&#x27;+&#x27;</span>) k++;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(k &lt; s.<span class="built_in">size</span>() &amp;&amp; s[k] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; s[k] &lt;= <span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">            <span class="type">int</span> x = s[k] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(minus &gt; <span class="number">0</span> &amp;&amp; res &gt; (INT_MAX - x) / <span class="number">10</span>) <span class="keyword">return</span> INT_MAX; <span class="comment">//加上x后会超出上界</span></span><br><span class="line">            <span class="keyword">if</span>(minus &lt; <span class="number">0</span> &amp;&amp; -res &lt; (INT_MIN + x) / <span class="number">10</span>) <span class="keyword">return</span> INT_MIN; <span class="comment">//加上x后会超出下界</span></span><br><span class="line">            <span class="keyword">if</span> (-res * <span class="number">10</span> - x == INT_MIN) <span class="keyword">return</span> INT_MIN; <span class="comment">//加上x刚好等于下界</span></span><br><span class="line">            res = res * <span class="number">10</span> + x;</span><br><span class="line">            k++;</span><br><span class="line">            <span class="keyword">if</span>(res &gt; INT_MAX) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res *= minus;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<ol start="5">
-<li><strong>将脆弱性高的基本块进行再拆分.</strong> 这里的<code>$line</code>是 <code>index.txt</code> 里面存放的值</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> `<span class="built_in">cat</span> index.txt`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	/home/yy2/Desktop/llvm/build/bin/opt -load /home/yy2/Desktop/llvm/build/lib/SplitBlock.so -SplitBlock -S -index <span class="variable">$line</span> dm_dist.ll -o dm_dist.ll</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2 id="Let-9：回文数"><a href="#Let-9：回文数" class="headerlink" title="Let 9：回文数"></a>Let 9：回文数</h2><p>给你一个整数 <code>x</code> ，如果 <code>x </code>是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<p>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<ul>
+<li>例如，<code>121</code> 是回文，而 <code>123</code> 不是。</li>
+</ul>
+<p>示例 1：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 121</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
 
-<ol start="6">
-<li><strong>使用<code>CFCSS</code>对中间代码进行插桩</strong> 使用<code>Pass：CFCSS.so</code></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../CFCSS.so -CFCSS -S dm_dist.ll -o cfcss.ll</span><br></pre></td></tr></table></figure>
+<p>示例 2：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = -121</span><br><span class="line">输出：false</span><br><span class="line">解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
 
-<ol start="7">
-<li><strong>编译.ll文件生成可执行程序</strong></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang cfcss.ll -o dm_dist/dm_dist_cf</span><br></pre></td></tr></table></figure>
+<p>示例 3：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：x = 10</span><br><span class="line">输出：false</span><br><span class="line">解释：从右向左读, 为 01 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
 
-<h3 id="故障注入"><a href="#故障注入" class="headerlink" title="故障注入"></a>故障注入</h3><p><strong>调用<code>auto.sh</code>进行自动化注入</strong></p>
-<p>$1 待注入程序    $2 程序的输入文件(不懂)    $3 运行次数   $4 p&#x2F;r 故障注入方式  $5 守护进程检测时间间隔</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./auto.sh ../qt/TestProgram/dm_dist/dm_dist_cf input_small.dat <span class="string">&quot;2500&quot;</span> <span class="string">&quot;r&quot;</span> <span class="string">&quot;3&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>在<code>auto.sh</code>里面调用<code>gdb</code>工具进行故障注入。<code>start.py</code></p>
-<h3 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h3><p>调用python文件进行结果分析:使用了<code>statistics.py</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 ../qt/CPUControl/fault_inject/statistics.py inject.output inject.correct</span><br></pre></td></tr></table></figure>
+<p>提示：</p>
+<ul>
+<li><code>-231 &lt;= x &lt;= 231 - 1</code></li>
+</ul>
+<p><strong>代码实现</strong> </p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">int</span> m = x;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(m)&#123;</span><br><span class="line">            ans = ans * <span class="number">10</span> + m % <span class="number">10</span>;</span><br><span class="line">            m /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(ans == x) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="寄存器故障注入-amp-检测流程"><a href="#寄存器故障注入-amp-检测流程" class="headerlink" title="寄存器故障注入&amp;检测流程"></a>寄存器故障注入&amp;检测流程</h2><h3 id="标签扩展"><a href="#标签扩展" class="headerlink" title="标签扩展"></a>标签扩展</h3><ol>
-<li><strong>使用clang将源程序转化为中间代码</strong></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang dm.cpp --target=arm-v7-linux-gnueabi -emit-llvm -g -S -o dm.ll</span><br></pre></td></tr></table></figure>
+<h2 id="Let-10：正则表达式匹配"><a href="#Let-10：正则表达式匹配" class="headerlink" title="Let 10：正则表达式匹配 *"></a>Let 10：正则表达式匹配 *</h2><p>给你一个字符串 <code>s</code> 和一个字符规律 <code>p</code>，请你来实现一个支持<code>&#39;.&#39;</code>和<code> &#39;*&#39;</code> 的正则表达式匹配。</p>
+<ul>
+<li><code>&#39;.&#39;</code>匹配任意单个字符</li>
+<li><code>&#39;*&#39;</code> 匹配零个或多个前面的那一个元素</li>
+</ul>
+<p>所谓匹配，是要涵盖 <strong>整个</strong> 字符串 <code>s</code>的，而不是部分字符串。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;aa&quot;, p = &quot;a&quot;</span><br><span class="line">输出：false</span><br><span class="line">解释：&quot;a&quot; 无法匹配 &quot;aa&quot; 整个字符串。</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li><strong>加固程序,给中间代码添加编号</strong></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../pass/build/libgenLLFIIndex/libgenLLFIIndex.so -genllfiindexpass -S dm.ll -o dm_id.ll</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;aa&quot;, p = &quot;a*&quot;</span><br><span class="line">输出：true</span><br><span class="line">解释：因为 &#x27;*&#x27; 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 &#x27;a&#x27;。因此，字符串 &quot;aa&quot; 可被视为 &#x27;a&#x27; 重复了一次。</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li><strong>加固，通过冗余进行程序加固</strong></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../pass/build/libdmr/libdmr.so -eddi -select_set_file=../xzt_jcq/index.txt -S dm_id.ll -o dm_df.ll</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;ab&quot;, p = &quot;.*&quot;</span><br><span class="line">输出：true</span><br><span class="line">解释：&quot;.*&quot; 表示可匹配零个或多个（&#x27;*&#x27;）任意字符（&#x27;.&#x27;）。</span><br></pre></td></tr></table></figure>
 
-<h3 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h3><ol>
-<li><strong>编译程序，生成链接文件</strong> 生成.o文件</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang dm_df.ll --target=arm-v7-linux-gnueabi -c -o dm_df.o</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><strong>链接程序，生成可执行文件</strong></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">arm-linux-gnueabi-gcc dm_df.o exec.o -static -o dm_df</span><br></pre></td></tr></table></figure>
-
-<h3 id="故障注入-1"><a href="#故障注入-1" class="headerlink" title="故障注入"></a>故障注入</h3><p>通过<code>gem5</code>对可执行程序进行故障注入</p>
-<p>通过for循环执行n次命令，从而进行n次故障注入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">../res/gemFI/build/ARM/gem5.opt ../res/gemFI/configs/example/se.py -c dm_df</span><br></pre></td></tr></table></figure>
-
-<h3 id="结果分析-1"><a href="#结果分析-1" class="headerlink" title="结果分析"></a>结果分析</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python ./.statistics.py</span><br></pre></td></tr></table></figure>
-
-<h2 id="IO故障注入-amp-检测流程"><a href="#IO故障注入-amp-检测流程" class="headerlink" title="IO故障注入&amp;检测流程"></a>IO故障注入&amp;检测流程</h2><h3 id="加固"><a href="#加固" class="headerlink" title="加固"></a>加固</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">arm-linux-gnueabi-g++ ../qt/IO/benchmark/dm/ManagerTask.cpp ../Desktop/qt/IO/benchmark/dm/dm.cpp -static -g -o /../Desktop/qt/IO/benchmark/dm/IOFaultTolerance</span><br><span class="line">arm-linux-gnueabi-g++ ../Desktop/qt/IO/benchmark/dm/dm_dist.cpp ../Desktop/qt/IO/benchmark/dm/exec.cpp -static -g -o ../Desktop/qt/IO/benchmark/dm/dm_dist.out</span><br></pre></td></tr></table></figure>
-
-<h3 id="故障注入-2"><a href="#故障注入-2" class="headerlink" title="故障注入"></a>故障注入</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">../home/yy2/res/gemFI/build/ARM/gem5.opt /home/yy2/res/gemFI/configs/example/se.py -c </span><br><span class="line">../Desktop/qt/IO/benchmark/dm/dm.out</span><br><span class="line">../res/gemFI/build/ARM/gem5.opt /gemFI/configs/example/se.py -c ../Desktop/qt/IO/benchmark/dm/IOFaultTolerance</span><br></pre></td></tr></table></figure>
-
-<h3 id="结果分析-2"><a href="#结果分析-2" class="headerlink" title="结果分析"></a>结果分析</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python statistic.py <span class="comment">#调用的是/home/yy2/Desktop/qt/IO/benchmark/dm/fiwork/fi/golden/out.txt</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="LLVM-IR"><a href="#LLVM-IR" class="headerlink" title="LLVM IR"></a>LLVM IR</h2><p>生成.ll文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">../Desktop/llvm/build/bin/clang -S -g -emit-llvm dm_dist.c -o dm_dist.ll</span><br></pre></td></tr></table></figure>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 20</code></li>
+<li><code>1 &lt;= p.length &lt;= 30</code></li>
+<li><code>s</code> 只包含从 <code>a-z</code> 的小写字母。</li>
+<li><code>p</code> 只包含从 <code>a-z</code> 的小写字母，以及字符 <code>. </code>和<code>*</code>。</li>
+<li>保证每次出现字符<code>*</code>时，前面都匹配到有效的字符</li>
+</ul>
 ]]></content>
       <categories>
-        <category>LLVM</category>
+        <category>AcWing</category>
       </categories>
       <tags>
-        <tag>LLVM</tag>
-        <tag>故障注入</tag>
+        <tag>AcWing</tag>
+        <tag>Algorithm</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -920,44 +824,8 @@
       </categories>
       <tags>
         <tag>AcWing</tag>
-        <tag>LeetCode</tag>
         <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LLVM Pass编写及运行</title>
-    <url>/2022/03/22/LLVM/02PassWriteProcess/</url>
-    <content><![CDATA[<h1 id="Pass编写运行"><a href="#Pass编写运行" class="headerlink" title="Pass编写运行"></a>Pass编写运行</h1><h2 id="编写Pass"><a href="#编写Pass" class="headerlink" title="编写Pass"></a>编写Pass</h2><ol>
-<li>在<code>llvm/lib/Transforms/</code>目录下新建文件夹，命名为<code>MyPass</code></li>
-</ol>
-<p><img src="/../../img/LLVM/Pass1.png" alt="Pass1"></p>
-<ol start="2">
-<li>在<code>MyPass</code> 文件夹下创建两个文件，分别为<code>MyPass.cpp</code>、<code>CMakeLists.txt</code></li>
-</ol>
-<p><img src="/../../img/LLVM/Pass2.png" alt="image-20220102144652248"></p>
-<ol start="3">
-<li>对<code>MyPass.cpp</code>以及<code>CMakeLists.txt</code>文件进行编写。</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">#MyPass.cpp</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Pass.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/IR/Function.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Support/raw_ostream.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Analysis/LoopInfo.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> llvm;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEBUG_TYPE <span class="string">&quot;hello&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">MyPass</span> : <span class="keyword">public</span> FunctionPass&#123;</span><br><span class="line">        <span class="type">static</span> <span class="type">char</span> ID;</span><br><span class="line">        <span class="built_in">MyPass</span>() : <span class="built_in">FunctionPass</span>(ID)&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">runOnFunction</span><span class="params">(Function &amp;F)</span> <span class="keyword">override</span></span>&#123;</span><br><span class="line">            LoopInfo *LI = &amp;<span class="built_in">getAnalysis</span>&lt;LoopInfoWrapperPass&gt;().<span class="built_in">getLoopInfo</span>();</span><br><span class="line">            <span class="built_in">errs</span>()&lt;&lt;<span class="string">&quot;Function &quot;</span>&lt;&lt;F.<span class="built_in">getName</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">for</span>(Loop *L : *LI)</span><br><span class="line">                <span class="built_in">countBlocksInLoop</span>(L,<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">countBlocksInLoop</span><span class="params">(Loop *L,<span class="type">unsigned</span> nest)</span></span>&#123;</span><br><span class="line">            <span class="type">unsigned</span> num_Blocks=<span class="number">0</span>;</span><br><span class="line">            Loop::block_iterator bb;</span><br><span class="line">            <span class="keyword">for</span>(bb = L-&gt;<span class="built_in">block_begin</span>();bb!=L-&gt;<span class="built_in">block_end</span>();++bb)</span><br><span class="line">                num_Blocks++;</span><br><span class="line">            <span class="built_in">errs</span>()&lt;&lt;<span class="string">&quot;Loop level &quot;</span>&lt;&lt; nest &lt;&lt;<span class="string">&quot;has&quot;</span>&lt;&lt;num_Blocks&lt;&lt;<span class="string">&quot; blocks\n&quot;</span>;</span><br><span class="line">            std::vector&lt;Loop*&gt; subLoops = L-&gt;<span class="built_in">getSubLoops</span>();</span><br><span class="line">            Loop::iterator j,f;</span><br><span class="line">            <span class="keyword">for</span>(j = subLoops.<span class="built_in">begin</span>(),f=subLoops.<span class="built_in">end</span>();j!=f;++j)</span><br><span class="line">                <span class="built_in">countBlocksInLoop</span>(*j, nest+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">getAnalysisUsage</span><span class="params">(AnalysisUsage &amp;AU)</span> <span class="type">const</span> <span class="keyword">override</span></span>&#123;</span><br><span class="line">            AU.<span class="built_in">addRequired</span>&lt;LoopInfoWrapperPass&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> MyPass::ID=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">static</span> RegisterPass&lt;MyPass&gt; <span class="title">X</span><span class="params">(<span class="string">&quot;MyPass&quot;</span>,<span class="string">&quot;Function Block Count&quot;</span>,<span class="literal">false</span>,<span class="literal">false</span>)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="params">#</span>CMakeLists.txt</span><br><span class="line">cmake<span class="built_in">_</span>minimum<span class="built_in">_</span>required(VERSION 3.5)</span><br><span class="line"></span><br><span class="line">add<span class="built_in">_</span>llvm<span class="built_in">_</span>loadable<span class="built_in">_</span>module(MyPass</span><br><span class="line">	MyPass.cpp</span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>对Transforms&#x2F;文件夹下面的CMakeLists.txt文件进行修改。</li>
-</ol>
-<p><img src="/../../img/LLVM/Pass3.png" alt="image-20220102145118378"></p>
-<h2 id="编译生成-so文件"><a href="#编译生成-so文件" class="headerlink" title="编译生成.so文件"></a>编译生成.so文件</h2><p>在<code>llvm/build/</code>目录下面执行<code>make</code>指令，则会编译生成动态链接库<code>.so</code>文件，生成的文件在<code>llvm/build/lib/</code>目录下面。</p>
-<h2 id="编写测试程序"><a href="#编写测试程序" class="headerlink" title="编写测试程序"></a>编写测试程序</h2><p>编写<code>.c</code>或<code>.cpp</code>文件，然后用<code>clang</code>工具对源程序进行编译，生成<code>LLVM IR</code>中间代码。</p>
-<h2 id="运行Pass"><a href="#运行Pass" class="headerlink" title="运行Pass"></a>运行Pass</h2><p>通过调用测试程序运行<code>Pass</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../Desktop/llvm/build/lib/MyPass.so -MyPass -disable-output testPra.ll</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>LLVM</category>
-      </categories>
-      <tags>
-        <tag>LLVM</tag>
-        <tag>Pass</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -2285,13 +2153,195 @@
 <p>当异常发生时，对异常处理的方式</p>
 </blockquote>
 <h3 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try - catch - finally"></a><code>try - catch - finally</code></h3><p>程序员在代码中捕获发生的异常，自行处理。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码可能有异常</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">    <span class="comment">//捕获到异常</span></span><br><span class="line">    <span class="comment">//1.当异常发生时，系统将异常封装给Exception对象e，传递给catch</span></span><br><span class="line">    <span class="comment">//2.得到异常对象后，程序员自己处理。</span></span><br><span class="line">    <span class="comment">//注意：如果没有发生异常，catch代码块不会执行。</span></span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="comment">//不管try代码块是否有异常发生，始终要执行finally</span></span><br><span class="line">    <span class="comment">//通常将关闭释放资源的代码放在finally里</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意事项</strong></p>
+<ul>
+<li>如果异常发生了，则异常后买你的代码不会执行，直接进入到<code>catch</code>块，</li>
+<li>如果异常没有发生，则顺序执行<code>try</code>的代码块，不会进入到<code>catch</code></li>
+<li>如果希望不管是否发生异常，都执行某段代码（比如关闭连接，释放资源等）则使用<code>finally</code></li>
+</ul>
 <h3 id="throws"><a href="#throws" class="headerlink" title="throws"></a><code>throws</code></h3><p>将发生的异常抛出，交给调用者（方法）来处理，最顶级的处理者就是JVM</p>
-]]></content>
+<p>当下层方法出现异常时，可以将异常抛出至上层调用自己的方法。直至抛出至JVM，JVM处理异常方法：输出异常信息，中断程序，退出程序。</p>
+<p>如果程序员没有显示的处理异常，默认使用<code>throws</code>处理异常</p>
+<p><strong>注意事项</strong></p>
+<ul>
+<li>对于编译异常，程序中必须处理，比如<code>try - catch</code>或者<code>throws</code></li>
+<li>对于运行异常，程序中如果没有处理，默认就是<code>throws</code>方式处理</li>
+<li>子类重写父类方法时，对抛出异常的规定：子类重写的方法，所抛出的异常类型要么和父类抛出的异常一致，要么为父类抛出的异常的类型的子类。</li>
+<li>在<code>throws</code>过程中，如果有方法<code>try-catch</code>，就相当于处理异常，就可以不必<code>throws</code></li>
+</ul>
+<h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><blockquote>
+<p>当程序中出现了某些“错误”，但该错误信息并没有在Trowable子类中描述处理，这个时候可以自己设计异常类，用于描述该错误信息。</p>
+</blockquote>
+<p><strong>步骤</strong></p>
+<ol>
+<li>定义类：自定义异常类名（程序员自己写），继承<code>Exception</code>或<code>RuntimeException</code></li>
+<li>如果继承<code>Exception</code>，属于编译异常。</li>
+<li>如果继承<code>RuntimeException</code>，属于运行异常（一般来说，继承<code>RuntimeException</code>）</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt.customexception;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomException</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">80</span>;</span><br><span class="line">        <span class="keyword">if</span> (!(age &gt;= <span class="number">18</span> &amp;&amp; age &lt;= <span class="number">120</span>)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">AgeException</span>(<span class="string">&quot;年龄需要在 18~120之间&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;你的年龄范围正确。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义运行时异常</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AgeException</span> <span class="keyword">extends</span> <span class="title class_">RuntimeException</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">AgeException</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="throw-和-throws-的区别"><a href="#throw-和-throws-的区别" class="headerlink" title="throw 和 throws 的区别"></a><code>throw</code> 和 <code>throws</code> 的区别</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>意义</th>
+<th>位置</th>
+<th>后面跟的东西</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>throws</td>
+<td>异常处理的一种方式</td>
+<td>方法声明处</td>
+<td>异常类型</td>
+</tr>
+<tr>
+<td>throw</td>
+<td>手动生成异常对象的关键字</td>
+<td>方法体中</td>
+<td>异常对象</td>
+</tr>
+</tbody></table>
+<h1 id="常用类"><a href="#常用类" class="headerlink" title="常用类"></a>常用类</h1>]]></content>
       <categories>
         <category>JAVA</category>
       </categories>
       <tags>
         <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>故障注入&amp;检测流程</title>
+    <url>/2022/03/22/LLVM/01faultInjection/</url>
+    <content><![CDATA[<h1 id="故障注入-amp-检测流程"><a href="#故障注入-amp-检测流程" class="headerlink" title="故障注入&amp;检测流程"></a>故障注入&amp;检测流程</h1><h2 id="CPU故障注入-amp-检测流程"><a href="#CPU故障注入-amp-检测流程" class="headerlink" title="CPU故障注入&amp;检测流程"></a>CPU故障注入&amp;检测流程</h2><h3 id="处理源程序"><a href="#处理源程序" class="headerlink" title="处理源程序"></a>处理源程序</h3><ol>
+<li><strong>将源代码转换成中间代码，划分了基本块</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang -S -g -emit-llvm dm_dist.c -o dm_dist.ll</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>给中间代码添加全局变量：</strong>调用<code>Pass</code> <code> AddGlobalSig.so</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../AddGlobalSig.so -AddGlobalSig -S dm_dist.ll -o dm_dist.ll</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>对每个基本块进行脆弱性分析；</strong>并将结果输出至<code>allindex.txt</code>文件中</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../Index.so -Index -disable-output dm_dist.ll 2&gt; allindex.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>allindex.txt</code>文件里面的内容为（基本块号，每个基本块里的指令数量）</p>
+<ol start="4">
+<li><strong>执行排序程序，</strong>将<code>allindex.txt</code>文件的内容按照基本块指令数量从小到大排序，并输出前n&#x2F;3-1个基本块的块号至<code>index.txt</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pthon3 sort.py &gt; index.txt</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><strong>将脆弱性高的基本块进行再拆分.</strong> 这里的<code>$line</code>是 <code>index.txt</code> 里面存放的值</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> `<span class="built_in">cat</span> index.txt`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	/home/yy2/Desktop/llvm/build/bin/opt -load /home/yy2/Desktop/llvm/build/lib/SplitBlock.so -SplitBlock -S -index <span class="variable">$line</span> dm_dist.ll -o dm_dist.ll</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><strong>使用<code>CFCSS</code>对中间代码进行插桩</strong> 使用<code>Pass：CFCSS.so</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../CFCSS.so -CFCSS -S dm_dist.ll -o cfcss.ll</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><strong>编译.ll文件生成可执行程序</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang cfcss.ll -o dm_dist/dm_dist_cf</span><br></pre></td></tr></table></figure>
+
+<h3 id="故障注入"><a href="#故障注入" class="headerlink" title="故障注入"></a>故障注入</h3><p><strong>调用<code>auto.sh</code>进行自动化注入</strong></p>
+<p>$1 待注入程序    $2 程序的输入文件(不懂)    $3 运行次数   $4 p&#x2F;r 故障注入方式  $5 守护进程检测时间间隔</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./auto.sh ../qt/TestProgram/dm_dist/dm_dist_cf input_small.dat <span class="string">&quot;2500&quot;</span> <span class="string">&quot;r&quot;</span> <span class="string">&quot;3&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>auto.sh</code>里面调用<code>gdb</code>工具进行故障注入。<code>start.py</code></p>
+<h3 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h3><p>调用python文件进行结果分析:使用了<code>statistics.py</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 ../qt/CPUControl/fault_inject/statistics.py inject.output inject.correct</span><br></pre></td></tr></table></figure>
+
+<h2 id="寄存器故障注入-amp-检测流程"><a href="#寄存器故障注入-amp-检测流程" class="headerlink" title="寄存器故障注入&amp;检测流程"></a>寄存器故障注入&amp;检测流程</h2><h3 id="标签扩展"><a href="#标签扩展" class="headerlink" title="标签扩展"></a>标签扩展</h3><ol>
+<li><strong>使用clang将源程序转化为中间代码</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang dm.cpp --target=arm-v7-linux-gnueabi -emit-llvm -g -S -o dm.ll</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>加固程序,给中间代码添加编号</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../pass/build/libgenLLFIIndex/libgenLLFIIndex.so -genllfiindexpass -S dm.ll -o dm_id.ll</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>加固，通过冗余进行程序加固</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../pass/build/libdmr/libdmr.so -eddi -select_set_file=../xzt_jcq/index.txt -S dm_id.ll -o dm_df.ll</span><br></pre></td></tr></table></figure>
+
+<h3 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h3><ol>
+<li><strong>编译程序，生成链接文件</strong> 生成.o文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang dm_df.ll --target=arm-v7-linux-gnueabi -c -o dm_df.o</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>链接程序，生成可执行文件</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">arm-linux-gnueabi-gcc dm_df.o exec.o -static -o dm_df</span><br></pre></td></tr></table></figure>
+
+<h3 id="故障注入-1"><a href="#故障注入-1" class="headerlink" title="故障注入"></a>故障注入</h3><p>通过<code>gem5</code>对可执行程序进行故障注入</p>
+<p>通过for循环执行n次命令，从而进行n次故障注入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">../res/gemFI/build/ARM/gem5.opt ../res/gemFI/configs/example/se.py -c dm_df</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果分析-1"><a href="#结果分析-1" class="headerlink" title="结果分析"></a>结果分析</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python ./.statistics.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="IO故障注入-amp-检测流程"><a href="#IO故障注入-amp-检测流程" class="headerlink" title="IO故障注入&amp;检测流程"></a>IO故障注入&amp;检测流程</h2><h3 id="加固"><a href="#加固" class="headerlink" title="加固"></a>加固</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">arm-linux-gnueabi-g++ ../qt/IO/benchmark/dm/ManagerTask.cpp ../Desktop/qt/IO/benchmark/dm/dm.cpp -static -g -o /../Desktop/qt/IO/benchmark/dm/IOFaultTolerance</span><br><span class="line">arm-linux-gnueabi-g++ ../Desktop/qt/IO/benchmark/dm/dm_dist.cpp ../Desktop/qt/IO/benchmark/dm/exec.cpp -static -g -o ../Desktop/qt/IO/benchmark/dm/dm_dist.out</span><br></pre></td></tr></table></figure>
+
+<h3 id="故障注入-2"><a href="#故障注入-2" class="headerlink" title="故障注入"></a>故障注入</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">../home/yy2/res/gemFI/build/ARM/gem5.opt /home/yy2/res/gemFI/configs/example/se.py -c </span><br><span class="line">../Desktop/qt/IO/benchmark/dm/dm.out</span><br><span class="line">../res/gemFI/build/ARM/gem5.opt /gemFI/configs/example/se.py -c ../Desktop/qt/IO/benchmark/dm/IOFaultTolerance</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果分析-2"><a href="#结果分析-2" class="headerlink" title="结果分析"></a>结果分析</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python statistic.py <span class="comment">#调用的是/home/yy2/Desktop/qt/IO/benchmark/dm/fiwork/fi/golden/out.txt</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="LLVM-IR"><a href="#LLVM-IR" class="headerlink" title="LLVM IR"></a>LLVM IR</h2><p>生成.ll文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">../Desktop/llvm/build/bin/clang -S -g -emit-llvm dm_dist.c -o dm_dist.ll</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>LLVM</category>
+      </categories>
+      <tags>
+        <tag>LLVM</tag>
+        <tag>故障注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LLVM Pass编写及运行</title>
+    <url>/2022/03/22/LLVM/02PassWriteProcess/</url>
+    <content><![CDATA[<h1 id="Pass编写运行"><a href="#Pass编写运行" class="headerlink" title="Pass编写运行"></a>Pass编写运行</h1><h2 id="编写Pass"><a href="#编写Pass" class="headerlink" title="编写Pass"></a>编写Pass</h2><ol>
+<li>在<code>llvm/lib/Transforms/</code>目录下新建文件夹，命名为<code>MyPass</code></li>
+</ol>
+<p><img src="/../../img/LLVM/Pass1.png" alt="Pass1"></p>
+<ol start="2">
+<li>在<code>MyPass</code> 文件夹下创建两个文件，分别为<code>MyPass.cpp</code>、<code>CMakeLists.txt</code></li>
+</ol>
+<p><img src="/../../img/LLVM/Pass2.png" alt="image-20220102144652248"></p>
+<ol start="3">
+<li>对<code>MyPass.cpp</code>以及<code>CMakeLists.txt</code>文件进行编写。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">#MyPass.cpp</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Pass.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/IR/Function.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Support/raw_ostream.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Analysis/LoopInfo.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> llvm;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEBUG_TYPE <span class="string">&quot;hello&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">MyPass</span> : <span class="keyword">public</span> FunctionPass&#123;</span><br><span class="line">        <span class="type">static</span> <span class="type">char</span> ID;</span><br><span class="line">        <span class="built_in">MyPass</span>() : <span class="built_in">FunctionPass</span>(ID)&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">runOnFunction</span><span class="params">(Function &amp;F)</span> <span class="keyword">override</span></span>&#123;</span><br><span class="line">            LoopInfo *LI = &amp;<span class="built_in">getAnalysis</span>&lt;LoopInfoWrapperPass&gt;().<span class="built_in">getLoopInfo</span>();</span><br><span class="line">            <span class="built_in">errs</span>()&lt;&lt;<span class="string">&quot;Function &quot;</span>&lt;&lt;F.<span class="built_in">getName</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">for</span>(Loop *L : *LI)</span><br><span class="line">                <span class="built_in">countBlocksInLoop</span>(L,<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">countBlocksInLoop</span><span class="params">(Loop *L,<span class="type">unsigned</span> nest)</span></span>&#123;</span><br><span class="line">            <span class="type">unsigned</span> num_Blocks=<span class="number">0</span>;</span><br><span class="line">            Loop::block_iterator bb;</span><br><span class="line">            <span class="keyword">for</span>(bb = L-&gt;<span class="built_in">block_begin</span>();bb!=L-&gt;<span class="built_in">block_end</span>();++bb)</span><br><span class="line">                num_Blocks++;</span><br><span class="line">            <span class="built_in">errs</span>()&lt;&lt;<span class="string">&quot;Loop level &quot;</span>&lt;&lt; nest &lt;&lt;<span class="string">&quot;has&quot;</span>&lt;&lt;num_Blocks&lt;&lt;<span class="string">&quot; blocks\n&quot;</span>;</span><br><span class="line">            std::vector&lt;Loop*&gt; subLoops = L-&gt;<span class="built_in">getSubLoops</span>();</span><br><span class="line">            Loop::iterator j,f;</span><br><span class="line">            <span class="keyword">for</span>(j = subLoops.<span class="built_in">begin</span>(),f=subLoops.<span class="built_in">end</span>();j!=f;++j)</span><br><span class="line">                <span class="built_in">countBlocksInLoop</span>(*j, nest+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">getAnalysisUsage</span><span class="params">(AnalysisUsage &amp;AU)</span> <span class="type">const</span> <span class="keyword">override</span></span>&#123;</span><br><span class="line">            AU.<span class="built_in">addRequired</span>&lt;LoopInfoWrapperPass&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> MyPass::ID=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">static</span> RegisterPass&lt;MyPass&gt; <span class="title">X</span><span class="params">(<span class="string">&quot;MyPass&quot;</span>,<span class="string">&quot;Function Block Count&quot;</span>,<span class="literal">false</span>,<span class="literal">false</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="params">#</span>CMakeLists.txt</span><br><span class="line">cmake<span class="built_in">_</span>minimum<span class="built_in">_</span>required(VERSION 3.5)</span><br><span class="line"></span><br><span class="line">add<span class="built_in">_</span>llvm<span class="built_in">_</span>loadable<span class="built_in">_</span>module(MyPass</span><br><span class="line">	MyPass.cpp</span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>对Transforms&#x2F;文件夹下面的CMakeLists.txt文件进行修改。</li>
+</ol>
+<p><img src="/../../img/LLVM/Pass3.png" alt="image-20220102145118378"></p>
+<h2 id="编译生成-so文件"><a href="#编译生成-so文件" class="headerlink" title="编译生成.so文件"></a>编译生成.so文件</h2><p>在<code>llvm/build/</code>目录下面执行<code>make</code>指令，则会编译生成动态链接库<code>.so</code>文件，生成的文件在<code>llvm/build/lib/</code>目录下面。</p>
+<h2 id="编写测试程序"><a href="#编写测试程序" class="headerlink" title="编写测试程序"></a>编写测试程序</h2><p>编写<code>.c</code>或<code>.cpp</code>文件，然后用<code>clang</code>工具对源程序进行编译，生成<code>LLVM IR</code>中间代码。</p>
+<h2 id="运行Pass"><a href="#运行Pass" class="headerlink" title="运行Pass"></a>运行Pass</h2><p>通过调用测试程序运行<code>Pass</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -load ../Desktop/llvm/build/lib/MyPass.so -MyPass -disable-output testPra.ll</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>LLVM</category>
+      </categories>
+      <tags>
+        <tag>LLVM</tag>
+        <tag>Pass</tag>
       </tags>
   </entry>
 </search>
