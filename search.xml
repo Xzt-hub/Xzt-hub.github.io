@@ -2204,7 +2204,109 @@
 <td>异常对象</td>
 </tr>
 </tbody></table>
-<h1 id="常用类"><a href="#常用类" class="headerlink" title="常用类"></a>常用类</h1>]]></content>
+<h1 id="常用类"><a href="#常用类" class="headerlink" title="常用类"></a>常用类</h1><h2 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h2><blockquote>
+<p>针对八种基本数据类型相应的引用类型——包装类</p>
+<p>有了类的特点，就可以调用类中的方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">基本数据类型</th>
+<th align="center">包装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">boolean</td>
+<td align="center">Boolean</td>
+</tr>
+<tr>
+<td align="center">char</td>
+<td align="center">Character</td>
+</tr>
+<tr>
+<td align="center">byte</td>
+<td align="center">Byte</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">Short</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">Integer</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">Long</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">Float</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">Double</td>
+</tr>
+</tbody></table>
+<h3 id="包装类和基本数据的转换"><a href="#包装类和基本数据的转换" class="headerlink" title="包装类和基本数据的转换"></a>包装类和基本数据的转换</h3><ul>
+<li><code>jdk5</code>前的手动装箱和拆箱方式，装箱：基本类型-&gt;包装类，反之为拆箱</li>
+<li><code>jdk5</code>以后的自动装箱和拆箱方式</li>
+<li>自动装箱底层调用的是<code>valueOf()</code>方法，自动拆箱底层调用的是<code>intValue()</code>方法。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt.wrapper;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WrapperType</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 演示int 和Integer的装箱和拆箱</span></span><br><span class="line">        <span class="comment">//手动装箱</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">n1</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">integer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(n1);</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">integer1</span> <span class="operator">=</span> Integer.valueOf(n1);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 手动拆箱</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> integer.intValue();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// jdk5 后就可以自动装箱和自动拆箱</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">n2</span> <span class="operator">=</span> <span class="number">200</span>;</span><br><span class="line">        <span class="comment">// 自动装箱 int-&gt; Integer</span></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">integer2</span> <span class="operator">=</span> n2; <span class="comment">// 底层使用的是 Interger.valueOf()</span></span><br><span class="line">        <span class="comment">// 自动拆箱</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">n3</span> <span class="operator">=</span> integer2; <span class="comment">// 底层仍然使用的是intValue()方法。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="包装类型和String类型的相互转换"><a href="#包装类型和String类型的相互转换" class="headerlink" title="包装类型和String类型的相互转换"></a>包装类型和String类型的相互转换</h3><p>以<code>Integer</code>和<code>String</code>类型的相互转换为例</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt.wrapper;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WrapperVSString</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 包装类Integer - &gt; String</span></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">integer</span> <span class="operator">=</span> <span class="number">100</span>;  <span class="comment">// 自动装箱</span></span><br><span class="line">        <span class="comment">// 方式1</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> integer + <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="comment">// 方式2</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> integer.toString();</span><br><span class="line">        <span class="comment">// 方式3</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> String.valueOf(integer);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//String -&gt; 包装类</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;123456&quot;</span>;</span><br><span class="line">        <span class="comment">// 方式1</span></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> Integer.parseInt(str); <span class="comment">// 自动装箱</span></span><br><span class="line">        <span class="comment">// 方式2</span></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">integer1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(str); <span class="comment">// 构造器</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="包装类常用的方法"><a href="#包装类常用的方法" class="headerlink" title="包装类常用的方法"></a>包装类常用的方法</h3><p><code>Integer</code>类和<code>String</code>类为例</p>
+<ul>
+<li><code>Integer.MIN_VALUE</code>，返回最小值</li>
+<li><code>Integer.MAX_VALUE</code>，返回最大值</li>
+<li><code>Character.isDigit(&#39;a&#39;)</code>，判断是不是数字</li>
+<li><code>Character.isLetter(&#39;a&#39;)</code>，判断是不是字母</li>
+<li><code>Character.isUpperCase(&#39;a&#39;)</code>，判断是不是大写</li>
+<li><code>Character.isLowerCase(&#39;a&#39;)</code>，判断是不是小写</li>
+<li><code>Character.isLowerCase(&#39;a&#39;)</code>，判断是不是小写</li>
+<li><code>Character.isWhitespace(&#39;a&#39;)</code>，判断是不是空格</li>
+<li><code>Character.toLowerCase(&#39;a&#39;)</code>，转成小写</li>
+<li><code>Character.toUpperCase(&#39;a&#39;)</code>，转成大写</li>
+</ul>
+<h2 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h2><ul>
+<li><code>String</code>对象适用于保存字符串，也就是一组字符序列</li>
+<li>字符串常量对象是用双引号括起来的字符序列。如：”jack”</li>
+<li>字符串的字符使用Unicode字符编码，一个字符（不区分字母还是汉字）占两个字节。</li>
+<li><code>String</code>类有很多构造器，构造器的重载。</li>
+<li><code>String</code> 类实现了接口<code>Serializable</code>，则String可以串行化（数据可以在网络传输），还实现了<code>Comparable</code>接口，对象可以比较大小。</li>
+<li><code>String</code> 是<code>final</code>类，不能被继承</li>
+<li><code>String</code> 有属性 <code>private final char value[]</code>用于存放字符串内容。因为是<code>final</code>类型，所以不可以修改（指代地址不能够修改）</li>
+</ul>
+<h3 id="创建String对象的两种方式"><a href="#创建String对象的两种方式" class="headerlink" title="创建String对象的两种方式"></a>创建String对象的两种方式</h3><ul>
+<li>直接赋值<code>String str = &quot;xzt&quot;;</code></li>
+<li>调用构造器<code>String str = new String(&quot;xzt&quot;);</code></li>
+</ul>
+<h3 id="字符串的特性"><a href="#字符串的特性" class="headerlink" title="字符串的特性"></a>字符串的特性</h3><ul>
+<li><code>String</code>类是一个<code>final</code>类，代表不可变的字符序列</li>
+<li>字符串不可变，一个字符串对象一旦被分配，其内容是不可变的。</li>
+</ul>
+<h3 id="String类的常见方法"><a href="#String类的常见方法" class="headerlink" title="String类的常见方法"></a>String类的常见方法</h3><p>String类是保存字符串常量的，每次更新都需要重新开辟空间，效率低，因此java设计者还提供了<code>StringBuilder</code>和<code>StringBuffer</code>来增强String的功能，并提高效率。</p>
+<ul>
+<li><code>equals()</code>区分大小写，判断内容是否相等</li>
+<li><code>length()</code> 获取字符的个数，字符串的长度</li>
+<li><code>indexOf()</code>获取第i个字符</li>
+<li><code>substring(x)</code>，截取索引x后面的内容</li>
+<li><code>substring(start, end)</code>，从索引start开始，一直到索引end-1的位置</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt.string_;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">String01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;jack&quot;</span>;</span><br><span class="line">        System.out.println(str.equals(<span class="string">&quot;JACK&quot;</span>)); <span class="comment">//False 区分大小写</span></span><br><span class="line">        System.out.println(str.equalsIgnoreCase(<span class="string">&quot;JACK&quot;</span>)); <span class="comment">// True，不区分大小写</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">            System.out.println(str.indexOf(i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;abcdfsadfrf&quot;</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> s1.indexOf(<span class="string">&#x27;a&#x27;</span>);<span class="comment">// 返回第一次出现&#x27;a&#x27;的位置</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">substring</span> <span class="operator">=</span> s1.substring(<span class="number">0</span>, <span class="number">6</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+]]></content>
       <categories>
         <category>JAVA</category>
       </categories>
