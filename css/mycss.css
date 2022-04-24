@@ -197,3 +197,8 @@ h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
     background-color: unset ;
     box-shadow: unset ;
 }
+
+/* 白天和晚上背景自动切换 */
+#web_bg {
+    background: var(--card-bg) !important; /* 慎用!important */
+}
