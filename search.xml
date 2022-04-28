@@ -2687,6 +2687,12 @@
 <li><code>LinkedHashSet</code> 根据元素的<code>hashCode</code>值来决定元素的存储位置，同时使用链表维护元素的次序，这使得元素看起来是以插入顺序保存的。</li>
 <li><code>LinkedHashSet</code>不允许添加重复元素</li>
 </ul>
+<h4 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a><code>TreeSet</code></h4><ul>
+<li>当使用无参构造器创建<code>TreeSet</code>时，它默认按字典序进行排序。</li>
+<li>使用<code>TreeSet</code>提供的一个构造器，可以传入一个比较器（匿名内部类），并指定排序规则。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt.set_;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"><span class="keyword">import</span> java.util.TreeSet;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TreeSet_</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">TreeSet</span> <span class="variable">treeSet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TreeSet</span>(<span class="keyword">new</span> <span class="title class_">Comparator</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Object o1, Object o2)</span> &#123;</span><br><span class="line">                <span class="comment">// 调用字符串的compareTo方法进行字符串大小比较</span></span><br><span class="line">                <span class="keyword">return</span> ((String) o1).compareTo((String) o2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 添加数据</span></span><br><span class="line">        treeSet.add(<span class="string">&quot;jack&quot;</span>);</span><br><span class="line">        treeSet.add(<span class="string">&quot;tom&quot;</span>);</span><br><span class="line">        treeSet.add(<span class="string">&quot;xzt&quot;</span>);</span><br><span class="line">        treeSet.add(<span class="string">&quot;qqy&quot;</span>);</span><br><span class="line">        treeSet.add(<span class="string">&quot;z&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(treeSet);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="双列集合-（K-V）"><a href="#双列集合-（K-V）" class="headerlink" title="双列集合 （K - V）"></a>双列集合 （K - V）</h2><blockquote>
 <p>​    双列集合里面存放的是键值对类型（Key - Value）</p>
 </blockquote>
@@ -2698,7 +2704,7 @@
 <li><code>Map</code>中的 key 不允许重复，当有相同的 key 时，就等价于替换value</li>
 <li><code>Map</code>中的 value 可以重复</li>
 <li><code>Map</code>中的 key 可以为null，value 也可以为 null ，注意 key 为 null 只能有一个。value为null 可以有多个</li>
-<li>常用String类作为<code>Map</code> 的key</li>
+<li>常用String类作为<code>Map</code> 的 key</li>
 <li>key 和 value 是一对一的关系，所以根据指定 key 能找到对应的 value</li>
 </ul>
 <p><strong>常用方法</strong></p>
@@ -2755,7 +2761,70 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第三组 ：通过 entrySet 来获取 k-v</span></span><br><span class="line"><span class="type">Set</span> <span class="variable">entrySet</span> <span class="operator">=</span> map.entrySet();</span><br><span class="line"><span class="comment">// 第一种：使用增强for循环进行遍历</span></span><br><span class="line"><span class="keyword">for</span> (Object entry : entrySet) &#123;</span><br><span class="line">    Map.<span class="type">Entry</span> <span class="variable">m</span> <span class="operator">=</span> (Map.Entry) entry;  <span class="comment">// 转换类型</span></span><br><span class="line">    System.out.println(m.getKey() + <span class="string">&quot;-&quot;</span> + m.getValue());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种：使用iterator迭代器</span></span><br><span class="line"><span class="type">Iterator</span> <span class="variable">iterator2</span> <span class="operator">=</span> entrySet.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator2.hasNext())&#123;</span><br><span class="line">    <span class="type">Object</span> <span class="variable">next</span> <span class="operator">=</span> iterator2.next();</span><br><span class="line">    Map.<span class="type">Entry</span> <span class="variable">m</span> <span class="operator">=</span> (Map.Entry) next;</span><br><span class="line">    System.out.println(m.getKey() + <span class="string">&quot;-&quot;</span> + m.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a><code>HashMap</code></h4><ul>
-<li>底层是数组 + 链表 + 红黑树</li>
+<li>与<code>HashSet</code>一样，不保证映射的顺序，因为底层是以hash表的方式来存储的，JDK 8的<code>hashMap</code>底层是数组 + 链表 + 红黑树</li>
+<li><code>HashMap</code>没有实现同步，因此是线程不安全的。方法上没有做同步互斥的操作，没有<code>synchronized</code>关键字</li>
+</ul>
+<p><strong>底层机制</strong></p>
+<ul>
+<li><code>HashMap</code>的扩容机制和<code>HashSet</code>完全一样</li>
+<li><code>HashMap</code>底层维护了Node类型的数组table，默认为<code>null</code></li>
+<li>当创建对象时，将加载因子（load factor）初始化为0.75</li>
+<li>当添加 key - value 时，通过key的哈希值的到再table表中的索引，然后判断该索引处是否有元素，如果没有元素直接添加，如果该索引处有元素，继续判断该元素的key是否和准备加入的key相等，如果相等，则直接替换value；如果不相等则需要判断是树结构还是链表结构，做出相应的处理。如果添加时发现容量不够，则需要扩容。</li>
+<li>第一次添加，则需要扩容table容量为16，临界值（threshold）为12</li>
+<li>以后再扩容，指责需要扩容table容量为原来的2倍，临界值为原来的2倍，即24，依此类推。</li>
+<li>在Java 8中，如果一条链表的元素个数超过<code>TREEIFY_THRESHOLD</code>（默认是8），并且table的大小 &gt;&#x3D; <code>MIN_TREEIFY_CAPACITY</code>(默认是64)，就会进行树化（红黑树）</li>
+</ul>
+<h4 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a><code>HashTable</code></h4><ul>
+<li>存放的元素是键值对：即 K - V</li>
+<li><code>HashTable</code>的键和值都不能为<code>null</code>，否则会抛出<code>NullPointerException</code></li>
+<li><code>HashTable</code>使用方法基本上和<code>HashMap</code>一样</li>
+<li>是线程安全的。有<code>synchronized</code>修饰</li>
+</ul>
+<h4 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a><code>Properties</code></h4><ol>
+<li>继承自<code>HashTable</code>类，并且实现了Map接口，也是使用一种键值对的形式来保存数据</li>
+<li>它的使用特点和<code>HashTable</code>类似</li>
+<li>还可以用于从<code>XXX.properties</code>文件中，加载数据到<code>Properties</code>类对象，并进行读取和修改</li>
+<li>说明：<code>XXX.properties</code>通常为配置文件</li>
+</ol>
+<h4 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a><code>TreeMap</code></h4><ul>
+<li>当使用无参构造器创建<code>TreeMap</code>时，它默认按 Key 的字典序进行排序。</li>
+<li>使用<code>TreeMap</code>提供的一个构造器，可以传入一个比较器（匿名内部类），并指定排序规则。</li>
+</ul>
+<h2 id="集合选型规则⭐"><a href="#集合选型规则⭐" class="headerlink" title="集合选型规则⭐"></a>集合选型规则⭐</h2><ol>
+<li>先判断存储类型，（一组对象[单列]或一组键值对[多列]）</li>
+<li>一组对象：<code>Collection</code>接口<ul>
+<li>允许重复：<code>List</code><ul>
+<li>增删多：<code>LinkedList</code>【底层维护了一个双向链表】</li>
+<li>改查多：<code>ArrayList</code>【底层维护了Object类型可变数组】</li>
+</ul>
+</li>
+<li>不允许重复：<code>Set</code><ul>
+<li>无序：<code>HashSet</code>【底层是<code>HashMap</code>，维护了一个哈希表，即 数组 + 链表 + 红黑树】</li>
+<li>排序：<code>TreeSet</code></li>
+<li>插入和取出顺序一致：<code>LinkedHashSet</code>【维护 数组 + 双向链表】</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>一组键值对：<code>Map</code><ul>
+<li>键无序：<code>HashMap</code>【底层是：哈希表 JDK 7：数组 + 链表；JDK 8：数组 + 链表 + 红黑树】</li>
+<li>键排序：<code>TreeMap</code></li>
+<li>键插入顺序和取出顺序一致：<code>LinkedHashMap</code></li>
+<li>读取文件：<code>Properties</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="Collections-工具类"><a href="#Collections-工具类" class="headerlink" title="Collections 工具类"></a><code>Collections</code> 工具类</h2><blockquote>
+<p>Collections 工具类是一个操作 Set、List 和 Map 等集合的工具类</p>
+<p>Collections 中提供了一系列静态的方法对集合元素进行排序、查询和修改等操作</p>
+</blockquote>
+<h3 id="排序操作"><a href="#排序操作" class="headerlink" title="排序操作"></a>排序操作</h3><p>均为 static 方法</p>
+<ul>
+<li><code>reverse(List)</code>：反转 List 中元素的顺序</li>
+<li><code>shuffle(List)</code>：对 List 集合元素进行随机排序</li>
+<li><code>sort(List)</code>：根据元素的自然顺序对指定 List 集合元素按升序排序</li>
+<li><code>sort(List, Comparator)</code>：根据指定的 Comparator 产生的顺序对 List 集合元素进行排序</li>
+<li><code>swap(List, int, int)</code>：将指定 List 集合中的 i 处元素和 j 处元素进行交换</li>
 </ul>
 ]]></content>
       <categories>
