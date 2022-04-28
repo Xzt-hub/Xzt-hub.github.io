@@ -2826,6 +2826,42 @@
 <li><code>sort(List, Comparator)</code>：根据指定的 Comparator 产生的顺序对 List 集合元素进行排序</li>
 <li><code>swap(List, int, int)</code>：将指定 List 集合中的 i 处元素和 j 处元素进行交换</li>
 </ul>
+<h3 id="查找、替换"><a href="#查找、替换" class="headerlink" title="查找、替换"></a>查找、替换</h3><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>max(Collection)</code></td>
+<td align="center">根据元素的自然顺序，返回给定集合中的最大元素</td>
+</tr>
+<tr>
+<td align="center"><code>max(Collection, Comparator)</code></td>
+<td align="center">根据 Comparator 指定的顺序，返回给定集合中的最大元素</td>
+</tr>
+<tr>
+<td align="center"><code>min(Collection)</code></td>
+<td align="center">根据元素的自然顺序，返回给定集合中的最小元素</td>
+</tr>
+<tr>
+<td align="center"><code>min(Collection, Comparator)</code></td>
+<td align="center">根据 Comparator 指定的顺序，返回给定集合中的最小元素</td>
+</tr>
+<tr>
+<td align="center"><code>frequency(Collection, Object)</code></td>
+<td align="center">返回指定集合中指定元素出现的次数</td>
+</tr>
+<tr>
+<td align="center"><code>copy(List dest, List src)</code></td>
+<td align="center">将 src 集合中的内容赋值到 dest 中，需要保证 dest 和 src 的大小相等</td>
+</tr>
+<tr>
+<td align="center"><code>replaceAll(List list, Object oldVal, Object new Val)</code></td>
+<td align="center">将 list 集合中的所有 oldVal 全部替换为 newVal</td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>JAVA</category>
