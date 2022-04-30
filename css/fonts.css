@@ -9,26 +9,26 @@
     font-size:16px !important;
  }
  
- /*以下是代码颜色搭配，自行引入CSS*/
+ /* 以下是代码颜色搭配，自行引入CSS
  
- /*代码颜色，代码框背景*/
+ 代码颜色，代码框背景
 #article-container figure.highlight,#article-container pre{
    color:#a9a9a9;background:#f6f8fa
 }
-/*顶部栏代码种类字体颜色和背景*/
+顶部栏代码种类字体颜色和背景
 #article-container figure.highlight .highlight-tools{
    color:#a9a9a9;background:#f3f3f3
 }
-/*侧边栏行数颜色和背景*/
+侧边栏行数颜色和背景
 #article-container figure.highlight .gutter pre{
    color:#999;background:#f6f8fa
 }
-/*HTML属性颜色*/
+HTML属性颜色
 #article-container figure.highlight .attr{
    color:#39adb5;
 }
 
-/*HTML属性值*/
+HTML属性值
 #article-container figure.highlight .string{
    color:#f6aa43;
-}
+} */
