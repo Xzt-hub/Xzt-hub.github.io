@@ -206,37 +206,29 @@ h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
 
 
 .tips {
-    margin: 10px 0;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin: 0 0 20px;
+    padding: 12px 15px;
     background-color: rgba(52,152,219,.3);
     border-left: 4px solid rgb(52,152,219);
     color: darken(rgb(52,152,219),20%);
 }
 .success {
-    margin: 10px 0;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin: 0 0 20px;
+    padding: 12px 15px;
     background-color: rgba(46,204,113,.3);
     border-left: 4px solid rgb(46,204,113);
     color: darken(rgb(46,204,113),20%);
 }
 .warning {
-    margin: 10px 0;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin: 0 0 20px;
+    padding: 12px 15px;
     background-color: rgba(241,196,15,.3);
     border-left: 4px solid rgb(241,196,15);
     color: darken(rgb(241,196,15),20%);
 }
 .danger {
-    margin: 10px 0;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin: 0 0 20px;
+    padding: 12px 15px;
     background-color: rgba(231,76,60,.3);
     border-left: 4px solid rgb(231,76,60);
     color: darken(rgb(231,76,60),20%);
