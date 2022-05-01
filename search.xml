@@ -2354,7 +2354,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>最小差值</title>
+    <title>908.最小差值</title>
     <url>/2022/04/30/LeetCode/20220430/</url>
     <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
 <p><a href="https://leetcode-cn.com/problems/smallest-range-i/"> 最小差值 1 </a></p>
@@ -3794,7 +3794,8 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <li><code>ArrayList list = new ArrayList();</code>默认泛型是 Object 类</li>
 </ul>
 <h2 id="自定义泛型"><a class="markdownIt-Anchor" href="#自定义泛型"></a> 自定义泛型</h2>
-<p>基本语法：<code>class 类名&lt;T, R ...&gt; &#123; 成员 &#125;</code>，也可以是接口</p>
+<h3 id="自定义泛型类"><a class="markdownIt-Anchor" href="#自定义泛型类"></a> 自定义泛型类</h3>
+<p><strong>基本语法</strong>：<code>class 类名&lt;T, R ...&gt; &#123; 成员 &#125;</code>，也可以是接口</p>
 <p><strong>注意细节</strong></p>
 <ul>
 <li>普通成员可以使用泛型（属性、方法）</li>
@@ -3804,6 +3805,37 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <li>如果在创建对象时，没有指定类型，默认为 Object</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Tiger</span>&lt;T, R, M&gt; &#123;</span><br><span class="line">    String name;</span><br><span class="line">    R r;</span><br><span class="line">    T t;</span><br><span class="line">    M m;</span><br><span class="line">    T[] ts;  <span class="comment">// 使用泛型的数组，不允许直接初始化，因为数组在new的时候，不能确定T的类型，就无法在内存中开空间</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Tiger</span><span class="params">(String name, R r, T t, M m)</span> &#123;  <span class="comment">//构造器使用泛型</span></span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.r = r;</span><br><span class="line">        <span class="built_in">this</span>.t = t;</span><br><span class="line">        <span class="built_in">this</span>.m = m;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 方法使用泛型，返回类型也可以使用泛型</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> R <span class="title function_">getR</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setR</span><span class="params">(R r)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.r = r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getT</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setT</span><span class="params">(T t)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.t = t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> M <span class="title function_">getM</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> m;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setM</span><span class="params">(M m)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.m = m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义泛型接口"><a class="markdownIt-Anchor" href="#自定义泛型接口"></a> 自定义泛型接口</h3>
+<p><strong>基本语法</strong>：<code>interface 接口名&lt;T, R, ...&gt; &#123;&#125;</code></p>
+<p><strong>注意事项</strong></p>
+<ul>
+<li>接口中，静态成员也不能使用泛型</li>
+<li>泛型接口类型中，在继承接口或者实现接口时确定</li>
+<li>没有指定类型，默认为 Object</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">IUsb</span>&lt;U, R&gt; &#123;</span><br><span class="line">    <span class="comment">// 普通方法中，可以使用接口泛型</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> <span class="number">10</span>; <span class="comment">// 在接口中，所有成员都是静态成员</span></span><br><span class="line">    R <span class="title function_">get</span><span class="params">(U u)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">hi</span><span class="params">(R r)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">Run</span><span class="params">(R r1, R r2, U u1, U u2)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在jdk 8中，可以在接口中，使用默认方法，也可以使用泛型</span></span><br><span class="line">    <span class="keyword">default</span> R <span class="title function_">method</span><span class="params">(U u)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 继承泛型接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">IA</span> <span class="keyword">extends</span> <span class="title class_">IUsb</span>&lt;String, Double&gt;&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现泛型接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AA</span> <span class="keyword">implements</span> <span class="title class_">IA</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Double <span class="title function_">get</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hi</span><span class="params">(Double aDouble)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Run</span><span class="params">(Double r1, Double r2, String u1, String u2)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义泛型方法"><a class="markdownIt-Anchor" href="#自定义泛型方法"></a> 自定义泛型方法</h3>
+<p><strong>基本语法</strong>：<code>修饰符 &lt;T, R, ...&gt;返回类型 方法名(参数列表) &#123;&#125;</code></p>
+<p><strong>注意事项</strong></p>
+<ul>
+<li>泛型方法，可以定义在普通类中，也可以定义在泛型类中。</li>
+<li>当泛型方法被调用时，类型会确定</li>
+<li>若修饰符后面没有泛型<code>&lt;T, R, ..&gt;</code>，则该方法不是泛型方法</li>
+</ul>
+<h2 id="泛型的继承和通配符"><a class="markdownIt-Anchor" href="#泛型的继承和通配符"></a> 泛型的继承和通配符</h2>
+<ul>
+<li>泛型不具备继承性。<code>List&lt;Object&gt; list = new ArrayList&lt;String&gt;()</code> 是不正确的</li>
+<li><code>&lt;?&gt;</code>：支持任意泛型类型</li>
+<li><code>&lt;? extends A&gt;</code>：支持A类及A类的子类，规定了泛型的上限</li>
+<li><code>&lt;? super A&gt;</code>：支持A类以及A类的父类，不限于直接父类，规定了泛型的下限</li>
+</ul>
+<h1 id="junit单元测试类"><a class="markdownIt-Anchor" href="#junit单元测试类"></a> Junit单元测试类</h1>
+<ul>
+<li><code>Junit</code>是一个Java语言的单元测试框架</li>
+<li>多数Java的开发环境否已经集成了<code>Junit</code>作为单元测试工具</li>
+<li>在需要测试的方法上面加入<code>@Test</code>，则可以直接运行该方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt.Junit_;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Junit_</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Test</span>  <span class="comment">// 使用Junit类测试该方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">m1</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;测试m1方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">m2</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;测试m2方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>JAVA</category>
@@ -3813,7 +3845,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>两颗二叉搜索树中的所有元素</title>
+    <title>1305.两颗二叉搜索树中的所有元素</title>
     <url>/2022/05/01/LeetCode/20220501/</url>
     <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
 <p><a href="https://leetcode-cn.com/problems/all-elements-in-two-binary-search-trees/"> 两颗二叉搜索树中的所有元素 </a></p>
@@ -3850,6 +3882,66 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>二叉搜索树</tag>
         <tag>深度优先搜索</tag>
         <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java 基础入门 Java8</title>
+    <url>/2022/05/01/JAVA/03JavaBasic/</url>
+    <content><![CDATA[<div class="note info simple"><p>Java 8是Java语言开发的一个主要版本</p>
+</div>
+<h1 id="java-8新特性"><a class="markdownIt-Anchor" href="#java-8新特性"></a> Java 8新特性</h1>
+<ul>
+<li>速度更快</li>
+<li>代码更少，增加了新的语法，<strong>Lambda表达式</strong></li>
+<li>强大的<code>Stream API</code></li>
+<li>便于并行</li>
+<li>最大化减少空指针异常：<code>Optional</code>类</li>
+<li><code>Nashorn</code>引擎，允许在JVM上运行JS应用</li>
+</ul>
+<h1 id="lambda表达式"><a class="markdownIt-Anchor" href="#lambda表达式"></a> Lambda表达式</h1>
+<blockquote>
+<p>Lambda是一个匿名函数，我们可以把Lambda表达式理解为是一段可以传递的代码（将代码像数据一样进行传递）。使用它可以写出更简洁、更灵活的代码。作为一种更紧凑的代码风格，使Java的语言表达能力得到了提升。</p>
+</blockquote>
+<h2 id="本质"><a class="markdownIt-Anchor" href="#本质"></a> 本质</h2>
+<p>作为接口的实例</p>
+<h2 id="基本语法"><a class="markdownIt-Anchor" href="#基本语法"></a> 基本语法</h2>
+<ul>
+<li><code>-&gt;</code>lambda操作符，或箭头操作符</li>
+<li><code>-&gt;</code>左边：lambda形参列表，其实就是接口中的抽象方法的形参列表</li>
+<li><code>-&gt;</code>右边：lambda体，其实就是重写的抽象方法的方法体</li>
+</ul>
+<h2 id="使用场景"><a class="markdownIt-Anchor" href="#使用场景"></a> 使用场景</h2>
+<ul>
+<li>语法格式一：无参，无返回值</li>
+</ul>
+<p><code>Runnable r2 = () -&gt; &#123; System.out.println(&quot;Hello world&quot;); &#125;</code></p>
+<ul>
+<li>语法格式二：lambda需要一个参数，但是没有返回值</li>
+</ul>
+<p><code>Consumer&lt;String&gt; con1 = (String s) -&gt; &#123; System.out.println(s); &#125;</code></p>
+<ul>
+<li>语法格式三：数据类型可以省略，因为可由编译器推断得出，称为<strong>类型推断</strong></li>
+</ul>
+<p><code>Consumer&lt;String&gt; con1 = (s) -&gt; &#123; System.out.println(s); &#125;</code></p>
+<ul>
+<li>语法格式四：lambda若只需要一个参数时，参数的小括号可以省略</li>
+</ul>
+<p><code>Consumer&lt;String&gt; con1 = s -&gt; &#123; System.out.println(&quot;s&quot;); &#125;</code></p>
+<ul>
+<li>语法格式五：lambda需要两个或以上的参数，多条执行语句，并且可以有返回值</li>
+</ul>
+<p><code>Comparator&lt;Integer&gt; com2 = (o1, o2) -&gt; &#123; return Integer.compare(o1, o2); &#125;;</code></p>
+<ul>
+<li>语法格六：当lambda体只有一条语句时， return 与大括号若有，都可以省略</li>
+</ul>
+<p><code>Comparator&lt;Integer&gt; com2 = (o1, o2) -&gt; Integer.compare(o1, o2);</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt.lambda_;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"><span class="keyword">import</span> java.util.function.Consumer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * Lambda表达式的使用举例</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Lambda_</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Runnable</span> <span class="variable">r1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        r1.run();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用Lambda表达式进行优化</span></span><br><span class="line">        <span class="type">Runnable</span> <span class="variable">r2</span> <span class="operator">=</span> () -&gt; System.out.println(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line"></span><br><span class="line">        r2.run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 语法格式三</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Test</span><span class="params">()</span> &#123;</span><br><span class="line">        Comparator&lt;Integer&gt; com1 = <span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Integer&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Integer o1, Integer o2)</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> Integer.compare(o1, o2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">compare</span> <span class="operator">=</span> com1.compare(<span class="number">12</span>, <span class="number">21</span>);</span><br><span class="line">        System.out.println(compare);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用Lambda进行优化</span></span><br><span class="line">        Comparator&lt;Integer&gt; com2 = (o1, o2) -&gt; Integer.compare(o1, o2);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">compare1</span> <span class="operator">=</span> com2.compare(<span class="number">12</span>, <span class="number">21</span>);</span><br><span class="line">        System.out.println(compare1);</span><br><span class="line">        <span class="comment">// 方法引用</span></span><br><span class="line">        Comparator&lt;Integer&gt; com3 = Integer::compare;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">compare2</span> <span class="operator">=</span> com2.compare(<span class="number">12</span>, <span class="number">21</span>);</span><br><span class="line">        System.out.println(compare2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 语法格式二</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test2</span><span class="params">()</span> &#123;</span><br><span class="line">        Consumer&lt;String&gt; con = <span class="keyword">new</span> <span class="title class_">Consumer</span>&lt;String&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accept</span><span class="params">(String s)</span> &#123;</span><br><span class="line">                System.out.println(s);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        con.accept(<span class="string">&quot;abcdefd&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用lambda表达式进行优化</span></span><br><span class="line">        Consumer&lt;String&gt; con1 = (String s) -&gt; System.out.println(<span class="string">&quot;s&quot;</span>);</span><br><span class="line">        con1.accept(<span class="string">&quot;abcdefd&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
       </tags>
   </entry>
 </search>
