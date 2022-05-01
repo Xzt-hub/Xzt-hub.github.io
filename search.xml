@@ -2957,7 +2957,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 </ul>
 </li>
 </ul>
-<p><img src="/.com//Java/Error.png" alt="Error"></p>
+<p><img src="/img/Java/Error.png" alt="Error" /></p>
 <h2 id="运行时异常"><a class="markdownIt-Anchor" href="#运行时异常"></a> 运行时异常</h2>
 <p>编译器不要求强制处置的异常。一般是指编程时的逻辑错误没事成簇元应该避免其出现的异常。<code>java.lang.RuntimeException</code>类及它的子类都是运行时异常。</p>
 <p>对于运行时异常，可以不作处理，因为这类异常很普遍，若全处理可能对程序的可读性和运行效率产生影响。</p>
@@ -3332,7 +3332,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <p>​	Java 的集合类很多，主要分为两大类：单列集合、双列集合(键值对类型)</p>
 </blockquote>
 <h2 id="单列集合-collection"><a class="markdownIt-Anchor" href="#单列集合-collection"></a> 单列集合 Collection</h2>
-<p><img src="/.com//Java/Collection.png" alt="Collection"></p>
+<p><img src="/img/Java/Collection.png" alt="Collection" /></p>
 <h3 id="collection接口实现类的特点"><a class="markdownIt-Anchor" href="#collection接口实现类的特点"></a> <code>Collection</code>接口实现类的特点</h3>
 <p><code>public interface Collection&lt;E&gt; extends iterable&lt;E&gt;</code></p>
 <ul>
@@ -3564,7 +3564,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <blockquote>
 <p>​	双列集合里面存放的是键值对类型（Key - Value）</p>
 </blockquote>
-<p><img src="/.com//Java/Map.png" alt="Map"></p>
+<p><img src="/img/Java/Map.png" alt="Map" /></p>
 <h3 id="map"><a class="markdownIt-Anchor" href="#map"></a> Map</h3>
 <p><strong>特点</strong></p>
 <ul>
