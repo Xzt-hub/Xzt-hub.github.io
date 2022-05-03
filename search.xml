@@ -2013,6 +2013,57 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <h2 id="构造器引用"><a class="markdownIt-Anchor" href="#构造器引用"></a> 构造器引用</h2>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt.methodreference;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.function.Supplier;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MethodReference01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Supplier&lt;Employee&gt; sup = <span class="keyword">new</span> <span class="title class_">Supplier</span>&lt;Employee&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> Employee <span class="title function_">get</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Employee</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Lambda 表达式</span></span><br><span class="line">        Supplier&lt;Employee&gt; sup1 = () -&gt; <span class="keyword">new</span> <span class="title class_">Employee</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 构造器引用</span></span><br><span class="line">        Supplier&lt;Employee&gt; sup2 = Employee::<span class="keyword">new</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> Employee <span class="title function_">get</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Employee</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="强大的stream-api"><a class="markdownIt-Anchor" href="#强大的stream-api"></a> 强大的Stream API</h1>
+<blockquote>
+<p>把真正的函数式编程风格引入到Java中，这是目前为止对Java类库最好的补充，因为 Stream API可以极大的提供Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。</p>
+</blockquote>
+<ul>
+<li>Stream API 对集合数据进行操作，就类似于使用SQL执行的数据库查询，也可以使用Stream API来并行执行操作。</li>
+<li>Stream API 提供了一种高效且易于使用的处理数据的方式。</li>
+</ul>
+<h2 id="stream-和-collection集合的区别"><a class="markdownIt-Anchor" href="#stream-和-collection集合的区别"></a> Stream 和 Collection集合的区别</h2>
+<ul>
+<li>Collection 是一种面向静态的内存数据结构，而 Stream 是有关计算的。前者主要是面向内存的，存储在内存中，后者主要是面向CPU，通过CPU实现计算。</li>
+</ul>
+<h2 id="注意"><a class="markdownIt-Anchor" href="#注意"></a> 注意</h2>
+<ul>
+<li>Stream 自己不会存储元素</li>
+<li>Stream 不会改变源对象，相反，他们会返回一个持有结果的新Stream</li>
+<li>Stream 操作是延迟执行的，这意味者他们会等到需要结果的时候才执行</li>
+</ul>
+<h2 id="操作步骤"><a class="markdownIt-Anchor" href="#操作步骤"></a> 操作步骤</h2>
+<ol>
+<li><strong>创建 Stream</strong></li>
+</ol>
+<p>一个数据源（如：集合、数组），获取一个流</p>
+<ol start="2">
+<li>中间操作</li>
+</ol>
+<p>一个中间操作链，对数据员的数据进行处理</p>
+<ol start="3">
+<li><strong>终止操作</strong>（终端操作）</li>
+</ol>
+<p>一旦执行终止操作，就执行中间操作链，并产生结果。之后，不会再使用</p>
+<h2 id="创建对象的方式"><a class="markdownIt-Anchor" href="#创建对象的方式"></a> 创建对象的方式</h2>
+<h3 id="通过集合"><a class="markdownIt-Anchor" href="#通过集合"></a> 通过集合</h3>
+<p>Java 8中的 <code>Collection</code> 接口被扩展，提供两个获取流的方法：</p>
+<ul>
+<li><code>default Stream&lt;E&gt; stream()</code> 返回一个顺序流</li>
+<li><code>default Stream&lt;E&gt; parallelStream()</code> 返回一个并行流</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span>&#123;</span><br><span class="line">    List&lt;String&gt; strings = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回一个顺序流</span></span><br><span class="line">    Stream&lt;String&gt; stream = strings.stream();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回一个并行流</span></span><br><span class="line">    Stream&lt;String&gt; stringStream = strings.parallelStream();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="通过数组"><a class="markdownIt-Anchor" href="#通过数组"></a> 通过数组</h3>
+<p>Java 8中的 <code>Arrays</code>的静态方法 <code>stream()</code> 可以获取数组流</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test2</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">4</span>&#125;;</span><br><span class="line">    Arrays.stream(arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="通过-stream-的-of"><a class="markdownIt-Anchor" href="#通过-stream-的-of"></a> 通过 Stream 的 of</h3>
+<p>可以调用Stream 类的静态方法 <code>of()</code> ，通过显示值创建一个流。它可以接受任意数量的参数。</p>
+<ul>
+<li><code>public static&lt;T&gt; Stream&lt;T&gt; of(T...values)</code> 返回一个流</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test3</span><span class="params">()</span> &#123;</span><br><span class="line">    Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建无限流"><a class="markdownIt-Anchor" href="#创建无限流"></a> 创建无限流</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test4</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 遍历前 10 个偶数</span></span><br><span class="line">    Stream.iterate(<span class="number">0</span>, t -&gt; t + <span class="number">2</span>).limit(<span class="number">10</span>).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 随机生成10 个随机数</span></span><br><span class="line">    Stream.generate(Math::random).limit(<span class="number">10</span>).forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="stream-的中间操作"><a class="markdownIt-Anchor" href="#stream-的中间操作"></a> Stream 的中间操作</h2>
+<p>多个中间操作可以连接起来形成一个流水线，除非流水线上触发终止操作，否则中间操作不会执行任何的处理，而在终止操作时一次性全部处理，称为”惰性求值“</p>
 ]]></content>
       <categories>
         <category>JAVA</category>
@@ -3679,6 +3730,35 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>数组</tag>
         <tag>贪心</tag>
         <tag>哈希表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>78.子集</title>
+    <url>/2022/05/03/LeetCode/20220503-03/</url>
+    <content><![CDATA[<p>l</p>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a href="https://leetcode-cn.com/problems/subsets/"> 子集 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>先确定需要的子数组的大小，（从 0 到 <code>nums.size()</code> 依次遍历），然后递归进行选择，每次递归都从上一个元素的下一位置开始，直到临时数组的大小等于当前确定的所需子数组的大小，将其加入结果数组。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">    <span class="comment">// x 当前需要子集的大小， npc 应该开始位置</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; nums, <span class="type">int</span> x, <span class="type">int</span> npc)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x == arr.<span class="built_in">size</span>())&#123; <span class="comment">// 当前子集的大小满足目前所需的大小</span></span><br><span class="line">            res.<span class="built_in">push_back</span>(arr);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = npc; i &lt; nums.<span class="built_in">size</span>(); i ++)&#123;  <span class="comment">// 从npc 开始遍历</span></span><br><span class="line">            arr.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">dfs</span>(nums, x, i + <span class="number">1</span>);</span><br><span class="line">            arr.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsets</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= nums.<span class="built_in">size</span>(); i++)&#123;  <span class="comment">// 遍历，i代表需要子集的大小，</span></span><br><span class="line">            <span class="built_in">dfs</span>(nums, i, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n * 2 ^ n)</em>，一共 <em>2 ^ n</em> 个状态，每种状态需要 O*(<em>n</em>) 的时间来构造子集。</li>
+<li>空间复杂度：<em>O</em>(<em>n</em>)。临时数组 <em>arr</em> 的空间代价是 O*(<em>n</em>)，递归时栈空间的代价为 <em>O</em>(<em>n</em>)。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：4 ms, 在所有 C++ 提交中击败了43.18%的用户</p>
+<p>内存消耗：7.6 MB, 在所有 C++ 提交中击败了13.53%的用户</p>
+<p>通过测试用例：10 / 10</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>递归</tag>
+        <tag>回溯</tag>
       </tags>
   </entry>
 </search>
