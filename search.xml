@@ -3604,4 +3604,51 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>二分查找</tag>
       </tags>
   </entry>
+  <entry>
+    <title>937.重新排列日志文件</title>
+    <url>/2022/05/03/LeetCode/20220503-01/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a href="https://leetcode-cn.com/problems/reorder-data-in-log-files/"> 重新排列日志文件 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<ul>
+<li>思路1：先遍历一边数组，分别将字母日志和数字日志存入<code>vector&lt;string&gt;</code>中，然后将字母日志使用自定义排序进行排序，再将数字日志加入排序后的字母日志即可。</li>
+<li>思路2：直接使用 <code>stable_sort</code>进行自定义排序.</li>
+</ul>
+<h2 id="stable_sort-和-sort-的区别"><a class="markdownIt-Anchor" href="#stable_sort-和-sort-的区别"></a> <code>stable_sort</code> 和 <code>sort</code> 的区别</h2>
+<ul>
+<li><code>sort</code>是快速排序实现，因此是不稳定的；<code>stable_sort</code>是归并排序实现，因此是稳定的。（这里的稳定是指排序后相等元素的相对位置保持不变）</li>
+<li>对于相等的元素<code>sort</code>可能改变顺序，<code>stable_sort</code>保证排序后相等的元素次序不变。</li>
+<li>如果提供了比较函数，<code>sort</code>不要求比较函数的参数被限定为<code>const</code>，而<code>stable_sort</code>则要求参数被限定为<code>const</code>，否则编译不能通过。</li>
+</ul>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li><li class="tab"><button type="button" data-href="#题解-2">题解2</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">reorderLogFiles</span><span class="params">(vector&lt;string&gt;&amp; logs)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; dig;  <span class="comment">// 保存数字日志</span></span><br><span class="line">        vector&lt;string&gt; let;  <span class="comment">// 保存字母日志</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; logs.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            string str = logs[i];</span><br><span class="line">            <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(; j &lt; str.<span class="built_in">size</span>(); j ++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(str[j] == <span class="string">&#x27; &#x27;</span>) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(str[j + <span class="number">1</span>] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; str[j + <span class="number">1</span>] &lt;= <span class="string">&#x27;9&#x27;</span>)&#123; <span class="comment">//是数字日志</span></span><br><span class="line">                dig.<span class="built_in">push_back</span>(str);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123; <span class="comment">// 是字母日志</span></span><br><span class="line">                let.<span class="built_in">push_back</span>(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(let.<span class="built_in">begin</span>(), let.<span class="built_in">end</span>(), [](string &amp;a, string &amp;b) &#123;  <span class="comment">//自定义sort排序</span></span><br><span class="line">            <span class="type">int</span> x = a.<span class="built_in">find</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            <span class="type">int</span> y = b.<span class="built_in">find</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            string stra = a.<span class="built_in">substr</span>(x + <span class="number">1</span>);</span><br><span class="line">            string strb = b.<span class="built_in">substr</span>(y + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(stra != strb) <span class="keyword">return</span> stra &lt; strb;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> a &lt; b;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; dig.<span class="built_in">size</span>(); i ++)&#123;</span><br><span class="line">            let.<span class="built_in">push_back</span>(dig[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> let;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n * log n)</em>，其中 <em>n</em> 为 <em>logs</em> 的字符数，是平均情况下内置排序的时间复杂度。</li>
+<li>空间复杂度：<em>O(n)</em>，额外存放日志的数组</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：16 ms, 在所有 C++ 提交中击败了23.57%的用户</p>
+<p>内存消耗：12.4 MB, 在所有 C++ 提交中击败了31.52%的用户</p>
+<p>通过测试用例：65 / 65</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-2"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">reorderLogFiles</span><span class="params">(vector&lt;string&gt;&amp; logs)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stable_sort</span>(logs.<span class="built_in">begin</span>(), logs.<span class="built_in">end</span>(), [&amp;](<span class="type">const</span> string &amp;a, <span class="type">const</span> string &amp;b)&#123;  <span class="comment">// stable_sort</span></span><br><span class="line">            <span class="type">int</span> x = a.<span class="built_in">find_first_of</span>(<span class="string">&quot; &quot;</span>); <span class="comment">// 找到a的第一个空格</span></span><br><span class="line">            <span class="type">int</span> y = b.<span class="built_in">find_first_of</span>(<span class="string">&quot; &quot;</span>); <span class="comment">// 找到b的第一个空格</span></span><br><span class="line">            <span class="type">bool</span> isDigital_a = <span class="built_in">isdigit</span>(a[x + <span class="number">1</span>]);</span><br><span class="line">            <span class="type">bool</span> isDigital_b = <span class="built_in">isdigit</span>(b[y + <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(isDigital_a &amp;&amp; isDigital_b)&#123;  <span class="comment">// 两个都是数字日志</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(!isDigital_a &amp;&amp; !isDigital_b) &#123; <span class="comment">// 两个都是字母日志</span></span><br><span class="line">                string stra = a.<span class="built_in">substr</span>(x + <span class="number">1</span>);</span><br><span class="line">                string strb = b.<span class="built_in">substr</span>(y + <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span>(stra != strb) <span class="keyword">return</span> stra &lt; strb;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> a &lt; b;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> isDigital_a ? <span class="literal">false</span> : <span class="literal">true</span>;  <span class="comment">// 判断a是否是数字日志，若a是数字日志，则返回false</span></span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> logs;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n * log n)</em>，其中 <em>n</em> 为 <em>logs</em> 的字符数，是平均情况下内置排序的时间复杂度。</li>
+<li>空间复杂度：<em>O(n)</em>，额外存放日志的数组</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：12 ms, 在所有 C++ 提交中击败了59.80%的用户</p>
+<p>内存消耗：10.9 MB, 在所有 C++ 提交中击败了83.87%的用户</p>
+<p>通过测试用例：65 / 65</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>排序</tag>
+        <tag>字符串</tag>
+        <tag>数组</tag>
+      </tags>
+  </entry>
 </search>
