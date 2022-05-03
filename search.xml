@@ -3651,4 +3651,34 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>数组</tag>
       </tags>
   </entry>
+  <entry>
+    <title>1090.受标签影响的最大值</title>
+    <url>/2022/05/03/LeetCode/20220503-02/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a href="https://leetcode-cn.com/problems/largest-values-from-labels/"> 受标签影响的最大值 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>使用<code>vector&lt;pair&lt;int, int&gt;&gt;</code> 将 <em>values</em> 和 <em>labels</em> 对应起来，然后按照 <em>values</em> 从大到小进行排序，每次在满足对应的标签没有达到上限时（使用<code>unordered_map</code>进行计数），优先取最大的即可。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; arr;</span><br><span class="line">    unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; hsp;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">largestValsFromLabels</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; values, vector&lt;<span class="type">int</span>&gt;&amp; labels, <span class="type">int</span> numWanted, <span class="type">int</span> useLimit)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; values.<span class="built_in">size</span>(); i ++)&#123;</span><br><span class="line">            arr.<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(values[i], labels[i]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), [](pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; &amp;a, pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; &amp;b)&#123;  <span class="comment">// 将arr数组从大到小进行排序</span></span><br><span class="line">            <span class="keyword">return</span> a.first &gt; b.first;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>() &amp;&amp; numWanted; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(hsp[arr[i].second] &lt; useLimit)&#123;</span><br><span class="line">                hsp[arr[i].second] ++;</span><br><span class="line">                res += arr[i].first;</span><br><span class="line">                numWanted--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n * log n)</em>，其中 <em>n</em> 为 <em>values</em> 的大小，主要是 <code>sort()</code>函数的时间发复杂度</li>
+<li>空间复杂度：<em>O(n)</em>，数组和哈希表对应的空间</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：24 ms, 在所有 C++ 提交中击败了80.30%的用户</p>
+<p>内存消耗：19.8 MB, 在所有 C++ 提交中击败了65.15%的用户</p>
+<p>通过测试用例：81 / 81</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>排序</tag>
+        <tag>数组</tag>
+        <tag>贪心</tag>
+        <tag>哈希表</tag>
+      </tags>
+  </entry>
 </search>
