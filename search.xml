@@ -3848,4 +3848,44 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>回溯</tag>
       </tags>
   </entry>
+  <entry>
+    <title>713.乘积小于k的子数组</title>
+    <url>/2022/05/05/LeetCode/20220505-01/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a href="https://leetcode-cn.com/problems/subarray-product-less-than-k/"> 乘积小于 K 的子数组 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<ul>
+<li>使用 <code>queue</code> 队列实现 <code>滑动窗口</code> ，当前元素入队后，若队列中总的乘积小于 k，则继续遍历下一个元素，若队列中总的乘积大于等于 k，则依次出队，直到队列中的总元素乘积小于 k，每个遍历后需要将队列中的总元素个数加至结果变量中。</li>
+<li>使用两个指针代表 <code>滑动窗口</code> 的两个边界。</li>
+</ul>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li><li class="tab"><button type="button" data-href="#题解-2">题解2</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numSubarrayProductLessThanK</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        queue&lt;<span class="type">int</span>&gt; que;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            que.<span class="built_in">push</span>(nums[i]);</span><br><span class="line">            sum *= nums[i];</span><br><span class="line">            <span class="keyword">while</span>(!que.<span class="built_in">empty</span>() &amp;&amp; sum &gt;= k)&#123;</span><br><span class="line">                <span class="type">int</span> top = que.<span class="built_in">front</span>();</span><br><span class="line">                que.<span class="built_in">pop</span>();</span><br><span class="line">                sum /= top;</span><br><span class="line">            &#125;</span><br><span class="line">            res += que.<span class="built_in">size</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是数组 <em>nums</em> 的大小</li>
+<li>空间复杂度：<em>O(n)</em>，队列最多有 <em>n</em> 个元素</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：68 ms, 在所有 C++ 提交中击败了53.23%的用户</p>
+<p>内存消耗：63 MB, 在所有 C++ 提交中击败了5.26%的用户</p>
+<p>通过测试用例：97 / 97</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-2"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> res;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numSubarrayProductLessThanK</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">            sum *= nums[j];</span><br><span class="line">            <span class="keyword">while</span>(i &lt;= j &amp;&amp; sum &gt;= k)&#123;</span><br><span class="line">                sum /= nums[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            res += j - i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是数组 <em>nums</em> 的大小</li>
+<li>空间复杂度：<em>O(1)</em></li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：52 ms, 在所有 C++ 提交中击败了96.72%的用户</p>
+<p>内存消耗：59.8 MB, 在所有 C++ 提交中击败了65.17%的用户</p>
+<p>通过测试用例：97 / 97</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>数组</tag>
+        <tag>滑动窗口</tag>
+      </tags>
+  </entry>
 </search>
