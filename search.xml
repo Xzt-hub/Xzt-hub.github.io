@@ -3918,4 +3918,33 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>滑动窗口</tag>
       </tags>
   </entry>
+  <entry>
+    <title>933.最近请求的次数</title>
+    <url>/2022/05/06/LeetCode/20220506-01/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<h4 id="最近的请求次数"><a class="markdownIt-Anchor" href="#最近的请求次数"></a> <a href="https://leetcode-cn.com/problems/number-of-recent-calls/"> 最近的请求次数 </a></h4>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>使用队列，每次将新的 t 加入队列，然后循环判断对头元素是否大于 t - 3000，若小于则出队，否则结束循环，最后返回队列中的元素个数即可。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RecentCounter</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> count;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; que;</span><br><span class="line">    <span class="built_in">RecentCounter</span>() &#123;</span><br><span class="line">        count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!que.<span class="built_in">empty</span>()) que.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">ping</span><span class="params">(<span class="type">int</span> t)</span> </span>&#123;</span><br><span class="line">        que.<span class="built_in">push</span>(t);</span><br><span class="line">        <span class="keyword">while</span>(que.<span class="built_in">front</span>() &lt; t - <span class="number">3000</span>)&#123;</span><br><span class="line">            que.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> que.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your RecentCounter object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * RecentCounter* obj = new RecentCounter();</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;ping(t);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是调用 ping 的次数</li>
+<li>空间复杂度：<em>O(n)</em>，队列中元素的个数</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：144 ms, 在所有 C++ 提交中击败了32.54%的用户</p>
+<p>内存消耗：56.1 MB, 在所有 C++ 提交中击败了24.97%的用户</p>
+<p>通过测试用例：68 / 68</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>队列</tag>
+        <tag>设计</tag>
+        <tag>数据流</tag>
+      </tags>
+  </entry>
 </search>
