@@ -3947,4 +3947,35 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>数据流</tag>
       </tags>
   </entry>
+  <entry>
+    <title>20220509-01</title>
+    <url>/2022/05/09/LeetCode/20220509-01/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a href="https://leetcode.cn/problems/di-string-match/"> 增减字符串匹配 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>定义两个变量，<code>l</code> 表示最小值0，<code>h</code>表示最大值 <code>s.size()</code>,然后遍历当前元素，若当前元素是 <code>I</code>，则当前位置需要赋值 <code>l</code>并更新<code>l</code>的值，反之，则赋值<code>h</code>的值，并更新<code>h</code>的值。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">diStringMatch</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, h = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">&#x27;I&#x27;</span>)  <span class="comment">// 当前字符是 I 时，添加此时最小的</span></span><br><span class="line">                res[i] = l ++;</span><br><span class="line">            <span class="keyword">else</span>  <span class="comment">// 当前字符是 D 时，添加此时最大的</span></span><br><span class="line">                res[i] = h --;</span><br><span class="line">        &#125;</span><br><span class="line">        res[n] = l; <span class="comment">// 添加最后一个数</span></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是字符串 s 的长度</li>
+<li>空间复杂度：<em>O(1)</em>，数组长度 为 <em>n + 1</em>，但返回值不计入空间复杂度</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：4 ms, 在所有 C++ 提交中击败了88.53%的用户</p>
+<p>内存消耗：8.4 MB, 在所有 C++ 提交中击败了73.80%的用户</p>
+<p>通过测试用例：95 / 95</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>数学</tag>
+        <tag>字符串</tag>
+        <tag>数组</tag>
+        <tag>贪心</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
 </search>
