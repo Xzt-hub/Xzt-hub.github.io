@@ -4135,4 +4135,58 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>数组</tag>
       </tags>
   </entry>
+  <entry>
+    <title>3375.成绩排序</title>
+    <url>/2022/05/12/AcWing/20220512-01/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a href="https://www.acwing.com/problem/content/3378/"> 成绩排序 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>使用 <code>stable_sort</code> 进行排序，因为 <code>stable_sort</code> 是稳定的，可确保不需要排序的数据相对位置不改变。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n, x;</span><br><span class="line"></span><br><span class="line"><span class="comment">// stable_sort 使用</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">minTomax</span><span class="params">(vector&lt;pair&lt;string, <span class="type">int</span>&gt;&gt;&amp; arr)</span></span>&#123;</span><br><span class="line">    <span class="built_in">stable_sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), [&amp;](<span class="type">const</span> pair&lt;string, <span class="type">int</span>&gt; &amp;a, <span class="type">const</span> pair&lt;string, <span class="type">int</span>&gt; &amp;b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a.second &lt; b.second; </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">maxTomin</span><span class="params">(vector&lt;pair&lt;string, <span class="type">int</span>&gt;&gt;&amp; arr)</span></span>&#123;</span><br><span class="line">    <span class="built_in">stable_sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), [&amp;](<span class="type">const</span> pair&lt;string, <span class="type">int</span>&gt; &amp;a, <span class="type">const</span> pair&lt;string, <span class="type">int</span>&gt; &amp;b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a.second &gt; b.second; </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    cin &gt;&gt; x;</span><br><span class="line">    vector&lt;pair&lt;string, <span class="type">int</span>&gt;&gt; arr;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        string a;</span><br><span class="line">        <span class="type">int</span> b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        arr.<span class="built_in">emplace_back</span>(<span class="built_in">make_pair</span>(a, b));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x == <span class="number">0</span>) <span class="built_in">maxTomin</span>(arr);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">minTomax</span>(arr);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        cout &lt;&lt; arr[i].first &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; arr[i].second &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n * logn)</em>，其中 <em>n</em> 是学生的个数</li>
+<li>空间复杂度：<em>O(1)</em></li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：31 ms</p>
+<p>内存消耗：340KB</p>
+<p>通过测试用例：10/10</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>AcWing</category>
+      </categories>
+      <tags>
+        <tag>AcWing</tag>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3376.成绩排序2</title>
+    <url>/2022/05/12/AcWing/20220512-02/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a href="https://www.acwing.com/problem/content/3379/"> 成绩排序2 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>自定义 <code>sort</code> 排序</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; arr;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">        <span class="type">int</span> a, b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        arr.<span class="built_in">emplace_back</span>(<span class="built_in">make_pair</span>(a, b));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 自定义排序</span></span><br><span class="line">    <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), [](pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; &amp;a, pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; &amp;b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a.second != b.second) </span><br><span class="line">            <span class="keyword">return</span> a.second &lt; b.second;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> a.first &lt; b.first;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        cout &lt;&lt; arr[i].first &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; arr[i].second &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n * logn)</em>，其中 <em>n</em> 是学生的个数</li>
+<li>空间复杂度：<em>O(1)</em></li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：18 ms</p>
+<p>内存消耗：220KB</p>
+<p>通过测试用例：10/10</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>AcWing</category>
+      </categories>
+      <tags>
+        <tag>AcWing</tag>
+        <tag>排序</tag>
+      </tags>
+  </entry>
 </search>
