@@ -4038,6 +4038,10 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <p>内存消耗：6.4 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
 <p>通过测试用例：140 / 140</p>
 </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="题目3统计打字方案数"><a class="markdownIt-Anchor" href="#题目3统计打字方案数"></a> 题目3：统计打字方案数</h2>
+<p><a href="https://leetcode.cn/problems/count-number-of-texts/"> 统计打字方案数 </a></p>
+<h2 id="题目4检查是否有合法括号字符串路径"><a class="markdownIt-Anchor" href="#题目4检查是否有合法括号字符串路径"></a> 题目4：检查是否有合法括号字符串路径</h2>
+<p><a href="https://leetcode.cn/problems/check-if-there-is-a-valid-parentheses-string-path/"> 检查是否有合法括号字符串路径 </a></p>
 ]]></content>
       <categories>
         <category>LeetCode</category>
@@ -4311,6 +4315,56 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>深度优先搜索</tag>
         <tag>树</tag>
         <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 第293场周赛</title>
+    <url>/2022/05/16/LeetCode/293WeeklyCompetition/</url>
+    <content><![CDATA[<h2 id="题目1移除字母异位词后的结果数组"><a class="markdownIt-Anchor" href="#题目1移除字母异位词后的结果数组"></a> 题目1：移除字母异位词后的结果数组</h2>
+<p><a href="https://leetcode.cn/problems/find-resultant-array-after-removing-anagrams/"> 移除字母异位词后的结果数组 </a></p>
+<h3 id="标签"><a class="markdownIt-Anchor" href="#标签"></a> 标签</h3>
+<p><code>排序</code>、<code>数组</code>、<code>字符串</code></p>
+<h3 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h3>
+<p>先将 <code>words</code> 中的每个字符串进行排序，然后逆序遍历，若当前字符串和前一字符串相等，则删除<strong>原数组</strong>中的该位置的字符串。最后返回原数组</p>
+<h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">removeAnagrams</span><span class="params">(vector&lt;string&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; arr;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; words.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            string str = words[i];</span><br><span class="line">            <span class="built_in">sort</span>(str.<span class="built_in">begin</span>(), str.<span class="built_in">end</span>());</span><br><span class="line">            arr.<span class="built_in">emplace_back</span>(str);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = arr.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt; <span class="number">0</span>; i --)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] == arr[i - <span class="number">1</span>])&#123;</span><br><span class="line">                words.<span class="built_in">erase</span>(words.<span class="built_in">begin</span>() + i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> words;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 为数组 <code>words</code> 的大小</li>
+<li>空间复杂度：<em>O(n)</em>，保存每个字符串排序后的数组</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：4 ms, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>内存消耗：13.2 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>通过测试用例：201 / 201</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="题目2不含特殊楼层的最大连续楼层数"><a class="markdownIt-Anchor" href="#题目2不含特殊楼层的最大连续楼层数"></a> 题目2：不含特殊楼层的最大连续楼层数</h2>
+<p><a href="https://leetcode.cn/problems/maximum-consecutive-floors-without-special-floors/"> 不含特殊楼层的最大连续楼层数 </a></p>
+<h3 id="标签-2"><a class="markdownIt-Anchor" href="#标签-2"></a> 标签</h3>
+<p><code>数组</code>、<code>排序</code>、<code>数学</code></p>
+<h3 id="思路-2"><a class="markdownIt-Anchor" href="#思路-2"></a> 思路</h3>
+<p>将特殊楼层数组 <code>special</code> 进行排序，然后分别计算每两个特殊楼层之间的楼层数，取最大值。然后再和两端的楼层数作比较，取最大值。</p>
+<h3 id="题解-2"><a class="markdownIt-Anchor" href="#题解-2"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxConsecutive</span><span class="params">(<span class="type">int</span> bottom, <span class="type">int</span> top, vector&lt;<span class="type">int</span>&gt;&amp; special)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(special.<span class="built_in">begin</span>(), special.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> n = special.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; special.<span class="built_in">size</span>(); i ++)&#123;</span><br><span class="line">            res = <span class="built_in">max</span>(res, special[i] - special[i - <span class="number">1</span>] - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 两端的楼层计算</span></span><br><span class="line">        res = <span class="built_in">max</span>(res, special[<span class="number">0</span>] - bottom);</span><br><span class="line">        res = <span class="built_in">max</span>(res, top - special[n - <span class="number">1</span>]); </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 为数组 <code>special</code> 的大小</li>
+<li>空间复杂度：<em>O(1)</em></li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：176 ms, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>内存消耗：56.7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>通过测试用例：80 / 80</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="题目3按位与结果大于零的最长组合"><a class="markdownIt-Anchor" href="#题目3按位与结果大于零的最长组合"></a> 题目3：按位与结果大于零的最长组合</h2>
+<p><a href="https://leetcode.cn/problems/largest-combination-with-bitwise-and-greater-than-zero/"> 按位与结果大于零的最长组合 </a></p>
+<h2 id="题目4统计区间中的整数数目"><a class="markdownIt-Anchor" href="#题目4统计区间中的整数数目"></a> 题目4：统计区间中的整数数目</h2>
+<p><a href="https://leetcode.cn/problems/count-integers-in-intervals/"> 统计区间中的整数数目 </a></p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+        <category>周赛</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
 </search>
