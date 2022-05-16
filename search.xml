@@ -4283,4 +4283,34 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>几何</tag>
       </tags>
   </entry>
+  <entry>
+    <title>面试题 04.06.后继者</title>
+    <url>/2022/05/16/LeetCode/20220516-01/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a href="https://leetcode.cn/problems/successor-lcci/"> 后继者 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>直接进行中序遍历，当找到指定节点时，让 <code>loop = true</code>，然后继续递归，若<code>loop &amp;&amp; !res</code> 时，则赋值，否则 <code>return</code></p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    TreeNode *res = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="type">bool</span> loop = <span class="literal">false</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">InorderTra</span><span class="params">(TreeNode *root, TreeNode* p)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="built_in">InorderTra</span>(root-&gt;left, p);</span><br><span class="line">        <span class="keyword">if</span>(loop)&#123;  <span class="comment">// 已经找到指定节点</span></span><br><span class="line">            <span class="keyword">if</span>(res == <span class="literal">NULL</span>)  <span class="comment">// 下一节点还没确定</span></span><br><span class="line">                res = root;</span><br><span class="line">            <span class="keyword">else</span>  <span class="comment">// 下一节点已经确定</span></span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(root == p) loop = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">InorderTra</span>(root-&gt;right, p);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">inorderSuccessor</span><span class="params">(TreeNode* root, TreeNode* p)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">InorderTra</span>(root, p);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是二叉树中节点的个数</li>
+<li>空间复杂度：<em>O(1)</em></li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：20 ms, 在所有 C++ 提交中击败了98.29%的用户</p>
+<p>内存消耗：22.2 MB, 在所有 C++ 提交中击败了83.77%的用户</p>
+<p>通过测试用例：24 / 24</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>二叉搜索树</tag>
+        <tag>深度优先搜索</tag>
+        <tag>树</tag>
+        <tag>二叉树</tag>
+      </tags>
+  </entry>
 </search>
