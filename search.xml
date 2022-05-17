@@ -4367,4 +4367,33 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>LeetCode</tag>
       </tags>
   </entry>
+  <entry>
+    <title>953.验证外星语词典</title>
+    <url>/2022/05/17/LeetCode/20220517-01/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a href="https://leetcode.cn/problems/verifying-an-alien-dictionary/"> 验证外星语词典 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>暴力解法：将 <code>words</code>中的单词按照 <code>order</code> 的字典序进行排序后与原数组进行对比，若相同则返回 <code>true</code>，若存在不同则返回 <code>false</code></p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAlienSorted</span><span class="params">(vector&lt;string&gt;&amp; words, string order)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; hsp;</span><br><span class="line">        <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; order.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            hsp[order[i]] = num ++;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;string&gt; arr;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; words.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            arr.<span class="built_in">emplace_back</span>(words[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), [&amp;](string &amp;a, string &amp;b)&#123;</span><br><span class="line">            <span class="type">int</span> len_a = a.<span class="built_in">size</span>();</span><br><span class="line">            <span class="type">int</span> len_b = b.<span class="built_in">size</span>();</span><br><span class="line">            <span class="type">int</span> len = <span class="built_in">min</span>(len_a, len_b);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i] == b[i]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">return</span> hsp[a[i]] &lt; hsp[b[i]];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> len_a &lt; len_b;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] != words[i])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n * logn)</em>，其中 <em>n</em> 是数组中元素的个数</li>
+<li>空间复杂度：<em>O(n)</em>，需要另外一个数组保存排序后的words</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：8 ms, 在所有 C++ 提交中击败了28.37%的用户</p>
+<p>内存消耗：10.1 MB, 在所有 C++ 提交中击败了5.05%的用户</p>
+<p>通过测试用例：120 / 120</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>字符串</tag>
+        <tag>数组</tag>
+        <tag>哈希表</tag>
+      </tags>
+  </entry>
 </search>
