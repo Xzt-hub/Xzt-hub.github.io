@@ -4397,7 +4397,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>最少移动次数使数组元素相等 II</title>
+    <title>462.最少移动次数使数组元素相等 II</title>
     <url>/2022/05/19/LeetCode/20220519-01/</url>
     <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
 <p><a href="https://leetcode.cn/problems/minimum-moves-to-equal-array-elements-ii/"> 最少移动次数使数组元素相等 II </a></p>
@@ -4423,6 +4423,34 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>排序</tag>
         <tag>数学</tag>
         <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>961.在长度 2N 的数组中找出重复 N 次的元素</title>
+    <url>/2022/05/21/LeetCode/20220521-01/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a href="https://leetcode.cn/problems/n-repeated-element-in-size-2n-array/"> 在长度 2N 的数组中找出重复 N 次的元素 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>利用哈希表统计每个数字出现的次数，若次数等于 <code>nums.size() / 2</code>则返回该数字。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">repeatedNTimes</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>() / <span class="number">2</span>;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; hsp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            hsp[nums[i]] ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it = hsp.<span class="built_in">begin</span>(); it != hsp.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(it-&gt;second == n)</span><br><span class="line">                <span class="keyword">return</span> it-&gt;first;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是数组中元素的个数</li>
+<li>空间复杂度：<em>O(n)</em>，</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：44 ms, 在所有 C++ 提交中击败了28.13%的用户</p>
+<p>内存消耗：29.4 MB, 在所有 C++ 提交中击败了25.96%的用户</p>
+<p>通过测试用例：102 / 102</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>数组</tag>
+        <tag>哈希表</tag>
       </tags>
   </entry>
 </search>
