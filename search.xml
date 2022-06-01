@@ -4520,4 +4520,35 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>LeetCode</tag>
       </tags>
   </entry>
+  <entry>
+    <title>473.火柴拼正方形⭐</title>
+    <url>/2022/06/01/LeetCode/20220601/</url>
+    <content><![CDATA[<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<h4 id="火柴拼正方形"><a class="markdownIt-Anchor" href="#火柴拼正方形"></a> <a href="https://leetcode.cn/problems/matchsticks-to-square/"> 火柴拼正方形 </a></h4>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>为了减少搜索量，需要对火柴长度从大到小进行排序。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> index, vector&lt;<span class="type">int</span>&gt; &amp;matchsticks, vector&lt;<span class="type">int</span>&gt; &amp;edges, <span class="type">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index == matchsticks.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edges.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            edges[i] += matchsticks[index];</span><br><span class="line">            <span class="keyword">if</span> (edges[i] &lt;= len &amp;&amp; <span class="built_in">dfs</span>(index + <span class="number">1</span>, matchsticks, edges, len)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            edges[i] -= matchsticks[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">makesquare</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;matchsticks)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> totalLen = <span class="built_in">accumulate</span>(matchsticks.<span class="built_in">begin</span>(), matchsticks.<span class="built_in">end</span>(), <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (totalLen % <span class="number">4</span> != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(matchsticks.<span class="built_in">begin</span>(), matchsticks.<span class="built_in">end</span>(), <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;()); <span class="comment">// 减少搜索量</span></span><br><span class="line"></span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">edges</span><span class="params">(<span class="number">4</span>)</span></span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">dfs</span>(<span class="number">0</span>, matchsticks, edges, totalLen / <span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(4 ^ n)</em>，其中 <em>n</em> 是数组中元素的个数</li>
+<li>空间复杂度：<em>O(n)</em>，递归栈需要占 <em>O(n)</em> 的空间</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：248 ms, 在所有 C++ 提交中击败了20.09%的用户</p>
+<p>内存消耗：9.6 MB, 在所有 C++ 提交中击败了76.84%的用户</p>
+<p>通过测试用例：185 / 185</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>数组</tag>
+        <tag>回溯</tag>
+        <tag>位运算</tag>
+        <tag>动态规划</tag>
+        <tag>状态压缩</tag>
+      </tags>
+  </entry>
 </search>
