@@ -4562,48 +4562,48 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <h2 id="下载-python"><a class="markdownIt-Anchor" href="#下载-python"></a> 下载 python</h2>
 <p>可以在Python官网选择需要的Python版本，本文章以<code>Python3.6.13</code>来举例</p>
 <p><a href="https://www.python.org/downloads/"> Python官网 </a></p>
-<p><img src="installPythonAndPIP/image-20220608162801384.png" alt="image-20220608162801384" /></p>
+<p><img src="/img/Ubuntu/image-20220608162801384.png" alt="image-20220608162801384" /></p>
 <p>下载后缀是 <code>.tgz</code> 的软件包，下载完成后将数据包复制到自己的Ubuntu上，可以使用 <code>Xftp</code> 发送数据，这里不详细说.</p>
-<p><img src="installPythonAndPIP/image-20220608162820549.png" alt="image-20220608162820549" /></p>
+<p><img src="/img/Ubuntu/image-20220608162820549.png" alt="image-20220608162820549" /></p>
 <p>在Ubuntu上将软件包进行解压,可以使用命令,也可以直接右键进行解压.</p>
-<p><img src="installPythonAndPIP/image-20220613143027013.png" alt="image-20220613143027013" /></p>
+<p><img src="/img/Ubuntu/image-20220613143027013.png" alt="image-20220613143027013" /></p>
 <h2 id="配置python环境"><a class="markdownIt-Anchor" href="#配置python环境"></a> 配置Python环境</h2>
 <p>进入<code>Python</code>文件夹，在<code>/user/local/</code>下创建安装目录</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> /usr/local/python3</span><br></pre></td></tr></table></figure>
-<p><img src="installPythonAndPIP/image-20220613143313174.png" alt="image-20220613143313174" /></p>
+<p><img src="/img/Ubuntu/image-20220613143313174.png" alt="image-20220613143313174" /></p>
 <p>在编译安装源码前先进行配置</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./configure --prefix=/usr/local/python3 --with-ssl</span><br></pre></td></tr></table></figure>
-<p><img src="installPythonAndPIP/image-20220613143550505.png" alt="image-20220613143550505" /></p>
+<p><strong><img src="/img/Ubuntu/image-20220613143550505.png" alt="image-20220613143550505" /></strong></p>
 <p>看到这个样子说明配置成功了</p>
-<p><img src="installPythonAndPIP/image-20220613143725150.png" alt="image-20220613143725150" /></p>
+<p><img src="/img/Ubuntu/image-20220613143725150.png" alt="image-20220613143725150" /></p>
 <h2 id="编译安装python"><a class="markdownIt-Anchor" href="#编译安装python"></a> 编译安装Python</h2>
 <p>然后开始编译安装<code>Python3.6</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-<p><img src="installPythonAndPIP/image-20220613143837752.png" alt="image-20220613143837752" /></p>
+<p><img src="/img/Ubuntu/image-20220613143837752.png" alt="image-20220613143837752" /></p>
 <p>编译安装结束，此时可能会报错，如下图，则需要安装<code>zlib*</code></p>
-<p><img src="installPythonAndPIP/image-20220613144033166.png" alt="image-20220613144033166" /></p>
+<p><img src="/img/Ubuntu/image-20220613144033166.png" alt="image-20220613144033166" /></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zlib*</span><br></pre></td></tr></table></figure>
-<p><img src="installPythonAndPIP/image-20220613144148137.png" alt="image-20220613144148137" /></p>
+<p><img src="/img/Ubuntu/image-20220613144148137.png" alt="image-20220613144148137" /></p>
 <p>安装完成后再次进行安装编译，编译完成后可以看到成功了</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-<p><img src="installPythonAndPIP/image-20220613144309700.png" alt="image-20220613144309700" /></p>
+<p><img src="/img/Ubuntu/image-20220613144309700.png" alt="image-20220613144309700" /></p>
 <h2 id="链接python3"><a class="markdownIt-Anchor" href="#链接python3"></a> 链接Python3</h2>
 <p>将系统自带的<code>python3.5</code>备份一份</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> /usr/bin/python3 /usr/bin/python3_old</span><br></pre></td></tr></table></figure>
-<p><img src="installPythonAndPIP/image-20220613144526729.png" alt="image-20220613144526729" /></p>
+<p><img src="/img/Ubuntu/image-20220613144526729.png" alt="image-20220613144526729" /></p>
 <p>将新安装的<code>python3.6</code>链接到<code>python3</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /usr/local/python3/bin/python3.6 /usr/bin/python3</span><br></pre></td></tr></table></figure>
-<p><img src="installPythonAndPIP/image-20220613144628712.png" alt="image-20220613144628712" /></p>
+<p><img src="/img/Ubuntu/image-20220613144628712.png" alt="image-20220613144628712" /></p>
 <p>再次查看<code>python3</code>,可以看到<code>python3</code>已经是<code>3.6.13</code>了</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3</span><br></pre></td></tr></table></figure>
-<p><img src="installPythonAndPIP/image-20220613144828192.png" alt="image-20220613144828192" /></p>
+<p><img src="/img/Ubuntu/image-20220613144828192.png" alt="image-20220613144828192" /></p>
 <h2 id="链接pip3"><a class="markdownIt-Anchor" href="#链接pip3"></a> 链接pip3</h2>
 <p>同样的方法将<code>python3.6</code>自带的<code>pip3</code>链接到系统中的<code>pip3</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /usr/local/python3/bin/pip3 /usr/bin/pip3</span><br></pre></td></tr></table></figure>
-<p><img src="installPythonAndPIP/image-20220613144940734.png" alt="image-20220613144940734" /></p>
+<p><img src="/img/Ubuntu/image-20220613144940734.png" alt="image-20220613144940734" /></p>
 <p>查看<code>pip3</code>的版本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 -V</span><br></pre></td></tr></table></figure>
-<p><img src="installPythonAndPIP/image-20220613145044825.png" alt="image-20220613145044825" /></p>
+<p><img src="/img/Ubuntu/image-20220613145044825.png" alt="image-20220613145044825" /></p>
 ]]></content>
       <categories>
         <category>疑难杂症</category>
