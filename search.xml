@@ -4646,7 +4646,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
   <entry>
     <title>王牌面试学习计划[Leetcode 75]</title>
     <url>/2022/06/28/LeetCode/Leetcode75/</url>
-    <content><![CDATA[<h1 id="day1前缀和"><a class="markdownIt-Anchor" href="#day1前缀和"></a> day1：前缀和</h1>
+    <content><![CDATA[<h1 id="day01前缀和"><a class="markdownIt-Anchor" href="#day01前缀和"></a> day01：前缀和</h1>
 <h2 id="题目1"><a class="markdownIt-Anchor" href="#题目1"></a> 题目1</h2>
 <p><a href="https://leetcode.cn/problems/running-sum-of-1d-array/"> 一维数组的动态和 </a></p>
 <h3 id="标签"><a class="markdownIt-Anchor" href="#标签"></a> 标签</h3>
@@ -4683,7 +4683,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <p>内存消耗：31.8 MB, 在所有 C++ 提交中击败了5.02%的用户</p>
 <p>通过测试用例：745 / 745</p>
 </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-<h1 id="day2字符串"><a class="markdownIt-Anchor" href="#day2字符串"></a> day2：字符串</h1>
+<h1 id="day02字符串"><a class="markdownIt-Anchor" href="#day02字符串"></a> day02：字符串</h1>
 <h2 id="题目1-2"><a class="markdownIt-Anchor" href="#题目1-2"></a> 题目1</h2>
 <p><a href="https://leetcode.cn/problems/isomorphic-strings/"> 同构字符串 </a></p>
 <h3 id="标签-3"><a class="markdownIt-Anchor" href="#标签-3"></a> 标签</h3>
@@ -4716,7 +4716,37 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <p>内存消耗：6.2 MB, 在所有 C++ 提交中击败了63.35%的用户</p>
 <p>通过测试用例：17 / 17</p>
 </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-]]></content>
+<h1 id="day03链表"><a class="markdownIt-Anchor" href="#day03链表"></a> day03：链表</h1>
+<h2 id="题目1-3"><a class="markdownIt-Anchor" href="#题目1-3"></a> 题目1</h2>
+<p><a href="https://leetcode.cn/problems/merge-two-sorted-lists/">合并两个有序链表</a></p>
+<h3 id="标签-5"><a class="markdownIt-Anchor" href="#标签-5"></a> 标签</h3>
+<p><code>递归</code>、<code>链表</code></p>
+<h3 id="题解-5"><a class="markdownIt-Anchor" href="#题解-5"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode *list = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>);</span><br><span class="line">        ListNode *head = list;</span><br><span class="line">        ListNode *p = list1;</span><br><span class="line">        ListNode *q = list2;</span><br><span class="line">        <span class="keyword">while</span>(p &amp;&amp; q)&#123;</span><br><span class="line">            <span class="keyword">if</span>(p -&gt; val &lt;= q -&gt; val)&#123;</span><br><span class="line">                ListNode *x = <span class="keyword">new</span> <span class="built_in">ListNode</span>(p-&gt;val);</span><br><span class="line">                head-&gt;next = x;</span><br><span class="line">                head = head-&gt;next;</span><br><span class="line">                p = p-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                ListNode *x = <span class="keyword">new</span> <span class="built_in">ListNode</span>(q-&gt;val);</span><br><span class="line">                head-&gt;next = x;</span><br><span class="line">                head = head-&gt;next;</span><br><span class="line">                q = q-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(p)&#123;</span><br><span class="line">            ListNode *x = <span class="keyword">new</span> <span class="built_in">ListNode</span>(p-&gt;val);</span><br><span class="line">            head-&gt;next = x;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(q)&#123;</span><br><span class="line">            ListNode *x = <span class="keyword">new</span> <span class="built_in">ListNode</span>(q-&gt;val);</span><br><span class="line">            head-&gt;next = x;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">            q = q-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n + m)</em>，其中 <em>n</em> 为<code>list1</code> 的长度，<em>m</em> 是 <code>list2</code> 的长度</li>
+<li>空间复杂度：<em>O(n + m)</em></li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：12 ms, 在所有 C++ 提交中击败了9.40%的用户</p>
+<p>内存消耗：14.5 MB, 在所有 C++ 提交中击败了15.85%的用户</p>
+<p>通过测试用例：208 / 208</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="题目2-3"><a class="markdownIt-Anchor" href="#题目2-3"></a> 题目2</h2>
+<p><a href="https://leetcode.cn/problems/reverse-linked-list/">反转链表</a></p>
+<h3 id="标签-6"><a class="markdownIt-Anchor" href="#标签-6"></a> 标签</h3>
+<p><code>递归</code>、<code>链表</code></p>
+<h3 id="题解-6"><a class="markdownIt-Anchor" href="#题解-6"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">nullptr</span> || head-&gt;next == <span class="literal">nullptr</span>) <span class="keyword">return</span> head; </span><br><span class="line">        ListNode* l = head;  <span class="comment">// 指向头节点</span></span><br><span class="line">        ListNode* r = head;  <span class="comment">// 指向尾节点</span></span><br><span class="line">        <span class="keyword">while</span>(r-&gt;next)&#123;</span><br><span class="line">            r = r-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* p = head;</span><br><span class="line">        ListNode* q= head-&gt;next;</span><br><span class="line">        ListNode* k = head-&gt;next-&gt;next;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(k)&#123;  <span class="comment">// 节点指针反转</span></span><br><span class="line">            q-&gt;next = p;</span><br><span class="line">            p = q;</span><br><span class="line">            q = k;</span><br><span class="line">            k = k-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        q-&gt;next = p; <span class="comment">// 最后两个节点进行交换</span></span><br><span class="line"></span><br><span class="line">        head = r;</span><br><span class="line">        l -&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 为<code>head</code> 的长度</li>
+<li>空间复杂度：<em>O(1)</em></li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：8 ms, 在所有 C++ 提交中击败了49.83%的用户</p>
+<p>内存消耗：8 MB, 在所有 C++ 提交中击败了71.06%的用户</p>
+<p>通过测试用例：28 / 28</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
