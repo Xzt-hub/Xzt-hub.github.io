@@ -5083,6 +5083,19 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <li>Java 基础入门 Java8 <a href="http://atopos-blog.cn/2022/05/01/JAVA/03JavaBasic/">【传送门】</a></li>
 <li>Java 企业开发基础 MySQL <a href="http://atopos-blog.cn/2022/06/06/JAVA/04JavaMySQL/">【传送门】</a></li>
 </ul>
+<h2 id="acwing-系列"><a class="markdownIt-Anchor" href="#acwing-系列"></a> AcWing 系列</h2>
+<ul>
+<li>AcWing 算法基础课 <a href="http://atopos-blog.cn/2022/03/20/AcWing/Algorithm_Basic/">【传送门】</a></li>
+<li>AcWing SpringBoot框架课 <a href="http://atopos-blog.cn/2022/06/29/AcWing/SpringCourse/">【传送门】</a></li>
+</ul>
+<h2 id="ubuntu-问题系列"><a class="markdownIt-Anchor" href="#ubuntu-问题系列"></a> Ubuntu 问题系列</h2>
+<ul>
+<li>Ubuntu 安装<code>Python3</code>以及<code>pip3</code> <a href="http://atopos-blog.cn/2022/06/08/Ubuntu/01installPythonAndPIP/">【传送门】</a></li>
+<li>Ubuntu 安装<code>LLVM7.1.0</code>和 <code>clang</code> <a href="http://atopos-blog.cn/2022/06/15/Ubuntu/02InstallLLVM/">【传送门】</a></li>
+<li>Ubuntu <code>apt-get</code>安装时报错 <a href="http://atopos-blog.cn/2022/06/22/Ubuntu/03apt-get/">【传送门】</a></li>
+<li>Ubuntu <code>pip</code>系列问题 <a href="http://atopos-blog.cn/2022/06/22/Ubuntu/04pip/">【传送门】</a></li>
+<li>Ubuntu 安装LLFI及所用的工具 <a href="http://atopos-blog.cn/2022/06/25/Ubuntu/05InstallLLFI/">【传送门】</a></li>
+</ul>
 ]]></content>
   </entry>
 </search>
