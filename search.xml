@@ -5124,6 +5124,88 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <h2 id="java-语法"><a class="markdownIt-Anchor" href="#java-语法"></a> Java 语法</h2>
 <h3 id="变量-运算符-输入与输出"><a class="markdownIt-Anchor" href="#变量-运算符-输入与输出"></a> 变量、运算符、输入与输出</h3>
 <p>类似于<code>c#</code>，<code>Java</code> 的所有变量和函数都需要定义在<code>class</code>中。</p>
+<h4 id="内置数据类型"><a class="markdownIt-Anchor" href="#内置数据类型"></a> 内置数据类型</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">字节数</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>byte</code></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">123</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>short</code></td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">12345</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>int</code></td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">123456789</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>long</code></td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">123456789L</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>float</code></td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">1.2F</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>double</code></td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1.2, 1.2D</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>boolean</code></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">true, false</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>char</code></td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">‘A’</td>
+</tr>
+</tbody>
+</table>
+<h4 id="常量"><a class="markdownIt-Anchor" href="#常量"></a> 常量</h4>
+<p>使用 <code>final</code> 修饰</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> <span class="number">110</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="类型转换"><a class="markdownIt-Anchor" href="#类型转换"></a> 类型转换</h4>
+<ul>
+<li>显示转化：<code>int x = (int)'A'</code></li>
+<li>隐式转化：<code>double x = 12, y = 4 * 3.3;</code> ，只适用于低精度类型向高精度类型转换。</li>
+</ul>
+<h4 id="表达式"><a class="markdownIt-Anchor" href="#表达式"></a> 表达式</h4>
+<p>与 C++、Python3类似</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>, b = <span class="number">2</span>, c = <span class="number">3</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> (a + b) * c;</span><br><span class="line">x ++;</span><br></pre></td></tr></table></figure>
+<h4 id="输入"><a class="markdownIt-Anchor" href="#输入"></a> 输入</h4>
+<ul>
+<li>方式一：效率低，输入规模较小时使用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Scanner</span> <span class="variable">cin</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> cin.next();</span><br><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> cin.nextInt();</span><br><span class="line"><span class="type">float</span> <span class="variable">y</span> <span class="operator">=</span> cin.nextFloat();</span><br><span class="line"><span class="type">double</span> <span class="variable">z</span> <span class="operator">=</span> cin.nextDouble();</span><br><span class="line"><span class="type">String</span> <span class="variable">line</span> <span class="operator">=</span> cin.nextLine();  <span class="comment">// 读入下一行</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>方式二：效率较高，输入规模较大时使用。注意需要抛异常。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">br</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in));</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> br.readLine();</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="输出"><a class="markdownIt-Anchor" href="#输出"></a> 输出</h4>
+<ul>
+<li>方式一：效率较低，输出规模较小时使用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="number">123</span>);  <span class="comment">// 输出整数 + 换行</span></span><br><span class="line">System.out.println(<span class="string">&quot;Hello World&quot;</span>);  <span class="comment">// 输出字符串 + 换行</span></span><br><span class="line">System.out.print(<span class="number">123456</span>);  <span class="comment">// 输出整数</span></span><br><span class="line">System.out.print(<span class="string">&quot;xzt\n&quot;</span>);  <span class="comment">// 输出字符串</span></span><br><span class="line">System.out.printf(<span class="string">&quot;%04d %.2f\n&quot;</span>, <span class="number">4</span>, <span class="number">123.456D</span>);  <span class="comment">// 格式化输出，float与double都用%f输出</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>方式二：输出效率较高，输出规模较大时使用，需要抛出异常</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">BufferedWriter</span> <span class="variable">bw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(<span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(System.out));</span><br><span class="line">        bw.write(<span class="string">&quot;hello World\n&quot;</span>);</span><br><span class="line">        bw.flush();  <span class="comment">// 需要刷新缓冲区</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="判断语句"><a class="markdownIt-Anchor" href="#判断语句"></a> 判断语句</h3>
 ]]></content>
       <categories>
         <category>AcWing</category>
