@@ -5392,4 +5392,33 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 </ul>
 ]]></content>
   </entry>
+  <entry>
+    <title>LLVM CFG控制流图可视化</title>
+    <url>/2022/07/04/Ubuntu/07drawCFG/</url>
+    <content><![CDATA[<h2 id="安装组件"><a class="markdownIt-Anchor" href="#安装组件"></a> 安装组件</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install -y graphviz-doc libgraphviz-dev graphviz</span><br></pre></td></tr></table></figure>
+<h2 id="示例程序"><a class="markdownIt-Anchor" href="#示例程序"></a> 示例程序</h2>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// file test.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> x= <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> y = <span class="number">11</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> z = <span class="number">12</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">        z *= x * y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="生成llvm-ir文件"><a class="markdownIt-Anchor" href="#生成llvm-ir文件"></a> 生成<code>LLVM IR</code>文件</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang -S -emit-llvm test.c -o test.ll</span><br></pre></td></tr></table></figure>
+<h2 id="调用控制流图"><a class="markdownIt-Anchor" href="#调用控制流图"></a> 调用控制流图</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -dot-callgraph test.ll  <span class="comment"># 生成.dot文件</span></span><br></pre></td></tr></table></figure>
+<p><code>dot</code>文件会在当前目录下生成，不同版本的<code>llvm</code>可能<code>dot</code>文件的名字可能稍有不同，我使用的版本产生的dot文件是<code>callgraph.dot</code>。使用以下命令生成图片：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dot callgraph.dot -Tpng -o callgraph.png</span><br></pre></td></tr></table></figure>
+<p><img src="/img/Ubuntu/07drawCFG/callgraph.png" alt="callgraph" /></p>
+<h2 id="函数控制流图"><a class="markdownIt-Anchor" href="#函数控制流图"></a> 函数控制流图</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opt -dot-cfg test.ll</span><br></pre></td></tr></table></figure>
+<p><code>dot</code>文件会在当前目录下生成，不同版本的<code>llvm</code>可能<code>dot</code>文件的名字可能稍有不同，我使用的版本产生的dot文件是<code>cfg.main.dot</code>。使用以下命令生成图片：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dot cfg.main.dot -Tpng -o cfg.main.png  <span class="comment"># 生成图片</span></span><br></pre></td></tr></table></figure>
+<p>控制流图如下：</p>
+<p><img src="/img/Ubuntu/07drawCFG/cfg.main.png" alt="cfg.main" /></p>
+]]></content>
+      <categories>
+        <category>LLVM</category>
+      </categories>
+      <tags>
+        <tag>LLVM</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
 </search>
