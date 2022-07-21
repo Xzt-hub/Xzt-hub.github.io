@@ -5500,6 +5500,88 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <ul>
 <li><code>https://start.spring.io/</code> 加载慢的话，可以换成：<code>https://start.aliyun.com</code></li>
 </ul>
+<h3 id="创建项目"><a class="markdownIt-Anchor" href="#创建项目"></a> 创建项目</h3>
+<p><img src="SpringCourse/image-20220711085513041.png" alt="image-20220711085513041" /></p>
+<p>然后在下一页面只需要选择 <code>Web/Spring Web</code> 和 <code>Templa Engines/thymeleaf</code> 两个选项。</p>
+<h3 id="编写类"><a class="markdownIt-Anchor" href="#编写类"></a> 编写类</h3>
+<p><img src="SpringCourse/image-20220711085752419.png" alt="image-20220711085752419" /></p>
+<p>则可以根据<code>localhost:8080/pk/index/</code>路径跳转至<code>index.html</code>页面</p>
+<h3 id="修改后端端口号"><a class="markdownIt-Anchor" href="#修改后端端口号"></a> 修改后端端口号</h3>
+<p>在<code>application.properties</code>文件中修改<code>server.port=8080</code>为<code>server.port=3000</code>，则访问路径变为：<code>localhost:3000</code></p>
+<h2 id="创建项目web端与acapp端"><a class="markdownIt-Anchor" href="#创建项目web端与acapp端"></a> 创建项目Web端与AcApp端</h2>
+<ul>
+<li>vscode下载地址：<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li>Bootstrap官网地址：<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li>web端需要使用VSCode：<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li>vue安装：看讲义 <a href="https://www.acwing.com/file_system/file/content/whole/index/content/5639568/"> vue讲义 </a></li>
+</ul>
+<h3 id="创建vue项目"><a class="markdownIt-Anchor" href="#创建vue项目"></a> 创建vue项目</h3>
+<p>创建<code>vue</code> 项目时，使用<code>Power Shell</code>进行创建，可以现在<code>Power Sehll</code>里进入需要创建的目录中，再打开<code>vue ui</code>进行项目创建。</p>
+<p><img src="SpringCourse/image-20220713204639004.png" alt="image-20220713204639004" /></p>
+<ul>
+<li>需要创建两个前端项目：<code>web</code> 和 <code>acapp</code></li>
+</ul>
+<p><img src="SpringCourse/image-20220713204546107.png" alt="image-20220713204546107" /></p>
+<h3 id="安装插件"><a class="markdownIt-Anchor" href="#安装插件"></a> 安装插件</h3>
+<p>创建好项目后，需要安装插件：</p>
+<p><img src="SpringCourse/image-20220713205101757.png" alt="image-20220713205101757" /></p>
+<h3 id="安装依赖"><a class="markdownIt-Anchor" href="#安装依赖"></a> 安装依赖</h3>
+<p>然后<code>web</code>端需要再装依赖<code>jquery</code>和<code>bootstrap</code></p>
+<p><img src="SpringCourse/image-20220713205210434.png" alt="image-20220713205210434" /></p>
+<h3 id="运行项目"><a class="markdownIt-Anchor" href="#运行项目"></a> 运行项目</h3>
+<p><img src="SpringCourse/image-20220713205342173.png" alt="image-20220713205342173" /></p>
+<h1 id="day04创建菜单与游戏页面"><a class="markdownIt-Anchor" href="#day04创建菜单与游戏页面"></a> day04：创建菜单与游戏页面</h1>
+<h2 id="vue创建组件"><a class="markdownIt-Anchor" href="#vue创建组件"></a> Vue创建组件</h2>
+<p><strong>组件作用：</strong> 当所有页面都共享一部分内容时，可将该内容写为一个组件。</p>
+<p>在 <code>components/</code> 目录下创建。</p>
+<p>**注意：**组件名称必须有两个字母大写，没有或只有一个会报错</p>
+<p><img src="SpringCourse/image-20220713210047829.png" alt="image-20220713210047829" /></p>
+<ul>
+<li>每个<code>.vue</code>文件由三部分组成：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;  /* scoped的作用是在本页面写的css会加上随机字符串，不会影响别的页面 */</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="创建导航栏"><a class="markdownIt-Anchor" href="#创建导航栏"></a> 创建导航栏</h2>
+<p>效果图：</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/07/12/167993_a28e469f01-2a9d61c76c0c44bd5ddb30e4522148c.png" alt="2a9d61c76c0c44bd5ddb30e4522148c.png" /></p>
+<h3 id="bootstrap添加导航栏"><a class="markdownIt-Anchor" href="#bootstrap添加导航栏"></a> Bootstrap添加导航栏</h3>
+<p>在 <a href="https://v5.bootcss.com/docs/components/navbar/">Bootstrap</a> 中搜索Navbar就可以找到各种样式的导航栏，选择其中一种即可。</p>
+<p>在<code>components/</code>目录下创建<code>NavBar.vue</code>组件，并修改组件中的一些名称信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">      &lt;!-- router-link 使用该标签代替a标签，点击时页面不会刷新 --&gt;</span><br><span class="line">      &lt;router-link class=&quot;navbar-brand&quot; :to=&quot;&#123; name: &#x27;home&#x27; &#125;&quot;&gt;King Of Bots&lt;/router-link&gt;</span><br><span class="line">      &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarText&quot;&gt;</span><br><span class="line">        &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;</span><br><span class="line">          &lt;li class=&quot;nav-item&quot;&gt;</span><br><span class="line">            &lt;router-link :class=&quot;route_name == &#x27;pk_index&#x27; ? &#x27;nav-link active&#x27; : &#x27;nav-link&#x27;&quot; :to=&quot;&#123; name: &#x27;pk_index&#x27; &#125;&quot;&gt;</span><br><span class="line">              对战</span><br><span class="line">            &lt;/router-link&gt;</span><br><span class="line">          &lt;/li&gt;</span><br><span class="line">          &lt;li class=&quot;nav-item&quot;&gt;</span><br><span class="line">            &lt;router-link :class=&quot;route_name == &#x27;record_index&#x27; ? &#x27;nav-link active&#x27; : &#x27;nav-link&#x27;&quot;</span><br><span class="line">              :to=&quot;&#123; name: &#x27;record_index&#x27; &#125;&quot;&gt;对局列表&lt;/router-link&gt;</span><br><span class="line">          &lt;/li&gt;</span><br><span class="line">          &lt;li class=&quot;nav-item&quot;&gt;</span><br><span class="line">            &lt;router-link :class=&quot;route_name == &#x27;ranklist_index&#x27; ? &#x27;nav-link active&#x27; : &#x27;nav-link&#x27;&quot;</span><br><span class="line">              :to=&quot;&#123; name: &#x27;ranklist_index&#x27; &#125;&quot;&gt;排行榜&lt;/router-link&gt;</span><br><span class="line">          &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;ul class=&quot;navbar-nav&quot;&gt;</span><br><span class="line">          &lt;li class=&quot;nav-item dropdown&quot;&gt;</span><br><span class="line">            &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; id=&quot;navbarDropdown&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot;</span><br><span class="line">              aria-expanded=&quot;false&quot;&gt;</span><br><span class="line">              xzt</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">            &lt;ul class=&quot;dropdown-menu&quot; aria-labelledby=&quot;navbarDropdown&quot;&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;router-link class=&quot;dropdown-item&quot; :to=&quot;&#123; name: &#x27;user_bot_index&#x27; &#125;&quot;&gt;我的Bot&lt;/router-link&gt;</span><br><span class="line">              &lt;/li&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;hr class=&quot;dropdown-divider&quot;&gt;</span><br><span class="line">              &lt;/li&gt;</span><br><span class="line">              &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;退出&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">          &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/nav&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; useRoute &#125; from &#x27;vue-router&#x27;  // 用于获取当前在哪个页面</span><br><span class="line">import &#123; computed &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    const route = useRoute();</span><br><span class="line">    let route_name = computed(() =&gt; route.name)</span><br><span class="line">    return &#123;</span><br><span class="line">      route_name</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="会遇到的问题"><a class="markdownIt-Anchor" href="#会遇到的问题"></a> 会遇到的问题</h3>
+<p>在创建好组件后，会提示需要安装依赖<code>@popperjs/core</code>，去vue页面下载安装即可。</p>
+<p><img src="SpringCourse/image-20220721152928047.png" alt="image-20220721152928047" /></p>
+<p><img src="SpringCourse/image-20220721153032064.png" alt="image-20220721153032064" /></p>
+<h3 id="将页面和导航栏链接地址映射"><a class="markdownIt-Anchor" href="#将页面和导航栏链接地址映射"></a> 将页面和导航栏链接地址映射</h3>
+<ul>
+<li>创建页面</li>
+</ul>
+<p>在<code>views/</code>目录下创建若干目录，分别保存一个对应的<code>.vue</code>文件，格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- RanklistIndexView.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;ContentField&gt;排行榜&lt;/ContentField&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import ContentField from &#x27;@/components/ContentField.vue&#x27; // 写的一个组件，所有页面共享的一个组件</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        ContentField</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>ContentField.vue</code>组件，实现一个卡片，在<code>bootstrap</code>中搜索 card 即可得到</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- ContentField.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;container content-field&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;card&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;card-body&quot;&gt;</span><br><span class="line">                &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">div.content-field &#123;</span><br><span class="line">    margin-top: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>和链接地址关联起来</li>
+</ul>
+<p>在<code>router/</code>目录下创建<code>index.js</code>，在文件中填写路由</p>
+<ul>
+<li>需要输入根目录重定向至pk页面</li>
+<li>输入地址格式错误或乱码，则重定向至404页面</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRouter, createWebHistory &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">PkIndexView</span> <span class="keyword">from</span> <span class="string">&#x27;@/views/pk/PkIndexView&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">RecordIndexView</span> <span class="keyword">from</span> <span class="string">&#x27;@/views/record/RecordIndexView&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">RanklistIndexView</span> <span class="keyword">from</span> <span class="string">&#x27;@/views/ranklist/RanklistIndexView&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">NotFound</span> <span class="keyword">from</span> <span class="string">&#x27;@/views/error/NotFound&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">UserBotIndexView</span> <span class="keyword">from</span> <span class="string">&#x27;@/views/user/bot/UserBotIndexView&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/&quot;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;home&quot;</span>,</span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">&quot;/pk/&quot;</span>,  <span class="comment">// 输入根目录重定向至pk页面</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/pk/&quot;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;pk_index&quot;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">PkIndexView</span>,  <span class="comment">// 地址栏输入 localhost:8080/pk/ 即可显示 PkIndexView 的内容</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/record/&quot;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;record_index&quot;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">RecordIndexView</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/ranklist/&quot;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;ranklist_index&quot;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">RanklistIndexView</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/404/&quot;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;404&quot;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">NotFound</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/user/bot/&quot;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;user_bot_index&quot;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">UserBotIndexView</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/:catchAll(.*)&quot;</span>,  <span class="comment">// 输入格式错误或乱码，则重定向至404页面</span></span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">&quot;/404/&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123;</span><br><span class="line">  <span class="attr">history</span>: <span class="title function_">createWebHistory</span>(),</span><br><span class="line">  routes</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="导航栏中存在的问题"><a class="markdownIt-Anchor" href="#导航栏中存在的问题"></a> 导航栏中存在的问题</h3>
+<ul>
+<li>每次点击某个链接，页面会进行刷新，可以将<code>&lt;a&gt;</code>标签改为<code>&lt;router-link&gt;</code>标签，避免这种问题</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;router-link :class=&quot;route_name == &#x27;pk_index&#x27; ? &#x27;nav-link active&#x27; : &#x27;nav-link&#x27;&quot; :to=&quot;&#123; name: &#x27;pk_index&#x27; &#125;&quot;&gt;</span><br><span class="line">    对战</span><br><span class="line">&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>:class</code> 判断是否在当前页面，若在的话则可以添加<code>active</code> 实现该链接名高亮。</li>
+<li><code>:to</code> 点击时跳转的页面，通过上面<code>router/index.js</code>页面的映射名字进行跳转。</li>
+</ul>
+<h3 id="最终效果"><a class="markdownIt-Anchor" href="#最终效果"></a> 最终效果</h3>
+<p><img src="SpringCourse/image-20220721155438423.png" alt="image-20220721155438423" /></p>
+<h2 id="创建对战页面的地图和障碍物"><a class="markdownIt-Anchor" href="#创建对战页面的地图和障碍物"></a> 创建对战页面的地图和障碍物</h2>
 ]]></content>
       <categories>
         <category>AcWing</category>
@@ -5564,6 +5646,44 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       <tags>
         <tag>LLVM</tag>
         <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu16.04 下Anaconda的安装与使用</title>
+    <url>/2022/06/08/Ubuntu/08InstallAnconda/</url>
+    <content><![CDATA[<h2 id="anaconda下载与安装"><a class="markdownIt-Anchor" href="#anaconda下载与安装"></a> Anaconda下载与安装</h2>
+<h3 id="下载anaconda"><a class="markdownIt-Anchor" href="#下载anaconda"></a> 下载Anaconda</h3>
+<ul>
+<li>官方下载地址：<a href="https://www.continuum.io/downloads">https://www.continuum.io/downloads</a></li>
+<li>清华大学开源镜像地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></li>
+</ul>
+<p>官方下载地址往往比较慢，这里较为推荐去清华开源镜像地址下载，选择好自己的操作系统和想要安装的软件版本就好了。</p>
+<p><img src="08InstallAnconda/image-20220712212728662.png" alt="image-20220712212728662" /></p>
+<p>这里下载了<code>Anconda3-5.3.0-Linux-x86_64.sh</code></p>
+<h3 id="安装anaconda"><a class="markdownIt-Anchor" href="#安装anaconda"></a> 安装Anaconda</h3>
+<ul>
+<li>打开下载的文件所在位置</li>
+<li>运行安装<code>.sh</code>文件命令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash Anaconda3-5.3.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后一路按Enter键查看安装说明</li>
+</ul>
+<h2 id="配置清华镜像源"><a class="markdownIt-Anchor" href="#配置清华镜像源"></a> 配置清华镜像源</h2>
+<p>首先，输入命令 <code>conda config --show channels</code> 能够显示出所有channels的信息，一般是defaults的源，下载速度比较慢，不太友好，清华源镜像资源包齐全，下载速度，因此常配置成清华源。</p>
+<ul>
+<li>编辑文件<code>gedit ~/.condarc</code>，复制下面内容至文件中</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/Paddle/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/fastai/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line"></span><br><span class="line">show_channel_urls: true</span><br><span class="line">ssl_verify: false</span><br></pre></td></tr></table></figure>
+<p>配置好的镜像源写入anaconda3根目录的 <code>~/.condarc</code> 文件下，可以用命令 <code>cat ~/.condarc</code> 查看。<a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">清华大学开源镜像 - Anaconda 镜像使用帮助</a> 中推荐生成的 <code>.condarc</code> 文件内容如下:</p>
+]]></content>
+      <categories>
+        <category>疑难杂症</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>疑难杂症</tag>
+        <tag>anconda</tag>
       </tags>
   </entry>
 </search>
