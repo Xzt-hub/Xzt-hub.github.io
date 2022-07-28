@@ -5161,7 +5161,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
     <url>/2022/06/25/Ubuntu/05InstallLLFI/</url>
     <content><![CDATA[<h2 id="安装python3或者更高版本"><a class="markdownIt-Anchor" href="#安装python3或者更高版本"></a> 安装python3或者更高版本</h2>
 <p>这部分在另一篇文章中写到了。</p>
-<p><a href="http://atopos-blog.cn/2022/06/08/Ubuntu/installPythonAndPIP/"> Ubuntu 安装Python3以及pip3 </a></p>
+<p><a href="http://atopos-blog.cn/2022/06/08/Ubuntu/01installPythonAndPIP/"> Ubuntu 安装Python3以及pip3 </a></p>
 <h2 id="安装cmake"><a class="markdownIt-Anchor" href="#安装cmake"></a> 安装cmake</h2>
 <p>直接使用<code>apt-get</code>进行安装即可。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install cmake</span><br></pre></td></tr></table></figure>
