@@ -5834,4 +5834,55 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>anconda</tag>
       </tags>
   </entry>
+  <entry>
+    <title>AcWing 每日一题 &amp; 秋招</title>
+    <url>/2022/08/13/AcWing/AutumnTricks/</url>
+    <content><![CDATA[<p>i</p>
+<h2 id="学习平台"><a class="markdownIt-Anchor" href="#学习平台"></a> 学习平台</h2>
+<p><a href="https://www.acwing.com/about/"> AcWing </a> 、 <a href="https://leetcode.cn/"> LeetCode </a></p>
+<h2 id="题目1用户分组"><a class="markdownIt-Anchor" href="#题目1用户分组"></a> 题目1：用户分组</h2>
+<p><a href="https://leetcode.cn/problems/group-the-people-given-the-group-size-they-belong-to/">1282. 用户分组</a></p>
+<h3 id="标签"><a class="markdownIt-Anchor" href="#标签"></a> 标签</h3>
+<p><code>数组</code>、<code>哈希表</code></p>
+<h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">C++</button></li><li class="tab"><button type="button" data-href="#题解-2">Java</button></li><li class="tab"><button type="button" data-href="#题解-3">Python3</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">groupThePeople</span>(vector&lt;<span class="type">int</span>&gt;&amp; groupSizes) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;&gt; hash;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; groupSizes.<span class="built_in">size</span>(); i ++)&#123;</span><br><span class="line">            <span class="type">int</span> x = groupSizes[i];</span><br><span class="line">            hash[x].<span class="built_in">push_back</span>(i);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(hash[x].<span class="built_in">size</span>() == x) &#123;</span><br><span class="line">                res.<span class="built_in">push_back</span>(hash[x]);</span><br><span class="line">                hash[x].<span class="built_in">clear</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 n 是 <em>groupSize</em>的长度，需遍历一遍数组。</li>
+<li>空间复杂度：<em>O(n)</em>，主要取决于哈希表。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：8 ms, 在所有 C++ 提交中击败了88.05%的用户</p>
+<p>内存消耗：12.7 MB, 在所有 C++ 提交中击败了63.05%的用户</p>
+<p>通过测试用例：103 / 103</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-2"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="built_in">groupThePeople</span>(<span class="type">int</span>[] groupSizes) &#123;</span><br><span class="line">        Map&lt;Integer, List&lt;Integer&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; groupSizes.length; i ++)&#123;</span><br><span class="line">            <span class="type">int</span> x = groupSizes[i];</span><br><span class="line">            <span class="keyword">if</span>(map.<span class="built_in">get</span>(x) == null)</span><br><span class="line">                map.<span class="built_in">put</span>(x, <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">            map.<span class="built_in">get</span>(x).<span class="built_in">add</span>(i);</span><br><span class="line">            <span class="keyword">if</span>(map.<span class="built_in">get</span>(x).<span class="built_in">size</span>() == x)&#123;</span><br><span class="line">                res.<span class="built_in">add</span>(map.<span class="built_in">get</span>(x));</span><br><span class="line">                map.<span class="built_in">put</span>(x, null);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 n 是 <em>groupSize</em>的长度，需遍历一遍数组。</li>
+<li>空间复杂度：<em>O(n)</em>，主要取决于哈希表。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：7 ms, 在所有 Java 提交中击败了42.69%的用户</p>
+<p>内存消耗：41.8 MB, 在所有 Java 提交中击败了81.09%的用户</p>
+<p>通过测试用例：103 / 103</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-3"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="function">def <span class="title">groupThePeople</span><span class="params">(self, groupSizes: List[<span class="type">int</span>])</span> -&gt; List[List[<span class="type">int</span>]]:</span></span><br><span class="line"><span class="function">        hash =</span> &#123;&#125;</span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">len</span>(groupSizes)):</span><br><span class="line">            x = groupSizes[i]</span><br><span class="line">            <span class="keyword">if</span> x <span class="keyword">not</span> in hash:</span><br><span class="line">                hash[x] = []</span><br><span class="line">            hash[x].<span class="built_in">append</span>(i)</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(hash[x]) == x:</span><br><span class="line">                res.<span class="built_in">append</span>(hash[x])</span><br><span class="line">                hash[x] = []</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O(n)</em>，其中 n 是 <em>groupSize</em>的长度，需遍历一遍数组。</li>
+<li>空间复杂度：<em>O(n)</em>，主要取决于哈希表。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：44 ms, 在所有 Python3 提交中击败了47.85%的用户</p>
+<p>内存消耗：15 MB, 在所有 Python3 提交中击败了64.26%的用户</p>
+<p>通过测试用例：103 / 103</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>]]></content>
+      <categories>
+        <category>AcWing</category>
+        <category>Course</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>AcWing</tag>
+        <tag>LeetCode</tag>
+        <tag>C++</tag>
+        <tag>Python3</tag>
+      </tags>
+  </entry>
 </search>
