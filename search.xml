@@ -5958,7 +5958,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <p>内存消耗：40128 KB</p>
 <p>通过测试用例：103 / 103</p>
 </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-<h2 id="题目4设计双端队列"><a class="markdownIt-Anchor" href="#题目4设计双端队列"></a> 题目4：设计双端队列</h2>
+<h2 id="题目4设计双端队列"><a class="markdownIt-Anchor" href="#题目4设计双端队列"></a> 题目4：设计双端队列⭐</h2>
 <p><a href="https://leetcode.cn/problems/design-circular-deque/"> 设计循环双端队列 </a></p>
 <h3 id="标签-4"><a class="markdownIt-Anchor" href="#标签-4"></a> 标签</h3>
 <p><code>设计</code>、<code>队列</code>、<code>数组</code>、<code>链表</code></p>
@@ -6161,6 +6161,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <p>通过测试用例：111 / 111</p>
 </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 <h2 id="题目9最大二叉树"><a class="markdownIt-Anchor" href="#题目9最大二叉树"></a> 题目9：最大二叉树</h2>
+<p><a href="https://leetcode.cn/problems/maximum-binary-tree/"> 最大二叉树 </a></p>
 <h3 id="标签-9"><a class="markdownIt-Anchor" href="#标签-9"></a> 标签</h3>
 <p><code>栈</code>、<code>树</code>、<code>数组</code>、<code>分治</code>、<code>二叉树</code>、<code>单调栈</code></p>
 <h3 id="题解-9"><a class="markdownIt-Anchor" href="#题解-9"></a> 题解</h3>
@@ -6192,7 +6193,113 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <p>内存消耗：15.5 MB, 在所有 Python3 提交中击败了69.26%的用户</p>
 <p>通过测试用例：107 / 107</p>
 </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-]]></content>
+<h2 id="题目10将矩阵按对角线排序"><a class="markdownIt-Anchor" href="#题目10将矩阵按对角线排序"></a> 题目10：将矩阵按对角线排序⭐</h2>
+<p><a href="https://leetcode.cn/problems/sort-the-matrix-diagonally/"> 将矩阵按对角线排序 </a></p>
+<h3 id="标签-10"><a class="markdownIt-Anchor" href="#标签-10"></a> 标签</h3>
+<p><code>数组</code>、<code>矩阵</code>、<code>排序</code></p>
+<h3 id="思路-7"><a class="markdownIt-Anchor" href="#思路-7"></a> 思路</h3>
+<p>首先遍历截距，每条对角线对应到坐标系都会存在一个截距，首先根据截距确定对角线，然后根据 x 值确定 y ，进而将对角线元素加入到一个临时数组中并进行排序后又重新赋值会原数组。</p>
+<h3 id="题解-10"><a class="markdownIt-Anchor" href="#题解-10"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">C++</button></li><li class="tab"><button type="button" data-href="#题解-2">Java</button></li><li class="tab"><button type="button" data-href="#题解-3">Python3</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">diagonalSort</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; mat) &#123;</span><br><span class="line">        <span class="type">int</span> n = mat.<span class="built_in">size</span>(), m = mat[<span class="number">0</span>].<span class="built_in">size</span>();  <span class="comment">// 行，列</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> b = -(n - <span class="number">1</span>); b &lt;= m - <span class="number">1</span>; b ++) &#123;  <span class="comment">// 遍历截距</span></span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> x = <span class="number">0</span>, y = b; x &lt; n &amp;&amp; y &lt; m; x ++, y ++) </span><br><span class="line">                <span class="keyword">if</span>(y &gt;= <span class="number">0</span>)</span><br><span class="line">                    res.<span class="built_in">push_back</span>(mat[x][y]);</span><br><span class="line">            <span class="built_in">sort</span>(res.<span class="built_in">begin</span>(), res.<span class="built_in">end</span>());</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> x = <span class="number">0</span>, y = b, k = <span class="number">0</span>; x &lt; n &amp;&amp; y &lt; m; x ++, y ++)</span><br><span class="line">                <span class="keyword">if</span>(y &gt;= <span class="number">0</span>)</span><br><span class="line">                    mat[x][y] = res[k ++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mat;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>((m+n) × min(m,n) × log(min(m,n)))</li>
+<li>空间复杂度：<em>O</em>(n + m)。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：8 ms, 在所有 C++ 提交中击败了85.51%的用户</p>
+<p>内存消耗：9.1 MB, 在所有 C++ 提交中击败了38.16%的用户</p>
+<p>通过测试用例：15 / 15</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-2"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[][] diagonalSort(<span class="type">int</span>[][] mat) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> mat.length, m = mat[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> -(n - <span class="number">1</span>); b &lt;= m - <span class="number">1</span>; b ++) &#123;</span><br><span class="line">            ArrayList&lt;Integer&gt; q = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">0</span>, y = b; x &lt; n &amp;&amp; y &lt; m; x ++, y ++)</span><br><span class="line">                <span class="keyword">if</span>(y &gt;= <span class="number">0</span>)</span><br><span class="line">                    q.add(mat[x][y]);</span><br><span class="line">            q.sort(Comparator.naturalOrder());</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">0</span>, y = b, k = <span class="number">0</span>; x &lt; n &amp;&amp; y &lt; m; x ++, y ++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(y &gt;= <span class="number">0</span>)</span><br><span class="line">                    mat[x][y] = q.get(k ++);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mat;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>((m+n) × min(m,n) × log(min(m,n)))</li>
+<li>空间复杂度：<em>O</em>(n + m)。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：7 ms, 在所有 Java 提交中击败了39.29%的用户</p>
+<p>内存消耗：42.5 MB, 在所有 Java 提交中击败了61.04%的用户</p>
+<p>通过测试用例：15 / 15</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-3"><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">diagonalSort</span>(<span class="params">self, mat: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]</span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line">        n, m = <span class="built_in">len</span>(mat), <span class="built_in">len</span>(mat[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(-(n -<span class="number">1</span>), m):</span><br><span class="line">            res = []</span><br><span class="line">            x, y = <span class="number">0</span>, b</span><br><span class="line">            <span class="keyword">while</span> x &lt; n <span class="keyword">and</span> y &lt; m:</span><br><span class="line">                <span class="keyword">if</span> y &gt;= <span class="number">0</span>:</span><br><span class="line">                    res.append(mat[x][y])</span><br><span class="line">                x += <span class="number">1</span></span><br><span class="line">                y += <span class="number">1</span></span><br><span class="line">            res.sort()</span><br><span class="line">            x, y, k = <span class="number">0</span>, b, <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> x &lt; n <span class="keyword">and</span> y &lt; m:</span><br><span class="line">                <span class="keyword">if</span> y &gt;= <span class="number">0</span>:</span><br><span class="line">                    mat[x][y] = res[k]</span><br><span class="line">                    k += <span class="number">1</span></span><br><span class="line">                x += <span class="number">1</span></span><br><span class="line">                y += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> mat</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>((m+n) × min(m,n) × log(min(m,n)))</li>
+<li>空间复杂度：<em>O</em>(n + m)。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：48 ms, 在所有 Python3 提交中击败了58.73%的用户</p>
+<p>内存消耗：15.2 MB, 在所有 Python3 提交中击败了80.95%的用户</p>
+<p>通过测试用例：15 / 15</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="题目11逃离迷宫"><a class="markdownIt-Anchor" href="#题目11逃离迷宫"></a> 题目11：逃离迷宫⭐</h2>
+<p><a href="https://www.acwing.com/problem/content/3678/"> 逃离迷宫 </a></p>
+<h3 id="标签-11"><a class="markdownIt-Anchor" href="#标签-11"></a> 标签</h3>
+<p><code>BFS</code>、<code>双端队列BFS</code></p>
+<h3 id="思路-8"><a class="markdownIt-Anchor" href="#思路-8"></a> 思路</h3>
+<h3 id="题解-11"><a class="markdownIt-Anchor" href="#题解-11"></a> 题解</h3>
+<h2 id="题目12将数字变成0的操作次数"><a class="markdownIt-Anchor" href="#题目12将数字变成0的操作次数"></a> 题目12：将数字变成0的操作次数</h2>
+<p><a href="https://leetcode.cn/problems/number-of-steps-to-reduce-a-number-to-zero/"> 将数字变成 0 的操作次数 </a></p>
+<h3 id="标签-12"><a class="markdownIt-Anchor" href="#标签-12"></a> 标签</h3>
+<p><code>位运算</code>、<code>数学</code></p>
+<h3 id="题解-12"><a class="markdownIt-Anchor" href="#题解-12"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">C++</button></li><li class="tab"><button type="button" data-href="#题解-2">Java</button></li><li class="tab"><button type="button" data-href="#题解-3">Python3</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numberOfSteps</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(num)&#123;</span><br><span class="line">            res ++;</span><br><span class="line">            <span class="keyword">if</span>(num % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">                num /= <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                num --;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>(log num)，其中 <em>num</em> 是输入数值。每次循环都将 <em>num</em> 的数值减半，因此时间复杂度为 <em>O</em>(log num)。</li>
+<li>空间复杂度：<em>O</em>(1)。只需要常数空间。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>内存消耗：5.8 MB, 在所有 C++ 提交中击败了51.49%的用户</p>
+<p>通过测试用例：204 / 204</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-2"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">numberOfSteps</span><span class="params">(<span class="type">int</span> num)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(num != <span class="number">0</span>) &#123;</span><br><span class="line">            res ++;</span><br><span class="line">            <span class="keyword">if</span>(num % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">                num /= <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                num --;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>(log num)，其中 <em>num</em> 是输入数值。每次循环都将 <em>num</em> 的数值减半，因此时间复杂度为 <em>O</em>(log num)。</li>
+<li>空间复杂度：<em>O</em>(1)。只需要常数空间。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户</p>
+<p>内存消耗：38.5 MB, 在所有 Java 提交中击败了41.23%的用户</p>
+<p>通过测试用例：204 / 204</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-3"><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numberOfSteps</span>(<span class="params">self, num: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> num != <span class="number">0</span>:</span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> num % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">                num /= <span class="number">2</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                num -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>(log num)，其中 <em>num</em> 是输入数值。每次循环都将 <em>num</em> 的数值减半，因此时间复杂度为 <em>O</em>(log num)。</li>
+<li>空间复杂度：<em>O</em>(1)。只需要常数空间。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：32 ms, 在所有 Python3 提交中击败了90.62%的用户</p>
+<p>内存消耗：14.9 MB, 在所有 Python3 提交中击败了59.81%的用户</p>
+<p>通过测试用例：204 / 204</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="题目13大小为-k-且平均值大于等于阈值的子数组数目"><a class="markdownIt-Anchor" href="#题目13大小为-k-且平均值大于等于阈值的子数组数目"></a> 题目13：大小为 K 且平均值大于等于阈值的子数组数目</h2>
+<p><a href="https://leetcode.cn/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/">大小为 K 且平均值大于等于阈值的子数组数目</a></p>
+<h3 id="标签-13"><a class="markdownIt-Anchor" href="#标签-13"></a> 标签</h3>
+<p><code>数组</code>、<code>滑动窗口</code></p>
+<h3 id="题解-13"><a class="markdownIt-Anchor" href="#题解-13"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">C++</button></li><li class="tab"><button type="button" data-href="#题解-2">Java</button></li><li class="tab"><button type="button" data-href="#题解-3">Python3</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numOfSubarrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; arr, <span class="type">int</span> k, <span class="type">int</span> threshold)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>;r &lt; arr.<span class="built_in">size</span>(); r ++) &#123;</span><br><span class="line">            sum += arr[r];</span><br><span class="line">            <span class="keyword">if</span>(r &gt;= k) &#123; <span class="comment">// 需要删除左边元素</span></span><br><span class="line">                sum -= arr[l ++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(r - l + <span class="number">1</span> == k &amp;&amp; sum &gt;= threshold * k) res ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>(n)，其中 <em>n</em> 是数组长度。遍历一遍数组即可</li>
+<li>空间复杂度：<em>O</em>(1)。只需要常数空间。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：64 ms, 在所有 C++ 提交中击败了81.86%的用户</p>
+<p>内存消耗：54.1 MB, 在所有 C++ 提交中击败了16.03%的用户</p>
+<p>通过测试用例：69 / 69</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-2"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">numOfSubarrays</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> k, <span class="type">int</span> threshold)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> <span class="number">0</span>, r = <span class="number">0</span>; r &lt; arr.length; r ++) &#123;</span><br><span class="line">            sum += arr[r];</span><br><span class="line">            <span class="keyword">if</span>(r &gt;= k) </span><br><span class="line">                sum -= arr[l ++];</span><br><span class="line">            <span class="keyword">if</span>(r - l + <span class="number">1</span> == k &amp;&amp; sum &gt;= threshold * k) res ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>(n)，其中 <em>n</em> 是数组长度。遍历一遍数组即可</li>
+<li>空间复杂度：<em>O</em>(1)。只需要常数空间。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：3 ms, 在所有 Java 提交中击败了38.01%的用户</p>
+<p>内存消耗：52.8 MB, 在所有 Java 提交中击败了10.59%的用户</p>
+<p>通过测试用例：69 / 69</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-3"><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numOfSubarrays</span>(<span class="params">self, arr: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span>, threshold: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        res, <span class="built_in">sum</span> = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        l = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span> (<span class="number">0</span>, <span class="built_in">len</span>(arr)):</span><br><span class="line">            <span class="built_in">sum</span> += arr[r]</span><br><span class="line">            <span class="keyword">if</span> r &gt;= k:</span><br><span class="line">                <span class="built_in">sum</span> -= arr[l]</span><br><span class="line">                l += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> r - l + <span class="number">1</span> == k <span class="keyword">and</span> <span class="built_in">sum</span> &gt;= threshold * k:</span><br><span class="line">                res += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>(n)，其中 <em>n</em> 是数组长度。遍历一遍数组即可</li>
+<li>空间复杂度：<em>O</em>(1)。只需要常数空间。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：148 ms, 在所有 Python3 提交中击败了37.55%的用户</p>
+<p>内存消耗：25 MB, 在所有 Python3 提交中击败了39.74%的用户</p>
+<p>通过测试用例：69 / 69</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>]]></content>
       <categories>
         <category>AcWing</category>
         <category>Course</category>
