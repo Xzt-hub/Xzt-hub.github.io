@@ -6299,6 +6299,45 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <div class="note success simple"><p>执行用时：148 ms, 在所有 Python3 提交中击败了37.55%的用户</p>
 <p>内存消耗：25 MB, 在所有 Python3 提交中击败了39.74%的用户</p>
 <p>通过测试用例：69 / 69</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="题目14时钟指针的夹角"><a class="markdownIt-Anchor" href="#题目14时钟指针的夹角"></a> 题目14：时钟指针的夹角</h2>
+<p><a href="https://leetcode.cn/problems/angle-between-hands-of-a-clock/">时钟指针的夹角</a></p>
+<h3 id="标签-14"><a class="markdownIt-Anchor" href="#标签-14"></a> 标签</h3>
+<p><code>数学</code></p>
+<h3 id="思路-9"><a class="markdownIt-Anchor" href="#思路-9"></a> 思路</h3>
+<p>都以 <em>12</em> 的位置作为 <em>0</em> 度，</p>
+<ul>
+<li>分针的夹角：<code>m = (double)minutes * 360 / 60</code></li>
+<li>时针的夹角：<code>h = hour % 12 * 30 + (double)minutes * 30.0 / 60.0</code></li>
+</ul>
+<h3 id="题解-14"><a class="markdownIt-Anchor" href="#题解-14"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">C++</button></li><li class="tab"><button type="button" data-href="#题解-2">Java</button></li><li class="tab"><button type="button" data-href="#题解-3">Python3</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">angleClock</span><span class="params">(<span class="type">int</span> hour, <span class="type">int</span> minutes)</span> </span>&#123;</span><br><span class="line">        <span class="type">double</span> m = (<span class="type">double</span>)minutes * <span class="number">360</span> / <span class="number">60</span>; <span class="comment">// 分针的度数</span></span><br><span class="line">        <span class="type">double</span> h = hour % <span class="number">12</span> * <span class="number">30</span> + (<span class="type">double</span>)minutes * <span class="number">30.0</span> / <span class="number">60.0</span>; <span class="comment">// 时针的角度</span></span><br><span class="line">        <span class="type">double</span> res = <span class="built_in">abs</span>(m - h);</span><br><span class="line">        <span class="keyword">if</span>(res &gt; <span class="number">180</span>)   res = <span class="number">360</span> - res;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>(1)，</li>
+<li>空间复杂度：<em>O</em>(1)。只需要常数空间。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>内存消耗：5.7 MB, 在所有 C++ 提交中击败了80.22%的用户</p>
+<p>通过测试用例：105 / 105</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-2"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">angleClock</span><span class="params">(<span class="type">int</span> hour, <span class="type">int</span> minutes)</span> &#123;</span><br><span class="line">        <span class="type">double</span> <span class="variable">m</span> <span class="operator">=</span> (<span class="type">double</span>)minutes * <span class="number">360</span> / <span class="number">60</span>;</span><br><span class="line">        <span class="type">double</span> <span class="variable">h</span> <span class="operator">=</span> hour % <span class="number">12</span> * <span class="number">30</span> + (<span class="type">double</span>) minutes * <span class="number">30.0</span> / <span class="number">60.0</span>;</span><br><span class="line">        <span class="type">double</span> <span class="variable">res</span> <span class="operator">=</span> Math.abs(m - h);</span><br><span class="line">        <span class="keyword">if</span> (res &gt; <span class="number">180</span>) res = <span class="number">360</span> - res;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>(1)。</li>
+<li>空间复杂度：<em>O</em>(1)。只需要常数空间。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户</p>
+<p>内存消耗：38.3 MB, 在所有 Java 提交中击败了90.91%的用户</p>
+<p>通过测试用例：105 / 105</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="题解-3"><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">angleClock</span>(<span class="params">self, hour: <span class="built_in">int</span>, minutes: <span class="built_in">int</span></span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">        m = minutes * <span class="number">360</span> / <span class="number">60</span></span><br><span class="line">        h = hour % <span class="number">12</span> * <span class="number">30</span> + minutes * <span class="number">30</span> / <span class="number">60</span></span><br><span class="line">        res = <span class="built_in">abs</span>(m - h)</span><br><span class="line">        <span class="keyword">if</span> res &gt; <span class="number">180</span>:</span><br><span class="line">            res = <span class="number">360</span> - res</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<div class="note info simple"><ul>
+<li>时间复杂度：<em>O</em>(1)，</li>
+<li>空间复杂度：<em>O</em>(1)。只需要常数空间。</li>
+</ul>
+</div>
+<div class="note success simple"><p>执行用时：40 ms, 在所有 Python3 提交中击败了39.86%的用户</p>
+<p>内存消耗：14.9 MB, 在所有 Python3 提交中击败了56.52%的用户</p>
+<p>通过测试用例：105 / 105</p>
 </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>]]></content>
       <categories>
         <category>AcWing</category>
