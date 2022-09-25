@@ -4948,8 +4948,8 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <h2 id="查看表结构"><a class="markdownIt-Anchor" href="#查看表结构"></a> 查看表结构</h2>
 <p>只查看表结构不查看数据</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">desc</span> 表名;  </span><br><span class="line"><span class="keyword">describe</span> 表名;</span><br></pre></td></tr></table></figure>
-<h2 id="dql数据查询语言"><a class="markdownIt-Anchor" href="#dql数据查询语言"></a> DQL数据查询语言</h2>
-<h3 id="简单查询"><a class="markdownIt-Anchor" href="#简单查询"></a> 简单查询</h3>
+<h1 id="dql数据查询语言"><a class="markdownIt-Anchor" href="#dql数据查询语言"></a> DQL数据查询语言</h1>
+<h2 id="简单查询"><a class="markdownIt-Anchor" href="#简单查询"></a> 简单查询</h2>
 <ul>
 <li>查询一个字段</li>
 </ul>
@@ -4970,7 +4970,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <li>使用数学表达式</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 字段名 <span class="operator">*</span> <span class="number">12</span> <span class="keyword">from</span> 表名;</span><br></pre></td></tr></table></figure>
-<h3 id="条件查询"><a class="markdownIt-Anchor" href="#条件查询"></a> 条件查询</h3>
+<p>条件查询</p>
 <p>不是将表中所有数据都查出来，是查询出来符合条件的。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	字段<span class="number">1</span>, 字段<span class="number">2</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	表名</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	条件;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -5014,7 +5014,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <li><code>like</code>， 模糊查询，<code>%</code>代表匹配任意个字符，<code>_</code> 任意一个字符</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> sno <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">&#x27;%o%&#x27;</span>; # 名字中含o的</span><br><span class="line"><span class="keyword">select</span> sno <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">&#x27;%t&#x27;</span>;  # 以t结尾的</span><br><span class="line"><span class="keyword">select</span> sno <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">&#x27;k%&#x27;</span>;  # 以k开头的</span><br><span class="line"><span class="keyword">select</span> sno <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">&#x27;_a%&#x27;</span>; # 第二个字母是a的名字</span><br><span class="line"><span class="keyword">select</span> sno <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">&#x27;%\_%&#x27;</span>; # 名字中有_的</span><br></pre></td></tr></table></figure>
-<h3 id="排序"><a class="markdownIt-Anchor" href="#排序"></a> 排序</h3>
+<h2 id="排序"><a class="markdownIt-Anchor" href="#排序"></a> 排序</h2>
 <ul>
 <li>关键字：<code>order by</code> 默认升序，降序关键字：<code>desc</code>，指顶升序<code>asc</code></li>
 </ul>
@@ -5031,7 +5031,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <li>当条件语句和排序共存时，需要先写条件语句再写排序语句</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> sage <span class="keyword">between</span> <span class="number">18</span> <span class="keyword">and</span> <span class="number">30</span> <span class="keyword">order</span> <span class="keyword">by</span> sno <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="数据处理函数-单行处理函数"><a class="markdownIt-Anchor" href="#数据处理函数-单行处理函数"></a> 数据处理函数 / 单行处理函数</h3>
+<h2 id="数据处理函数-单行处理函数"><a class="markdownIt-Anchor" href="#数据处理函数-单行处理函数"></a> 数据处理函数 / 单行处理函数</h2>
 <p><strong>单行处理函数</strong> 的特点：一个输入对应一个输出</p>
 <p>多行处理函数：多个输入对应一个输出</p>
 <ul>
@@ -5065,7 +5065,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <li><code>case...when...then...when...then...else...end</code></li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	sno, </span><br><span class="line">	sage,</span><br><span class="line">	(<span class="keyword">case</span> sex <span class="keyword">when</span> <span class="string">&#x27;男&#x27;</span> <span class="keyword">then</span> sage <span class="operator">+</span> <span class="number">2</span> <span class="keyword">then</span> <span class="string">&#x27;女&#x27;</span> <span class="keyword">then</span> sage <span class="operator">+</span> <span class="number">1</span> <span class="keyword">else</span> sage <span class="keyword">end</span>) <span class="keyword">as</span> new_sage </span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="分组函数-多行处理函数"><a class="markdownIt-Anchor" href="#分组函数-多行处理函数"></a> 分组函数 / 多行处理函数</h3>
+<h2 id="分组函数-多行处理函数"><a class="markdownIt-Anchor" href="#分组函数-多行处理函数"></a> 分组函数 / 多行处理函数</h2>
 <p>输入多行，最终输出一行。<strong>分组函数在使用时必须先进行分组才能够使用</strong>。若没有分组则默认整张表为一组。</p>
 <ul>
 <li><code>max</code>、<code>count</code>、<code>avg</code>、<code>min</code>、<code>sum</code></li>
@@ -5077,36 +5077,36 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <li>分组函数中<code>count(*)</code>和<code>count(具体字段)</code>不同。</li>
 <li>分组函数不能直接使用在<code>where</code>子句，因为<code>where</code>的执行顺序比<code>group by</code>高。<strong>参考下面的执行顺序</strong></li>
 </ol>
-<h3 id="分组查询"><a class="markdownIt-Anchor" href="#分组查询"></a> 分组查询</h3>
+<h2 id="分组查询"><a class="markdownIt-Anchor" href="#分组查询"></a> 分组查询</h2>
 <p>可以将数据先进行分组，然后都每一组数据进行操作。</p>
 <p><strong>关键词</strong>：<code>group by</code></p>
 <p><strong>关键字顺序</strong>：<code>select...from...where...group by...order by...</code></p>
 <p><strong>执行顺序</strong>：<code>from -&gt; where -&gt; group by -&gt; select -&gt; order by</code>⭐</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 查找计算机专业每种性别的平均年龄</span><br><span class="line"><span class="keyword">select</span> sex, <span class="built_in">avg</span>(sage) <span class="keyword">from</span> student <span class="keyword">where</span> major <span class="operator">=</span> <span class="string">&#x27;computer&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> sex;</span><br><span class="line"># 查找每个专业的最大年龄</span><br><span class="line"><span class="keyword">select</span> major, <span class="built_in">max</span>(sage) <span class="keyword">from</span> student <span class="keyword">group</span> <span class="keyword">by</span> major;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查找计算机专业每种性别的平均年龄</span></span><br><span class="line"><span class="keyword">select</span> sex, <span class="built_in">avg</span>(sage) <span class="keyword">from</span> student <span class="keyword">where</span> major <span class="operator">=</span> <span class="string">&#x27;computer&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> sex;</span><br><span class="line"><span class="comment">-- 查找每个专业的最大年龄</span></span><br><span class="line"><span class="keyword">select</span> major, <span class="built_in">max</span>(sage) <span class="keyword">from</span> student <span class="keyword">group</span> <span class="keyword">by</span> major;</span><br></pre></td></tr></table></figure>
 <p>结论：在一条<code>select</code> 语句中，如果有<code>group by</code>语句的话，<code>select</code>后面只能跟：参加分组的字段，以及分组函数，其他的一律不能跟。</p>
 <ul>
 <li>联合分组</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 查找不同专业不同性别的最大年龄</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(sage) <span class="keyword">from</span> student <span class="keyword">group</span> <span class="keyword">by</span> major, sex;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查找不同专业不同性别的最大年龄</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(sage) <span class="keyword">from</span> student <span class="keyword">group</span> <span class="keyword">by</span> major, sex;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>having</code></li>
 </ul>
 <p>使用<code>having</code>可以对分完之后的数据进一步过滤。</p>
 <p><strong>注意</strong>：<code>having</code>不能单独使用，不能代替<code>where</code>，必须和<code>group by</code>联合使用。</p>
 <p><strong>优化策略</strong>：优先选择<code>where</code></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 查找不同专业的最大年龄，并且只显示最大年龄大于<span class="number">20</span>的数据。执行效率低。</span><br><span class="line"><span class="keyword">select</span> major, <span class="built_in">max</span>(sage) <span class="keyword">from</span> student <span class="keyword">group</span> <span class="keyword">by</span> major <span class="keyword">having</span> <span class="built_in">max</span>(sage) <span class="operator">&gt;</span> <span class="number">20</span>;</span><br><span class="line"># 和上面的效果一样。</span><br><span class="line"><span class="keyword">select</span> major, <span class="built_in">max</span>(sage) <span class="keyword">where</span> sage <span class="operator">&gt;</span> <span class="number">20</span> <span class="keyword">group</span> <span class="keyword">by</span> major;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查找不同专业的最大年龄，并且只显示最大年龄大于20的数据。执行效率低。</span></span><br><span class="line"><span class="keyword">select</span> major, <span class="built_in">max</span>(sage) <span class="keyword">from</span> student <span class="keyword">group</span> <span class="keyword">by</span> major <span class="keyword">having</span> <span class="built_in">max</span>(sage) <span class="operator">&gt;</span> <span class="number">20</span>;</span><br><span class="line"><span class="comment">-- 和上面的效果一样。</span></span><br><span class="line"><span class="keyword">select</span> major, <span class="built_in">max</span>(sage) <span class="keyword">where</span> sage <span class="operator">&gt;</span> <span class="number">20</span> <span class="keyword">group</span> <span class="keyword">by</span> major;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>总结：</li>
 </ul>
 <p><strong>关键字顺序</strong>：<code>select...from...where...group by...having...order by...</code> 只能按照这个顺序来</p>
 <p><strong>执行顺序</strong>：<code>from -&gt; where -&gt; group by -&gt; having -&gt; select -&gt; order by</code></p>
-<h3 id="去除重复记录"><a class="markdownIt-Anchor" href="#去除重复记录"></a> 去除重复记录</h3>
+<h2 id="去除重复记录"><a class="markdownIt-Anchor" href="#去除重复记录"></a> 去除重复记录</h2>
 <p>注意：原表数据不会被修改，只是查询结果去重。</p>
 <p><strong>关键字</strong>：<code>distinct</code>，只能出现在所有字段的前面。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 统计专业数量</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> major) <span class="keyword">from</span> student;</span><br></pre></td></tr></table></figure>
-<h3 id="连接查询"><a class="markdownIt-Anchor" href="#连接查询"></a> 连接查询</h3>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 统计专业数量</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> major) <span class="keyword">from</span> student;</span><br></pre></td></tr></table></figure>
+<h2 id="连接查询"><a class="markdownIt-Anchor" href="#连接查询"></a> 连接查询</h2>
 <p>从一张表中单独查询称为单表查询。跨表查询称为链接查询。</p>
-<p><strong>根据连接方式分类</strong></p>
+<h3 id="根据连接方式分类"><a class="markdownIt-Anchor" href="#根据连接方式分类"></a> <strong>根据连接方式分类</strong></h3>
 <ul>
 <li>内连接
 <ul>
@@ -5126,61 +5126,61 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <p>当两张表进行连接查询没有任何条件限制的时候，最终查询结果条数，是两张表条数的乘积。这种现象称为 <strong>笛卡尔积现象</strong>。</p>
 <p>表的连接次数越多，效率越低。则需要避免尽可能多的表连接</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> user.sname, student.major <span class="keyword">from</span> <span class="keyword">user</span>, student <span class="keyword">where</span> user.sno <span class="operator">=</span> student.sno;</span><br></pre></td></tr></table></figure>
-<h4 id="内连接之等值连接"><a class="markdownIt-Anchor" href="#内连接之等值连接"></a> 内连接之等值连接</h4>
+<h3 id="内连接之等值连接"><a class="markdownIt-Anchor" href="#内连接之等值连接"></a> 内连接之等值连接</h3>
 <p><code>table1 inner join table2 on 条件</code> 内连接</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> u.sname, s.major <span class="keyword">from</span> <span class="keyword">user</span> u, student s <span class="keyword">where</span> u.sno <span class="operator">=</span> s.sno; # SQL92</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> u.sname, s.major <span class="keyword">from</span> <span class="keyword">user</span> u <span class="keyword">inner</span> <span class="keyword">join</span> student s <span class="keyword">on</span> u.sno <span class="operator">=</span> s.sno; # SQL99 结构更清晰，表连接的条件是独立的，后面可加<span class="keyword">where</span>进一步进行筛选</span><br></pre></td></tr></table></figure>
-<h4 id="内连接之非等值连接"><a class="markdownIt-Anchor" href="#内连接之非等值连接"></a> 内连接之非等值连接</h4>
+<h3 id="内连接之非等值连接"><a class="markdownIt-Anchor" href="#内连接之非等值连接"></a> 内连接之非等值连接</h3>
 <p>连接条件是非等值关系</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	e.ename, e.sal, s.grade </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	emp e </span><br><span class="line"><span class="keyword">join</span> </span><br><span class="line">	salgrade s </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	e.sal <span class="keyword">between</span> s.losal <span class="keyword">on</span> s.hisal</span><br></pre></td></tr></table></figure>
-<h4 id="内连接之自连接"><a class="markdownIt-Anchor" href="#内连接之自连接"></a> 内连接之自连接</h4>
+<h3 id="内连接之自连接"><a class="markdownIt-Anchor" href="#内连接之自连接"></a> 内连接之自连接</h3>
 <p>将一张表看作两张表，给一张表起两个别名。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> a.name <span class="keyword">as</span> <span class="string">&#x27;员工名&#x27;</span>, b.name <span class="keyword">as</span> <span class="string">&#x27;领导名&#x27;</span> <span class="keyword">from</span> <span class="keyword">user</span> a <span class="keyword">join</span> <span class="keyword">user</span> b <span class="keyword">on</span> a.pid <span class="operator">=</span> b.id;</span><br></pre></td></tr></table></figure>
-<h4 id="外连接之右连接"><a class="markdownIt-Anchor" href="#外连接之右连接"></a> 外连接之右连接</h4>
+<h3 id="外连接之右连接"><a class="markdownIt-Anchor" href="#外连接之右连接"></a> 外连接之右连接</h3>
 <p><strong>关键词</strong>：<code>right [outer] join...on</code></p>
 <p><strong>内连接的特点</strong>：将完全匹配上的连接条件查询出来。</p>
 <p><strong>外连接（右）</strong>：表示将<code>join</code>关键字右边的表看作<strong>主表</strong>，需要将其中的数据会全部查出来。两张表存在主次关系。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	u.sname, s.major </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	<span class="keyword">user</span> u </span><br><span class="line"><span class="keyword">right</span> <span class="keyword">outer</span> <span class="keyword">join</span> </span><br><span class="line">	student s </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	u.sno <span class="operator">=</span> s.sno;</span><br></pre></td></tr></table></figure>
-<h4 id="外连接之右连接-2"><a class="markdownIt-Anchor" href="#外连接之右连接-2"></a> 外连接之右连接</h4>
+<h3 id="外连接之左连接"><a class="markdownIt-Anchor" href="#外连接之左连接"></a> 外连接之左连接</h3>
 <p><strong>关键词</strong>：<code>left [outer] join...on</code></p>
 <p>和上面效果相同，需要将两张表的顺序变一下。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	u.sname, s.major </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	student s  </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> </span><br><span class="line">	<span class="keyword">user</span> u</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	u.sno <span class="operator">=</span> s.sno;</span><br></pre></td></tr></table></figure>
-<h4 id="多表连接"><a class="markdownIt-Anchor" href="#多表连接"></a> 多表连接</h4>
+<h3 id="多表连接"><a class="markdownIt-Anchor" href="#多表连接"></a> 多表连接</h3>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	...</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	a</span><br><span class="line"><span class="keyword">join</span> </span><br><span class="line">	b</span><br><span class="line"><span class="keyword">on</span></span><br><span class="line">	a和b的连接条件</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">	c</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	a和c的连接条件</span><br></pre></td></tr></table></figure>
-<h3 id="子查询"><a class="markdownIt-Anchor" href="#子查询"></a> 子查询</h3>
+<h2 id="子查询"><a class="markdownIt-Anchor" href="#子查询"></a> 子查询</h2>
 <p><code>select</code>语句中嵌套<code>select</code>语句，被嵌套的<code>select</code>语句称为子查询。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	..(<span class="keyword">select</span>)..</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	..(<span class="keyword">select</span>)..</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">	..(<span class="keyword">select</span>)..</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>where</code>子句中的子查询</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 找出大于平均年龄的学生</span><br><span class="line"><span class="keyword">select</span> sname, sage <span class="keyword">from</span> student <span class="keyword">where</span> sage <span class="operator">&gt;</span> (<span class="keyword">select</span> <span class="built_in">avg</span>(sage) <span class="keyword">from</span> student);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 找出大于平均年龄的学生</span></span><br><span class="line"><span class="keyword">select</span> sname, sage <span class="keyword">from</span> student <span class="keyword">where</span> sage <span class="operator">&gt;</span> (<span class="keyword">select</span> <span class="built_in">avg</span>(sage) <span class="keyword">from</span> student);</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>from</code>子句中的子查询</li>
 </ul>
 <p><code>from</code>后面的子查询，可以将子查询的查询结果当作一张临时表。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 找出每个岗位平均薪资的 等级</span><br><span class="line"><span class="keyword">select</span> job, <span class="built_in">avg</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> job;</span><br><span class="line"></span><br><span class="line">### 合并</span><br><span class="line"><span class="keyword">select</span> t.job, s.grade </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	(<span class="keyword">select</span> job, <span class="built_in">avg</span>(sal) <span class="keyword">as</span> avgsal <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> job) t</span><br><span class="line"><span class="keyword">join</span> </span><br><span class="line">	salgrade s </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	t.avgsal <span class="keyword">between</span> s.losal <span class="keyword">and</span> s.hisal;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 找出每个岗位平均薪资的 等级</span></span><br><span class="line"><span class="keyword">select</span> job, <span class="built_in">avg</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> job;</span><br><span class="line"></span><br><span class="line">### 合并</span><br><span class="line"><span class="keyword">select</span> t.job, s.grade </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	(<span class="keyword">select</span> job, <span class="built_in">avg</span>(sal) <span class="keyword">as</span> avgsal <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> job) t</span><br><span class="line"><span class="keyword">join</span> </span><br><span class="line">	salgrade s </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	t.avgsal <span class="keyword">between</span> s.losal <span class="keyword">and</span> s.hisal;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>select</code>后面出现的子查询</li>
 </ul>
 <p>此时要求子查询只能一次返回一条结果，多余一条就报错。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	u.sno, (selct s.sname <span class="keyword">from</span> student <span class="keyword">where</span> u.sno <span class="operator">=</span> s.sno) <span class="keyword">as</span> sname</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	<span class="keyword">user</span> u;</span><br></pre></td></tr></table></figure>
-<h3 id="union合并查询结果集"><a class="markdownIt-Anchor" href="#union合并查询结果集"></a> <code>union</code>合并查询结果集</h3>
+<h2 id="union合并查询结果集"><a class="markdownIt-Anchor" href="#union合并查询结果集"></a> <code>union</code>合并查询结果集</h2>
 <p>下面三种写法比较。<code>union</code>效率比较高。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> sname, major <span class="keyword">from</span> student <span class="keyword">where</span> major <span class="operator">=</span> <span class="string">&#x27;计算机科学与技术&#x27;</span> <span class="keyword">or</span> major <span class="operator">=</span> <span class="string">&#x27;网络工程&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> sname, major <span class="keyword">from</span> student <span class="keyword">where</span> major <span class="keyword">in</span> (<span class="string">&#x27;计算机科学与技术&#x27;</span>, <span class="string">&#x27;网络工程&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> sname, major <span class="keyword">from</span> student <span class="keyword">where</span> major <span class="operator">=</span> <span class="string">&#x27;计算机科学与技术&#x27;</span></span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span> sname, major <span class="keyword">from</span> student <span class="keyword">where</span> major <span class="operator">=</span> <span class="string">&#x27;网络工程&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <p><strong>注意事项</strong>：在合并时，严格要求两个结果集的列数相同。mysql可以列的数据类型可不一致，orcal则不行。</p>
-<h3 id="limit"><a class="markdownIt-Anchor" href="#limit"></a> <code>limit</code></h3>
+<h2 id="limit"><a class="markdownIt-Anchor" href="#limit"></a> <code>limit</code></h2>
 <p><code>limit startIndex, length</code></p>
 <p>将查询结果集中的一部分查询出来，通常用于分页查询。</p>
 <p><strong>注意</strong>：mysql中 <code>limit</code> 在 <code>order by</code> 之后执行。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 按照年龄降序取前<span class="number">10</span>条记录.</span><br><span class="line"><span class="keyword">select</span> sname, major, sage <span class="keyword">from</span> student <span class="keyword">order</span> <span class="keyword">by</span> sage <span class="keyword">desc</span> limit <span class="number">10</span>;</span><br><span class="line"><span class="keyword">select</span> sname, major, sage <span class="keyword">from</span> student <span class="keyword">order</span> <span class="keyword">by</span> sage <span class="keyword">desc</span> limit <span class="number">0</span>, <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="通用分页"><a class="markdownIt-Anchor" href="#通用分页"></a> 通用分页</h4>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 按照年龄降序取前10条记录.</span></span><br><span class="line"><span class="keyword">select</span> sname, major, sage <span class="keyword">from</span> student <span class="keyword">order</span> <span class="keyword">by</span> sage <span class="keyword">desc</span> limit <span class="number">10</span>;</span><br><span class="line"><span class="keyword">select</span> sname, major, sage <span class="keyword">from</span> student <span class="keyword">order</span> <span class="keyword">by</span> sage <span class="keyword">desc</span> limit <span class="number">0</span>, <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="通用分页"><a class="markdownIt-Anchor" href="#通用分页"></a> 通用分页</h3>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">limit startIndex, length</span><br></pre></td></tr></table></figure>
 <p>length：pageSize</p>
 <p>startIndex：(pageNo - 1) * pageSize；</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">limit (pageNo <span class="operator">-</span> <span class="number">1</span>) <span class="operator">*</span> pageSize, pageSize;</span><br></pre></td></tr></table></figure>
-<h2 id="ddl"><a class="markdownIt-Anchor" href="#ddl"></a> DDL</h2>
-<h3 id="表的创建"><a class="markdownIt-Anchor" href="#表的创建"></a> 表的创建</h3>
+<h1 id="ddl数据定义语言"><a class="markdownIt-Anchor" href="#ddl数据定义语言"></a> DDL数据定义语言</h1>
+<h2 id="表的创建"><a class="markdownIt-Anchor" href="#表的创建"></a> 表的创建</h2>
 <p><strong>语法格式</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(</span><br><span class="line">    字段名<span class="number">1</span> 数据类型，</span><br><span class="line">    字段名<span class="number">2</span> 数据类型，</span><br><span class="line">	字段名<span class="number">3</span> 数据类型</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(</span><br><span class="line">    字段名<span class="number">1</span> 数据类型，</span><br><span class="line">    字段名<span class="number">2</span> 数据类型，</span><br><span class="line">	字段名<span class="number">3</span> 数据类型</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 快速创建表(表的复制)</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> emp <span class="keyword">as</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student;</span><br></pre></td></tr></table></figure>
 <p>表名建议以<code>t_</code>或者<code>tb_</code>开始，可读性强，见名知意。</p>
 <p>字段名：见名知意。</p>
 <p><strong>数据类型</strong>：</p>
@@ -5195,21 +5195,427 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <li><code>clob</code> 字符大对象，最多可存储4G的字符串。超过255字符的都需要使用。</li>
 <li><code>blob</code> 二进制大对象。专门用来存储图片，声音，视频等流媒体数据。往<code>blob</code>类型的字段上插入数据时需要使用IO流才行。</li>
 </ul>
-<h3 id="删除表格"><a class="markdownIt-Anchor" href="#删除表格"></a> 删除表格</h3>
+<h2 id="删除表格"><a class="markdownIt-Anchor" href="#删除表格"></a> 删除表格</h2>
 <p><code>drop table if exists 表名</code></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> t_student; <span class="operator">/</span><span class="operator">/</span> 当student不存在时则报错。</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> if <span class="keyword">exists</span> t_student;</span><br></pre></td></tr></table></figure>
-<h2 id="dml数据操作语言"><a class="markdownIt-Anchor" href="#dml数据操作语言"></a> DML数据操作语言</h2>
-<h3 id="插入数据"><a class="markdownIt-Anchor" href="#插入数据"></a> 插入数据</h3>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> t_student; <span class="comment">-- 当student不存在时则报错。</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> if <span class="keyword">exists</span> t_student;</span><br></pre></td></tr></table></figure>
+<h1 id="dml数据操作语言"><a class="markdownIt-Anchor" href="#dml数据操作语言"></a> DML数据操作语言</h1>
+<h2 id="插入数据"><a class="markdownIt-Anchor" href="#插入数据"></a> 插入数据</h2>
 <p><code>insert into 表名(字段1, 字段2, 字段3, ...) values(值1, 值2, 值2)</code></p>
-<p>注意：字段名和值需要一一对应，数量要对应，数据类型也要对应。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_student(sname, sage, sex) <span class="keyword">values</span>(<span class="string">&#x27;aaa&#x27;</span>, <span class="number">18</span>, <span class="string">&#x27;男&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>注意：字段名和值需要一一对应，数量要对应，数据类型也要对应。可以同时插入多条数据。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_student(sname, sage, sex) <span class="keyword">values</span>(<span class="string">&#x27;aaa&#x27;</span>, <span class="number">18</span>, <span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_student(sname, sage, sex) <span class="keyword">values</span>((<span class="string">&#x27;aaa&#x27;</span>, <span class="number">18</span>, <span class="string">&#x27;男&#x27;</span>), (<span class="string">&#x27;bbb&#x27;</span>, <span class="number">19</span>, <span class="string">&#x27;男&#x27;</span>), (<span class="string">&#x27;ccc&#x27;</span>, <span class="number">17</span>, <span class="string">&#x27;女&#x27;</span>));</span><br></pre></td></tr></table></figure>
 <p><strong>数字格式化</strong>：<code>format(数字, 格式)</code></p>
-<p><code>str_to_date</code>： 将字符串varchar类型转为date类型</p>
-<p><code>dateformat</code>：将date类型转换为一定格式的varchar类型。</p>
-<h3 id="修改数据"><a class="markdownIt-Anchor" href="#修改数据"></a> 修改数据</h3>
+<p><code>str_to_date('字符串日期', '日期格式')</code>： 将字符串varchar类型转为date类型。<code>str_to_date('20-04-1999', '%d-%m-%Y')</code></p>
+<p><code>dateformat(日期类型数据, '日期格式')</code>：将date类型转换为一定格式的varchar类型。</p>
+<p><strong><code>date</code>和<code>datetime</code>的区别</strong></p>
+<ul>
+<li><code>date</code>是短日期，只包括年月日信息。默认格式：<code>%Y-%m-%d</code></li>
+<li><code>datetime</code>是长日期，包括年月日时分秒信息。默认格式：<code>%Y-%m-%d %h:%i:%s</code></li>
+<li><code>now()</code>函数，获取系统当前时间。并且获取的时间带有时分秒信息。</li>
+</ul>
+<h2 id="修改数据"><a class="markdownIt-Anchor" href="#修改数据"></a> 修改数据</h2>
 <p><code>update 表名 set 字段1 = 值1, 字段2 = 值2 where 条件</code></p>
+<p><strong>注意</strong>：没有条件，会把所有数据都更新。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">update</span> t_student <span class="keyword">set</span> sname <span class="operator">=</span> <span class="string">&#x27;mmm&#x27;</span>, sage <span class="operator">=</span> <span class="number">20</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-]]></content>
+<h2 id="删除数据"><a class="markdownIt-Anchor" href="#删除数据"></a> 删除数据</h2>
+<ul>
+<li><code>delete from 表名 where 条件;</code></li>
+</ul>
+<p><strong>注意</strong>：没有条件会把整张表数据全部删除。</p>
+<p><strong>缺点</strong>：效率较慢，并且删除后在硬盘上的存储空间不释放。</p>
+<p><strong>优点</strong>：可以回滚。可以恢复删除的数据。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> student <span class="keyword">where</span> sno <span class="operator">=</span> <span class="string">&#x27;202010101&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>truncate table 表名</code> 属于DDL操作</li>
+</ul>
+<p><strong>优点</strong>：效率高，物理删除，表一次被截断。</p>
+<p><strong>缺点</strong>：不支持回滚。</p>
+<h1 id="约束"><a class="markdownIt-Anchor" href="#约束"></a> 约束</h1>
+<blockquote>
+<p>在创建表时可以给表中的字段加上一些约束，来保证这个表中数据的完整性和有效性！！！</p>
+</blockquote>
+<h2 id="常见的约束"><a class="markdownIt-Anchor" href="#常见的约束"></a> 常见的约束</h2>
+<ul>
+<li>非空约束：<code>not null</code></li>
+<li>唯一性约束：<code>unique</code></li>
+<li>主键约束：<code>primary key</code>，简称（PK）</li>
+<li>外键约束：<code>foreign key</code>，简称（FK）</li>
+<li>检查约束：<code>check</code> （mysql不支持，orcal支持）</li>
+</ul>
+<h2 id="非空约束"><a class="markdownIt-Anchor" href="#非空约束"></a> 非空约束</h2>
+<blockquote>
+<p>非空约束<code>not null</code> 的字段不能为NULL</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test (</span><br><span class="line">	id <span class="type">int</span>,</span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">not</span> <span class="keyword">null</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="唯一性约束"><a class="markdownIt-Anchor" href="#唯一性约束"></a> 唯一性约束</h2>
+<blockquote>
+<p>唯一性约束<code>unique</code>约束的字段不能重复。</p>
+</blockquote>
+<p>可以两个字段联合起来具有唯一性。</p>
+<p><strong>表级约束</strong>：约束没有添加在列后面，这种约束被称为表级约束。当需要多个字段联合起来添加某一约束时，需要使用表级约束。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test (</span><br><span class="line">    id <span class="type">int</span>,</span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    email <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">unique</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- name和email联合起来具有唯一性的创建方法（重名不同身份证号）</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test (</span><br><span class="line">    id <span class="type">int</span>,</span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    email <span class="type">varchar</span>(<span class="number">255</span>),  <span class="operator">/</span><span class="operator">/</span> 约束没有添加在列后面，这种约束被称为表级约束。</span><br><span class="line">    <span class="keyword">unique</span> (name, email)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="主键约束"><a class="markdownIt-Anchor" href="#主键约束"></a> 主键约束⭐⭐</h2>
+<blockquote>
+<p>主键约束 <code>primary key</code> 约束的字段值即不能为空也不能重复。也可以进行表级约束</p>
+<p>在mysql中，如果一个字段同时被<code>unique</code>和<code>not null</code>约束时，则该字段自动变成主键字段。（注意：Orcal不一样！！！）</p>
+</blockquote>
+<p><strong>主键特征</strong>：<code>not null</code> + <code>unique</code></p>
+<p><strong>相关术语</strong></p>
+<ul>
+<li>主键约束：就是一种约束</li>
+<li>主键字段：某个字段加上了主键约束，则该字段为主键字段</li>
+<li>主键值：主键字段中的每一个值都叫做主键值。</li>
+</ul>
+<p>主键值是每一行记录的<strong>唯一标识</strong>，是每一行记录的身份证号。</p>
+<p><strong>注意</strong></p>
+<ul>
+<li>任何一张表都应该有主键，没有主键则表无效。</li>
+<li>在实际开发中不建议使用复合主键。</li>
+<li>一张表只能存在一个主键约束</li>
+<li>主键值建议使用：<code>int</code>、<code>bigint</code>、<code>char</code>等类型，不建议使用<code>varchar</code>，一般都是数字，一般都是定长的。</li>
+</ul>
+<p><strong>主键分类</strong></p>
+<ul>
+<li>自然主键：一个自然数，和业务没关系</li>
+<li>业务主键：主键和业务紧密关联。例如拿银行卡号做主键。</li>
+<li>在实际开发中，自然主键使用的较多。主键不建议使用业务。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 列级约束</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test (</span><br><span class="line">    id <span class="type">int</span> <span class="keyword">primary</span> key auto_increment, <span class="comment">-- auto_increment 自增</span></span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    email <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">unique</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 表级约束 - 复合主键，在实际开发中不建议使用复合主键</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test (</span><br><span class="line">    id <span class="type">int</span>,</span><br><span class="line">    sno <span class="type">varchar</span>(<span class="number">11</span>),</span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    email <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">unique</span>,</span><br><span class="line">    <span class="keyword">primary</span> key(id, sno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="外键约束"><a class="markdownIt-Anchor" href="#外键约束"></a> 外键约束</h2>
+<blockquote>
+<p>主键约束 <code>foreign key</code> 约束的字段，保证了该字段中的每一个值都是引用的外键值或为NULL。</p>
+</blockquote>
+<p><strong>相关约束</strong></p>
+<ul>
+<li>外键约束：是一种约束</li>
+<li>外键字段：该字段上添加了外键约束</li>
+<li>外键值：外键字段中的每一个值。</li>
+</ul>
+<p><strong>注意</strong></p>
+<ul>
+<li>被引用的表为父表，被约束的表为子表。</li>
+<li>删除表的时候，应该先删子表再删除父表。</li>
+<li>创建表的时候，应该先创父表再创键子表。</li>
+<li>子表中的外键引用的父表中的某个字段，被引用的这个字段不是必须为主键，但必须具有唯一性<code>unique</code></li>
+<li>外键值可以为NULL</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student (</span><br><span class="line">    id <span class="type">int</span> <span class="keyword">primary</span> key auto_increment, <span class="comment">-- auto_increment 自增</span></span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    cno <span class="type">int</span>,</span><br><span class="line">    email <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">unique</span>,</span><br><span class="line">    <span class="keyword">foreign</span> key(cno) <span class="keyword">references</span> t_class(classno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h1 id="存储引擎"><a class="markdownIt-Anchor" href="#存储引擎"></a> 存储引擎💤</h1>
+<blockquote>
+<p>存储引擎是MySQL中特有的一个术语。</p>
+<p>实际上存储引擎是一个表存储/组织数据的方式。不同的存储引擎，表数据的存储方式不同。</p>
+</blockquote>
+<h2 id="给表添加指定存储引擎"><a class="markdownIt-Anchor" href="#给表添加指定存储引擎"></a> 给表添加/指定”存储引擎“</h2>
+<ul>
+<li>mysql默认的存储引擎是：InnoDB</li>
+<li>mysql默认的字符编码方式是：utf8</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t_student` (</span><br><span class="line">    `<span class="keyword">no</span>` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">    `name` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `cno` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`<span class="keyword">no</span>`),</span><br><span class="line">    KEY `cno` (`cno`),</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> `t_student_ibfk_1` <span class="keyword">FOREIGN</span> KEY (`cno`) <span class="keyword">REFERENCES</span> `t_class` (`classno`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB AUTO_INCREMENT<span class="operator">=</span><span class="number">11</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8</span><br><span class="line"><span class="comment">-- ENGINE来指定存储引擎。CHARSET来指定这张表的字符编码方式。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_product(</span><br><span class="line">    id <span class="type">int</span> <span class="keyword">primary</span> key,</span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">255</span>)</span><br><span class="line">)engine<span class="operator">=</span>InnoDB <span class="keyword">default</span> charset<span class="operator">=</span>gbk;</span><br></pre></td></tr></table></figure>
+<h2 id="mysql支持的存储引擎"><a class="markdownIt-Anchor" href="#mysql支持的存储引擎"></a> mysql支持的存储引擎</h2>
+<p>mysql支持九大存储引擎，当前5.5.36支持8个。版本不同支持情况不同。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">show engines</span><br><span class="line"></span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">      Engine: FEDERATED</span><br><span class="line">     Support: NO</span><br><span class="line">     Comment: Federated MySQL storage engine</span><br><span class="line">Transactions: NULL</span><br><span class="line">          XA: NULL</span><br><span class="line">  Savepoints: NULL</span><br><span class="line">*************************** 2. row ***************************</span><br><span class="line">      Engine: MRG_MYISAM</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Collection of identical MyISAM tables</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 3. row ***************************</span><br><span class="line">      Engine: MyISAM</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: MyISAM storage engine</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 4. row ***************************</span><br><span class="line">      Engine: BLACKHOLE</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: /dev/null storage engine (anything you write to it disappears</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 5. row ***************************</span><br><span class="line">      Engine: CSV</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: CSV storage engine</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 6. row ***************************</span><br><span class="line">      Engine: MEMORY</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Hash based, stored <span class="keyword">in</span> memory, useful <span class="keyword">for</span> temporary tables</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 7. row ***************************</span><br><span class="line">      Engine: ARCHIVE</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Archive storage engine</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 8. row ***************************</span><br><span class="line">      Engine: InnoDB</span><br><span class="line">     Support: DEFAULT</span><br><span class="line">     Comment: Supports transactions, row-level locking, and foreign keys</span><br><span class="line">Transactions: YES</span><br><span class="line">          XA: YES</span><br><span class="line">  Savepoints: YES</span><br><span class="line">*************************** 9. row ***************************</span><br><span class="line">      Engine: PERFORMANCE_SCHEMA</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Performance Schema</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br></pre></td></tr></table></figure>
+<h2 id="常见的存储引擎"><a class="markdownIt-Anchor" href="#常见的存储引擎"></a> 常见的存储引擎</h2>
+<h3 id="myisam存储引擎"><a class="markdownIt-Anchor" href="#myisam存储引擎"></a> MyISAM存储引擎</h3>
+<p>它管理的表具有以下特征：</p>
+<ul>
+<li>使用三个文件表示每个表：
+<ul>
+<li>格式文件 — 存储表结构的定义（<code>mytable.frm</code>）</li>
+<li>数据文件 — 存储表行的内容（<code>mytable.MYD</code>）</li>
+<li>索引文件 — 存储表上索引（<code>mytable.MYI</code>）：索引是一本书的目录，缩小扫描范围，提高查询效率的一种机制</li>
+</ul>
+</li>
+<li>可被转换为压缩、只读表来节省空间</li>
+</ul>
+<p>提示一下：</p>
+<ul>
+<li>对于一张表来说，只要是主键，</li>
+<li>或者加有unique约束的字段上会自动创建索引。</li>
+</ul>
+<p>MyISAM<strong>存储引擎特点</strong>：</p>
+<ul>
+<li>可被转换为压缩、只读表来节省空间</li>
+<li>这是这种存储引擎的优势！！！！</li>
+<li>MyISAM不支持事务机制，安全性低。</li>
+</ul>
+<h3 id="innodb存储引擎"><a class="markdownIt-Anchor" href="#innodb存储引擎"></a> InnoDB存储引擎</h3>
+<blockquote>
+<p>这是mysql默认的存储引擎，同时也是一个重量级的存储引擎。</p>
+<p>InnoDB支持事务，支持数据库崩溃后自动恢复机制。</p>
+<p>InnoDB存储引擎最主要的特点是：非常安全。</p>
+</blockquote>
+<p>它管理的表具有下列主要特征：</p>
+<ul>
+<li>每个 InnoDB 表在数据库目录中以<code>.frm</code> 格式文件表示</li>
+<li>InnoDB 表空间 tablespace 被用于存储表的内容（表空间是一个逻辑名称。表空间存储数据+索引。）</li>
+<li>提供一组用来记录事务性活动的日志文件</li>
+<li>用 COMMIT(提交)、SAVEPOINT 及ROLLBACK(回滚)支持事务处理</li>
+<li>提供全 ACID 兼容</li>
+<li>在 MySQL 服务器崩溃后提供自动恢复</li>
+<li>多版本（MVCC）和行级锁定</li>
+<li>支持外键及引用的完整性，包括级联删除和更新</li>
+</ul>
+<p>InnoDB最大的特点就是<strong>支持事务</strong>：以保证数据的安全。效率不是很高，并且也不能压缩，不能转换为只读，不能很好的节省存储空间。</p>
+<h3 id="memory存储引擎"><a class="markdownIt-Anchor" href="#memory存储引擎"></a> MEMORY存储引擎</h3>
+<blockquote>
+<p>使用 MEMORY 存储引擎的表，其数据存储在内存中，且行的长度固定，这两个特点使得 MEMORY 存储引擎非常快。</p>
+</blockquote>
+<p>MEMORY 存储引擎管理的表具有下列特征：</p>
+<ul>
+<li>在数据库目录内，每个表均以.frm 格式的文件表示。</li>
+<li>表数据及索引被存储在内存中。（目的就是快，查询快！）</li>
+<li>表级锁机制。</li>
+<li>不能包含 TEXT 或 BLOB 字段。</li>
+</ul>
+<p>EMORY 存储引擎以前被称为HEAP 引擎。</p>
+<p>MEMORY引擎优点：查询效率是最高的。不需要和硬盘交互。<br />
+MEMORY引擎缺点：不安全，关机之后数据消失。因为数据和索引都是在内存当中。</p>
+<h1 id="事务"><a class="markdownIt-Anchor" href="#事务"></a> 事务⭐⭐⭐⭐⭐</h1>
+<blockquote>
+<p>一个事务就是一个完整的业务逻辑。是一个最小的工作单元。不可再分。</p>
+<p>事务：就是批量的DML语句同时成功，或者同时失败！</p>
+</blockquote>
+<h2 id="和事务有关的dml语句"><a class="markdownIt-Anchor" href="#和事务有关的dml语句"></a> 和事务有关的DML语句</h2>
+<p>只有DML语句才会有事务这一说，其它语句和事务无关！！！</p>
+<p><code>insert</code>、<code>delete</code>、<code>update</code>只有这三个语句和事务有关系，其它都没有关系。数据安全第一位！！！</p>
+<p><strong>事务的本质</strong>：一个事务其实就是多条DML语句同时成功，或者同时失败！</p>
+<h2 id="事务的实现"><a class="markdownIt-Anchor" href="#事务的实现"></a> 事务的实现</h2>
+<p>InnoDB存储引擎：提供一组用来记录事务性活动的日志文件。</p>
+<p>在事务的执行过程中，每一条DML的操作都会记录到“事务性活动的日志文件”中。</p>
+<p>在事务的执行过程中，我们可以提交事务，也可以回滚事务。</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">事务开启了：</span><br><span class="line">insert</span><br><span class="line">insert</span><br><span class="line">insert</span><br><span class="line">delete</span><br><span class="line">update</span><br><span class="line">update</span><br><span class="line">update</span><br><span class="line">事务结束了！</span><br></pre></td></tr></table></figure>
+<p><strong>提交事务</strong></p>
+<ul>
+<li><strong>清空事务性活动的日志文件</strong>，将数据全部彻底持久化到数据库表中。</li>
+<li>提交事务标志着，事务的结束。并且是一种<strong>全部成功的结束。</strong></li>
+</ul>
+<p><strong>回滚事务</strong></p>
+<ul>
+<li>将之前所有的DML操作全部撤销，并且<strong>清空事务性活动的日志文件</strong></li>
+<li>回滚事务标志着，事务的结束。并且是一种<strong>全部失败的结束</strong> 。</li>
+</ul>
+<h2 id="提交回滚事务transaction"><a class="markdownIt-Anchor" href="#提交回滚事务transaction"></a> 提交/回滚事务(transaction)</h2>
+<ul>
+<li>提交事务：<code>commit;</code>语句</li>
+<li>回滚事务：<code>rollback;</code>语句（回滚永远都是只能回滚到上一次的提交点！）</li>
+</ul>
+<p>mysql默认情况下是支持自动提交事务的。（自动提交）</p>
+<ul>
+<li>这种自动提交实际上是不符合我们的开发习惯，因为一个业务通常是需要多条DML语句共同执行才能完成的，为了保证数据的安全，必须要求同时成功之后再提交，所以不能执行一条就提交一条。</li>
+</ul>
+<p>每执行一条DML语句，则提交一次。</p>
+<p>关闭mysql的自动提交机制：<code>start transaction;</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 提交事务</span></span><br><span class="line"><span class="keyword">start</span> transaction; <span class="comment">-- 关闭自动提交</span></span><br><span class="line">DML;</span><br><span class="line">DML;</span><br><span class="line">DML;</span><br><span class="line">DML;</span><br><span class="line"><span class="keyword">commit</span>;  <span class="comment">-- 提交事务</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 回滚事务</span></span><br><span class="line"><span class="keyword">start</span> transaction; <span class="comment">-- 关闭自动提交</span></span><br><span class="line">DML;</span><br><span class="line">DML;</span><br><span class="line">DML;</span><br><span class="line">DML;</span><br><span class="line"><span class="keyword">rollback</span>;  <span class="comment">-- 回滚事务，回滚到上一次提交的节点。</span></span><br></pre></td></tr></table></figure>
+<h2 id="事务的特性"><a class="markdownIt-Anchor" href="#事务的特性"></a> 事务的特性</h2>
+<ul>
+<li><strong>A 原子性</strong>：说明事务是最小的工作单元。不可再分。</li>
+<li><strong>C 一致性</strong>：所有事务要求，在同一个事务当中，所有操作必须同时成功，或者同时失败，以保证数据的一致性。</li>
+<li><strong>I 隔离性</strong>：A事务和B事务之间具有一定的隔离。多个事务同时操作一张表的结果？</li>
+<li><strong>D 持久性</strong>：事务最终结束的一个保障。事务提交，就相当于将没有保存到硬盘上的数据保存到硬盘上！</li>
+</ul>
+<h2 id="事务的隔离性"><a class="markdownIt-Anchor" href="#事务的隔离性"></a> 事务的隔离性</h2>
+<p>例如：A教室和B教室中间有一道墙，这道墙可以很厚，也可以很薄。这就是事务的隔离级别。这道墙越厚，表示隔离级别就越高。</p>
+<h3 id="事务的4个隔离级别"><a class="markdownIt-Anchor" href="#事务的4个隔离级别"></a> 事务的4个隔离级别⭐</h3>
+<p>查看隔离级别：<code>SELECT @@tx_isolation</code>，mysql默认的隔离级别：<code>repeatable read</code></p>
+<p>设置全局的隔离级别：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 设置全局的隔离级别为read uncommitted</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> transaction isolation level read uncommitted;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看隔离级别</span></span><br><span class="line"><span class="keyword">SELECT</span> @<span class="variable">@tx</span>_isolation</span><br></pre></td></tr></table></figure>
+<h4 id="读未提交"><a class="markdownIt-Anchor" href="#读未提交"></a> <strong>读未提交</strong></h4>
+<blockquote>
+<p><code>read uncommitted</code>（最低的隔离级别）没有提交就读到了</p>
+<p>事务A可以读取到事务B未提交（没有<code>commit</code>）的数据。</p>
+</blockquote>
+<p><strong>存在问题</strong>：脏读现象！！！ Dirty Read</p>
+<p>这种隔离级别一般都是理论上的，大多数的数据库隔离级别都是二档起步！</p>
+<h4 id="读已提交"><a class="markdownIt-Anchor" href="#读已提交"></a> 读已提交</h4>
+<blockquote>
+<p><code>read committed</code>。提交之后才能读到</p>
+<p>事务A只能读取到事务B提交之后的数据。解决了脏读的现象。</p>
+</blockquote>
+<p><strong>存在的问题</strong>：不可重复读取数据</p>
+<ul>
+<li>在事务开启之后，第一次读到的数据是3条，当前事务还没有结束，可能第二次再读取的时候，读到的数据是4条，3不等于4称为不可重复读取。</li>
+</ul>
+<p>这种隔离级别是比较真实的数据，每一次读到的数据是绝对的真实。</p>
+<p>oracle数据库默认的隔离级别是：read committed</p>
+<h4 id="可重复读"><a class="markdownIt-Anchor" href="#可重复读"></a> 可重复读</h4>
+<blockquote>
+<p><code>repeatable read</code>。提交之后也读不到，永远读取的都是刚开启事务时的数据</p>
+<p>事务A开启之后，不管是多久，每一次在事务A中读取到的数据都是一致的。即使事务B将数据已经修改，并且提交了，事务A读取到的数据还是没有发生改变，这就是可重复读。</p>
+<p>MySQL中默认的隔离级别</p>
+</blockquote>
+<p>解决了不可重复读取数据。</p>
+<p><strong>存在问题</strong>：可以会出现幻影读。每一次读取到的数据都是幻象。不够真实！</p>
+<h4 id="序列化串行化"><a class="markdownIt-Anchor" href="#序列化串行化"></a> 序列化/串行化</h4>
+<blockquote>
+<p><code>serializable</code>（最高的隔离级别）</p>
+<p>这是最高隔离级别，效率最低。解决了所有的问题。</p>
+</blockquote>
+<p>这种隔离级别表示事务排队，不能并发！两个事务不能同时访问同一张表。</p>
+<p><code>synchronized</code>，线程同步（事务同步）每一次读取到的数据都是最真实的，并且效率是最低的。</p>
+<h1 id="索引-index"><a class="markdownIt-Anchor" href="#索引-index"></a> 索引 (index)</h1>
+<blockquote>
+<p>索引是在数据库表的字段上添加的，是为了提高查询效率存在的一种机制。</p>
+<p>一张表的一个字段可以添加一个索引，当然，多个字段联合起来也可以添加索引。</p>
+<p>索引相当于一本书的目录，是为了缩小扫描范围而存在的一种机制。</p>
+</blockquote>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">对于一本字典来说，查找某个汉字有两种方式：</span><br><span class="line">	第一种方式：一页一页挨着找，直到找到为止，这种查找方式属于全字典扫描。效率比较低。</span><br><span class="line">	第二种方式：先通过目录（索引）去定位一个大概的位置，然后直接定位到这个位置，做局域性扫描，缩小扫描的范围，快速的查找。这种查找方式属于通过索引检索，效率较高。</span><br></pre></td></tr></table></figure>
+<p>MySQL在查询方面主要就是两种方式：</p>
+<ul>
+<li>第一种方式：全表扫描</li>
+<li>第二种方式：根据索引检索。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_user <span class="keyword">where</span> name <span class="operator">=</span> <span class="string">&#x27;jack&#x27;</span>;</span><br><span class="line"><span class="comment">-- 若name字段上没有添加索引，则会进行全扫描</span></span><br></pre></td></tr></table></figure>
+<p>在mysql数据库当中索引是需要排序的，并且这个所以的排序和<code>TreeSet</code>数据结构相同。<code>TreeSet（TreeMap）</code>底层是一个自平衡的二叉树！<strong>在mysql当中索引是一个<code>B-Tree</code>数据结构</strong>。</p>
+<p>遵循左小又大原则存放，采用中序遍历方式遍历取数据。</p>
+<h2 id="实现原理"><a class="markdownIt-Anchor" href="#实现原理"></a> 实现原理</h2>
+<blockquote>
+<p>缩小扫描范围，避免全表扫描</p>
+</blockquote>
+<p><strong>注意</strong></p>
+<ul>
+<li>在任何数据库当中主键上都会自动添加索引对象。另外在mysql当中，一个字段上如果有<code>unique</code>约束的话，也会自动创建索引对象。</li>
+<li>在任何数据库当中，任何一张表的任何一条记录在硬盘存储上都有一个硬盘的物理存储编号。</li>
+<li>在mysql当中，索引是一个单独的对象，不同的存储引擎以不同的形式存在。不管索引存储在哪里，索引在mysql当中都是一个树的形式存在。（自平衡二叉树：B-Tree）
+<ul>
+<li>在MyISAM存储引擎中，索引存储在一个.MYI文件中。</li>
+<li>在InnoDB存储引擎中索引存储在一个逻辑名称叫做tablespace的当中。</li>
+<li>在MEMORY存储引擎当中索引被存储在内存当中。</li>
+</ul>
+</li>
+</ul>
+<h2 id="添加索引的原则"><a class="markdownIt-Anchor" href="#添加索引的原则"></a> 添加索引的原则</h2>
+<p>在mysql当中，主键上，以及unique字段上都会自动添加索引的！！！！</p>
+<ul>
+<li>数据量庞大</li>
+<li>该字段经常出现在where的后面，以条件的形式存在，也就是说这个字段总是被扫描。</li>
+<li>该字段很少的DML(insert delete update)操作。（因为DML之后，索引需要重新排序。）</li>
+</ul>
+<p><strong>注意</strong></p>
+<ul>
+<li>建议不要随意添加索引，因为索引也是需要维护的，太多的话反而会降低系统的性能。</li>
+<li>建议通过主键查询，建议通过unique约束的字段进行查询，效率是比较高的。</li>
+</ul>
+<h2 id="索引的创删"><a class="markdownIt-Anchor" href="#索引的创删"></a> 索引的创删</h2>
+<p><strong>创建索引</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 给student表中的sname字段添加索引，并起名：stu_sname_index</span></span><br><span class="line"><span class="keyword">create</span> index stu_sname_index <span class="keyword">on</span> student(sname);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 语法</span></span><br><span class="line"><span class="keyword">create</span> index 索引名 <span class="keyword">on</span> 表(字段);</span><br></pre></td></tr></table></figure>
+<p><strong>删除索引</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">drop</span> index stu_sname_index <span class="keyword">on</span> student;</span><br><span class="line"><span class="comment">-- 语法</span></span><br><span class="line"><span class="keyword">drop</span> index 索引名 <span class="keyword">on</span> 表;</span><br></pre></td></tr></table></figure>
+<p>查看一个Sql语句是否使用了索引检索</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">explain <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student <span class="keyword">where</span> sname <span class="operator">=</span> <span class="string">&#x27;KING&#x27;</span>;</span><br><span class="line"><span class="comment">-- 结果中type=ALL 则为 全表扫描</span></span><br></pre></td></tr></table></figure>
+<h2 id="索引失效"><a class="markdownIt-Anchor" href="#索引失效"></a> 索引失效</h2>
+<ul>
+<li>情况1</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">&#x27;%T&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>sname上即使添加了索引，也不会走索引。</p>
+<p>原因是：因为模糊匹配当中以“%”开头了！尽量避免模糊查询的时候以“%”开始。这是一种优化的手段/策略。</p>
+<ul>
+<li>情况2</li>
+</ul>
+<p>使用or的时候会失效，如果使用or那么要求or两边的条件字段都要有索引，才会走索引，如果其中一边有一个字段没有索引，那么另一个字段上的索引也会实现。所以这就是为什么不建议使用or的原因。</p>
+<ul>
+<li>情况3</li>
+</ul>
+<p>使用复合索引的时候，没有使用左侧的列查找，索引失效</p>
+<p><strong>符合索引</strong>：两个字段，或者更多的字段联合起来添加一个索引，叫做复合索引。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> index emp_job_sal_index <span class="keyword">on</span> emp(job,sal); <span class="comment">-- 创建复合索引</span></span><br><span class="line"></span><br><span class="line">explain <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> job <span class="operator">=</span> <span class="string">&#x27;MANAGER&#x27;</span>; <span class="comment">-- 可以使用索引</span></span><br><span class="line">explain <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="operator">=</span> <span class="number">800</span>; <span class="comment">-- 不能使用索引</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>情况4</li>
+</ul>
+<p>在where当中索引列参加了运算，索引失效。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> index emp_sal_index <span class="keyword">on</span> emp(sal); <span class="comment">-- 创建索引</span></span><br><span class="line">explain <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="operator">=</span> <span class="number">800</span>; <span class="comment">-- 可以</span></span><br><span class="line">explain <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> sal<span class="operator">+</span><span class="number">1</span> <span class="operator">=</span> <span class="number">800</span>; <span class="comment">-- 不可以</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>情况5</li>
+</ul>
+<p>在where当中索引列使用了函数</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">explain <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> <span class="built_in">lower</span>(ename) <span class="operator">=</span> <span class="string">&#x27;smith&#x27;</span>; <span class="comment">-- 不行</span></span><br></pre></td></tr></table></figure>
+<h2 id="索引的分类"><a class="markdownIt-Anchor" href="#索引的分类"></a> 索引的分类</h2>
+<blockquote>
+<p>索引是各种数据库进行优化的重要手段。优化的时候优先考虑的因素就是索引。</p>
+</blockquote>
+<ul>
+<li>单一索引：一个字段上添加索引</li>
+<li>复合索引：两个字段或者更多的字段上添加索引。</li>
+<li>主键索引：主键上添加索引。</li>
+<li>唯一性索引：具有<code>unique</code>约束的字段上添加索引。</li>
+</ul>
+<p><strong>注意</strong>：唯一性比较弱的字段上添加索引用处不大。</p>
+<h1 id="视图"><a class="markdownIt-Anchor" href="#视图"></a> 视图</h1>
+<blockquote>
+<p>view:站在不同的角度去看待同一份数据。</p>
+</blockquote>
+<h2 id="创建视图对象"><a class="markdownIt-Anchor" href="#创建视图对象"></a> 创建视图对象</h2>
+<p>只有DQL语句才能以<code>view</code>的形式创建。<code>create view view_name as</code> 这里的语句必须是DQL语句;</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> dept2 <span class="keyword">as</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> dept; <span class="comment">-- 表复制</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> dept2; <span class="comment">-- 查看表中数据</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> dept2_view <span class="keyword">as</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> dept2; <span class="comment">-- 创建视图对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="删除视图对象"><a class="markdownIt-Anchor" href="#删除视图对象"></a> 删除视图对象</h2>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> dept2_view; <span class="comment">-- 删除视图对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="视图的作用"><a class="markdownIt-Anchor" href="#视图的作用"></a> 视图的作用</h2>
+<p>我们可以面向视图对象进行增删改查，对视图对象的增删改查，会导致原表被操作！</p>
+<p><strong>视图的特点</strong>：通过对视图的操作，会影响到原表数据。</p>
+<p><strong>作用</strong>：方便，简化开发，利于维护。</p>
+<p>视图对象也是存储在硬盘中的，不会消失。</p>
+<h1 id="dba常用命令"><a class="markdownIt-Anchor" href="#dba常用命令"></a> DBA常用命令</h1>
+<p>需要重点掌握：数据的导入和导出（数据的备份）</p>
+<p><strong>数据导出</strong>：</p>
+<p>注意：在windows的dos命令窗口中：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysqldump bjpowernode&gt;D:\bjpowernode.sql -uroot -p123456  <span class="comment"># 导出数据库</span></span><br><span class="line">mysqldump bjpowernode emp&gt;D:\bjpowernode.sql -uroot -p123456  <span class="comment"># 导出指定的表</span></span><br></pre></td></tr></table></figure>
+<p><strong>数据导入</strong></p>
+<p>注意：需要先登录到mysql数据库服务器上。然后创建数据库：<code>create database bjpowernode;</code>使用数据库：<code>use bjpowernode</code>然后初始化数据库：<code>source D:\bjpowernode.sql</code></p>
+<h1 id="数据库设计三范式"><a class="markdownIt-Anchor" href="#数据库设计三范式"></a> 数据库设计三范式⭐⭐</h1>
+<blockquote>
+<p>数据库表的设计依据。教你怎么进行数据库表的设计。</p>
+</blockquote>
+<p><strong>分类</strong></p>
+<ul>
+<li>第一范式：要求任何一张表必须有主键，每一个字段原子性不可再分。</li>
+<li>第二范式：建立在第一范式的基础之上，要求所有非主键字段完全依赖主键，不要产生部分依赖。</li>
+<li>第三范式：建立在第二范式的基础之上，要求所有非主键字段直接依赖主键，不要产生传递依赖。</li>
+</ul>
+<p>设计数据库表的时候，按照以上的范式进行，可以避免表中数据的冗余，空间的浪费。</p>
+<h2 id="第一范式"><a class="markdownIt-Anchor" href="#第一范式"></a> 第一范式</h2>
+<blockquote>
+<p>最核心，最重要的范式，所有表的设计都需要满足。</p>
+</blockquote>
+<p><strong>必须有主键</strong>，并且每一个字段都是原子性不可再分。</p>
+<h2 id="第二范式"><a class="markdownIt-Anchor" href="#第二范式"></a> 第二范式</h2>
+<blockquote>
+<p>建立在第一范式的基础之上，要求所有非主键字段必须完全依赖主键，不要产生部分依赖。</p>
+</blockquote>
+<p>可以利用外键<code>foreign key</code>消除部份依赖。</p>
+<p><strong>多对多怎么设计？</strong></p>
+<ul>
+<li>多对多，三张表，关系表两个外键！！！！！！！！！！！！！！！</li>
+</ul>
+<p>例如：学生表、教师表、学生教师关系表。</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">学生表</span><br><span class="line">   学生编号(pk)		学生名字</span><br><span class="line">   ------------------------------------</span><br><span class="line">   1001					张三</span><br><span class="line">   1002					李四</span><br><span class="line">   1003					王五</span><br><span class="line">  </span><br><span class="line">教师表</span><br><span class="line">教师编号(pk)		教师姓名</span><br><span class="line">--------------------------------------</span><br><span class="line">001					王老师</span><br><span class="line">002					赵老师</span><br><span class="line"></span><br><span class="line">学生教师关系表</span><br><span class="line">id(pk)			学生编号(fk)			教师编号(fk)</span><br><span class="line">------------------------------------------------------</span><br><span class="line">1						1001						001</span><br><span class="line">2						1002						002</span><br><span class="line">3						1003						001</span><br><span class="line">4						1001						002</span><br></pre></td></tr></table></figure>
+<h2 id="第三范式"><a class="markdownIt-Anchor" href="#第三范式"></a> 第三范式</h2>
+<blockquote>
+<p>三范式建立在第二范式的基础之上，要求所有非主键字典必须直接依赖主键，不要产生传递依赖。</p>
+</blockquote>
+<p><strong>怎么设计一对多？</strong></p>
+<ul>
+<li>一对<em>多</em>，两张表，<em>多</em>的表加外键！！！！！！！！！！！！</li>
+</ul>
+<p>例如：学生表、班级表</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">班级表：一</span><br><span class="line">班级编号(pk)				班级名称</span><br><span class="line">----------------------------------------</span><br><span class="line">01						   一年一班</span><br><span class="line">02						   一年二班</span><br><span class="line">03						   一年三班</span><br><span class="line"></span><br><span class="line">学生表：多</span><br><span class="line">学生编号（PK）       学生姓名      班级编号(fk)</span><br><span class="line">-------------------------------------------</span><br><span class="line">1001				张三			01			</span><br><span class="line">1002				李四			02			</span><br><span class="line">1003				王五			03			</span><br><span class="line">1004				赵六			03</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<ul>
+<li>
+<p>一对多</p>
+<p>一对多，两张表，多的表加外键！！！！！！！！！！！！</p>
+</li>
+<li>
+<p>多对多</p>
+<p>多对多，三张表，关系表两个外键！！！！！！！！！！！！！！！</p>
+</li>
+<li>
+<p>一对一</p>
+<p>在实际的开发中，可能存在一张表字段太多，太庞大。这个时候要拆分表。</p>
+<p>一对一，外键唯一！！！！！！！！！！！！！</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">没有拆分表之前：一张表</span><br><span class="line">t<span class="built_in">_</span>user</span><br><span class="line">id		login<span class="built_in">_</span>name		login<span class="built_in">_</span>pwd		real<span class="built_in">_</span>name		email				address........</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">1			zhangsan		123				张三				zhangsan@xxx</span><br><span class="line">2			lisi			123				李四				lisi@xxx</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">这种庞大的表建议拆分为两张：</span><br><span class="line">t<span class="built_in">_</span>login 登录信息表</span><br><span class="line">id(pk)		login<span class="built_in">_</span>name		login<span class="built_in">_</span>pwd	</span><br><span class="line">---------------------------------</span><br><span class="line">1				zhangsan		123			</span><br><span class="line">2				lisi			123			</span><br><span class="line"></span><br><span class="line">t<span class="built_in">_</span>user 用户详细信息表</span><br><span class="line">id(pk)		real<span class="built_in">_</span>name		email				address........	 login<span class="built_in">_</span>id(fk+unique)</span><br><span class="line">-----------------------------------------------------------------------------------------</span><br><span class="line">100			张三				zhangsan@xxx								1</span><br><span class="line">200			李四				lisi@xxx	</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>实际经验</strong></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">数据库设计三范式是理论上的。</span><br><span class="line">实践和理论有的时候有偏差。</span><br><span class="line"></span><br><span class="line">最终的目的都是为了满足客户的需求，有的时候会拿冗余换执行速度。</span><br><span class="line"></span><br><span class="line">因为在sql当中，表和表之间连接次数越多，效率越低。（笛卡尔积）</span><br><span class="line"></span><br><span class="line">有的时候可能会存在冗余，但是为了减少表的连接次数，这样做也是合理的，</span><br><span class="line">并且对于开发人员来说，sql语句的编写难度也会降低。</span><br><span class="line"></span><br><span class="line">面试的时候把这句话说上：他就不会认为你是初级程序员了！</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>JAVA</category>
         <category>阶段3</category>
