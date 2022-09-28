@@ -8826,7 +8826,7 @@ MEMORY引擎缺点：不安全，关机之后数据消失。因为数据和索�
       </tags>
   </entry>
   <entry>
-    <title>Java 企业开发基础 Spring5-JDBCTemplate</title>
+    <title>Java 企业开发基础 Spring5-Affair</title>
     <url>/2022/09/28/JAVA/09Spring5_Affair/</url>
     <content><![CDATA[<h1 id="事务"><a class="markdownIt-Anchor" href="#事务"></a> 事务</h1>
 <blockquote>
@@ -8992,7 +8992,7 @@ MEMORY引擎缺点：不安全，关机之后数据消失。因为数据和索�
       </tags>
   </entry>
   <entry>
-    <title>Java 企业开发基础 Spring5</title>
+    <title>Java 企业开发基础 Spring5-IOC</title>
     <url>/2022/09/26/JAVA/06Spring5_IOC/</url>
     <content><![CDATA[<h2 id="spring概述"><a class="markdownIt-Anchor" href="#spring概述"></a> Spring概述</h2>
 <blockquote>
@@ -9305,6 +9305,7 @@ MEMORY引擎缺点：不安全，关机之后数据消失。因为数据和索�
       <categories>
         <category>JAVA</category>
         <category>阶段3</category>
+        <category>Spring</category>
       </categories>
       <tags>
         <tag>Java</tag>
