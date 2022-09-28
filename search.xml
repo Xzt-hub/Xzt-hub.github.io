@@ -9434,4 +9434,68 @@ MEMORY引擎缺点：不安全，关机之后数据消失。因为数据和索�
         <tag>Spring</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Java 企业开发基础 Spring5-新功能</title>
+    <url>/2022/09/29/JAVA/10Spring5_NewFunc/</url>
+    <content><![CDATA[<h2 id="spring5-框架新功能"><a class="markdownIt-Anchor" href="#spring5-框架新功能"></a> Spring5 框架新功能</h2>
+<blockquote>
+<p>整个 Spring5 框架的代码基于 Java8，运行时兼容 JDK9，许多不建议使用的类和方法在代码库中删除了。</p>
+</blockquote>
+<h2 id="spring-5-框架自带了通用的日志封装"><a class="markdownIt-Anchor" href="#spring-5-框架自带了通用的日志封装"></a> Spring 5 框架自带了通用的日志封装</h2>
+<ul>
+<li>Spring5 已经移除 <code>Log4jConfigListener</code>，官方建议使用 <code>Log4j2</code></li>
+<li>Spring5 框架整合 <code>Log4j2</code></li>
+</ul>
+<p>整合 <code>log4j2</code> 步骤</p>
+<ol>
+<li>
+<p>引入 jar 包 : <code>log4j-api-2.11.2.jar</code> 、<code>log4j-core-2.11.2.jar</code> 、<code>log4j-slf4j-impl-2.11.2.jar</code> 、<code>slf4j-api-1.7.30.jar</code></p>
+</li>
+<li>
+<p>创建 <code>log4j2.xml</code> (名字固定，不可变)配置文件</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--日志级别以及优先级排序: OFF &gt; FATAL &gt; ERROR &gt; WARN &gt; INFO &gt; DEBUG &gt; TRACE &gt; ALL --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Configuration后面的status用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，可以看到log4j2内部各种详细输出--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">status</span>=<span class="string">&quot;INFO&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--先定义所有的appender--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appenders</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--输出日志信息到控制台--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">console</span> <span class="attr">name</span>=<span class="string">&quot;Console&quot;</span> <span class="attr">target</span>=<span class="string">&quot;SYSTEM_OUT&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--控制日志输出的格式--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">PatternLayout</span> <span class="attr">pattern</span>=<span class="string">&quot;%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%t] %-5level %logger&#123;36&#125; - %msg%n&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">console</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appenders</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--然后定义logger，只有定义了logger并引入的appender，appender才会生效--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--root：用于指定项目的根日志，如果没有单独指定Logger，则会使用root作为默认的日志输出--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">loggers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">&quot;info&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">&quot;Console&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">loggers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>运行时会输出对应的日志信息</p>
+<p><img src="10Spring5_NewFunc/image-20220928203316265.png" alt="image-20220928203316265" /></p>
+<p>示例代码：手动输出日志信息</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserLog</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">log</span> <span class="operator">=</span> LoggerFactory.getLogger(UserLog.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;hello log4j2&quot;</span>);</span><br><span class="line">        log.warn(<span class="string">&quot;hello log4j2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<p><img src="10Spring5_NewFunc/image-20220928203743366.png" alt="image-20220928203743366" /></p>
+<h2 id="spring5-框架核心容器支持nullable-注解"><a class="markdownIt-Anchor" href="#spring5-框架核心容器支持nullable-注解"></a> Spring5 框架核心容器支持@Nullable 注解</h2>
+<p><code>@Nullable</code> 注解可以使用在方法、属性、参数上面，表示方法返回可以为空，属性值可以为空，参数值可以为空</p>
+<h2 id="spring5-核心容器支持函数式风格"><a class="markdownIt-Anchor" href="#spring5-核心容器支持函数式风格"></a> Spring5 核心容器支持函数式风格</h2>
+<p><code>GenericApplicationContext</code> 支持 lambda 表达式相关操作</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数式风格创建对象</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testGenericApplicationContext</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 1.创建 GenericApplicationContext 对象</span></span><br><span class="line">    <span class="type">GenericApplicationContext</span> <span class="variable">context</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GenericGroovyApplicationContext</span>();</span><br><span class="line">    <span class="comment">// 2.调用context的方法进行对象注册</span></span><br><span class="line">    context.refresh();</span><br><span class="line">    context.registerBean(<span class="string">&quot;account&quot;</span>, Account.class, () -&gt; <span class="keyword">new</span> <span class="title class_">Account</span>()); <span class="comment">// &quot;account&quot;对象名可以省略，</span></span><br><span class="line">    <span class="comment">// 3.获取 spring 注册的对象</span></span><br><span class="line">    <span class="type">Account</span> <span class="variable">account</span> <span class="operator">=</span> (Account) context.getBean(<span class="string">&quot;account&quot;</span>);</span><br><span class="line">    <span class="comment">//        Account account = (Account) context.getBean(&quot;com.xzt.springaffair.entity.Account&quot;); // 如果上面没有指定对象名，需要这样创建</span></span><br><span class="line">    System.out.println(account);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="spring5-支持整合-junit5"><a class="markdownIt-Anchor" href="#spring5-支持整合-junit5"></a> Spring5 支持整合 JUnit5</h2>
+<h3 id="整合-junit4"><a class="markdownIt-Anchor" href="#整合-junit4"></a> 整合 JUnit4</h3>
+<p><img src="10Spring5_NewFunc/image-20220928213934627.png" alt="image-20220928213934627" /></p>
+<ol>
+<li>引入 spring 相关测试的依赖 <code>spring-test-5.3.23.jar</code></li>
+<li>创建测试类，引用注解方法方式完成</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringJUnit4ClassRunner.class)</span>  <span class="comment">// 单元测试框架</span></span><br><span class="line"><span class="meta">@ContextConfiguration(&quot;classpath:bean1.xml&quot;)</span> <span class="comment">// 加载配置文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JTest4</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> AccountService accountService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">()</span> &#123;</span><br><span class="line">        accountService.accountMoney();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="整合-junit5"><a class="markdownIt-Anchor" href="#整合-junit5"></a> 整合 JUnit5</h3>
+<ol>
+<li>
+<p>需要引入 JUnit5 jar包</p>
+<p><img src="10Spring5_NewFunc/image-20220928214113055.png" alt="image-20220928214113055" /></p>
+</li>
+<li>
+<p>创建测试类，使用注解实现。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 写法1</span></span><br><span class="line"><span class="comment">//@ExtendWith(SpringExtension.class)</span></span><br><span class="line"><span class="comment">//@ContextConfiguration(&quot;classpath:bean1.xml&quot;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法2 符合注解</span></span><br><span class="line"><span class="meta">@SpringJUnitConfig(locations = &quot;classpath:bean1.xml&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JTest5</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> AccountService accountService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">()</span> &#123;</span><br><span class="line">        accountService.accountMoney();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="spring5-框架新功能-springwebflux"><a class="markdownIt-Anchor" href="#spring5-框架新功能-springwebflux"></a> Spring5 框架新功能 - SpringWebflux</h3>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+        <category>阶段3</category>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
 </search>
