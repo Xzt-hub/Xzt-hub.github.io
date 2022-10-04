@@ -9533,7 +9533,7 @@ MEMORY引擎缺点：不安全，关机之后数据消失。因为数据和索�
   </entry>
   <entry>
     <title>Java 企业开发基础 SpringMVC</title>
-    <url>/2022/09/29/JAVA/11SpringMVC/</url>
+    <url>/2022/10/01/JAVA/11SpringMVC/</url>
     <content><![CDATA[<p><img src="11SpringMVC/image-20220929101351636.png" alt="image-20220929101351636" /></p>
 <h1 id="springmvc简介"><a class="markdownIt-Anchor" href="#springmvc简介"></a> SpringMVC简介</h1>
 <h2 id="什么是mvc"><a class="markdownIt-Anchor" href="#什么是mvc"></a> 什么是MVC</h2>
@@ -9654,6 +9654,80 @@ MEMORY引擎缺点：不安全，关机之后数据消失。因为数据和索�
 <p>2、常用的请求方式有get，post，put，delete</p>
 <p>但是目前浏览器只支持get和post，若在form表单提交时，为method设置了其他请求方式的字符串（put或delete），则按照默认的请求方式get处理</p>
 <p>若要发送put和delete请求，则需要通过spring提供的过滤器HiddenHttpMethodFilter，在RESTful部分会讲到</p>
+</blockquote>
+<h2 id="requestmapping注解的params属性"><a class="markdownIt-Anchor" href="#requestmapping注解的params属性"></a> @RequestMapping注解的params属性💤</h2>
+<ul>
+<li>
+<p>@RequestMapping 注解的 params 属性通过请求的请求参数匹配请求映射</p>
+</li>
+<li>
+<p>@RequestMapping 注解的 params 属性是一个字符串类型的数组，可以通过四种表达式设置请求参数和请求映射的匹配关系</p>
+<ul>
+<li>
+<p>“param”：要求请求映射所匹配的请求必须携带param请求参数</p>
+</li>
+<li>
+<p>“!param”：要求请求映射所匹配的请求必须不能携带param请求参数</p>
+</li>
+<li>
+<p>“param=value”：要求请求映射所匹配的请求必须携带param请求参数且param=value</p>
+</li>
+<li>
+<p>“param!=value”：要求请求映射所匹配的请求必须携带param请求参数但是param!=value</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/test(username=&#x27;admin&#x27;, password=123456)&#125;&quot;</span>&gt;</span>测试RequestMapping注解的param属性---&gt;/test<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(</span></span><br><span class="line"><span class="meta">    value = &#123;&quot;/testRequestMapping&quot;, &quot;/test&quot;&#125;,</span></span><br><span class="line"><span class="meta">    method = &#123;RequestMethod.GET, RequestMethod.POST&#125;,</span></span><br><span class="line"><span class="meta">    params = &#123;&quot;username&quot;, &quot;password!=123456&quot;&#125;  // 必须有username，并且password不能是123456</span></span><br><span class="line"><span class="meta">)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">success</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：</p>
+<p>若当前请求满足@RequestMapping注解的value和method属性，但是不满足params属性，此时页面回报错400：Parameter conditions “username, password!=123456” not met for actual request parameters: username={admin}, password={123456}</p>
+</blockquote>
+<h2 id="requestmapping注解的headers属性"><a class="markdownIt-Anchor" href="#requestmapping注解的headers属性"></a> @RequestMapping注解的headers属性💤</h2>
+<ul>
+<li>@RequestMapping注解的headers属性通过请求的请求头信息匹配请求映射</li>
+<li>@RequestMapping注解的headers属性是一个字符串类型的数组，可以通过四种表达式设置请求头信息和请求映射的匹配关系
+<ul>
+<li>“header”：要求请求映射所匹配的请求必须携带header请求头信息</li>
+<li>“!header”：要求请求映射所匹配的请求必须不能携带header请求头信息</li>
+<li>“header=value”：要求请求映射所匹配的请求必须携带header请求头信息且header=value</li>
+<li>“header!=value”：要求请求映射所匹配的请求必须携带header请求头信息且header!=value</li>
+</ul>
+</li>
+</ul>
+<p>若当前请求满足@RequestMapping注解的value和method属性，但是不满足headers属性，此时页面显示404错误SpringMVC支持路径中的占位符（重点），即资源未找到</p>
+<h2 id="springmvc支持ant风格的路径"><a class="markdownIt-Anchor" href="#springmvc支持ant风格的路径"></a> SpringMVC支持ant风格的路径</h2>
+<p>即模糊匹配.</p>
+<ul>
+<li>？：表示任意的单个字符.(不能匹配<code>\</code>或者<code>?</code>这种特殊字符,同样适用于*匹配符)</li>
+<li>*：表示任意的0个或多个字符</li>
+<li>**：表示任意的一层或多层目录</li>
+</ul>
+<p>注意：在使用**时，只能使用/**/xxx的方式</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/a?a/testAnt&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testAnt</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="springmvc支持路径中的占位符"><a class="markdownIt-Anchor" href="#springmvc支持路径中的占位符"></a> SpringMVC支持路径中的占位符⭐⭐</h2>
+<ul>
+<li>原始方式：/deleteUser?id=1</li>
+<li><strong>rest方式</strong> ：/deleteUser/1</li>
+</ul>
+<p>SpringMVC路径中的占位符常用于RESTful风格中，当请求路径中将某些数据通过路径的方式传输到服务器中，就可以在相应的<code>@RequestMapping</code>注解的value属性中通过占位符{xxx}表示传输的数据，在通过<code>@PathVariable</code>注解，将占位符所表示的数据赋值给控制器方法的形参。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/testPath/1/admin&#125;&quot;</span>&gt;</span>测试路径中的占位符----&gt;/testRest<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testPath/&#123;id&#125;/&#123;name&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testPath</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id, <span class="meta">@PathVariable</span> (<span class="string">&quot;name&quot;</span>)</span>String name) &#123;</span><br><span class="line">    System.out.println(id + <span class="string">&quot;:&quot;</span> + name);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="springmvc获取请求参数"><a class="markdownIt-Anchor" href="#springmvc获取请求参数"></a> SpringMVC获取请求参数</h1>
+<h2 id="通过servletapi获取"><a class="markdownIt-Anchor" href="#通过servletapi获取"></a> 通过ServletAPI获取</h2>
+<p>将HttpServletRequest作为控制器方法的形参，此时HttpServletRequest类型的参数表示封装了当前请求的请求报文的对象</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/testServletAPI(username=&#x27;admin&#x27;, password=&#x27;123456&#x27;)&#125;&quot;</span>&gt;</span>测试使用ServletAPI请求参数<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;testServletAPI&quot;)</span></span><br><span class="line"><span class="comment">// 形参位置的request表示当前请求</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testServletAPI</span><span class="params">(HttpServletRequest request)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">    System.out.println(username + <span class="string">&quot;:&quot;</span> + password);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="通过控制器方法的形参获取请求参数"><a class="markdownIt-Anchor" href="#通过控制器方法的形参获取请求参数"></a> 通过控制器方法的形参获取请求参数</h2>
+<p>在控制器方法的形参位置，设置和请求参数同名的形参，当浏览器发送请求，匹配到请求映射时，在DispatcherServlet中就会将请求参数赋值给相应的形参</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/testParams(username=&#x27;admin&#x27;, password=&#x27;123456&#x27;)&#125;&quot;</span>&gt;</span>测试使用控制器的形参获取请求参数<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testParams&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testParams</span><span class="params">(String username, String password)</span> &#123;</span><br><span class="line">    System.out.println(username + <span class="string">&quot; : &quot;</span> + password);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：</p>
+<p>若请求所传输的请求参数中有多个同名的请求参数，此时可以在控制器方法的形参中设置 字符串数组 或者 字符串类型的形参 接收此请求参数</p>
+<p>若使用字符串数组类型的形参，此参数的数组中包含了每一个数据</p>
+<p>若使用字符串类型的形参，此参数的值为每个数据中间 使用逗号拼接 的结果</p>
 </blockquote>
 ]]></content>
       <categories>
