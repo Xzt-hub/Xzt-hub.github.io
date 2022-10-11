@@ -9729,6 +9729,234 @@ MEMORY引擎缺点：不安全，关机之后数据消失。因为数据和索�
 <p>若使用字符串数组类型的形参，此参数的数组中包含了每一个数据</p>
 <p>若使用字符串类型的形参，此参数的值为每个数据中间 使用逗号拼接 的结果</p>
 </blockquote>
+<h2 id="requestparam"><a class="markdownIt-Anchor" href="#requestparam"></a> @RequestParam</h2>
+<p>@RequestParam是将 <em>请求参数</em> 和控制器方法的形参创建映射关系</p>
+<p>@RequestParam注解一共有三个属性：</p>
+<ul>
+<li>
+<p><code>value</code>：指定为形参赋值的请求参数的参数名</p>
+</li>
+<li>
+<p><code>required</code>：设置是否必须传输此请求参数，默认值为true。</p>
+<p>若设置为true时，则当前请求必须传输value所指定的请求参数，若没有传输该请求参数，且没有设置defaultValue属性，则页面报错400：Required String parameter ‘xxx’ is not present；若设置为false，则当前请求不是必须传输value所指定的请求参数，若没有传输，则注解所标识的形参的值为null</p>
+</li>
+<li>
+<p><code>defaultValue</code>：不管required属性值为true或false，当value所指定的请求参数没有传输或传输的值为&quot;&quot;时，则使用默认值为形参赋值</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/testParams(user_name=&#x27;admin&#x27;, password=&#x27;123456&#x27;)&#125;&quot;</span>&gt;</span>测试使用@RewuestParam获取请求参数<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testParams&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testParams</span><span class="params">(</span></span><br><span class="line"><span class="params">    <span class="meta">@RequestParam(&quot;user_name&quot;)</span> String username, // user_name 和 username相对应</span></span><br><span class="line"><span class="params">    <span class="meta">@RequestParam(&quot;password&quot;)</span> String password)</span> &#123;</span><br><span class="line">    System.out.println(username + <span class="string">&quot; : &quot;</span> + password);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="requestheader"><a class="markdownIt-Anchor" href="#requestheader"></a> @RequestHeader</h2>
+<p>@RequestHeader是将 <em>请求头信息</em> 和控制器方法的形参创建映射关系</p>
+<p>@RequestHeader注解一共有三个属性：value、required、defaultValue，用法同@RequestParam</p>
+<h2 id="cookievalue"><a class="markdownIt-Anchor" href="#cookievalue"></a> @CookieValue</h2>
+<p>@CookieValue是将 <em>cookie数据</em> 和控制器方法的形参创建映射关系</p>
+<p>@CookieValue注解一共有三个属性：value、required、defaultValue，用法同@RequestParam</p>
+<h2 id="通过pojo获取请求参数"><a class="markdownIt-Anchor" href="#通过pojo获取请求参数"></a> 通过POJO获取请求参数</h2>
+<p>可以在控制器方法的形参位置设置一个实体类类型的形参，此时若浏览器传输的请求参数的参数名和实体类中的属性名一致，那么请求参数就会为此属性赋值</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">th:action</span>=<span class="string">&quot;@&#123;/testpojo&#125;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">    用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    性别：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;男&quot;</span>&gt;</span>男<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;女&quot;</span>&gt;</span>女<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    年龄：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;age&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    邮箱：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;email&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;使用实体类接收请求参数&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testpojo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testPojo</span><span class="params">(User user)</span> &#123;</span><br><span class="line">    System.out.println(user);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解决获取请求参数的乱码问题"><a class="markdownIt-Anchor" href="#解决获取请求参数的乱码问题"></a> 解决获取请求参数的乱码问题⭐</h2>
+<p>解决获取请求参数的乱码问题，可以使用SpringMVC提供的编码过滤器CharacterEncodingFilter，但是必须在web.xml中进行注册</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置springMVC的编码过滤器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>forceResponseEncoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：</p>
+<p>SpringMVC中处理编码的过滤器一定要配置到其他过滤器之前，否则无效</p>
+</blockquote>
+<h1 id="域对象共享数据"><a class="markdownIt-Anchor" href="#域对象共享数据"></a> 域对象共享数据</h1>
+<h2 id="使用servletapi向request域对象共享数据"><a class="markdownIt-Anchor" href="#使用servletapi向request域对象共享数据"></a> 使用ServletAPI向request域对象共享数据</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testServletAPI&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testServletAPI</span><span class="params">(HttpServletRequest request)</span>&#123;</span><br><span class="line">    request.setAttribute(<span class="string">&quot;testScope&quot;</span>, <span class="string">&quot;hello,servletAPI&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;testScope&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="comment">&lt;!-- success.html 获取共享数据 --&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用modelandview向request域对象共享数据"><a class="markdownIt-Anchor" href="#使用modelandview向request域对象共享数据"></a> 使用ModelAndView向request域对象共享数据</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testModelAndView&quot;)</span></span><br><span class="line"><span class="keyword">public</span> ModelAndView <span class="title function_">testModelAndView</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * ModelAndView有Model和View的功能</span></span><br><span class="line"><span class="comment">     * Model主要用于向请求域共享数据</span></span><br><span class="line"><span class="comment">     * View主要用于设置视图，实现页面跳转</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">ModelAndView</span> <span class="variable">mav</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ModelAndView</span>();</span><br><span class="line">    <span class="comment">//向请求域共享数据</span></span><br><span class="line">    mav.addObject(<span class="string">&quot;testScope&quot;</span>, <span class="string">&quot;hello,ModelAndView&quot;</span>);</span><br><span class="line">    <span class="comment">//设置视图，实现页面跳转</span></span><br><span class="line">    mav.setViewName(<span class="string">&quot;success&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> mav;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用model向request域对象共享数据"><a class="markdownIt-Anchor" href="#使用model向request域对象共享数据"></a> 使用Model向request域对象共享数据</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testModel&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testModel</span><span class="params">(Model model)</span>&#123;</span><br><span class="line">    model.addAttribute(<span class="string">&quot;testScope&quot;</span>, <span class="string">&quot;hello,Model&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用map向request域对象共享数据"><a class="markdownIt-Anchor" href="#使用map向request域对象共享数据"></a> 使用map向request域对象共享数据</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testMap&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testMap</span><span class="params">(Map&lt;String, Object&gt; map)</span>&#123;</span><br><span class="line">    map.put(<span class="string">&quot;testScope&quot;</span>, <span class="string">&quot;hello,Map&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用modelmap向request域对象共享数据"><a class="markdownIt-Anchor" href="#使用modelmap向request域对象共享数据"></a> 使用ModelMap向request域对象共享数据</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testModelMap&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testModelMap</span><span class="params">(ModelMap modelMap)</span>&#123;</span><br><span class="line">    modelMap.addAttribute(<span class="string">&quot;testScope&quot;</span>, <span class="string">&quot;hello,ModelMap&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="model-modelmap-map的关系"><a class="markdownIt-Anchor" href="#model-modelmap-map的关系"></a> Model、ModelMap、Map的关系</h2>
+<p>Model、ModelMap、Map类型的参数其实本质上都是 <code>BindingAwareModelMap</code> 类型的</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Model</span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ModelMap</span> <span class="keyword">extends</span> <span class="title class_">LinkedHashMap</span>&lt;String, Object&gt; &#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ExtendedModelMap</span> <span class="keyword">extends</span> <span class="title class_">ModelMap</span> <span class="keyword">implements</span> <span class="title class_">Model</span> &#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BindingAwareModelMap</span> <span class="keyword">extends</span> <span class="title class_">ExtendedModelMap</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="向session域共享数据"><a class="markdownIt-Anchor" href="#向session域共享数据"></a> 向session域共享数据</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testSession&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testSession</span><span class="params">(HttpSession session)</span>&#123;</span><br><span class="line">    session.setAttribute(<span class="string">&quot;testSessionScope&quot;</span>, <span class="string">&quot;hello,session&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;session.testSessionScope&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="向application域共享数据"><a class="markdownIt-Anchor" href="#向application域共享数据"></a> 向application域共享数据</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testApplication&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testApplication</span><span class="params">(HttpSession session)</span>&#123;</span><br><span class="line">	<span class="type">ServletContext</span> <span class="variable">application</span> <span class="operator">=</span> session.getServletContext();</span><br><span class="line">    application.setAttribute(<span class="string">&quot;testApplicationScope&quot;</span>, <span class="string">&quot;hello,application&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;application.testSessionScope&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="springmvc的视图"><a class="markdownIt-Anchor" href="#springmvc的视图"></a> SpringMVC的视图</h1>
+<p>SpringMVC中的视图是View接口，视图的作用渲染数据，将模型Model中的数据展示给用户</p>
+<p>SpringMVC视图的种类很多，默认有 <strong>转发视图</strong> 和 <strong>重定向视图</strong></p>
+<p>当工程引入jstl的依赖，转发视图会自动转换为JstlView</p>
+<p>若使用的视图技术为Thymeleaf，在SpringMVC的配置文件中配置了Thymeleaf的视图解析器，由此视图解析器解析之后所得到的是ThymeleafView</p>
+<h2 id="thymeleafview"><a class="markdownIt-Anchor" href="#thymeleafview"></a> ThymeleafView</h2>
+<p>当控制器方法中所设置的<strong>视图名称没有任何前缀时</strong>，此时的视图名称会被SpringMVC配置文件中所配置的视图解析器解析，视图名称拼接视图前缀和视图后缀所得到的最终路径，会通过 <strong>转发</strong> 的方式实现跳转</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/testThymeleafView&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">index</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="11SpringMVC/image-20221010152352997.png" alt="image-20221010152352997" /></p>
+<h2 id="转发视图"><a class="markdownIt-Anchor" href="#转发视图"></a> 转发视图</h2>
+<p>SpringMVC中 <strong>默认的转发视图</strong> 是InternalResourceView</p>
+<p>SpringMVC中创建转发视图的情况：</p>
+<p>当控制器方法中所设置的视图名称以&quot;forward:&quot;为前缀时，创建InternalResourceView视图，此时的视图名称不会被SpringMVC配置文件中所配置的视图解析器解析，而是会将前缀&quot;forward:&quot;去掉，剩余部分作为最终路径通过转发的方式实现跳转</p>
+<p>例如 <code>forward:/</code>，<code>forward:/employee</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 地址栏显示的是/testForward,页面显示的是/testThymeleafView</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/testForward&quot;)</span>  </span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testForward</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;forward:/testThymeleafView&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="11SpringMVC/image-20221010152612066.png" alt="image-20221010152612066" /></p>
+<h2 id="重定向视图"><a class="markdownIt-Anchor" href="#重定向视图"></a> 重定向视图</h2>
+<p>SpringMVC中默认的重定向视图是RedirectView</p>
+<p>当控制器方法中所设置的视图名称以&quot;redirect:&quot;为前缀时，创建RedirectView视图，此时的视图名称不会被SpringMVC配置文件中所配置的视图解析器解析，而是会将前缀&quot;redirect:&quot;去掉，剩余部分作为最终路径通过重定向的方式实现跳转</p>
+<p>例如 <code>redirect:/</code>，<code>redirect:/employee</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 地址栏显示的是/testThymeleafView,页面显示的是/testThymeleafView</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/testRedirect&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">testRedirect</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;redirect:/testThymeleafView&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="11SpringMVC/image-20221010153908769.png" alt="image-20221010153908769" /></p>
+<blockquote>
+<p>注：</p>
+<p>重定向视图在解析时，会先将redirect:前缀去掉，然后会判断剩余部分是否以/开头，若是则会自动拼接上下文路径</p>
+</blockquote>
+<h2 id="视图控制器view-controller"><a class="markdownIt-Anchor" href="#视图控制器view-controller"></a> 视图控制器view-controller</h2>
+<p>当控制器方法中，仅仅用来实现页面跳转，即只需要设置视图名称时，可以将处理器方法使用view-controller标签进行表示</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- http://localhost:8080/springMVC/ 会跳转到index.html --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">	path：设置处理的请求地址</span></span><br><span class="line"><span class="comment">	view-name：设置请求地址所对应的视图名称</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:view-controller</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">view-name</span>=<span class="string">&quot;index&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">mvc:view-controller</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 开启mvc注解驱动,可以让所有的请求有效 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：</p>
+<p>当SpringMVC中设置任何一个view-controller时，其他控制器中的请求映射将全部失效，此时需要在SpringMVC的核心配置文件中设置开启mvc注解驱动的标签：</p>
+<p>&lt;mvc:annotation-driven /&gt;</p>
+</blockquote>
+<h1 id="restful"><a class="markdownIt-Anchor" href="#restful"></a> RESTful</h1>
+<h2 id="restful简介"><a class="markdownIt-Anchor" href="#restful简介"></a> RESTful简介</h2>
+<p>REST：Representational State Transfer，表现层资源状态转移。</p>
+<ul>
+<li>资源</li>
+</ul>
+<p>资源是一种看待服务器的方式，即，将服务器看作是由很多离散的资源组成。每个资源是服务器上一个可命名的抽象概念。因为资源是一个抽象的概念，所以它不仅仅能代表服务器文件系统中的一个文件、数据库中的一张表等等具体的东西，可以将资源设计的要多抽象有多抽象，只要想象力允许而且客户端应用开发者能够理解。与面向对象设计类似，资源是以名词为核心来组织的，首先关注的是名词。一个资源可以由一个或多个URI来标识。URI既是资源的名称，也是资源在Web上的地址。对某个资源感兴趣的客户端应用，可以通过资源的URI与其进行交互。</p>
+<ul>
+<li>资源的表述</li>
+</ul>
+<p>资源的表述是一段对于资源在某个特定时刻的状态的描述。可以在客户端-服务器端之间转移（交换）。资源的表述可以有多种格式，例如HTML/XML/JSON/纯文本/图片/视频/音频等等。资源的表述格式可以通过协商机制来确定。请求-响应方向的表述通常使用不同的格式。</p>
+<ul>
+<li>状态转移</li>
+</ul>
+<p>状态转移说的是：在客户端和服务器端之间转移（transfer）代表资源状态的表述。通过转移和操作资源的表述，来间接实现操作资源的目的。</p>
+<h2 id="restful的实现"><a class="markdownIt-Anchor" href="#restful的实现"></a> RESTful的实现</h2>
+<p>具体说，就是 HTTP 协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。</p>
+<p>它们分别对应四种基本操作：GET 用来获取资源，POST 用来新建资源，PUT 用来更新资源，DELETE 用来删除资源。</p>
+<p>REST 风格提倡 URL 地址使用统一的风格设计，从前到后各个单词使用斜杠分开，不使用问号键值对方式携带请求参数，而是将要发送给服务器的数据作为 URL 地址的一部分，以保证整体风格的一致性。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>传统方式</th>
+<th>REST风格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查询操作</td>
+<td>getUserById?id=1</td>
+<td>user/1–&gt;get请求方式</td>
+</tr>
+<tr>
+<td>保存操作</td>
+<td>saveUser</td>
+<td>user–&gt;post请求方式</td>
+</tr>
+<tr>
+<td>删除操作</td>
+<td>deleteUser?id=1</td>
+<td>user/1–&gt;delete请求方式</td>
+</tr>
+<tr>
+<td>更新操作</td>
+<td>updateUser</td>
+<td>user–&gt;put请求方式</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hiddenhttpmethodfilter"><a class="markdownIt-Anchor" href="#hiddenhttpmethodfilter"></a> HiddenHttpMethodFilter</h2>
+<p>由于浏览器只支持发送get和post方式的请求，那么该如何发送put和delete请求呢？</p>
+<p>SpringMVC 提供了 <strong>HiddenHttpMethodFilter</strong> 帮助我们<strong>将 POST 请求转换为 DELETE 或 PUT 请求</strong></p>
+<p><strong>HiddenHttpMethodFilter</strong> 处理put和delete请求的条件：</p>
+<ul>
+<li>当前请求的请求方式必须为 <code>post</code></li>
+<li>当前请求必须传输请求参数 <code>_method</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">th:action</span>=<span class="string">&quot;@&#123;/user&#125;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;_method&quot;</span> <span class="attr">value</span>=<span class="string">&quot;PUT&quot;</span>&gt;</span>  <span class="comment">&lt;!-- 模拟put请求 --&gt;</span></span><br><span class="line">    用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;修改&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>满足以上条件，<strong>HiddenHttpMethodFilter</strong> 过滤器就会将当前请求的请求方式转换为请求参数_method的值，因此请求参数_method的值才是最终的请求方式</p>
+<p>在 web.xml 中注册<strong>HiddenHttpMethodFilter</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--1.配置编码过滤器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>forceResponseEncoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 2.配置处理请求方式put和delete的HiddenHttpMethodFilter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>HiddenHttpMethodFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.HiddenHttpMethodFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>HiddenHttpMethodFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：</p>
+<p>目前为止，SpringMVC中提供了两个过滤器：CharacterEncodingFilter和HiddenHttpMethodFilter</p>
+<p>在web.xml中注册时，必须先注册CharacterEncodingFilter，再注册HiddenHttpMethodFilter</p>
+<p>原因：</p>
+<ul>
+<li>
+<p>在 CharacterEncodingFilter 中通过 request.setCharacterEncoding(encoding) 方法设置字符集的</p>
+</li>
+<li>
+<p>request.setCharacterEncoding(encoding) 方法要求前面不能有任何获取请求参数的操作</p>
+</li>
+<li>
+<p>而 HiddenHttpMethodFilter 恰恰有一个获取请求方式的操作：</p>
+</li>
+<li>
+<pre class="highlight"><code class="">String paramValue = request.getParameter(this.methodParam);
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># RESTful案例</span><br><span class="line"></span><br><span class="line">## 准备工作</span><br><span class="line"></span><br><span class="line">和传统 CRUD 一样，实现对员工信息的增删改查。</span><br><span class="line"></span><br><span class="line">- 搭建环境</span><br><span class="line"></span><br><span class="line">- 准备实体类</span><br><span class="line"></span><br><span class="line"> ```java</span><br><span class="line"> package com.xzt.mvc.bean;</span><br><span class="line"> </span><br><span class="line"> /**</span><br><span class="line">  * @author xzt</span><br><span class="line">  * @version 1.0</span><br><span class="line">  */</span><br><span class="line"> public class Employee &#123;</span><br><span class="line">     private Integer id;</span><br><span class="line">     private String lastName;</span><br><span class="line"> </span><br><span class="line">     private String email;</span><br><span class="line">     //1 male, 0 female</span><br><span class="line">     private Integer gender;</span><br><span class="line"> </span><br><span class="line">     public Integer getId() &#123;</span><br><span class="line">         return id;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     public void setId(Integer id) &#123;</span><br><span class="line">         this.id = id;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     public String getLastName() &#123;</span><br><span class="line">         return lastName;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     public void setLastName(String lastName) &#123;</span><br><span class="line">         this.lastName = lastName;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     public String getEmail() &#123;</span><br><span class="line">         return email;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     public void setEmail(String email) &#123;</span><br><span class="line">         this.email = email;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     public Integer getGender() &#123;</span><br><span class="line">         return gender;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     public void setGender(Integer gender) &#123;</span><br><span class="line">         this.gender = gender;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     public Employee(Integer id, String lastName, String email, Integer gender) &#123;</span><br><span class="line">         super();</span><br><span class="line">         this.id = id;</span><br><span class="line">         this.lastName = lastName;</span><br><span class="line">         this.email = email;</span><br><span class="line">         this.gender = gender;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     public Employee() &#123;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>准备dao模拟数据</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xzt.mvc.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.xzt.mvc.bean.Employee;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmployeeDao</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Map&lt;Integer, Employee&gt; employees = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        employees = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Integer, Employee&gt;();</span><br><span class="line"></span><br><span class="line">        employees.put(<span class="number">1001</span>, <span class="keyword">new</span> <span class="title class_">Employee</span>(<span class="number">1001</span>, <span class="string">&quot;E-AA&quot;</span>, <span class="string">&quot;aa@163.com&quot;</span>, <span class="number">1</span>));</span><br><span class="line">        employees.put(<span class="number">1002</span>, <span class="keyword">new</span> <span class="title class_">Employee</span>(<span class="number">1002</span>, <span class="string">&quot;E-BB&quot;</span>, <span class="string">&quot;bb@163.com&quot;</span>, <span class="number">1</span>));</span><br><span class="line">        employees.put(<span class="number">1003</span>, <span class="keyword">new</span> <span class="title class_">Employee</span>(<span class="number">1003</span>, <span class="string">&quot;E-CC&quot;</span>, <span class="string">&quot;cc@163.com&quot;</span>, <span class="number">0</span>));</span><br><span class="line">        employees.put(<span class="number">1004</span>, <span class="keyword">new</span> <span class="title class_">Employee</span>(<span class="number">1004</span>, <span class="string">&quot;E-DD&quot;</span>, <span class="string">&quot;dd@163.com&quot;</span>, <span class="number">0</span>));</span><br><span class="line">        employees.put(<span class="number">1005</span>, <span class="keyword">new</span> <span class="title class_">Employee</span>(<span class="number">1005</span>, <span class="string">&quot;E-EE&quot;</span>, <span class="string">&quot;ee@163.com&quot;</span>, <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Integer</span> <span class="variable">initId</span> <span class="operator">=</span> <span class="number">1006</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(Employee employee)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(employee.getId() == <span class="literal">null</span>)&#123;</span><br><span class="line">            employee.setId(initId++);</span><br><span class="line">        &#125;</span><br><span class="line">        employees.put(employee.getId(), employee);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Collection&lt;Employee&gt; <span class="title function_">getAll</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employees.values();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Employee <span class="title function_">get</span><span class="params">(Integer id)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employees.get(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">delete</span><span class="params">(Integer id)</span>&#123;</span><br><span class="line">        employees.remove(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="功能清单"><a class="markdownIt-Anchor" href="#功能清单"></a> 功能清单</h2>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>URL 地址</th>
+<th>请求方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>访问首页√</td>
+<td>/</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>查询全部数据√</td>
+<td>/employee</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>删除√</td>
+<td>/employee/2</td>
+<td>DELETE</td>
+</tr>
+<tr>
+<td>跳转到添加数据页面√</td>
+<td>/toAdd</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>执行保存√</td>
+<td>/employee</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>跳转到更新数据页面√</td>
+<td>/employee/2</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>执行更新√</td>
+<td>/employee</td>
+<td>PUT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="具体功能访问首页"><a class="markdownIt-Anchor" href="#具体功能访问首页"></a> 具体功能：访问首页</h2>
+<h3 id="配置view-controller"><a class="markdownIt-Anchor" href="#配置view-controller"></a> 配置view-controller</h3>
 ]]></content>
       <categories>
         <category>JAVA</category>
