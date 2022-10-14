@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="学习LLVM中Pass的编写过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LLVM Pass编写及运行">
+<meta property="og:url" content="http://example.com/2022/03/22/LLVM/02PassWriteProcess/index.html">
+<meta property="og:site_name" content="Atopos&#39;s Blog">
+<meta property="og:description" content="学习LLVM中Pass的编写过程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/LLVM/Pass1.png">
+<meta property="og:image" content="http://example.com/img/LLVM/Pass2.png">
+<meta property="og:image" content="http://example.com/img/LLVM/Pass3.png">
+<meta property="article:published_time" content="2022-03-22T02:19:00.000Z">
+<meta property="article:modified_time" content="2022-05-01T06:46:01.892Z">
+<meta property="article:author" content="Atopos·">
+<meta property="article:tag" content="LLVM">
+<meta property="article:tag" content="Pass">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/LLVM/Pass1.png">
+
+<link rel="canonical" href="http://example.com/2022/03/22/LLVM/02PassWriteProcess/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css">
+  <title>LLVM Pass编写及运行 | Atopos's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Atopos's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">51</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/22/LLVM/02PassWriteProcess/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+      <meta itemprop="description" content="One step at a time!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LLVM Pass编写及运行
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-22 10:19:00" itemprop="dateCreated datePublished" datetime="2022-03-22T10:19:00+08:00">2022-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-01 14:46:01" itemprop="dateModified" datetime="2022-05-01T14:46:01+08:00">2022-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LLVM/" itemprop="url" rel="index"><span itemprop="name">LLVM</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+            <div class="post-description">学习LLVM中Pass的编写过程。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="pass编写运行"><a class="markdownIt-Anchor" href="#pass编写运行"></a> Pass编写运行</h1>
+<h2 id="编写pass"><a class="markdownIt-Anchor" href="#编写pass"></a> 编写Pass</h2>
+<ol>
+<li>在<code>llvm/lib/Transforms/</code>目录下新建文件夹，命名为<code>MyPass</code></li>
+</ol>
+<p><img src="/img/LLVM/Pass1.png" alt="Pass1" /></p>
+<ol start="2">
+<li>在<code>MyPass</code> 文件夹下创建两个文件，分别为<code>MyPass.cpp</code>、<code>CMakeLists.txt</code></li>
+</ol>
+<p><img src="/img/LLVM/Pass2.png" alt="image-20220102144652248" /></p>
+<ol start="3">
+<li>对<code>MyPass.cpp</code>以及<code>CMakeLists.txt</code>文件进行编写。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#MyPass.cpp</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Pass.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/IR/Function.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Support/raw_ostream.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Analysis/LoopInfo.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> llvm;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEBUG_TYPE <span class="string">&quot;hello&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">MyPass</span> : <span class="keyword">public</span> FunctionPass&#123;</span><br><span class="line">        <span class="type">static</span> <span class="type">char</span> ID;</span><br><span class="line">        <span class="built_in">MyPass</span>() : <span class="built_in">FunctionPass</span>(ID)&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">runOnFunction</span><span class="params">(Function &amp;F)</span> <span class="keyword">override</span></span>&#123;</span><br><span class="line">            LoopInfo *LI = &amp;<span class="built_in">getAnalysis</span>&lt;LoopInfoWrapperPass&gt;().<span class="built_in">getLoopInfo</span>();</span><br><span class="line">            <span class="built_in">errs</span>()&lt;&lt;<span class="string">&quot;Function &quot;</span>&lt;&lt;F.<span class="built_in">getName</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">for</span>(Loop *L : *LI)</span><br><span class="line">                <span class="built_in">countBlocksInLoop</span>(L,<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">countBlocksInLoop</span><span class="params">(Loop *L,<span class="type">unsigned</span> nest)</span></span>&#123;</span><br><span class="line">            <span class="type">unsigned</span> num_Blocks=<span class="number">0</span>;</span><br><span class="line">            Loop::block_iterator bb;</span><br><span class="line">            <span class="keyword">for</span>(bb = L-&gt;<span class="built_in">block_begin</span>();bb!=L-&gt;<span class="built_in">block_end</span>();++bb)</span><br><span class="line">                num_Blocks++;</span><br><span class="line">            <span class="built_in">errs</span>()&lt;&lt;<span class="string">&quot;Loop level &quot;</span>&lt;&lt; nest &lt;&lt;<span class="string">&quot;has&quot;</span>&lt;&lt;num_Blocks&lt;&lt;<span class="string">&quot; blocks\n&quot;</span>;</span><br><span class="line">            std::vector&lt;Loop*&gt; subLoops = L-&gt;<span class="built_in">getSubLoops</span>();</span><br><span class="line">            Loop::iterator j,f;</span><br><span class="line">            <span class="keyword">for</span>(j = subLoops.<span class="built_in">begin</span>(),f=subLoops.<span class="built_in">end</span>();j!=f;++j)</span><br><span class="line">                <span class="built_in">countBlocksInLoop</span>(*j, nest+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">getAnalysisUsage</span><span class="params">(AnalysisUsage &amp;AU)</span> <span class="type">const</span> <span class="keyword">override</span></span>&#123;</span><br><span class="line">            AU.<span class="built_in">addRequired</span>&lt;LoopInfoWrapperPass&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> MyPass::ID=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">static</span> RegisterPass&lt;MyPass&gt; <span class="title">X</span><span class="params">(<span class="string">&quot;MyPass&quot;</span>,<span class="string">&quot;Function Block Count&quot;</span>,<span class="literal">false</span>,<span class="literal">false</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">#</span>CMakeLists.txt</span><br><span class="line">cmake<span class="built_in">_</span>minimum<span class="built_in">_</span>required(VERSION 3.5)</span><br><span class="line"></span><br><span class="line">add<span class="built_in">_</span>llvm<span class="built_in">_</span>loadable<span class="built_in">_</span>module(MyPass</span><br><span class="line">	MyPass.cpp</span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>对Transforms/文件夹下面的CMakeLists.txt文件进行修改。</li>
+</ol>
+<p><img src="/img/LLVM/Pass3.png" alt="image-20220102145118378" /></p>
+<h2 id="编译生成so文件"><a class="markdownIt-Anchor" href="#编译生成so文件"></a> 编译生成.so文件</h2>
+<p>在<code>llvm/build/</code>目录下面执行<code>make</code>指令，则会编译生成动态链接库<code>.so</code>文件，生成的文件在<code>llvm/build/lib/</code>目录下面。</p>
+<h2 id="编写测试程序"><a class="markdownIt-Anchor" href="#编写测试程序"></a> 编写测试程序</h2>
+<p>编写<code>.c</code>或<code>.cpp</code>文件，然后用<code>clang</code>工具对源程序进行编译，生成<code>LLVM IR</code>中间代码。</p>
+<h2 id="运行pass"><a class="markdownIt-Anchor" href="#运行pass"></a> 运行Pass</h2>
+<p>通过调用测试程序运行<code>Pass</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt -load ../Desktop/llvm/build/lib/MyPass.so -MyPass -disable-output testPra.ll</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    <div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="share.title"
+      
+      
+        data-wechat-qrcode-helper="share.prompt"
+      
+    >
+    </div>
+  </div>
+  <script src="https://lib.baomitu.com/social-share.js/1.0.16/js/social-share.min.js"></script><script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
+<script>
+  jinrishici.load((result) => {
+    let jrsc = document.getElementById('jrsc');
+    const data = result.data;
+    let author = data.origin.author;
+    let title = '《' + data.origin.title + '》';
+    let content = data.content.substr(0, data.content.length - 1);
+    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
+    jrsc.innerText = content + ' @ ' + dynasty + '·' + author + title;
+  });
+</script>
+<div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Atopos·
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/03/22/LLVM/02PassWriteProcess/" title="LLVM Pass编写及运行">http://example.com/2022/03/22/LLVM/02PassWriteProcess/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LLVM/" rel="tag"># LLVM</a>
+              <a href="/tags/Pass/" rel="tag"># Pass</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/22/LLVM/01faultInjection/" rel="prev" title="故障注入&检测流程">
+      <i class="fa fa-chevron-left"></i> 故障注入&检测流程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/22/AcWing/LeetCode_Week1/" rel="next" title="AcWing LeetCode究极班 Week1">
+      AcWing LeetCode究极班 Week1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pass%E7%BC%96%E5%86%99%E8%BF%90%E8%A1%8C"><span class="nav-number">1.</span> <span class="nav-text"> Pass编写运行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99pass"><span class="nav-number">1.1.</span> <span class="nav-text"> 编写Pass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90so%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text"> 编译生成.so文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text"> 编写测试程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cpass"><span class="nav-number">1.4.</span> <span class="nav-text"> 运行Pass</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Atopos·"
+      src="/./img/head.jpg">
+  <p class="site-author-name" itemprop="name">Atopos·</p>
+  <div class="site-description" itemprop="description">One step at a time!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/aaaatopos" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aaaatopos" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/xzt2520@163.com" title="E-Mail → xzt2520@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Atopos·</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">485k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">7:21</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
