@@ -9164,7 +9164,7 @@ properties、settings、typeAliases、typeHandlers、objectFactory、objectWrapp
 <li>清华大学开源镜像地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></li>
 </ul>
 <p>官方下载地址往往比较慢，这里较为推荐去清华开源镜像地址下载，选择好自己的操作系统和想要安装的软件版本就好了。</p>
-<p><img src="08InstallAnconda/image-20220712212728662.png" alt="image-20220712212728662" /></p>
+<p><img src="/img/Ubuntu/08InstallAnconda/image-20220712212728662.png" alt="image-20220712212728662" /></p>
 <p>这里下载了<code>Anconda3-5.3.0-Linux-x86_64.sh</code></p>
 <h3 id="安装anaconda"><a class="markdownIt-Anchor" href="#安装anaconda"></a> 安装Anaconda</h3>
 <ul>
