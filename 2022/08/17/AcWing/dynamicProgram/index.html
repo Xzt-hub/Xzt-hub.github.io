@@ -2,9 +2,10 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,14 +14,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="根据AcWing平台和LeetCode平台上的动态规划类型题，进行总结。">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="根据AcWing平台和LeetCode平台上的动态规划类型题，进行总结。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法提高课 - 动态规划">
 <meta property="og:url" content="http://example.com/2022/08/17/AcWing/dynamicProgram/index.html">
@@ -38,235 +38,253 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/AcWing/dynamicProgram/DP.png">
 
+
 <link rel="canonical" href="http://example.com/2022/08/17/AcWing/dynamicProgram/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
-<link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css">
-  <title>算法提高课 - 动态规划 | Atopos's Blog</title>
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/17/AcWing/dynamicProgram/","path":"2022/08/17/AcWing/dynamicProgram/","title":"算法提高课 - 动态规划"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法提高课 - 动态规划 | Atopos's Blog</title>
   
 
 
 
 
 
-
+<link rel="dns-prefetch" href="https://waline-1auxddfcs-aaaatopos.vercel.app/"><link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css">
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Atopos's Blog</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">Atopos's Blog</p>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Blog</p>
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">51</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">51</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
   </ul>
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
 
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E5%B9%B3%E5%8F%B0"><span class="nav-number">1.</span> <span class="nav-text"> 学习平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%A5%97%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text"> 核心套路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E6%A8%A1%E5%9E%8B%E7%BA%BF%E6%80%A7dp"><span class="nav-number">3.</span> <span class="nav-text"> 数字三角模型【线性DP】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE1%E6%91%98%E8%8A%B1%E7%94%9F"><span class="nav-number">3.1.</span> <span class="nav-text"> 题目1：摘花生</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">3.1.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">3.1.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE2%E6%9C%80%E4%BD%8E%E9%80%9A%E8%A1%8C%E8%B4%B9"><span class="nav-number">3.2.</span> <span class="nav-text"> 题目2：最低通行费</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="nav-number">3.2.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-2"><span class="nav-number">3.2.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE3%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text"> 题目3：方格取数⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-3"><span class="nav-number">3.3.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-3"><span class="nav-number">3.3.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE3%E4%BC%A0%E7%BA%B8%E6%9D%A1"><span class="nav-number">3.4.</span> <span class="nav-text"> 题目3：传纸条⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-4"><span class="nav-number">3.4.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-4"><span class="nav-number">3.4.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text"> 最长上升子序列模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE1%E6%80%AA%E7%9B%97%E5%9F%BA%E5%BE%B7%E7%9A%84%E6%BB%91%E7%BF%94%E4%BC%9E"><span class="nav-number">4.1.</span> <span class="nav-text"> 题目1：怪盗基德的滑翔伞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-5"><span class="nav-number">4.1.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-5"><span class="nav-number">4.1.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE2%E7%99%BB%E5%B1%B1"><span class="nav-number">4.2.</span> <span class="nav-text"> 题目2：登山⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-6"><span class="nav-number">4.2.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-6"><span class="nav-number">4.2.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE3%E5%90%88%E5%94%B1%E9%98%9F%E5%BD%A2"><span class="nav-number">4.3.</span> <span class="nav-text"> 题目3：合唱队形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-7"><span class="nav-number">4.3.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-7"><span class="nav-number">4.3.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE4%E5%8F%8B%E5%A5%BD%E5%9F%8E%E5%B8%82"><span class="nav-number">4.4.</span> <span class="nav-text"> 题目4：友好城市⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-8"><span class="nav-number">4.4.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-8"><span class="nav-number">4.4.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE4%E6%9C%80%E5%A4%A7%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E5%92%8C"><span class="nav-number">4.5.</span> <span class="nav-text"> 题目4：最大上升子序列的和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-9"><span class="nav-number">4.5.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-9"><span class="nav-number">4.5.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE5%E6%8B%A6%E6%88%AA%E5%AF%BC%E5%BC%B9"><span class="nav-number">4.6.</span> <span class="nav-text"> 题目5：拦截导弹❗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-10"><span class="nav-number">4.6.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-10"><span class="nav-number">4.6.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E5%8C%85%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text"> 背包模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.</span> <span class="nav-text"> 题目1：背包问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-11"><span class="nav-number">5.1.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-11"><span class="nav-number">5.1.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE2%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="nav-number">5.2.</span> <span class="nav-text"> 题目2：完全背包问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-12"><span class="nav-number">5.2.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-12"><span class="nav-number">5.2.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE3%E9%87%87%E8%8D%AF"><span class="nav-number">5.3.</span> <span class="nav-text"> 题目3：采药</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-13"><span class="nav-number">5.3.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-13"><span class="nav-number">5.3.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE4%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98"><span class="nav-number">5.4.</span> <span class="nav-text"> 题目4：装箱问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-14"><span class="nav-number">5.4.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-14"><span class="nav-number">5.4.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE5%E5%AE%A0%E7%89%A9%E5%B0%8F%E7%B2%BE%E7%81%B5%E4%B9%8B%E6%94%B6%E6%9C%8D"><span class="nav-number">5.5.</span> <span class="nav-text"> 题目5：宠物小精灵之收服⭐⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-15"><span class="nav-number">5.5.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-15"><span class="nav-number">5.5.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE6%E6%95%B0%E5%AD%97%E7%BB%84%E5%90%88"><span class="nav-number">5.6.</span> <span class="nav-text"> 题目6：数字组合⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-16"><span class="nav-number">5.6.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-16"><span class="nav-number">5.6.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE7%E4%B9%B0%E4%B9%A6"><span class="nav-number">5.7.</span> <span class="nav-text"> 题目7：买书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-17"><span class="nav-number">5.7.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-17"><span class="nav-number">5.7.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE8%E8%B4%A7%E5%B8%81%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.8.</span> <span class="nav-text"> 题目8：货币系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-18"><span class="nav-number">5.8.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-18"><span class="nav-number">5.8.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E6%A8%A1%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text"> 状态机模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9dp"><span class="nav-number">7.</span> <span class="nav-text"> 状态压缩DP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4dp"><span class="nav-number">8.</span> <span class="nav-text"> 区间DP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE1%E7%9F%B3%E5%AD%90%E5%90%88%E5%B9%B6"><span class="nav-number">8.1.</span> <span class="nav-text"> 题目1：石子合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-19"><span class="nav-number">8.1.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-19"><span class="nav-number">8.1.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Atopos·"
+      src="/./img/head.jpg">
+  <p class="site-author-name" itemprop="name">Atopos·</p>
+  <div class="site-description" itemprop="description">One step at a time!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/aaaatopos" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aaaatopos" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/xzt2520@163.com" title="E-Mail → xzt2520@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
     </div>
-  </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
 
-</div>
+
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
 
-          <div class="content post posts-expand">
-            
+    <div class="main-inner post posts-expand">
 
-    
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/17/AcWing/dynamicProgram/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./img/head.jpg">
       <meta itemprop="name" content="Atopos·">
-      <meta itemprop="description" content="One step at a time!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Atopos's Blog">
+      <meta itemprop="description" content="One step at a time!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法提高课 - 动态规划 | Atopos's Blog">
+      <meta itemprop="description" content="根据AcWing平台和LeetCode平台上的动态规划类型题，进行总结。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           算法提高课 - 动态规划
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-08-17 11:01:55" itemprop="dateCreated datePublished" datetime="2022-08-17T11:01:55+08:00">2022-08-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-05 10:32:56" itemprop="dateModified" datetime="2022-09-05T10:32:56+08:00">2022-09-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AcWing/" itemprop="url" rel="index"><span itemprop="name">AcWing</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AcWing/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AcWing/Course/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">动态规划</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2022-08-17 11:01:55" itemprop="dateCreated datePublished" datetime="2022-08-17T11:01:55+08:00">2022-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-05 10:32:56" itemprop="dateModified" datetime="2022-09-05T10:32:56+08:00">2022-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AcWing/" itemprop="url" rel="index"><span itemprop="name">AcWing</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AcWing/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AcWing/Course/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">动态规划</span></a>
+        </span>
+    </span>
 
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>18k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>17 分钟</span>
-            </span>
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/08/17/AcWing/dynamicProgram/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/08/17/AcWing/dynamicProgram/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>19k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>17 分钟</span>
+    </span>
+</div>
+
             <div class="post-description">根据AcWing平台和LeetCode平台上的动态规划类型题，进行总结。</div>
-
         </div>
       </header>
 
@@ -274,8 +292,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <h1 id="学习平台"><a class="markdownIt-Anchor" href="#学习平台"></a> 学习平台</h1>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/about/"> AcWing </a> 、 <a target="_blank" rel="noopener" href="https://leetcode.cn/"> LeetCode </a></p>
 <h1 id="核心套路"><a class="markdownIt-Anchor" href="#核心套路"></a> 核心套路</h1>
@@ -306,12 +322,19 @@
 </ul>
 <h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// f[i][j] = max(f[i - 1][j], f[i][j - 1]) + w[i][j]  向南走和向东走的花生数</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n, a, b;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n --) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">        ll f[a + <span class="number">1</span>][b + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= a; i ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= b; j ++)</span><br><span class="line">                f[i][j] = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= a; i ++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= b; j ++) &#123;</span><br><span class="line">                cin &gt;&gt; x;</span><br><span class="line">                f[i][j] = <span class="built_in">max</span>(f[i - <span class="number">1</span>][j], f[i][j - <span class="number">1</span>]) + x;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; f[a][b] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * a * b )，其中 <em>n</em> 是数据的组数，<em>a</em> 是每组数据的行数，<em>b</em> 是每组数据的列数</li><li>空间复杂度：<em>O</em>(n * n)，需要使用额外的数组保存状态<code>f[][]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：1122 ms</p><p>内存消耗：2520 KB</p><p>通过测试用例：10/10</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * a * b )，其中 <em>n</em> 是数据的组数，<em>a</em> 是每组数据的行数，<em>b</em> 是每组数据的列数</li>
+<li>空间复杂度：<em>O</em>(n * n)，需要使用额外的数组保存状态<code>f[][]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：1122 ms</p>
+<p>内存消耗：2520 KB</p>
+<p>通过测试用例：10/10</p>
+</details></div></div></div>
 <h2 id="题目2最低通行费"><a class="markdownIt-Anchor" href="#题目2最低通行费"></a> 题目2：最低通行费</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1020/"> 最低通行费 </a></p>
 <h3 id="思路-2"><a class="markdownIt-Anchor" href="#思路-2"></a> 思路</h3>
@@ -334,12 +357,19 @@
 </ul>
 <h3 id="题解-2"><a class="markdownIt-Anchor" href="#题解-2"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++) </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= n; j ++)</span><br><span class="line">            f[i][j] = <span class="number">1e9</span>; <span class="comment">// 将所有的f[i][j] = 1e9</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++)&#123;</span><br><span class="line">            cin &gt;&gt; x;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">1</span> &amp;&amp; j == <span class="number">1</span>) f[i][j] = x; <span class="comment">// f[1][1] = x</span></span><br><span class="line">            <span class="keyword">else</span> f[i][j] = <span class="built_in">min</span>(f[i - <span class="number">1</span>][j], f[i][j - <span class="number">1</span>]) + x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; f[n][n] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * n )，其中 <em>n</em> 是正方形宽度</li><li>空间复杂度：<em>O</em>(n * n)，需要使用额外的数组保存状态<code>f[][]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：33 ms</p><p>内存消耗：344 KB</p><p>通过测试用例：10/10</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * n )，其中 <em>n</em> 是正方形宽度</li>
+<li>空间复杂度：<em>O</em>(n * n)，需要使用额外的数组保存状态<code>f[][]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：33 ms</p>
+<p>内存消耗：344 KB</p>
+<p>通过测试用例：10/10</p>
+</details></div></div></div>
 <h2 id="题目3方格取数"><a class="markdownIt-Anchor" href="#题目3方格取数"></a> 题目3：方格取数⭐</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1029/"> 方格取数 </a></p>
 <h3 id="思路-3"><a class="markdownIt-Anchor" href="#思路-3"></a> 思路</h3>
@@ -363,12 +393,19 @@
 </ul>
 <h3 id="题解-3"><a class="markdownIt-Anchor" href="#题解-3"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">15</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> w[N][N];</span><br><span class="line"><span class="type">int</span> f[N * <span class="number">2</span>][N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> a, b, c;</span><br><span class="line">    <span class="keyword">while</span>(cin &gt;&gt; a &gt;&gt; b &gt;&gt; c, a || b || c) w[a][b] = c;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">2</span>; k &lt;= n * <span class="number">2</span>; k ++) <span class="comment">// k 表示横纵坐标之和，从(1, 1)到(n, n)</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i1 = <span class="number">1</span>; i1 &lt;= n; i1 ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i2 = <span class="number">1</span>; i2 &lt;= n; i2 ++)&#123;</span><br><span class="line">                <span class="type">int</span> j1 = k - i1, j2 = k - i2; <span class="comment">// 计算出两条路线对应的纵坐标</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(j1 &gt;= <span class="number">1</span> &amp;&amp; j1 &lt;= n &amp;&amp; j2 &gt;= <span class="number">1</span> &amp;&amp; j2 &lt;= n) &#123; <span class="comment">// 纵坐标需要在合法位置</span></span><br><span class="line">                    <span class="type">int</span> t = w[i1][j1];</span><br><span class="line">                    <span class="keyword">if</span>(i1 != i2) t += w[i2][j2]; <span class="comment">// 若两个位置不重合，需要加上两个位置，否则加一次仅可</span></span><br><span class="line">                    </span><br><span class="line">                    <span class="type">int</span> &amp;x = f[k][i1][i2]; <span class="comment">// 使用 x 代替f[k][i1][i2]</span></span><br><span class="line">                    x = <span class="built_in">max</span>(x, f[k - <span class="number">1</span>][i1 - <span class="number">1</span>][i2 - <span class="number">1</span>] + t); <span class="comment">// i1下，i2下</span></span><br><span class="line">                    x = <span class="built_in">max</span>(x, f[k - <span class="number">1</span>][i1 - <span class="number">1</span>][i2] + t); <span class="comment">// i1下，i2右</span></span><br><span class="line">                    x = <span class="built_in">max</span>(x, f[k - <span class="number">1</span>][i1][i2 - <span class="number">1</span>] + t); <span class="comment">// i1右，i2下</span></span><br><span class="line">                    x = <span class="built_in">max</span>(x, f[k - <span class="number">1</span>][i1][i2] + t); <span class="comment">// i1右，i2右</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    cout &lt;&lt; f[n + n][n][n] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * n )，其中 <em>n</em> 是方格的宽度</li><li>空间复杂度：<em>O</em>(n * n * n)，需要使用额外的数组保存状态<code>f[][][]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：11 ms</p><p>内存消耗：216 KB</p><p>通过测试用例：11/11</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * n )，其中 <em>n</em> 是方格的宽度</li>
+<li>空间复杂度：<em>O</em>(n * n * n)，需要使用额外的数组保存状态<code>f[][][]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：11 ms</p>
+<p>内存消耗：216 KB</p>
+<p>通过测试用例：11/11</p>
+</details></div></div></div>
 <h2 id="题目3传纸条"><a class="markdownIt-Anchor" href="#题目3传纸条"></a> 题目3：传纸条⭐</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/277/"> 传纸条 </a></p>
 <h3 id="思路-4"><a class="markdownIt-Anchor" href="#思路-4"></a> 思路</h3>
@@ -393,12 +430,19 @@
 </ul>
 <h3 id="题解-4"><a class="markdownIt-Anchor" href="#题解-4"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">55</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> w[N][N];</span><br><span class="line"><span class="type">int</span> f[N * <span class="number">2</span>][N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j ++)</span><br><span class="line">            cin &gt;&gt; w[i][j];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">2</span>; k &lt;= n + m; k ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i1 = <span class="number">1</span>; i1 &lt;= n; i1 ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i2 = <span class="number">1</span>; i2 &lt;= n; i2 ++) &#123;</span><br><span class="line">                <span class="type">int</span> j1 = k - i1, j2 = k - i2;</span><br><span class="line">                <span class="keyword">if</span>(j1 &gt;= <span class="number">1</span> &amp;&amp; j1 &lt;= m &amp;&amp; j2 &gt;= <span class="number">1</span> &amp;&amp; j2 &lt;= m) &#123;</span><br><span class="line">                    <span class="type">int</span> t = w[i1][j1];</span><br><span class="line">                    <span class="keyword">if</span>(i1 != i2) t += w[i2][j2];</span><br><span class="line">                    <span class="type">int</span> &amp;x = f[k][i1][i2];</span><br><span class="line">                    x = <span class="built_in">max</span>(x, f[k - <span class="number">1</span>][i1 - <span class="number">1</span>][i2 - <span class="number">1</span>] + t);</span><br><span class="line">                    x = <span class="built_in">max</span>(x, f[k - <span class="number">1</span>][i1 - <span class="number">1</span>][i2] + t);</span><br><span class="line">                    x = <span class="built_in">max</span>(x, f[k - <span class="number">1</span>][i1][i2 - <span class="number">1</span>] + t);</span><br><span class="line">                    x = <span class="built_in">max</span>(x, f[k - <span class="number">1</span>][i1][i2] + t);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    cout &lt;&lt; f[n + m][n][n] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m )，其中 <em>n</em> 是方格的宽度</li><li>空间复杂度：<em>O</em>(n * n * n)，需要使用额外的数组保存状态<code>f[][][]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：33 ms</p><p>内存消耗：1112 KB</p><p>通过测试用例：10/10</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m )，其中 <em>n</em> 是方格的宽度</li>
+<li>空间复杂度：<em>O</em>(n * n * n)，需要使用额外的数组保存状态<code>f[][][]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：33 ms</p>
+<p>内存消耗：1112 KB</p>
+<p>通过测试用例：10/10</p>
+</details></div></div></div>
 <h1 id="最长上升子序列模型"><a class="markdownIt-Anchor" href="#最长上升子序列模型"></a> 最长上升子序列模型</h1>
 <h2 id="题目1怪盗基德的滑翔伞"><a class="markdownIt-Anchor" href="#题目1怪盗基德的滑翔伞"></a> 题目1：怪盗基德的滑翔伞</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1019/"> 怪盗基德的滑翔伞 </a></p>
@@ -420,12 +464,19 @@
 </ul>
 <h3 id="题解-5"><a class="markdownIt-Anchor" href="#题解-5"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// f[i] 表示以第i个数结尾的数值上升子序列的集合  max</span></span><br><span class="line"><span class="comment">// f[i] 按照前一位是第几个数字划分，j从 1到i，</span></span><br><span class="line"><span class="comment">// f[i] 初始为1，前面没有比第i个数字小的</span></span><br><span class="line"><span class="comment">// 若a[j] &lt; a[i] 则 f[i] = max(f[i], f[j] + 1);</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> k, n;</span><br><span class="line"><span class="type">int</span> a[N], f[N], d[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; k;</span><br><span class="line">    <span class="keyword">while</span>(k --) &#123;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="type">int</span> resUp = <span class="number">0</span>, resDown = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)&#123;  <span class="comment">// 求上升子序列</span></span><br><span class="line">            f[i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i; j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i] &gt; a[j])</span><br><span class="line">                    f[i] = <span class="built_in">max</span>(f[i], f[j] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;  <span class="comment">// 求下降子序列</span></span><br><span class="line">            d[i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i; j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i] &lt; a[j])</span><br><span class="line">                    d[i] = <span class="built_in">max</span>(d[i], d[j] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">            resUp = <span class="built_in">max</span>(resUp, f[i]);</span><br><span class="line">            resDown = <span class="built_in">max</span>(resDown, d[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="built_in">max</span>(resDown, resUp) &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是建筑的个数</li><li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：88 ms</p><p>内存消耗：344 KB</p><p>通过测试用例：10/10 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是建筑的个数</li>
+<li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：88 ms</p>
+<p>内存消耗：344 KB</p>
+<p>通过测试用例：10/10 个数据</p>
+</details></div></div></div>
 <h2 id="题目2登山"><a class="markdownIt-Anchor" href="#题目2登山"></a> 题目2：登山⭐</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1016/"> 登山 </a></p>
 <h3 id="思路-6"><a class="markdownIt-Anchor" href="#思路-6"></a> 思路</h3>
@@ -447,24 +498,38 @@
 </ul>
 <h3 id="题解-6"><a class="markdownIt-Anchor" href="#题解-6"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 最开始可能是上升子序列，当走到某个点后，不能继续上升了，转为下降子序列。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> a[N], f[N], d[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; a[i];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)&#123;  <span class="comment">// 从前往后求上升子序列</span></span><br><span class="line">        f[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt; i; j ++) </span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt; a[j])</span><br><span class="line">                f[i] = <span class="built_in">max</span>(f[i], f[j] + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = n; i; i --) &#123;  <span class="comment">// 从后往前求上升子序列</span></span><br><span class="line">        d[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = n; j &gt; i; j --)</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt; a[j])</span><br><span class="line">                d[i] = <span class="built_in">max</span>(d[i], d[j] + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) res = <span class="built_in">max</span>(res, f[i] + d[i] - <span class="number">1</span>); <span class="comment">// 在顶点位置多加了1</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是景点个数</li><li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：51 ms</p><p>内存消耗：216 KB</p><p>通过测试用例：11/11 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是景点个数</li>
+<li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：51 ms</p>
+<p>内存消耗：216 KB</p>
+<p>通过测试用例：11/11 个数据</p>
+</details></div></div></div>
 <h2 id="题目3合唱队形"><a class="markdownIt-Anchor" href="#题目3合唱队形"></a> 题目3：合唱队形</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/484/"> 合唱队形 </a></p>
 <h3 id="思路-7"><a class="markdownIt-Anchor" href="#思路-7"></a> 思路</h3>
 <p>和【题目2：登山】思路完全一样</p>
 <h3 id="题解-7"><a class="markdownIt-Anchor" href="#题解-7"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> a[N], f[N], g[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">        f[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt; i; j ++)</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt; a[j])</span><br><span class="line">                f[i] = <span class="built_in">max</span>(f[i], f[j] + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = n; i ; i--)&#123;</span><br><span class="line">        g[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = n; j &gt; i; j --)</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt; a[j])</span><br><span class="line">                g[i] = <span class="built_in">max</span>(g[i], g[j] + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) res = <span class="built_in">max</span>(res, f[i] + g[i] - <span class="number">1</span>);</span><br><span class="line">    cout &lt;&lt; n - res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是学生个数</li><li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：20 ms</p><p>内存消耗：220 KB</p><p>通过测试用例：11/11 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是学生个数</li>
+<li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：20 ms</p>
+<p>内存消耗：220 KB</p>
+<p>通过测试用例：11/11 个数据</p>
+</details></div></div></div>
 <h2 id="题目4友好城市"><a class="markdownIt-Anchor" href="#题目4友好城市"></a> 题目4：友好城市⭐</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1014/"> 友好城市 </a></p>
 <h3 id="思路-8"><a class="markdownIt-Anchor" href="#思路-8"></a> 思路</h3>
@@ -472,12 +537,19 @@
 <p>所以可以使用<code>pair&lt;int, int&gt;</code>进行保存每对友好城市的编号，然后以<code>first</code>进行排序后，对排序后的<code>second</code>编号求最长上升子序列即可。</p>
 <h3 id="题解-8"><a class="markdownIt-Anchor" href="#题解-8"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">PII q[N];</span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;q[i].first, &amp;q[i].second);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">sort</span>(q, q + n); <span class="comment">// 按照左边的数进行从小到大排序</span></span><br><span class="line">    <span class="type">int</span> res;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">        f[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(q[i].second &gt; q[j].second)</span><br><span class="line">                f[i] = <span class="built_in">max</span>(f[i], f[j] + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        res = <span class="built_in">max</span>(res, f[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是城市个数</li><li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：284 ms</p><p>内存消耗：352 KB</p><p>通过测试用例：10/10 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是城市个数</li>
+<li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：284 ms</p>
+<p>内存消耗：352 KB</p>
+<p>通过测试用例：10/10 个数据</p>
+</details></div></div></div>
 <h2 id="题目4最大上升子序列的和"><a class="markdownIt-Anchor" href="#题目4最大上升子序列的和"></a> 题目4：最大上升子序列的和</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1018/"> 最大上升子序列的和 </a></p>
 <h3 id="思路-9"><a class="markdownIt-Anchor" href="#思路-9"></a> 思路</h3>
@@ -498,12 +570,19 @@
 </ul>
 <h3 id="题解-9"><a class="markdownIt-Anchor" href="#题解-9"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表示以i结尾的最大上升子序列的和</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> a[N], f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; a[i];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        f[i] = a[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt; i; j ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt; a[j])</span><br><span class="line">                f[i] = <span class="built_in">max</span>(f[i], f[j] + a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) res = <span class="built_in">max</span>(res, f[i]);</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是序列长度</li><li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：39 ms</p><p>内存消耗：216 KB</p><p>通过测试用例：11/11 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是序列长度</li>
+<li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：39 ms</p>
+<p>内存消耗：216 KB</p>
+<p>通过测试用例：11/11 个数据</p>
+</details></div></div></div>
 <h2 id="题目5拦截导弹"><a class="markdownIt-Anchor" href="#题目5拦截导弹"></a> 题目5：拦截导弹❗</h2>
 <h3 id="思路-10"><a class="markdownIt-Anchor" href="#思路-10"></a> 思路</h3>
 <p>本题难点：处理数据的输入、第二小问</p>
@@ -511,12 +590,19 @@
 <p>第二小问不理解</p>
 <h3 id="题解-10"><a class="markdownIt-Anchor" href="#题解-10"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> h[N], f[N], q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 处理一整行输入</span></span><br><span class="line">    string line;</span><br><span class="line">    <span class="built_in">getline</span>(cin, line);</span><br><span class="line">    <span class="function">stringstream <span class="title">ssin</span><span class="params">(line)</span></span>;</span><br><span class="line">    <span class="keyword">while</span>(ssin &gt;&gt; h[n]) n ++;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// dp</span></span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        f[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(h[j] &gt;= h[i])</span><br><span class="line">                f[i] = <span class="built_in">max</span>(f[i], f[j] + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        res = <span class="built_in">max</span>(res, f[i]);  <span class="comment">// 计算最多能拦截的导弹数</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 不太理解</span></span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (k &lt; cnt &amp;&amp; q[k] &lt; h[i]) k ++ ;</span><br><span class="line">        <span class="keyword">if</span> (k == cnt) q[cnt ++ ] = h[i];</span><br><span class="line">        <span class="keyword">else</span> q[k] = h[i];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; cnt &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是序列长度</li><li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：39 ms</p><p>内存消耗：216 KB</p><p>通过测试用例：11/11 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * n)，其中 <em>n</em> 是序列长度</li>
+<li>空间复杂度：<em>O</em>(n)，需要使用额外的数组保存状态<code>f[]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：39 ms</p>
+<p>内存消耗：216 KB</p>
+<p>通过测试用例：11/11 个数据</p>
+</details></div></div></div>
 <h1 id="背包模型"><a class="markdownIt-Anchor" href="#背包模型"></a> 背包模型</h1>
 <h2 id="题目1背包问题"><a class="markdownIt-Anchor" href="#题目1背包问题"></a> 题目1：背包问题</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2/"> 背包问题 </a></p>
@@ -543,18 +629,32 @@
 </ul>
 <h3 id="题解-11"><a class="markdownIt-Anchor" href="#题解-11"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">二维表示</a></li><li class="tab"><a href="#题解-2">一维表示-优化</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"><span class="type">int</span> v[N], w[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;<span class="comment">//n个物品，背包容量是m</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= m; j++)&#123;</span><br><span class="line">            f[i][j] = f[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">if</span>(j &gt;= v[i])&#123;  <span class="comment">// 当第i件物品的体积不超过j时</span></span><br><span class="line">                f[i][j] = <span class="built_in">max</span>(f[i][j], f[i - <span class="number">1</span>][j - v[i]] + w[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= m; i++)</span><br><span class="line">        res = <span class="built_in">max</span>(res, f[n][i]);</span><br><span class="line">    cout &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li><li>空间复杂度：<em>O</em>(n * m)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：54 ms</p><p>内存消耗：4184 KB</p><p>通过测试用例：10/10</p>
-          </div></div><div class="tab-pane" id="题解-2"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> v[N], w[N];</span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = m; v[i] &lt;= j; j --)  <span class="comment">// 从大到小判断是为了求解f[j - v[i]] + w[i]时的仍然时i - 1层的</span></span><br><span class="line">            f[j] = <span class="built_in">max</span>(f[j], f[j - v[i]] + w[i]);</span><br><span class="line">    cout &lt;&lt; f[m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li><li>空间复杂度：<em>O</em>(n * m)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：54 ms</p><p>内存消耗：4184 KB</p><p>通过测试用例：10/10</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li>
+<li>空间复杂度：<em>O</em>(n * m)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：54 ms</p>
+<p>内存消耗：4184 KB</p>
+<p>通过测试用例：10/10</p>
+</details></div><div class="tab-pane" id="题解-2"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> v[N], w[N];</span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = m; v[i] &lt;= j; j --)  <span class="comment">// 从大到小判断是为了求解f[j - v[i]] + w[i]时的仍然时i - 1层的</span></span><br><span class="line">            f[j] = <span class="built_in">max</span>(f[j], f[j - v[i]] + w[i]);</span><br><span class="line">    cout &lt;&lt; f[m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li>
+<li>空间复杂度：<em>O</em>(n * m)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：54 ms</p>
+<p>内存消耗：4184 KB</p>
+<p>通过测试用例：10/10</p>
+</details></div></div></div>
 <h2 id="题目2完全背包问题"><a class="markdownIt-Anchor" href="#题目2完全背包问题"></a> 题目2：完全背包问题</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3/"> 完全背包问题 </a></p>
 <h3 id="思路-12"><a class="markdownIt-Anchor" href="#思路-12"></a> 思路</h3>
@@ -574,24 +674,45 @@
 </ul>
 <h3 id="题解-12"><a class="markdownIt-Anchor" href="#题解-12"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">三重循环-TLE</a></li><li class="tab"><a href="#题解-2">双重循环-二维表示</a></li><li class="tab"><a href="#题解-3">双重循环-一维表示</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> v[N], w[N];</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">   	</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= m; j ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k * v[i] &lt;= j; k ++)&#123;  <span class="comment">// 遍历第i个物品的选择个数</span></span><br><span class="line">                f[i][j] = <span class="built_in">max</span>(f[i][j], f[i - <span class="number">1</span>][j - k * v[i]] + k * w[i]);</span><br><span class="line">            &#125;</span><br><span class="line">    cout &lt;&lt; f[n][m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li><li>空间复杂度：<em>O</em>(n * m)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：54 ms</p><p>内存消耗：4184 KB</p><p>通过测试用例：10/10</p>
-          </div></div><div class="tab-pane" id="题解-2"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> v[N], w[N];</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= m; j ++)&#123;</span><br><span class="line">            f[i][j] = f[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">if</span>(j &gt;= v[i])</span><br><span class="line">                f[i][j] = <span class="built_in">max</span>(f[i][j], f[i][j - v[i]] + w[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    cout &lt;&lt; f[n][m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li><li>空间复杂度：<em>O</em>(n * m)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：54 ms</p><p>内存消耗：4184 KB</p><p>通过测试用例：10/10</p>
-          </div></div><div class="tab-pane" id="题解-3"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> v[N], w[N];</span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = v[i]; j &lt;= m; j ++)</span><br><span class="line">            f[j] = <span class="built_in">max</span>(f[j], f[j - v[i]] + w[i]);</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; f[m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li><li>空间复杂度：<em>O</em>(n * m)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：54 ms</p><p>内存消耗：4184 KB</p><p>通过测试用例：10/10</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li>
+<li>空间复杂度：<em>O</em>(n * m)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：54 ms</p>
+<p>内存消耗：4184 KB</p>
+<p>通过测试用例：10/10</p>
+</details></div><div class="tab-pane" id="题解-2"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> v[N], w[N];</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= m; j ++)&#123;</span><br><span class="line">            f[i][j] = f[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">if</span>(j &gt;= v[i])</span><br><span class="line">                f[i][j] = <span class="built_in">max</span>(f[i][j], f[i][j - v[i]] + w[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    cout &lt;&lt; f[n][m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li>
+<li>空间复杂度：<em>O</em>(n * m)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：54 ms</p>
+<p>内存消耗：4184 KB</p>
+<p>通过测试用例：10/10</p>
+</details></div><div class="tab-pane" id="题解-3"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> v[N], w[N];</span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = v[i]; j &lt;= m; j ++)</span><br><span class="line">            f[j] = <span class="built_in">max</span>(f[j], f[j - v[i]] + w[i]);</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; f[m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li>
+<li>空间复杂度：<em>O</em>(n * m)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：54 ms</p>
+<p>内存消耗：4184 KB</p>
+<p>通过测试用例：10/10</p>
+</details></div></div></div>
 <h2 id="题目3采药"><a class="markdownIt-Anchor" href="#题目3采药"></a> 题目3：采药</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/submission/425/"> 采药 </a></p>
 <h3 id="思路-13"><a class="markdownIt-Anchor" href="#思路-13"></a> 思路</h3>
@@ -612,30 +733,51 @@
 </ul>
 <h3 id="题解-13"><a class="markdownIt-Anchor" href="#题解-13"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">二维表示</a></li><li class="tab"><a href="#题解-2">一维表示-优化</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"><span class="type">int</span> v[N], w[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;<span class="comment">//n个物品，背包容量是m</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= m; j++)&#123;</span><br><span class="line">            f[i][j] = f[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">if</span>(j &gt;= v[i])&#123;  <span class="comment">// 当第i件物品的体积不超过j时</span></span><br><span class="line">                f[i][j] = <span class="built_in">max</span>(f[i][j], f[i - <span class="number">1</span>][j - v[i]] + w[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= m; i++)</span><br><span class="line">        res = <span class="built_in">max</span>(res, f[n][i]);</span><br><span class="line">    cout &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li><li>空间复杂度：<em>O</em>(n * m)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：18 ms</p><p>内存消耗：604 KB</p><p>通过测试用例：10/10 个数据</p>
-          </div></div><div class="tab-pane" id="题解-2"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>, M = <span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> w[N], v[N];</span><br><span class="line"><span class="type">int</span> f[M];  <span class="comment">// f[i][j] 表示拿到第i个物品并且总重量不超过j的价值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; m &gt;&gt; n;  <span class="comment">// n：总体积， m：物品个数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = m; j &gt;= v[i]; j --) &#123; <span class="comment">// 总体积</span></span><br><span class="line">            f[j] = <span class="built_in">max</span>(f[j], f[j - v[i]] + w[i]);  <span class="comment">// 拿第i个物品</span></span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; f[m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li><li>空间复杂度：<em>O</em>(n)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：18 ms</p><p>内存消耗：220 KB</p><p>通过测试用例：10/10 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li>
+<li>空间复杂度：<em>O</em>(n * m)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：18 ms</p>
+<p>内存消耗：604 KB</p>
+<p>通过测试用例：10/10 个数据</p>
+</details></div><div class="tab-pane" id="题解-2"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>, M = <span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> w[N], v[N];</span><br><span class="line"><span class="type">int</span> f[M];  <span class="comment">// f[i][j] 表示拿到第i个物品并且总重量不超过j的价值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; m &gt;&gt; n;  <span class="comment">// n：总体积， m：物品个数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        cin &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = m; j &gt;= v[i]; j --) &#123; <span class="comment">// 总体积</span></span><br><span class="line">            f[j] = <span class="built_in">max</span>(f[j], f[j - v[i]] + w[i]);  <span class="comment">// 拿第i个物品</span></span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; f[m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li>
+<li>空间复杂度：<em>O</em>(n)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：18 ms</p>
+<p>内存消耗：220 KB</p>
+<p>通过测试用例：10/10 个数据</p>
+</details></div></div></div>
 <h2 id="题目4装箱问题"><a class="markdownIt-Anchor" href="#题目4装箱问题"></a> 题目4：装箱问题</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1026/"> 装箱问题 </a></p>
 <h3 id="思路-14"><a class="markdownIt-Anchor" href="#思路-14"></a> 思路</h3>
 <p>基础 【01背包】问题</p>
 <h3 id="题解-14"><a class="markdownIt-Anchor" href="#题解-14"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">一维表示-优化</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">40</span>, V = <span class="number">20010</span>;</span><br><span class="line"><span class="type">int</span> n, m; <span class="comment">// n 物品个数</span></span><br><span class="line"><span class="type">int</span> v[N];</span><br><span class="line"><span class="type">int</span> f[V]; <span class="comment">// f[j]表示总体积不超过j的物品总体积，最大值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; m &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; v[i];</span><br><span class="line">    <span class="comment">// for(int i = 0; i &lt;= m; i ++) f[i] = n;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = m; j &gt;= v[i]; j --)&#123;</span><br><span class="line">            f[j] = <span class="built_in">max</span>(f[j], f[j - v[i]] + v[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    cout &lt;&lt; m - f[m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li><li>空间复杂度：<em>O</em>(n)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：19 ms</p><p>内存消耗：344 KB</p><p>通过测试用例：8/8 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m)，其中 <em>n</em> 和 <em>m</em> 分别是物品数和背包体积</li>
+<li>空间复杂度：<em>O</em>(n)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：19 ms</p>
+<p>内存消耗：344 KB</p>
+<p>通过测试用例：8/8 个数据</p>
+</details></div></div></div>
 <h2 id="题目5宠物小精灵之收服"><a class="markdownIt-Anchor" href="#题目5宠物小精灵之收服"></a> 题目5：宠物小精灵之收服⭐⭐</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1024/"> 宠物小精灵之收服 </a></p>
 <h3 id="思路-15"><a class="markdownIt-Anchor" href="#思路-15"></a> 思路</h3>
@@ -658,12 +800,19 @@
 <p>另外本题存在陷阱，当精零体力值小于等于0时不能被抓，所以最后输出的结果是 <code>f[m][t - 1]</code>，至少保留一滴体力。</p>
 <h3 id="题解-15"><a class="markdownIt-Anchor" href="#题解-15"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">二维表示-优化</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>, M = <span class="number">1010</span>, K = <span class="number">510</span>;</span><br><span class="line"><span class="type">int</span> m, t, n; <span class="comment">// m精灵球数量，t初始体力值，n小精灵数量</span></span><br><span class="line"><span class="type">int</span> v1[N], v2[N]; <span class="comment">// v1需要的精灵球数，v2对皮卡丘造成的伤害</span></span><br><span class="line"><span class="type">int</span> f[M][K]; </span><br><span class="line"><span class="comment">// f[i][j][k] 表示只从前i个数中选择并且花费1不超过j并且花费2不超过k的所有选法的最大值。</span></span><br><span class="line"><span class="comment">// 优化一维，变成两维。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; m &gt;&gt; t &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; v1[i] &gt;&gt; v2[i];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//dp</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = m; j &gt;= v1[i]; j --)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k = t - <span class="number">1</span>; k &gt;= v2[i]; k --) &#123;</span><br><span class="line">                f[j][k] = <span class="built_in">max</span>(f[j][k], f[j - v1[i]][k - v2[i]] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">    cout &lt;&lt; f[m][t - <span class="number">1</span>] &lt;&lt; <span class="string">&quot; &quot;</span>;  <span class="comment">// 因为精灵体力小于等于0也不会被收服，所以需要t - 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//找到满足 最大价值 的所有状态里，第二维费用消耗最少的</span></span><br><span class="line">    <span class="type">int</span> const_health = t;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt;= t - <span class="number">1</span>; k ++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(f[m][k] == f[m][t - <span class="number">1</span>]) &#123; </span><br><span class="line">            const_health = <span class="built_in">min</span>(const_health, k);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; t - const_health &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m * t)，其中 m精灵球数量，t初始体力值，n小精灵数量</li><li>空间复杂度：<em>O</em>(m * k)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：841 ms</p><p>内存消耗：2268 KB</p><p>通过测试用例：13/13 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m * t)，其中 m精灵球数量，t初始体力值，n小精灵数量</li>
+<li>空间复杂度：<em>O</em>(m * k)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：841 ms</p>
+<p>内存消耗：2268 KB</p>
+<p>通过测试用例：13/13 个数据</p>
+</details></div></div></div>
 <h2 id="题目6数字组合"><a class="markdownIt-Anchor" href="#题目6数字组合"></a> 题目6：数字组合⭐</h2>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/280/"> 数字组合 </a></p>
 <h3 id="思路-16"><a class="markdownIt-Anchor" href="#思路-16"></a> 思路</h3>
@@ -686,34 +835,55 @@
 </ul>
 <h3 id="题解-16"><a class="markdownIt-Anchor" href="#题解-16"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">二维</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只从前i个物品中选并且恰好是j的 数量</span></span><br><span class="line"><span class="comment">// 属性：数量</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>, M = <span class="number">10010</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="type">int</span> f[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; a[i];</span><br><span class="line">    </span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">1</span>; <span class="comment">// f[0][0] = 1; 空集</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = m; j &gt;= a[i]; j --)&#123;</span><br><span class="line">            f[j] = f[j] + f[j - a[i]];  <span class="comment">// 不选第i个 + 选第i个</span></span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; f[m];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m)，其中 n 是整数个数，m 是目标和</li><li>空间复杂度：<em>O</em>(m)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：15 ms</p><p>内存消耗：344 KB</p><p>通过测试用例：11/11 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m)，其中 n 是整数个数，m 是目标和</li>
+<li>空间复杂度：<em>O</em>(m)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：15 ms</p>
+<p>内存消耗：344 KB</p>
+<p>通过测试用例：11/11 个数据</p>
+</details></div></div></div>
 <h2 id="题目7买书"><a class="markdownIt-Anchor" href="#题目7买书"></a> 题目7：买书</h2>
 <h3 id="思路-17"><a class="markdownIt-Anchor" href="#思路-17"></a> 思路</h3>
 <p>和 【数字组合】思路类似，需要明确背包的体积：小明拥有的钱数，每个物品的体积：每本书的价格。</p>
 <h3 id="题解-17"><a class="markdownIt-Anchor" href="#题解-17"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">二维</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> a[<span class="number">5</span>] = &#123;<span class="number">0</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">100</span>&#125;;</span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">4</span>; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = a[i]; j &lt;= n; j ++)</span><br><span class="line">            f[j] = f[j] + f[j - a[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; f[n];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n)，其中 n 是小明拥有的钱数</li><li>空间复杂度：<em>O</em>(m)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：15 ms</p><p>内存消耗：216 KB</p><p>通过测试用例：10/10 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n)，其中 n 是小明拥有的钱数</li>
+<li>空间复杂度：<em>O</em>(m)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：15 ms</p>
+<p>内存消耗：216 KB</p>
+<p>通过测试用例：10/10 个数据</p>
+</details></div></div></div>
 <h2 id="题目8货币系统"><a class="markdownIt-Anchor" href="#题目8货币系统"></a> 题目8：货币系统</h2>
 <h3 id="思路-18"><a class="markdownIt-Anchor" href="#思路-18"></a> 思路</h3>
 <p>和 【数字组合】思路类似，需要明确背包的体积：需要组成的面值m，每个物品的体积：每个货币的面值，物种数量：n</p>
 <h3 id="题解-18"><a class="markdownIt-Anchor" href="#题解-18"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">二维</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">20</span>, M = <span class="number">3010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line">ll f[M];  <span class="comment">// f[j] 表示面值为j的方案数。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; a[i];</span><br><span class="line">    </span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = a[i]; j &lt;= m; j ++)</span><br><span class="line">            f[j] += f[j - a[i]];</span><br><span class="line">    cout &lt;&lt; f[m] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n * m)，其中 n 是货币种类数，m是面值</li><li>空间复杂度：<em>O</em>(m)</li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：12 ms</p><p>内存消耗：220 KB</p><p>通过测试用例：11/11 个数据</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n * m)，其中 n 是货币种类数，m是面值</li>
+<li>空间复杂度：<em>O</em>(m)</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：12 ms</p>
+<p>内存消耗：220 KB</p>
+<p>通过测试用例：11/11 个数据</p>
+</details></div></div></div>
 <h1 id="状态机模型"><a class="markdownIt-Anchor" href="#状态机模型"></a> 状态机模型</h1>
 <h1 id="状态压缩dp"><a class="markdownIt-Anchor" href="#状态压缩dp"></a> 状态压缩DP</h1>
 <p><strong>状态压缩DP</strong></p>
@@ -742,18 +912,27 @@
 </ul>
 <h3 id="题解-19"><a class="markdownIt-Anchor" href="#题解-19"></a> 题解</h3>
 <div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">区间DP</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> s[N];</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; s[i];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) s[i] += s[i - <span class="number">1</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> len = <span class="number">2</span>; len &lt;= n; len ++) <span class="comment">// 遍历需要计算的石子的个数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i + len - <span class="number">1</span> &lt;= n; i ++)&#123; <span class="comment">// 遍历当前堆中的左右边界</span></span><br><span class="line">            <span class="type">int</span> l = i, r = i + len - <span class="number">1</span>;</span><br><span class="line">            f[l][r] = <span class="number">1e9</span>; <span class="comment">// 初始话f[][]数组</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k = l; k &lt; r; k ++) &#123; <span class="comment">// 在左右边界内再将石子划分为两堆</span></span><br><span class="line">                f[l][r] = <span class="built_in">min</span>(f[l][r], f[l][k] + f[k + <span class="number">1</span>][r] + s[r] - s[l - <span class="number">1</span>]); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    cout &lt;&lt; f[<span class="number">1</span>][n] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O</em>(n ^ 3)，其中 <em>n</em> 是石子的个数</li><li>空间复杂度：<em>O</em>(n * n)，需要使用额外的数组保存状态<code>f[][]</code></li></ul>
-          </div>
-<div class="note success simple">
-            <p>执行用时：157 ms</p><p>内存消耗：1368 KB</p><p>通过测试用例：11/11</p>
-          </div></div></div></div>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O</em>(n ^ 3)，其中 <em>n</em> 是石子的个数</li>
+<li>空间复杂度：<em>O</em>(n * n)，需要使用额外的数组保存状态<code>f[][]</code></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：157 ms</p>
+<p>内存消耗：1368 KB</p>
+<p>通过测试用例：11/11</p>
+</details></div></div></div>
 
     </div>
 
     
     
-    <div class="post-widgets">
+    
+
+    <footer class="post-footer"><div class="post-widgets">
     <div
       class="social-share"
       
@@ -782,25 +961,6 @@
 </script>
 <div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
 
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>Atopos·
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://example.com/2022/08/17/AcWing/dynamicProgram/" title="算法提高课 - 动态规划">http://example.com/2022/08/17/AcWing/dynamicProgram/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
-
-      <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/AcWing/" rel="tag"># AcWing</a>
               <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
@@ -810,186 +970,69 @@
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/08/13/AcWing/AutumnTricks/" rel="prev" title="AcWing 每日一题 & 秋招">
-      <i class="fa fa-chevron-left"></i> AcWing 每日一题 & 秋招
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/09/01/AcWing/Search/" rel="next" title="算法提高课 - 搜索">
-      算法提高课 - 搜索 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/13/AcWing/AutumnTricks/" rel="prev" title="AcWing 每日一题 & 秋招">
+                  <i class="fa fa-chevron-left"></i> AcWing 每日一题 & 秋招
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/09/01/AcWing/Search/" rel="next" title="算法提高课 - 搜索">
+                  算法提高课 - 搜索 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E5%B9%B3%E5%8F%B0"><span class="nav-number">1.</span> <span class="nav-text"> 学习平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%A5%97%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text"> 核心套路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E6%A8%A1%E5%9E%8B%E7%BA%BF%E6%80%A7dp"><span class="nav-number">3.</span> <span class="nav-text"> 数字三角模型【线性DP】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE1%E6%91%98%E8%8A%B1%E7%94%9F"><span class="nav-number">3.1.</span> <span class="nav-text"> 题目1：摘花生</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">3.1.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">3.1.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE2%E6%9C%80%E4%BD%8E%E9%80%9A%E8%A1%8C%E8%B4%B9"><span class="nav-number">3.2.</span> <span class="nav-text"> 题目2：最低通行费</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="nav-number">3.2.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-2"><span class="nav-number">3.2.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE3%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text"> 题目3：方格取数⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-3"><span class="nav-number">3.3.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-3"><span class="nav-number">3.3.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE3%E4%BC%A0%E7%BA%B8%E6%9D%A1"><span class="nav-number">3.4.</span> <span class="nav-text"> 题目3：传纸条⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-4"><span class="nav-number">3.4.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-4"><span class="nav-number">3.4.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text"> 最长上升子序列模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE1%E6%80%AA%E7%9B%97%E5%9F%BA%E5%BE%B7%E7%9A%84%E6%BB%91%E7%BF%94%E4%BC%9E"><span class="nav-number">4.1.</span> <span class="nav-text"> 题目1：怪盗基德的滑翔伞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-5"><span class="nav-number">4.1.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-5"><span class="nav-number">4.1.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE2%E7%99%BB%E5%B1%B1"><span class="nav-number">4.2.</span> <span class="nav-text"> 题目2：登山⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-6"><span class="nav-number">4.2.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-6"><span class="nav-number">4.2.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE3%E5%90%88%E5%94%B1%E9%98%9F%E5%BD%A2"><span class="nav-number">4.3.</span> <span class="nav-text"> 题目3：合唱队形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-7"><span class="nav-number">4.3.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-7"><span class="nav-number">4.3.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE4%E5%8F%8B%E5%A5%BD%E5%9F%8E%E5%B8%82"><span class="nav-number">4.4.</span> <span class="nav-text"> 题目4：友好城市⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-8"><span class="nav-number">4.4.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-8"><span class="nav-number">4.4.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE4%E6%9C%80%E5%A4%A7%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E5%92%8C"><span class="nav-number">4.5.</span> <span class="nav-text"> 题目4：最大上升子序列的和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-9"><span class="nav-number">4.5.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-9"><span class="nav-number">4.5.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE5%E6%8B%A6%E6%88%AA%E5%AF%BC%E5%BC%B9"><span class="nav-number">4.6.</span> <span class="nav-text"> 题目5：拦截导弹❗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-10"><span class="nav-number">4.6.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-10"><span class="nav-number">4.6.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E5%8C%85%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text"> 背包模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.</span> <span class="nav-text"> 题目1：背包问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-11"><span class="nav-number">5.1.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-11"><span class="nav-number">5.1.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE2%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="nav-number">5.2.</span> <span class="nav-text"> 题目2：完全背包问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-12"><span class="nav-number">5.2.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-12"><span class="nav-number">5.2.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE3%E9%87%87%E8%8D%AF"><span class="nav-number">5.3.</span> <span class="nav-text"> 题目3：采药</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-13"><span class="nav-number">5.3.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-13"><span class="nav-number">5.3.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE4%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98"><span class="nav-number">5.4.</span> <span class="nav-text"> 题目4：装箱问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-14"><span class="nav-number">5.4.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-14"><span class="nav-number">5.4.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE5%E5%AE%A0%E7%89%A9%E5%B0%8F%E7%B2%BE%E7%81%B5%E4%B9%8B%E6%94%B6%E6%9C%8D"><span class="nav-number">5.5.</span> <span class="nav-text"> 题目5：宠物小精灵之收服⭐⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-15"><span class="nav-number">5.5.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-15"><span class="nav-number">5.5.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE6%E6%95%B0%E5%AD%97%E7%BB%84%E5%90%88"><span class="nav-number">5.6.</span> <span class="nav-text"> 题目6：数字组合⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-16"><span class="nav-number">5.6.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-16"><span class="nav-number">5.6.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE7%E4%B9%B0%E4%B9%A6"><span class="nav-number">5.7.</span> <span class="nav-text"> 题目7：买书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-17"><span class="nav-number">5.7.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-17"><span class="nav-number">5.7.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE8%E8%B4%A7%E5%B8%81%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.8.</span> <span class="nav-text"> 题目8：货币系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-18"><span class="nav-number">5.8.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-18"><span class="nav-number">5.8.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E6%A8%A1%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text"> 状态机模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9dp"><span class="nav-number">7.</span> <span class="nav-text"> 状态压缩DP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4dp"><span class="nav-number">8.</span> <span class="nav-text"> 区间DP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE1%E7%9F%B3%E5%AD%90%E5%90%88%E5%B9%B6"><span class="nav-number">8.1.</span> <span class="nav-text"> 题目1：石子合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-19"><span class="nav-number">8.1.1.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-19"><span class="nav-number">8.1.2.</span> <span class="nav-text"> 题解</span></a></li></ol></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Atopos·"
-      src="/./img/head.jpg">
-  <p class="site-author-name" itemprop="name">Atopos·</p>
-  <div class="site-description" itemprop="description">One step at a time!</div>
+    </footer>
+  </article>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">64</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">51</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
 </div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/aaaatopos" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aaaatopos" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/xzt2520@163.com" title="E-Mail → xzt2520@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
 
 <div class="copyright">
-  
-  &copy; 2021 – 
+  &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Atopos·</span>
-    <span class="post-meta-divider">|</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
+      <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">485k</span>
-    <span class="post-meta-divider">|</span>
+    <span title="站点总字数">487k</span>
+  </span>
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:21</span>
+    <span title="站点阅读时长">7:23</span>
+  </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
-<script src="/js/utils.js"></script>
+  
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
 
 
 
@@ -999,24 +1042,17 @@
 
 
 
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://waline-1auxddfcs-aaaatopos.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2022/08/17/AcWing/dynamicProgram/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 </body>
 </html>
