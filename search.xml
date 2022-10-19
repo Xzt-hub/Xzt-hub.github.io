@@ -11418,4 +11418,118 @@ properties、settings、typeAliases、typeHandlers、objectFactory、objectWrapp
         <tag>疑难杂症</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Java 刷题常用知识</title>
+    <url>/2022/10/19/JAVA/13JavaComKnow/</url>
+    <content><![CDATA[<h1 id="常用容器"><a class="markdownIt-Anchor" href="#常用容器"></a> 常用容器</h1>
+<h2 id="list"><a class="markdownIt-Anchor" href="#list"></a> List</h2>
+<p>接口：<code>java.util.List&lt;&gt;</code></p>
+<p>实现：</p>
+<ul>
+<li><code>java.util.ArrayList&lt;&gt;</code> ：变长数组</li>
+<li><code>java.util.LinkedList&lt;&gt;</code> ：双链表</li>
+</ul>
+<p>函数：</p>
+<ul>
+<li><code>add()</code>：在末尾添加一个元素</li>
+<li><code>clear()</code>：清空</li>
+<li><code>size()</code>：返回长度</li>
+<li><code>isEmpty()</code>：是否为空</li>
+<li><code>get(i)</code>：获取第i个元素</li>
+<li><code>set(i, val)</code>：将第i个元素设置为val</li>
+</ul>
+<h2 id="栈"><a class="markdownIt-Anchor" href="#栈"></a> 栈</h2>
+<p>类：<code>java.util.Stack&lt;&gt;</code></p>
+<p>函数：</p>
+<ul>
+<li><code>push()</code>：压入元素</li>
+<li><code>pop()</code>：弹出栈顶元素，并返回栈顶元素</li>
+<li><code>peek()</code>：返回栈顶元素</li>
+<li><code>size()</code>：返回长度</li>
+<li><code>empty()</code>：栈是否为空</li>
+<li><code>clear()</code>：清空</li>
+</ul>
+<h2 id="队列"><a class="markdownIt-Anchor" href="#队列"></a> 队列</h2>
+<p>接口：<code>java.util.Queue&lt;&gt;</code></p>
+<p>实现：</p>
+<ul>
+<li><code>java.util.LinkedList&lt;&gt;</code>：双链表</li>
+<li><code>java.util.PriorityQueue&lt;&gt;</code>：优先队列
+<ul>
+<li>默认是小根堆，大根堆写法：<code>new PriorityQueue&lt;&gt;(Collections.reverseOrder())</code></li>
+</ul>
+</li>
+</ul>
+<p>函数：</p>
+<ul>
+<li><code>add()</code>：在队尾添加元素</li>
+<li><code>remove()</code>：删除并返回队头</li>
+<li><code>isEmpty()</code>：是否为空</li>
+<li><code>size()</code>：返回长度</li>
+<li><code>peek()</code>：返回队头</li>
+<li><code>clear()</code>：清空</li>
+</ul>
+<h2 id="set"><a class="markdownIt-Anchor" href="#set"></a> Set</h2>
+<p>接口：<code>java.util.Set&lt;K&gt;</code></p>
+<p>实现：</p>
+<ul>
+<li><code>java.util.HashSet&lt;K&gt;</code>：哈希表</li>
+<li><code>java.util.TreeSet&lt;K&gt;</code>：平衡树</li>
+</ul>
+<p>函数：</p>
+<ul>
+<li><code>add()</code>：添加元素</li>
+<li><code>contains()</code>：是否包含某个元素</li>
+<li><code>remove()</code>：删除元素</li>
+<li><code>size()</code>：返回元素数</li>
+<li><code>isEmpty()</code>：是否为空</li>
+<li><code>clear()</code>：清空</li>
+</ul>
+<p><code>java.util.TreeSet</code>多的函数：</p>
+<ul>
+<li><code>ceiling(key)</code>：返回大于等于<code>key</code>的最小元素，不存在则返回<code>null</code></li>
+<li><code>floor(key)</code>：返回小于等于<code>key</code>的最大元素，不存在则返回<code>null</code></li>
+</ul>
+<h2 id="map"><a class="markdownIt-Anchor" href="#map"></a> Map</h2>
+<p>接口：<code>java.util.Map&lt;K, V&gt;</code></p>
+<p>实现：</p>
+<ul>
+<li><code>java.util.HashMap&lt;K, V&gt;</code>：哈希表</li>
+<li><code>java.util.TreeMap&lt;K, V&gt;</code>：平衡树</li>
+</ul>
+<p>函数：</p>
+<ul>
+<li><code>put(key, value)</code>：添加关键字和其对应的值</li>
+<li><code>get(key)</code>：返回关键字对应的值</li>
+<li><code>containsKey(key)</code>：是否包含关键字</li>
+<li><code>remove(key)</code>：删除关键字</li>
+<li><code>size()</code>：返回元素数</li>
+<li><code>isEmpty()</code>：是否为空</li>
+<li><code>clear()</code>：清空</li>
+<li><code>entrySet()</code>：获取Map中的所有对象的集合</li>
+<li><code>Map.Entry&lt;K, V&gt;</code>：Map中的对象类型</li>
+<li><code>getKey()</code>：获取关键字</li>
+<li><code>getValue()</code>：获取值</li>
+</ul>
+<p><code>java.util.TreeMap&lt;K, V&gt;</code>多的函数：</p>
+<ul>
+<li><code>ceilingEntry(key)</code>：返回大于等于<code>key</code>的最小元素，不存在则返回<code>null</code></li>
+<li><code>floorEntry(key)</code>：返回小于等于<code>key</code>的最大元素，不存在则返回<code>null</code></li>
+</ul>
+<h2 id="pair"><a class="markdownIt-Anchor" href="#pair"></a> Pair</h2>
+<p>类：<code>javafx.util.Pair&lt;K, V&gt;</code></p>
+<p>例如：<code>Pair&lt;String, Integer&gt; p = new Pair&lt;&gt;(&quot;a&quot;, 1)</code></p>
+<p>函数：</p>
+<ul>
+<li><code>getKey()</code>：获取关键字</li>
+<li><code>getValue()</code> ：获取值</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
 </search>
