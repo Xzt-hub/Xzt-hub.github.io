@@ -11524,6 +11524,9 @@ properties、settings、typeAliases、typeHandlers、objectFactory、objectWrapp
 <li><code>getKey()</code>：获取关键字</li>
 <li><code>getValue()</code> ：获取值</li>
 </ul>
+<h1 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h1>
+<h2 id="给二维数组赋初值"><a class="markdownIt-Anchor" href="#给二维数组赋初值"></a> 给二维数组赋初值</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[][] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span>[] a: arr) </span><br><span class="line">    Arrays.fill(a, Integer.MAX_VALUE);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>JAVA</category>
