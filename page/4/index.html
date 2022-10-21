@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -205,6 +205,138 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/19/LeetCode/20220519-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Atopos's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/19/LeetCode/20220519-01/" class="post-title-link" itemprop="url">462.最少移动次数使数组元素相等 II</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-19 09:03:14" itemprop="dateCreated datePublished" datetime="2022-05-19T09:03:14+08:00">2022-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-21 14:31:58" itemprop="dateModified" datetime="2022-05-21T14:31:58+08:00">2022-05-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/05/19/LeetCode/20220519-01/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/05/19/LeetCode/20220519-01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>619</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-moves-to-equal-array-elements-ii/"> 最少移动次数使数组元素相等 II </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>排序后寻找中间位置的值，如果数组元素个数是奇数，则直接取中间值，如果是偶数，则取中间两值的平均值，然后遍历一遍数组，每次计算当前元素和中间值差的绝对值并加入到结果中。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minMoves2</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n % <span class="number">2</span>) &#123; <span class="comment">// 奇数</span></span><br><span class="line">            x = nums[n / <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span> r = nums[n / <span class="number">2</span>];</span><br><span class="line">            <span class="type">int</span> l = nums[n / <span class="number">2</span> - <span class="number">1</span>];</span><br><span class="line">            x = (r + l) / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            res += <span class="built_in">abs</span>(nums[i] - x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O(n * logn)</em>，其中 <em>n</em> 是数组中元素的个数，排序时间复杂度是<em>O(n * logn)</em>，计算时间复杂度是<em>O(n)</em>，所以总的时间复杂度是<em>O(n * logn)</em></li>
+<li>空间复杂度：<em>O(1)</em></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：8 ms, 在所有 C++ 提交中击败了88.62%的用户</p>
+<p>内存消耗：10.7 MB, 在所有 C++ 提交中击败了11.78%的用户</p>
+<p>通过测试用例：30 / 30</p>
+</details></div></div></div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1364,134 +1496,6 @@
 <p>执行用时：36 ms, 在所有 C++ 提交中击败了68.31%的用户</p>
 <p>内存消耗：11.9 MB, 在所有 C++ 提交中击败了33.14%的用户</p>
 <p>通过测试用例：85 / 85</p>
-</details></div></div></div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/11/LeetCode/20220511-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./img/head.jpg">
-      <meta itemprop="name" content="Atopos·">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Atopos's Blog">
-      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Atopos's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/11/LeetCode/20220511-01/" class="post-title-link" itemprop="url">449.序列化和反序列化二叉搜索树</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-05-11 10:16:03 / 修改时间：10:30:15" itemprop="dateCreated datePublished" datetime="2022-05-11T10:16:03+08:00">2022-05-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/05/11/LeetCode/20220511-01/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/05/11/LeetCode/20220511-01/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/serialize-and-deserialize-bst/"> 序列化和反序列化二叉搜索树</a></p>
-<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
-<p><strong>后序遍历</strong>：二叉搜索树可根据后序遍历的结果将其恢复。</p>
-<p>序列化：只需要对二叉搜索树进行后序遍历，再将数组编码成字符串即可。</p>
-<p>反序列化时，需要先将字符串解码成后序遍历的数组。在将后序遍历的数组恢复成二叉搜索树时，不需要先排序得到中序遍历的数组再根据中序和后序遍历的数组来恢复二叉树，而可以根据有序性直接由后序遍历的数组恢复二叉搜索树。后序遍历得到的数组中，根结点的值位于数组末尾，左子树的节点均小于根节点的值，右子树的节点均大于根节点的值，可以根据这些性质设计递归函数恢复二叉搜索树。</p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
-<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Codec</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Encodes a tree to a single string.</span></span><br><span class="line">    <span class="function">string <span class="title">serialize</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">        <span class="built_in">postTraversal</span>(root, arr);</span><br><span class="line">        <span class="keyword">if</span>(arr.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            res += <span class="built_in">to_string</span>(arr[i]) + <span class="string">&quot;,&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="built_in">substr</span>(<span class="number">0</span>, res.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">postTraversal</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt; &amp;arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="built_in">postTraversal</span>(root-&gt;left, arr);</span><br><span class="line">        <span class="built_in">postTraversal</span>(root-&gt;right, arr);</span><br><span class="line">        arr.<span class="built_in">emplace_back</span>(root-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Decodes your encoded data to tree.</span></span><br><span class="line">    <span class="function">TreeNode* <span class="title">deserialize</span><span class="params">(string data)</span> </span>&#123;</span><br><span class="line">        TreeNode* root;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">        <span class="built_in">transArr</span>(data, arr);</span><br><span class="line">        <span class="keyword">if</span>(arr.<span class="built_in">size</span>() == <span class="number">0</span>) &#123;</span><br><span class="line">            root = <span class="literal">NULL</span>;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// int n = arr.size();</span></span><br><span class="line">        <span class="comment">// root-&gt;val = arr[n - 1];</span></span><br><span class="line">        root = <span class="built_in">dfs</span>(arr);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">transArr</span><span class="params">(string data, vector&lt;<span class="type">int</span>&gt; &amp;arr)</span></span>&#123;  <span class="comment">// 将string 拆分为整数数组</span></span><br><span class="line">        <span class="type">int</span> npc = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; data.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i == data.<span class="built_in">size</span>() - <span class="number">1</span>)&#123;</span><br><span class="line">                string str = data.<span class="built_in">substr</span>(npc, i - npc + <span class="number">1</span>);</span><br><span class="line">                arr.<span class="built_in">emplace_back</span>(<span class="built_in">stoi</span>(str));</span><br><span class="line">                npc = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(data[i] == <span class="string">&#x27;,&#x27;</span>)&#123;</span><br><span class="line">                string str = data.<span class="built_in">substr</span>(npc, i - npc);</span><br><span class="line">                arr.<span class="built_in">emplace_back</span>(<span class="built_in">stoi</span>(str));</span><br><span class="line">                npc = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr.<span class="built_in">size</span>() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> n = arr.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> npc = arr[n - <span class="number">1</span>];</span><br><span class="line">        TreeNode* root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(npc);</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> x = <span class="built_in">find</span>(arr, npc); <span class="comment">// 寻找最后一个小于 根节点的下标，则x左边的都是该节点的左子树，右边的都是该节点的右子树</span></span><br><span class="line">        <span class="keyword">if</span>(x &gt;= <span class="number">0</span>)&#123;  </span><br><span class="line">            root-&gt;left = <span class="built_in">dfs</span>(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">begin</span>() + x));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x &lt;= n - <span class="number">2</span>)&#123;</span><br><span class="line">            root-&gt; right = <span class="built_in">dfs</span>(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(arr.<span class="built_in">begin</span>() + x, arr.<span class="built_in">begin</span>() + n - <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt; arr, <span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>() - <span class="number">1</span>; i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] &gt; x)&#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Your Codec object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment">// Codec* ser = new Codec();</span></span><br><span class="line"><span class="comment">// Codec* deser = new Codec();</span></span><br><span class="line"><span class="comment">// string tree = ser-&gt;serialize(root);</span></span><br><span class="line"><span class="comment">// TreeNode* ans = deser-&gt;deserialize(tree);</span></span><br><span class="line"><span class="comment">// return ans;</span></span><br></pre></td></tr></table></figure>
-<details class="note info"><summary><p>simple</p>
-</summary>
-<ul>
-<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是树的节点个数，<em>serialize</em> 需要 <em>O(n)</em> 时间遍历每个点。<em>deserialize</em> 需要 <em>O(n)</em> 时间恢复每个点</li>
-<li>空间复杂度：<em>O(n)</em>，其中 <em>n</em> 是树的节点个数，<em>serialize</em> 需要 <em>O(n)</em> 空间数组保存每个点的值，递归的深度最深也为 <em>O(n)</em>。<em>deserialize</em> 需要 <em>O(n)</em> 空间用数组保存每个点的值，递归的深度最深也为 <em>O(n)</em>。</li>
-</ul>
-</details>
-<details class="note success"><summary><p>simple</p>
-</summary>
-<p>执行用时：36 ms, 在所有 C++ 提交中击败了44.95%的用户</p>
-<p>内存消耗：36.3 MB, 在所有 C++ 提交中击败了12.22%的用户</p>
-<p>通过测试用例：62 / 62</p>
 </details></div></div></div>
 
       
