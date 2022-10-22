@@ -2894,11 +2894,6 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/10/21/AcWing/vue3/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Java 多线程与高并发练习</title>
     <url>/2022/09/24/JAVA/00Thread/</url>
     <content><![CDATA[<h1 id="题目1"><a class="markdownIt-Anchor" href="#题目1"></a> 题目1</h1>
@@ -8495,6 +8490,32 @@ MEMORY引擎缺点：不安全，关机之后数据消失。因为数据和索�
 <ul>
 <li><code>getKey()</code>：获取关键字</li>
 <li><code>getValue()</code> ：获取值</li>
+</ul>
+<h2 id="优先队列"><a class="markdownIt-Anchor" href="#优先队列"></a> 优先队列</h2>
+<p>接口：<code>java.util.Queue&lt;&gt;</code></p>
+<p>实现：<code>java.util.PriorityQueue&lt;&gt;</code>：优先队列</p>
+<ul>
+<li>
+<p>默认是小根堆，大根堆写法：<code>new PriorityQueue&lt;&gt;(Collections.reverseOrder())</code></p>
+</li>
+<li>
+<p>第二种定义方式</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义大根堆</span></span><br><span class="line">PriorityQueue&lt;Integer&gt; queMin = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;Integer&gt;((a, b) -&gt; (b - a));</span><br><span class="line"><span class="comment">// 定义小根堆</span></span><br><span class="line">PriorityQueue&lt;Integer&gt; queMax = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;Integer&gt;((a, b) -&gt; (a - b));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>常用方法：</p>
+<ul>
+<li><code>add(e)</code>：在队尾插入元素，并调整堆结构。</li>
+<li><code>offer(e)</code>：在队尾插入元素，并调整堆结构。</li>
+<li><code>remove(e)</code>：获取队头元素并删除，并调整堆结构。</li>
+<li><code>poll(e)</code>：获取队头元素并删除，并调整堆结构。</li>
+<li><code>element()</code>：返回队头元素，不删除</li>
+<li><code>peek()</code>：返回队头元素，不删除</li>
+<li><code>isEmpty()</code>：判断队列是否为空</li>
+<li><code>size()</code>：获取队列中的元素个数</li>
+<li><code>clear()</code>：清空队列</li>
+<li><code>contains(o)</code>：判断队列中是否包含指定元素</li>
+<li><code>iterator()</code>：迭代器</li>
 </ul>
 <h1 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h1>
 <h2 id="给二维数组赋初值"><a class="markdownIt-Anchor" href="#给二维数组赋初值"></a> 给二维数组赋初值</h2>
