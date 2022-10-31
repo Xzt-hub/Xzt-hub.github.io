@@ -46,7 +46,7 @@
 
 
 
-<link rel="dns-prefetch" href="https://waline-1auxddfcs-aaaatopos.vercel.app/"><link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css"><link rel="dns-prefetch" href="https://waline-1auxddfcs-aaaatopos.vercel.app/">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -168,7 +168,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">54</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -205,6 +205,568 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/01/LeetCode/20220601/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Atopos's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/01/LeetCode/20220601/" class="post-title-link" itemprop="url">473.火柴拼正方形⭐</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-06-01 15:40:08 / 修改时间：15:44:53" itemprop="dateCreated datePublished" datetime="2022-06-01T15:40:08+08:00">2022-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/06/01/LeetCode/20220601/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/06/01/LeetCode/20220601/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>914</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<h4 id="火柴拼正方形"><a class="markdownIt-Anchor" href="#火柴拼正方形"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/matchsticks-to-square/"> 火柴拼正方形 </a></h4>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>为了减少搜索量，需要对火柴长度从大到小进行排序。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> index, vector&lt;<span class="type">int</span>&gt; &amp;matchsticks, vector&lt;<span class="type">int</span>&gt; &amp;edges, <span class="type">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index == matchsticks.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edges.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            edges[i] += matchsticks[index];</span><br><span class="line">            <span class="keyword">if</span> (edges[i] &lt;= len &amp;&amp; <span class="built_in">dfs</span>(index + <span class="number">1</span>, matchsticks, edges, len)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            edges[i] -= matchsticks[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">makesquare</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;matchsticks)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> totalLen = <span class="built_in">accumulate</span>(matchsticks.<span class="built_in">begin</span>(), matchsticks.<span class="built_in">end</span>(), <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (totalLen % <span class="number">4</span> != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(matchsticks.<span class="built_in">begin</span>(), matchsticks.<span class="built_in">end</span>(), <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;()); <span class="comment">// 减少搜索量</span></span><br><span class="line"></span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">edges</span><span class="params">(<span class="number">4</span>)</span></span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">dfs</span>(<span class="number">0</span>, matchsticks, edges, totalLen / <span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O(4 ^ n)</em>，其中 <em>n</em> 是数组中元素的个数</li>
+<li>空间复杂度：<em>O(n)</em>，递归栈需要占 <em>O(n)</em> 的空间</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：248 ms, 在所有 C++ 提交中击败了20.09%的用户</p>
+<p>内存消耗：9.6 MB, 在所有 C++ 提交中击败了76.84%的用户</p>
+<p>通过测试用例：185 / 185</p>
+</details></div></div></div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/23/LeetCode/294WeeklyCompetition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Atopos's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/23/LeetCode/294WeeklyCompetition/" class="post-title-link" itemprop="url">LeetCode 第294场周赛</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-05-23 14:58:28 / 修改时间：15:13:33" itemprop="dateCreated datePublished" datetime="2022-05-23T14:58:28+08:00">2022-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/%E5%91%A8%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">周赛</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/05/23/LeetCode/294WeeklyCompetition/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/05/23/LeetCode/294WeeklyCompetition/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="题目1字母在字符串中的百分比"><a class="markdownIt-Anchor" href="#题目1字母在字符串中的百分比"></a> 题目1：字母在字符串中的百分比</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/percentage-of-letter-in-string/">字母在字符串中的百分比</a></p>
+<h3 id="标签"><a class="markdownIt-Anchor" href="#标签"></a> 标签</h3>
+<p><code>字符串</code></p>
+<h3 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h3>
+<p>遍历一遍字符串，统计目标字符的个数，然后先乘100再除以字符串的大小。</p>
+<h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">percentageLetter</span><span class="params">(string s, <span class="type">char</span> letter)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">float</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == letter)</span><br><span class="line">                num ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; n &lt;&lt; &quot; &quot; &lt;&lt; num &lt;&lt; endl;</span></span><br><span class="line">        <span class="keyword">return</span> num * <span class="number">100</span> / n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 为字符串 <em>s</em> 的大小</li>
+<li>空间复杂度：<em>O(1)</em></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>内存消耗：5.9 MB, 在所有 C++ 提交中击败了50.00%的用户</p>
+<p>通过测试用例：85 / 85</p>
+</details></div></div></div>
+<h2 id="题目2装满石头的背包的最大数量"><a class="markdownIt-Anchor" href="#题目2装满石头的背包的最大数量"></a> 题目2：装满石头的背包的最大数量</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-bags-with-full-capacity-of-rocks/">装满石头的背包的最大数量</a></p>
+<h3 id="标签-2"><a class="markdownIt-Anchor" href="#标签-2"></a> 标签</h3>
+<p><code>数组</code>、<code>排序</code></p>
+<h3 id="思路-2"><a class="markdownIt-Anchor" href="#思路-2"></a> 思路</h3>
+<p>先计算出每个背包剩余的空间并保存至一个数组中，然后将该数组从小到大进行排序，遍历一遍，若当前位置的元素小于额外的石头数量，并且额外的石头数量大于0，则将 <code>additionalRocks -= arr[i]</code> 并且装满石头的背包数加一。</p>
+<h3 id="题解-2"><a class="markdownIt-Anchor" href="#题解-2"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maximumBags</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; capacity, vector&lt;<span class="type">int</span>&gt;&amp; rocks, <span class="type">int</span> additionalRocks)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; capacity.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            arr.<span class="built_in">push_back</span>(capacity[i] - rocks[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> nums = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                nums ++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(additionalRocks &gt; <span class="number">0</span> &amp;&amp; additionalRocks &gt;= arr[i])&#123;</span><br><span class="line">                additionalRocks -= arr[i];</span><br><span class="line">                nums++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O(n * logn)</em>，其中 <em>n</em> 为数组的大小，排序耗时。</li>
+<li>空间复杂度：<em>O(n)</em>，需要一个额外的数组保存每个背包剩余的空间。</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：144 ms, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>内存消耗：87.4 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>通过测试用例：79 / 79</p>
+</details></div></div></div>
+<h2 id="题目3表示一个折线图的最少线段数"><a class="markdownIt-Anchor" href="#题目3表示一个折线图的最少线段数"></a> 题目3：表示一个折线图的最少线段数</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-lines-to-represent-a-line-chart/">表示一个折线图的最少线段数</a></p>
+<h3 id="标签-3"><a class="markdownIt-Anchor" href="#标签-3"></a> 标签</h3>
+<p><code>数组</code>、<code>排序</code>、<code>数学</code></p>
+<h3 id="思路-3"><a class="markdownIt-Anchor" href="#思路-3"></a> 思路</h3>
+<p>先将所有的点按照横坐标从小到大进行排序，直接使用 <code>sort(stockPrices.begin(), stockPrices.end());</code> 进行排序即可。然后遍历一遍函数，每次计算当前元素和前一元素组成的线段的斜率是否和前一段斜率相同，若不同，则结果加一。需要使用一个变量记录前一斜率，再不相同时更新该变量。</p>
+<p><code>sort(stockPrices.begin(), stockPrices.end());</code>，默认按照数组的第一列进行升序排序。</p>
+<p><code>sort(stockPrices.rbegin(), stockPrices.rend());</code>，默认按照数组的第一列进行降序排列。</p>
+<h3 id="题解-3"><a class="markdownIt-Anchor" href="#题解-3"></a> 题解</h3>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumLines</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; stockPrices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stockPrices.<span class="built_in">size</span>() == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(stockPrices.<span class="built_in">size</span>() == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">sort</span>(stockPrices.<span class="built_in">begin</span>(), stockPrices.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="type">long</span> <span class="type">double</span> pre = <span class="number">2e9</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; stockPrices.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> x1 = stockPrices[i - <span class="number">1</span>][<span class="number">0</span>], y1 = stockPrices[i - <span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> x2 = stockPrices[i][<span class="number">0</span>], y2 = stockPrices[i][<span class="number">1</span>];</span><br><span class="line">            <span class="type">long</span> <span class="type">double</span> cur = (<span class="type">long</span> <span class="type">double</span>)(y2 - y1) / (<span class="type">long</span> <span class="type">double</span>)(x2 - x1);</span><br><span class="line">            <span class="keyword">if</span>(cur != pre)&#123;</span><br><span class="line">                res ++;</span><br><span class="line">                pre = cur;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O(n * logn)</em>，其中 <em>n</em> 为数组的大小，排序耗时。</li>
+<li>空间复杂度：<em>O(1)</em></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：392 ms, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>内存消耗：98.3 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>通过测试用例：79 / 79</p>
+</details></div></div></div>
+<h2 id="题目4巫师的总力量和"><a class="markdownIt-Anchor" href="#题目4巫师的总力量和"></a> 题目4：巫师的总力量和</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sum-of-total-strength-of-wizards/">巫师的总力量和</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/21/LeetCode/20220521-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Atopos's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/21/LeetCode/20220521-01/" class="post-title-link" itemprop="url">961.在长度 2N 的数组中找出重复 N 次的元素</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-05-21 14:50:58 / 修改时间：14:54:27" itemprop="dateCreated datePublished" datetime="2022-05-21T14:50:58+08:00">2022-05-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/05/21/LeetCode/20220521-01/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/05/21/LeetCode/20220521-01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>515</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/n-repeated-element-in-size-2n-array/"> 在长度 2N 的数组中找出重复 N 次的元素 </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>利用哈希表统计每个数字出现的次数，若次数等于 <code>nums.size() / 2</code>则返回该数字。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">repeatedNTimes</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>() / <span class="number">2</span>;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; hsp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            hsp[nums[i]] ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it = hsp.<span class="built_in">begin</span>(); it != hsp.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(it-&gt;second == n)</span><br><span class="line">                <span class="keyword">return</span> it-&gt;first;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是数组中元素的个数</li>
+<li>空间复杂度：<em>O(n)</em>，</li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：44 ms, 在所有 C++ 提交中击败了28.13%的用户</p>
+<p>内存消耗：29.4 MB, 在所有 C++ 提交中击败了25.96%的用户</p>
+<p>通过测试用例：102 / 102</p>
+</details></div></div></div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/19/LeetCode/20220519-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Atopos's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/19/LeetCode/20220519-01/" class="post-title-link" itemprop="url">462.最少移动次数使数组元素相等 II</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-19 09:03:14" itemprop="dateCreated datePublished" datetime="2022-05-19T09:03:14+08:00">2022-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-21 14:31:58" itemprop="dateModified" datetime="2022-05-21T14:31:58+08:00">2022-05-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/05/19/LeetCode/20220519-01/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/05/19/LeetCode/20220519-01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>619</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-moves-to-equal-array-elements-ii/"> 最少移动次数使数组元素相等 II </a></p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>排序后寻找中间位置的值，如果数组元素个数是奇数，则直接取中间值，如果是偶数，则取中间两值的平均值，然后遍历一遍数组，每次计算当前元素和中间值差的绝对值并加入到结果中。</p>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minMoves2</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n % <span class="number">2</span>) &#123; <span class="comment">// 奇数</span></span><br><span class="line">            x = nums[n / <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span> r = nums[n / <span class="number">2</span>];</span><br><span class="line">            <span class="type">int</span> l = nums[n / <span class="number">2</span> - <span class="number">1</span>];</span><br><span class="line">            x = (r + l) / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            res += <span class="built_in">abs</span>(nums[i] - x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<details class="note info"><summary><p>simple</p>
+</summary>
+<ul>
+<li>时间复杂度：<em>O(n * logn)</em>，其中 <em>n</em> 是数组中元素的个数，排序时间复杂度是<em>O(n * logn)</em>，计算时间复杂度是<em>O(n)</em>，所以总的时间复杂度是<em>O(n * logn)</em></li>
+<li>空间复杂度：<em>O(1)</em></li>
+</ul>
+</details>
+<details class="note success"><summary><p>simple</p>
+</summary>
+<p>执行用时：8 ms, 在所有 C++ 提交中击败了88.62%的用户</p>
+<p>内存消耗：10.7 MB, 在所有 C++ 提交中击败了11.78%的用户</p>
+<p>通过测试用例：30 / 30</p>
+</details></div></div></div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1005,512 +1567,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/12/AcWing/20220512-02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./img/head.jpg">
-      <meta itemprop="name" content="Atopos·">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Atopos's Blog">
-      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Atopos's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/12/AcWing/20220512-02/" class="post-title-link" itemprop="url">3376.成绩排序2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-05-12 09:01:53 / 修改时间：09:04:25" itemprop="dateCreated datePublished" datetime="2022-05-12T09:01:53+08:00">2022-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AcWing/" itemprop="url" rel="index"><span itemprop="name">AcWing</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/05/12/AcWing/20220512-02/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/05/12/AcWing/20220512-02/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>709</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3379/"> 成绩排序2 </a></p>
-<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
-<p>自定义 <code>sort</code> 排序</p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
-<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; arr;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">        <span class="type">int</span> a, b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        arr.<span class="built_in">emplace_back</span>(<span class="built_in">make_pair</span>(a, b));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 自定义排序</span></span><br><span class="line">    <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), [](pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; &amp;a, pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; &amp;b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a.second != b.second) </span><br><span class="line">            <span class="keyword">return</span> a.second &lt; b.second;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> a.first &lt; b.first;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        cout &lt;&lt; arr[i].first &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; arr[i].second &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<details class="note info"><summary><p>simple</p>
-</summary>
-<ul>
-<li>时间复杂度：<em>O(n * logn)</em>，其中 <em>n</em> 是学生的个数</li>
-<li>空间复杂度：<em>O(1)</em></li>
-</ul>
-</details>
-<details class="note success"><summary><p>simple</p>
-</summary>
-<p>执行用时：18 ms</p>
-<p>内存消耗：220KB</p>
-<p>通过测试用例：10/10</p>
-</details></div></div></div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/12/AcWing/20220512-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./img/head.jpg">
-      <meta itemprop="name" content="Atopos·">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Atopos's Blog">
-      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Atopos's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/12/AcWing/20220512-01/" class="post-title-link" itemprop="url">3375.成绩排序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-05-12 08:56:09 / 修改时间：09:08:48" itemprop="dateCreated datePublished" datetime="2022-05-12T08:56:09+08:00">2022-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AcWing/" itemprop="url" rel="index"><span itemprop="name">AcWing</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/05/12/AcWing/20220512-01/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/05/12/AcWing/20220512-01/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3378/"> 成绩排序 </a></p>
-<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
-<p>使用 <code>stable_sort</code> 进行排序，因为 <code>stable_sort</code> 是稳定的，可确保不需要排序的数据相对位置不改变。</p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
-<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n, x;</span><br><span class="line"></span><br><span class="line"><span class="comment">// stable_sort 使用</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">minTomax</span><span class="params">(vector&lt;pair&lt;string, <span class="type">int</span>&gt;&gt;&amp; arr)</span></span>&#123;</span><br><span class="line">    <span class="built_in">stable_sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), [&amp;](<span class="type">const</span> pair&lt;string, <span class="type">int</span>&gt; &amp;a, <span class="type">const</span> pair&lt;string, <span class="type">int</span>&gt; &amp;b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a.second &lt; b.second; </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">maxTomin</span><span class="params">(vector&lt;pair&lt;string, <span class="type">int</span>&gt;&gt;&amp; arr)</span></span>&#123;</span><br><span class="line">    <span class="built_in">stable_sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), [&amp;](<span class="type">const</span> pair&lt;string, <span class="type">int</span>&gt; &amp;a, <span class="type">const</span> pair&lt;string, <span class="type">int</span>&gt; &amp;b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a.second &gt; b.second; </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    cin &gt;&gt; x;</span><br><span class="line">    vector&lt;pair&lt;string, <span class="type">int</span>&gt;&gt; arr;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        string a;</span><br><span class="line">        <span class="type">int</span> b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        arr.<span class="built_in">emplace_back</span>(<span class="built_in">make_pair</span>(a, b));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x == <span class="number">0</span>) <span class="built_in">maxTomin</span>(arr);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">minTomax</span>(arr);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        cout &lt;&lt; arr[i].first &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; arr[i].second &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<details class="note info"><summary><p>simple</p>
-</summary>
-<ul>
-<li>时间复杂度：<em>O(n * logn)</em>，其中 <em>n</em> 是学生的个数</li>
-<li>空间复杂度：<em>O(1)</em></li>
-</ul>
-</details>
-<details class="note success"><summary><p>simple</p>
-</summary>
-<p>执行用时：31 ms</p>
-<p>内存消耗：340KB</p>
-<p>通过测试用例：10/10</p>
-</details></div></div></div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/12/LeetCode/20220512-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./img/head.jpg">
-      <meta itemprop="name" content="Atopos·">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Atopos's Blog">
-      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Atopos's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/12/LeetCode/20220512-01/" class="post-title-link" itemprop="url">944.删列造序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-05-12 08:47:56 / 修改时间：08:51:32" itemprop="dateCreated datePublished" datetime="2022-05-12T08:47:56+08:00">2022-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/05/12/LeetCode/20220512-01/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/05/12/LeetCode/20220512-01/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>446</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/delete-columns-to-make-sorted/"> 删列造序 </a></p>
-<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
-<p>暴力解法：遍历二维数组，先遍历列，再遍历行。</p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
-<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minDeletionSize</span><span class="params">(vector&lt;string&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; strs[<span class="number">0</span>].<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt; strs.<span class="built_in">size</span>(); j ++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(strs[j][i] &lt; strs[j - <span class="number">1</span>][i])&#123;</span><br><span class="line">                    res ++;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<details class="note info"><summary><p>simple</p>
-</summary>
-<ul>
-<li>时间复杂度：<em>O(n * m)</em>，其中 <em>n</em> 是字符串的个数，m是每个字符串的长度</li>
-<li>空间复杂度：<em>O(1)</em></li>
-</ul>
-</details>
-<details class="note success"><summary><p>simple</p>
-</summary>
-<p>执行用时：36 ms, 在所有 C++ 提交中击败了68.31%的用户</p>
-<p>内存消耗：11.9 MB, 在所有 C++ 提交中击败了33.14%的用户</p>
-<p>通过测试用例：85 / 85</p>
-</details></div></div></div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/11/LeetCode/20220511-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./img/head.jpg">
-      <meta itemprop="name" content="Atopos·">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Atopos's Blog">
-      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Atopos's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/11/LeetCode/20220511-01/" class="post-title-link" itemprop="url">449.序列化和反序列化二叉搜索树</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-05-11 10:16:03 / 修改时间：10:30:15" itemprop="dateCreated datePublished" datetime="2022-05-11T10:16:03+08:00">2022-05-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/05/11/LeetCode/20220511-01/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/05/11/LeetCode/20220511-01/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/serialize-and-deserialize-bst/"> 序列化和反序列化二叉搜索树</a></p>
-<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
-<p><strong>后序遍历</strong>：二叉搜索树可根据后序遍历的结果将其恢复。</p>
-<p>序列化：只需要对二叉搜索树进行后序遍历，再将数组编码成字符串即可。</p>
-<p>反序列化时，需要先将字符串解码成后序遍历的数组。在将后序遍历的数组恢复成二叉搜索树时，不需要先排序得到中序遍历的数组再根据中序和后序遍历的数组来恢复二叉树，而可以根据有序性直接由后序遍历的数组恢复二叉搜索树。后序遍历得到的数组中，根结点的值位于数组末尾，左子树的节点均小于根节点的值，右子树的节点均大于根节点的值，可以根据这些性质设计递归函数恢复二叉搜索树。</p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
-<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Codec</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Encodes a tree to a single string.</span></span><br><span class="line">    <span class="function">string <span class="title">serialize</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">        <span class="built_in">postTraversal</span>(root, arr);</span><br><span class="line">        <span class="keyword">if</span>(arr.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            res += <span class="built_in">to_string</span>(arr[i]) + <span class="string">&quot;,&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="built_in">substr</span>(<span class="number">0</span>, res.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">postTraversal</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt; &amp;arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="built_in">postTraversal</span>(root-&gt;left, arr);</span><br><span class="line">        <span class="built_in">postTraversal</span>(root-&gt;right, arr);</span><br><span class="line">        arr.<span class="built_in">emplace_back</span>(root-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Decodes your encoded data to tree.</span></span><br><span class="line">    <span class="function">TreeNode* <span class="title">deserialize</span><span class="params">(string data)</span> </span>&#123;</span><br><span class="line">        TreeNode* root;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">        <span class="built_in">transArr</span>(data, arr);</span><br><span class="line">        <span class="keyword">if</span>(arr.<span class="built_in">size</span>() == <span class="number">0</span>) &#123;</span><br><span class="line">            root = <span class="literal">NULL</span>;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// int n = arr.size();</span></span><br><span class="line">        <span class="comment">// root-&gt;val = arr[n - 1];</span></span><br><span class="line">        root = <span class="built_in">dfs</span>(arr);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">transArr</span><span class="params">(string data, vector&lt;<span class="type">int</span>&gt; &amp;arr)</span></span>&#123;  <span class="comment">// 将string 拆分为整数数组</span></span><br><span class="line">        <span class="type">int</span> npc = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; data.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i == data.<span class="built_in">size</span>() - <span class="number">1</span>)&#123;</span><br><span class="line">                string str = data.<span class="built_in">substr</span>(npc, i - npc + <span class="number">1</span>);</span><br><span class="line">                arr.<span class="built_in">emplace_back</span>(<span class="built_in">stoi</span>(str));</span><br><span class="line">                npc = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(data[i] == <span class="string">&#x27;,&#x27;</span>)&#123;</span><br><span class="line">                string str = data.<span class="built_in">substr</span>(npc, i - npc);</span><br><span class="line">                arr.<span class="built_in">emplace_back</span>(<span class="built_in">stoi</span>(str));</span><br><span class="line">                npc = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr.<span class="built_in">size</span>() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> n = arr.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> npc = arr[n - <span class="number">1</span>];</span><br><span class="line">        TreeNode* root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(npc);</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> x = <span class="built_in">find</span>(arr, npc); <span class="comment">// 寻找最后一个小于 根节点的下标，则x左边的都是该节点的左子树，右边的都是该节点的右子树</span></span><br><span class="line">        <span class="keyword">if</span>(x &gt;= <span class="number">0</span>)&#123;  </span><br><span class="line">            root-&gt;left = <span class="built_in">dfs</span>(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">begin</span>() + x));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x &lt;= n - <span class="number">2</span>)&#123;</span><br><span class="line">            root-&gt; right = <span class="built_in">dfs</span>(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(arr.<span class="built_in">begin</span>() + x, arr.<span class="built_in">begin</span>() + n - <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt; arr, <span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>() - <span class="number">1</span>; i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] &gt; x)&#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Your Codec object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment">// Codec* ser = new Codec();</span></span><br><span class="line"><span class="comment">// Codec* deser = new Codec();</span></span><br><span class="line"><span class="comment">// string tree = ser-&gt;serialize(root);</span></span><br><span class="line"><span class="comment">// TreeNode* ans = deser-&gt;deserialize(tree);</span></span><br><span class="line"><span class="comment">// return ans;</span></span><br></pre></td></tr></table></figure>
-<details class="note info"><summary><p>simple</p>
-</summary>
-<ul>
-<li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是树的节点个数，<em>serialize</em> 需要 <em>O(n)</em> 时间遍历每个点。<em>deserialize</em> 需要 <em>O(n)</em> 时间恢复每个点</li>
-<li>空间复杂度：<em>O(n)</em>，其中 <em>n</em> 是树的节点个数，<em>serialize</em> 需要 <em>O(n)</em> 空间数组保存每个点的值，递归的深度最深也为 <em>O(n)</em>。<em>deserialize</em> 需要 <em>O(n)</em> 空间用数组保存每个点的值，递归的深度最深也为 <em>O(n)</em>。</li>
-</ul>
-</details>
-<details class="note success"><summary><p>simple</p>
-</summary>
-<p>执行用时：36 ms, 在所有 C++ 提交中击败了44.95%的用户</p>
-<p>内存消耗：36.3 MB, 在所有 C++ 提交中击败了12.22%的用户</p>
-<p>通过测试用例：62 / 62</p>
-</details></div></div></div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1535,13 +1591,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">489k</span>
+    <span title="站点总字数">532k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:25</span>
+    <span title="站点阅读时长">8:03</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
