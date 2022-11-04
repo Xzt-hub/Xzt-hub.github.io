@@ -12112,6 +12112,25 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2>
 <p>Redis 是需要安装在Linux系统中。并且要求系统中需要有C语言的环境gcc。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf redis-6.2.7.tar.gz  <span class="comment"># 解压压缩包，压缩包从系统中下载</span></span><br><span class="line"><span class="built_in">cd</span> redis-6.2.7  <span class="comment"># 进入解压后的目录下</span></span><br><span class="line">make  <span class="comment"># 进行编译</span></span><br><span class="line">make install  <span class="comment"># 进行安装 默认安装目录 /usr/local/bin</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### Redis 命令</span></span><br><span class="line">redis-server <span class="comment"># 启动redis服务</span></span><br><span class="line">redis-cli <span class="comment"># 通过客户端连接redis</span></span><br></pre></td></tr></table></figure>
+<h1 id="redis-数据类型"><a class="markdownIt-Anchor" href="#redis-数据类型"></a> Redis 数据类型</h1>
+<h2 id="redis-字符串string"><a class="markdownIt-Anchor" href="#redis-字符串string"></a> Redis 字符串String</h2>
+<h3 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h3>
+<ul>
+<li>String 是 Redis 最基本的类型，你可以理解成与 Memcached 一模一样的类型，一个 key 对应一个 value。</li>
+<li>String 类型是二进制安全的。意味着 Redis 的 string 可以包含任何数据。比如 jpg 图片或者序列化的对象。</li>
+<li>String 类型是 Redis 最基本的数据类型，一个 Redis 中字符串 value 最多可以是 512M。</li>
+</ul>
+<h3 id="常用命令"><a class="markdownIt-Anchor" href="#常用命令"></a> 常用命令</h3>
+<ul>
+<li><code>set &lt;key&gt; &lt;value&gt;</code>：添加键值对指令</li>
+<li><code>get &lt;key&gt;</code>：获取对应键的值</li>
+<li><code>append &lt;key&gt; &lt;value&gt;</code>：将给定的value追加到原值的末尾</li>
+<li><code>strlen &lt;key&gt;</code>：获得值的长度</li>
+<li><code>setnx &lt;key&gt; &lt;value&gt;</code>：只有在不存在时，设置key的值</li>
+<li><code>incr &lt;key&gt;</code>：将key中存储的数字加1。只能对数字进行操作。</li>
+<li><code>decr &lt;key&gt;</code>：将key中存储的数字减1。</li>
+<li><code>incrby/decrby &lt;key&gt; &lt;步长&gt;</code>：将key中存储的数字增减自定义的步长。</li>
+</ul>
 ]]></content>
       <categories>
         <category>JAVA</category>
