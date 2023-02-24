@@ -12007,4 +12007,424 @@ properties、settings、typeAliases、typeHandlers、objectFactory、objectWrapp
         <tag>SSM</tag>
       </tags>
   </entry>
+  <entry>
+    <title>瑞吉外卖项目实战 - Linux入门</title>
+    <url>/2023/02/23/JAVA/18Linux/</url>
+    <content><![CDATA[<h1 id="linux简介"><a class="markdownIt-Anchor" href="#linux简介"></a> Linux简介</h1>
+<h2 id="不同应用领域的主流操作系统"><a class="markdownIt-Anchor" href="#不同应用领域的主流操作系统"></a> 不同应用领域的主流操作系统</h2>
+<ul>
+<li>桌面操作系统
+<ul>
+<li>Windows （用户数量最多)</li>
+<li>Mac OS（操作体验好，办公人士首选)</li>
+<li>Linux（用户数量少)</li>
+</ul>
+</li>
+<li>服务器操作系统
+<ul>
+<li>UNIX（安全、稳定、付费)</li>
+<li>Linux（安全、稳定、免费、占有率高)</li>
+<li>Windows Server (付费、占有率低)</li>
+</ul>
+</li>
+<li>移动设备操作系统
+<ul>
+<li>Android (基于Linux 、开源，主要用于智能手机、平板电脑和智能电视)</li>
+<li>ios（苹果公司开发、不开源，用于苹果公司的产品，例如: iPhone、iPad )</li>
+</ul>
+</li>
+<li>嵌入式操作系统
+<ul>
+<li>Linux（机顶盒、路由器、交换机)</li>
+</ul>
+</li>
+</ul>
+<h2 id="linux发展历史"><a class="markdownIt-Anchor" href="#linux发展历史"></a> Linux发展历史</h2>
+<p>Linux系统历史</p>
+<ul>
+<li>时间:1991年</li>
+<li>地点:芬兰赫尔辛基大学</li>
+<li>人物:Linus Torvalds ( 21岁)</li>
+<li>语言:C语言、汇编语言</li>
+<li>logo:企鹅</li>
+<li>特点:免费、开源、多用户、多任务</li>
+</ul>
+<h3 id="linux系统版本"><a class="markdownIt-Anchor" href="#linux系统版本"></a> Linux系统版本</h3>
+<p>Linux系统分为内核版和发行版</p>
+<ul>
+<li>内核版
+<ul>
+<li>由Linus Torvalds及其团队开发、维护</li>
+<li>免费、开源</li>
+<li>负责控制硬件</li>
+</ul>
+</li>
+<li>发行版
+<ul>
+<li>基于Linux内核版进行扩展</li>
+<li>由各个Linux厂商开发、维护</li>
+<li>有收费版本和免费版本</li>
+</ul>
+</li>
+</ul>
+<p><strong>Linux系统发行版</strong>:</p>
+<ul>
+<li>ubuntu:以桌面应用为主·</li>
+<li>RedHat:应用最广泛、收费</li>
+<li>CentOs: RedHat的社区版、免费·</li>
+<li>opensuSE:对个人完全免费、图形界面华丽</li>
+<li>Fedora:功能完备、快速更新、免费</li>
+<li>红旗Linux:北京中科红旗软件技术有限公司开发</li>
+</ul>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164510201-1893673796.png" alt="image" /></p>
+<h1 id="linux-安装"><a class="markdownIt-Anchor" href="#linux-安装"></a> Linux 安装</h1>
+<h2 id="安装方式介绍"><a class="markdownIt-Anchor" href="#安装方式介绍"></a> 安装方式介绍</h2>
+<p>Linux系统的安装方式</p>
+<ul>
+<li>物理机安装:直接将操作系统安装到服务器硬件上</li>
+<li>虚拟机安装:通过虚拟机软件安装</li>
+</ul>
+<p><strong>虚拟机</strong>( Virtual Machine)指通过<strong>软件</strong>模拟的具有完整硬件系统功能、运行在完全隔离环境中的完整计算机系统。</p>
+<p>常用虚拟机软件</p>
+<ul>
+<li>VMware</li>
+<li>VirtualBox</li>
+<li>VMLite workStation</li>
+<li>Qemu</li>
+<li>HopeddotVos</li>
+</ul>
+<h2 id="安装linux"><a class="markdownIt-Anchor" href="#安装linux"></a> 安装Linux</h2>
+<p><strong>安装方式-安装VMWare</strong></p>
+<p>直接双击运行资料中的VMware安装程序，根据提示完成安装即可</p>
+<p><strong>安装CentOS镜像</strong></p>
+<p>使用资料中提供的CentOS镜像文件来完成Linux系统的安装</p>
+<h2 id="网卡设置"><a class="markdownIt-Anchor" href="#网卡设置"></a> 网卡设置</h2>
+<p>由于启动服务器时未加载网卡，导致IP地址初始化失败</p>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164517145-1413567992.png" alt="image" /></p>
+<p>修改网络初始化配置，设定网卡在系统启动时初始化<br />
+<img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164525095-1179631425.png" alt="image" /></p>
+<h2 id="安装ssh连接工具"><a class="markdownIt-Anchor" href="#安装ssh连接工具"></a> 安装SSH连接工具</h2>
+<p>SSH ( Secure Shell)，建立在应用层基础上的安全协议</p>
+<p>常用的SSH连接工具</p>
+<ul>
+<li>putty</li>
+<li>secureCRT</li>
+<li>xshell</li>
+<li>finalshell</li>
+</ul>
+<p>通过SSH连接工具就可以实现从本地连接到远程的Linux服务器</p>
+<h2 id="linux和windows目录结构对比"><a class="markdownIt-Anchor" href="#linux和windows目录结构对比"></a> Linux和windows目录结构对比</h2>
+<p>Linux系统中的目录</p>
+<ul>
+<li>/是所有目录的顶点</li>
+<li>目录结构像一颗倒挂的树</li>
+</ul>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164532669-2029309901.png" alt="image" /></p>
+<h2 id="linux目录结构"><a class="markdownIt-Anchor" href="#linux目录结构"></a> Linux目录结构</h2>
+<ul>
+<li>bin存放二进制可执行文件</li>
+<li>boot存放系统引导时使用的各种文件</li>
+<li>dev存放设备文件</li>
+<li>etc存放系统配置文件</li>
+<li>home存放系统用户的文件</li>
+<li>lib存放程序运行所需的共享库和内核模块</li>
+<li>opt额外安装的可选应用程序包所放置的位置</li>
+<li>root超级用户目录</li>
+<li>sbin存放二进制可执行文件，只有root用户才能访问</li>
+<li>tmp存放临时文件</li>
+<li>usr存放系统应用程序</li>
+<li>var存放运行时需要改变数据的文件，例如日志文件</li>
+</ul>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164538098-689217035.png" alt="image" /></p>
+<h1 id="linux-常用命令"><a class="markdownIt-Anchor" href="#linux-常用命令"></a> Linux 常用命令</h1>
+<h2 id="linux命令初体验"><a class="markdownIt-Anchor" href="#linux命令初体验"></a> Linux命令初体验</h2>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>对应英文</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ls</td>
+<td>list</td>
+<td>查看当前目录下的内容</td>
+</tr>
+<tr>
+<td>2</td>
+<td>pwd</td>
+<td>print work directory</td>
+<td>查看当前所在目录</td>
+</tr>
+<tr>
+<td>3</td>
+<td>cd [目录名]</td>
+<td>change directory</td>
+<td>切换目录</td>
+</tr>
+<tr>
+<td>4</td>
+<td>touch [文件名]</td>
+<td>touch</td>
+<td>如果文件不存在，新建文件</td>
+</tr>
+<tr>
+<td>5</td>
+<td>mkdir [目录名]</td>
+<td>make directory</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>6</td>
+<td>rm [文件名]</td>
+<td>remove</td>
+<td>删除指定文件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>使用技巧</strong></p>
+<ul>
+<li>Tab键自动补全</li>
+<li>连续两次Tab键，给出操作提示</li>
+<li>使用上下箭头快速调出曾经使用过的命令</li>
+<li>使用clear命令或者Ctrl+l快捷键实现清屏</li>
+</ul>
+<p><strong>命令格式</strong></p>
+<p><code>command 【-options】【parameter】</code></p>
+<p>说明:</p>
+<ul>
+<li>command:命令名</li>
+<li>【-options】:选项，可用来对命令进行控制，也可以省略</li>
+<li>【parameter】:传给命令的参数，可以是零个、一个或者多个</li>
+</ul>
+<p>注意:</p>
+<p>[]代表可选</p>
+<p>命令名、选项、参数之间有空格进行分隔</p>
+<h2 id="文件目录操作命令"><a class="markdownIt-Anchor" href="#文件目录操作命令"></a> 文件目录操作命令</h2>
+<h3 id="文件目录操作命令ls"><a class="markdownIt-Anchor" href="#文件目录操作命令ls"></a> 文件目录操作命令<strong>ls</strong></h3>
+<p>作用:显示指定目录下的内容</p>
+<p>语法:<code>ls [-al] [dir]</code></p>
+<p>说明:</p>
+<ul>
+<li>-a显示所有文件及目录(.开头的隐藏文件也会列出)</li>
+<li>-l除文件名称外，同时将文件型态(d表示目录，-表示文件)、权限、拥有者、文件大小等信息详细列出</li>
+</ul>
+<p>注意:<br />
+由于我们使用ls命令时经常需要加入-l选项，所以Linux为ls -l命令提供了一种简写方式，即ll</p>
+<h3 id="文件目录操作命令cd"><a class="markdownIt-Anchor" href="#文件目录操作命令cd"></a> 文件目录操作命令<strong>cd</strong></h3>
+<p>作用:用于切换当前工作目录，即进入指定目录</p>
+<p>语法:<code>cd [dirName]</code></p>
+<p>特殊说明:</p>
+<ul>
+<li>~表示用户的home目录</li>
+<li>.表示目前所在的目录</li>
+<li>…表示目前目录位置的上级目录</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li>cd …<br />
+切换到当前目录的上级目录</li>
+<li>cd ~<br />
+切换到用户的home目录</li>
+<li>cd /usr/local 切换到/usr/local目录</li>
+</ul>
+<h3 id="文件目录操作命令cat"><a class="markdownIt-Anchor" href="#文件目录操作命令cat"></a> 文件目录操作命令<strong>cat</strong></h3>
+<p>作用:用于显示文件内容</p>
+<p>语法: <code>cat [-n] fileName</code></p>
+<p>说明:</p>
+<ul>
+<li>-n :由1开始对所有输出的行数编号</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li><code>cat /etc/profile</code><br />
+查看/etc目录下的profile文件内容</li>
+</ul>
+<h3 id="文件目录操作命令more"><a class="markdownIt-Anchor" href="#文件目录操作命令more"></a> 文件目录操作命令<strong>more</strong></h3>
+<p>作用:以分页的形式显示文件内容</p>
+<p>语法: <code>more fileName</code></p>
+<p>操作说明:</p>
+<ul>
+<li>回车键<br />
+向下滚动一行</li>
+<li>空格键<br />
+向下滚动一屏</li>
+<li>b<br />
+返回上一屏</li>
+<li>q或者Ctrl+C<br />
+退出more</li>
+</ul>
+<p>举例:</p>
+<p><code>more /etc/profile</code><br />
+以分页方式显示/etc目录下的profile文件内容</p>
+<h3 id="文件目录操作命令tail"><a class="markdownIt-Anchor" href="#文件目录操作命令tail"></a> 文件目录操作命令<strong>tail</strong></h3>
+<p>作用:查看文件末尾的内容</p>
+<p>语法:<code>tail [-f] fileName</code></p>
+<p>说明:</p>
+<ul>
+<li>-f :动态读取文件末尾内容并显示，通常用于日志文件的内容输出</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li><code>tail /etc/profile</code><br />
+显示/etc目录下的profile文件末尾10行的内容</li>
+<li><code>tail -20 /etc/profile</code><br />
+显示/etc目录下的profile文件末尾20行的内容</li>
+<li><code>tail -f /itcast/my.log</code><br />
+动态读取/itcast目录下的my.log文件末尾内容并显示</li>
+</ul>
+<h3 id="文件目录操作命令mkdir"><a class="markdownIt-Anchor" href="#文件目录操作命令mkdir"></a> 文件目录操作命令<strong>mkdir</strong></h3>
+<p>作用:创建目录</p>
+<p>语法:<code>mkdir [-p] dirName</code></p>
+<p>说明:</p>
+<ul>
+<li>-p︰确保目录名称存在，不存在的就创建一个。通过此选项，可以实现多层目录同时创建</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li><code>mkdir itcast</code>　在当前目录下，建立一个名为itcast的子目录</li>
+<li><code>mkdir-p itcast/test</code>　在工作目录下的itcast目录中建立一个名为test的子目录，若itcast目录不存在，则建立一个</li>
+</ul>
+<h3 id="文件目录操作命令rmdir"><a class="markdownIt-Anchor" href="#文件目录操作命令rmdir"></a> 文件目录操作命令rmdir</h3>
+<p>作用:删除空目录</p>
+<p>语法:<code>rmdir [-p] dirName</code></p>
+<p>说明:</p>
+<ul>
+<li>-p:当子目录被删除后使父目录为空目录的话，则一并删除</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li><code>rmdir itcast</code>　删除名为itcast的空目录</li>
+<li><code>rmdir-p itcast/test</code>　删除itcast目录中名为test的子目录，若test目录删除后itcast目录变为空目录，则也被删除</li>
+<li><code>rmdir itcast*</code>　删除名称以itcast开始的空目录</li>
+</ul>
+<h3 id="文件目录操作命令rm"><a class="markdownIt-Anchor" href="#文件目录操作命令rm"></a> 文件目录操作命令rm</h3>
+<p>作用:删除文件或者目录</p>
+<p>语法:<code>rm [-rf] name</code></p>
+<p>说明:</p>
+<ul>
+<li>-r:将目录及目录中所有文件（目录）逐一删除，即递归删除</li>
+<li>-f:无需确认，直接删除</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li>rm -r itcast/删除名为itcast的目录和目录中所有文件，删除前需确认</li>
+<li>rm -rf itcast/无需确认，直接删除名为itcast的目录和目录中所有文件</li>
+<li>rm -f hello.txt无需确认，直接删除hello.txt文件</li>
+</ul>
+<h2 id="拷贝移动命令"><a class="markdownIt-Anchor" href="#拷贝移动命令"></a> 拷贝移动命令</h2>
+<h3 id="拷贝移动命令cp"><a class="markdownIt-Anchor" href="#拷贝移动命令cp"></a> 拷贝移动命令cp</h3>
+<p>作用:用于复制文件或目录语法:<code>cp [-r] source dest</code></p>
+<p>说明:</p>
+<ul>
+<li>-r:如果复制的是目录需要使用此选项，此时将复制该目录下所有的子目录和文件</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li>cp hello.txt itcast/<br />
+将hello.txt复制到itcast目录中</li>
+<li>cp hello.txt . / hi.txt<br />
+将hello.txt复制到当前目录，并改名为hi.txt</li>
+<li>cp -r itcast/ ./itheimal将itcast目录和目录下所有文件复制到itheima目录下</li>
+<li>cp -r itcast/* ./ itheima/将itcast目录下所有文件复制到itheima目录下</li>
+</ul>
+<h3 id="拷贝移动命令mv"><a class="markdownIt-Anchor" href="#拷贝移动命令mv"></a> 拷贝移动命令mv</h3>
+<p>作用:为文件或目录改名、或将文件或目录移动到其它位置</p>
+<p>语法: <code>mv source dest</code></p>
+<p>举例:</p>
+<ul>
+<li><code>mv hello.txt hi.txt</code><br />
+将hello.txt改名为hi.txt</li>
+<li><code>mv hi.txt itheima/</code><br />
+将文件hi.txt移动到itheima目录中</li>
+<li><code>mv hi.txt itheima/</code> hello.txt将hi.txt移动到itheima目录中，并改名为hello.txt</li>
+<li><code>mv itcast/ itheima/</code>如果itheima目录不存在，将itcast目录改名为itheima</li>
+<li><code>mv itcast/ itheima/</code><br />
+如果itheima目录存在，将itcast目录移动到itheima目录中</li>
+</ul>
+<p>打包压缩命令tar</p>
+<p>作用:对文件进行打包、解包、压缩、解压</p>
+<p>语法: <code>tar [-zcxvf] fileName [files]</code></p>
+<p>包文件后缀为.tar表示只是完成了打包，并没有压缩</p>
+<p>包文件后缀为.tar.gz表示打包的同时还进行了压缩</p>
+<p>说明:</p>
+<ul>
+<li>-z∶ z代表的是gzip，通过gzip命令处理文件，gzip可以对文件压缩或者解压</li>
+<li>-c: c代表的是create，即创建新的包文件</li>
+<li>-x: x代表的是extract，实现从包文件中还原文件</li>
+<li>-v: v代表的是verbose，显示命令的执行过程</li>
+<li>-f: f代表的是file，用于指定包文件的名称</li>
+</ul>
+<h2 id="文本编辑命令vivim"><a class="markdownIt-Anchor" href="#文本编辑命令vivim"></a> 文本编辑命令vi/vim</h2>
+<p>作用: vi命令是Linux系统提供的一个文本编辑工具，可以对文件内容进行编辑，类似于Windows中的记事本</p>
+<p>语法: <code>vi fileName</code></p>
+<p>说明:</p>
+<p>1、 vim是从vi发展来的一个功能更加强大的文本编辑工具，在编辑文件时可以对文本内容进行着色，方便我们对文件进行编辑处理，所以实际工作中vim更加常用。</p>
+<p>2、要使用vim命令，需要我们自己完成安装。可以使用该命令来完成安装:yum install vim</p>
+<h3 id="文本编辑命令vim"><a class="markdownIt-Anchor" href="#文本编辑命令vim"></a> 文本编辑命令vim</h3>
+<p>作用:对文件内容进行编辑，vim其实就是一个文本编辑器</p>
+<p>语法:<code>vim fileName</code></p>
+<p>说明:</p>
+<p>1、在使用vim命令编辑文件时，如果指定的文件存在则直接打开此文件。如果指定的文件不存在则新建文件。</p>
+<p>2、vim在进行文本编辑时共分为三种模式，分别是命令模式(Command mode)，插入模式（Insert mode)和底行模式(Last line mode)。这三种模式之间可以相互切换。我们在使用vim时一定要注意我们当前所处的是哪种模式。</p>
+<p>针对vim中的三种模式说明如下:</p>
+<p>1、命令模式</p>
+<ul>
+<li>命令模式下可以查看文件内容、移动光标（上下左右箭头、gg、G)</li>
+<li>通过vim命令打开文件后，默认进入命令模式</li>
+<li>另外两种模式需要首先进入命令模式，才能进入彼此</li>
+</ul>
+<p>2、插入模式</p>
+<ul>
+<li>插入模式下可以对文件内容进行编辑</li>
+<li>在命令模式下按下[i,a,o]任意一个，可以进入插入模式。进入插入模式后，下方会出现【insert】字样</li>
+<li>在插入模式下按下ESC键，回到命令模式</li>
+</ul>
+<p>3、底行模式</p>
+<ul>
+<li>底行模式下可以通过命令对文件内容进行查找、显示行号、退出等操作</li>
+<li>在命令模式下按下[:,/]任意一个，可以进入底行模式</li>
+<li>通过/方式进入底行模式后，可以对文件内容进行查找</li>
+<li>通过:方式进入底行模式后，可以输入wq（保存并退出）、q!(不保存退出） 、 set nu(显示行号)</li>
+</ul>
+<h2 id="查找命令"><a class="markdownIt-Anchor" href="#查找命令"></a> 查找命令</h2>
+<h3 id="查找命令find"><a class="markdownIt-Anchor" href="#查找命令find"></a> 查找命令find</h3>
+<p>作用:在指定目录下查找文件</p>
+<p>语法:<code>find dirName -option fileName</code></p>
+<p>举例:</p>
+<ul>
+<li><code>find . -name &quot;*.java&quot;</code><br />
+在当前目录及其子目录下查找.java结尾文件</li>
+<li><code>find /itcast -name &quot;*.java&quot;</code><br />
+在/itcast目录及其子目录下查找.java结尾的文件</li>
+</ul>
+<h3 id="查找命令grep"><a class="markdownIt-Anchor" href="#查找命令grep"></a> 查找命令grep</h3>
+<p>作用:从指定文件中查找指定的文本内容</p>
+<p>语法: <code>grep word fileName</code></p>
+<p>举例:</p>
+<ul>
+<li><code>grep Hello Helloworld.java</code><br />
+查找Helloworld.java文件中出现的Hello字符串的位置</li>
+<li><code>grep hello *.java</code><br />
+查找当前目录中所有.java结尾的文件中包含hello字符串的位置</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>SpringBoot</tag>
+        <tag>MySQL</tag>
+        <tag>Spring</tag>
+        <tag>MyBatis</tag>
+        <tag>SSM</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
