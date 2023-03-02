@@ -12615,6 +12615,85 @@ kill命令是Linux提供的用于结束进程的命令，-9表示强制结束</p
 <p>1、搜索lrzsz安装包，命令为 <code>yum list lrzsz</code></p>
 <p>2、使用yum命令在线安装，命令为<code>yum install lrzsz.x86_64</code></p>
 <p><strong>注意：</strong> Yum(全称为Yellow dog Updater, Modified)是一个在Fedora和RedHat以及CentoS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。</p>
+<h1 id="项目部署"><a class="markdownIt-Anchor" href="#项目部署"></a> 项目部署</h1>
+<h2 id="手工部署项目"><a class="markdownIt-Anchor" href="#手工部署项目"></a> 手工部署项目</h2>
+<p>一、在IDEA中开发SpringBoot项目并打成jar包</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>pom文件必须加入上面代码</p>
+<p>二、将jar包上传到Linux服务器</p>
+<ul>
+<li><code>mkdir /usr/local/app</code>创建目录，将项目jar包放到此目录</li>
+</ul>
+<p>三、启动Spring程序<br />
+<img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164657090-508266715.png" alt="image" /></p>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164651066-1125429480.png" alt="image" /></p>
+<p>四、检查防火墙，确保8080端口对外开放，访问SpringBoot项目</p>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164701736-1278145242.png" alt="image" /></p>
+<p>五、改为后台运行SpringBoot程序，并将日志输出到日志文件目前程序运行的问题⭐</p>
+<ul>
+<li>线上程序不会采用控制台霸屏的形式运行程序，而是将程序在后台运行</li>
+<li>线上程序不会将日志输出到控制台，而是输出到日志文件，方便运维查阅信息</li>
+</ul>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164708361-1366414462.png" alt="image" /></p>
+<p>六、停止SpringBoot程序<br />
+<img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164714373-1729045522.png" alt="image" /></p>
+<h2 id="通过shell脚本自动部署项目"><a class="markdownIt-Anchor" href="#通过shell脚本自动部署项目"></a> 通过shell脚本自动部署项目</h2>
+<p>操作步骤:</p>
+<ul>
+<li>1、在Linux中安装Git</li>
+<li>2、使用Git克隆代码</li>
+<li>3、在Linux中安装maven</li>
+<li>4、编写Shell脚本（拉取代码、编译、打包、启动）</li>
+<li>5、为用户授予执行Shell脚本的权限</li>
+<li>6、执行Shell脚本</li>
+</ul>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164722000-1572884584.png" alt="image" /></p>
+<h3 id="在linux中安装git"><a class="markdownIt-Anchor" href="#在linux中安装git"></a> 在Linux中安装Git</h3>
+<ul>
+<li>yum list git<br />
+列出git安装包</li>
+<li>yum install git<br />
+在线安装git</li>
+</ul>
+<h3 id="使用git克隆代码"><a class="markdownIt-Anchor" href="#使用git克隆代码"></a> 使用Git克隆代码</h3>
+<ul>
+<li><code>cd /usr/local/</code></li>
+<li><code>git clone 仓库</code></li>
+</ul>
+<h3 id="在linux中安装maven"><a class="markdownIt-Anchor" href="#在linux中安装maven"></a> 在Linux中安装maven</h3>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164728977-1234910859.png" alt="image" /></p>
+<h3 id="将资料中提供的shell脚本文件复制到linux-bootstartsh"><a class="markdownIt-Anchor" href="#将资料中提供的shell脚本文件复制到linux-bootstartsh"></a> 将资料中提供的Shell脚本文件复制到Linux (<a href="http://bootStart.sh">bootStart.sh</a>)</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line">echo =================================</span><br><span class="line">echo  自动化部署脚本启动</span><br><span class="line">echo =================================</span><br><span class="line"></span><br><span class="line">echo 停止原来运行中的工程</span><br><span class="line">APP_NAME=reggie</span><br><span class="line"></span><br><span class="line">tpid=`ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">if [ $&#123;tpid&#125; ]; then</span><br><span class="line">    echo &#x27;Stop Process...&#x27;</span><br><span class="line">    kill -15 $tpid</span><br><span class="line">fi</span><br><span class="line">sleep 2</span><br><span class="line">tpid=`ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">if [ $&#123;tpid&#125; ]; then</span><br><span class="line">    echo &#x27;Kill Process!&#x27;</span><br><span class="line">    kill -9 $tpid</span><br><span class="line">else</span><br><span class="line">    echo &#x27;Stop Success!&#x27;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">echo 准备从Git仓库拉取最新代码</span><br><span class="line">cd /usr/local/helloworld</span><br><span class="line"></span><br><span class="line">echo 开始从Git仓库拉取最新代码</span><br><span class="line">git pull</span><br><span class="line">echo 代码拉取完成</span><br><span class="line"></span><br><span class="line">echo 开始打包</span><br><span class="line">output=`mvn clean package -Dmaven.test.skip=true`</span><br><span class="line"></span><br><span class="line">cd target</span><br><span class="line"></span><br><span class="line">echo 启动项目</span><br><span class="line">nohup java -jar helloworld-1.0-SNAPSHOT.jar &amp;&gt; helloworld.log &amp;</span><br><span class="line">echo 项目启动完成</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Shell脚本(shell script)，是一种Linux系统中的脚本程序。</li>
+<li>使用Shell脚本编程跟JavaScript、Java编程一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就可以了.</li>
+<li>对于Shell脚本编写不作为本课程重点内容，直接使用课程资料中提供的脚本文件bootStart.sh即可。</li>
+</ul>
+<h3 id="为用户授权"><a class="markdownIt-Anchor" href="#为用户授权"></a> 为用户授权</h3>
+<p><code>chmod</code>（英文全拼: change mode）命令是控制用户对文件的权限的命令</p>
+<p>Linux中的权限分为:读®、写(w)、执行(x)三种权限</p>
+<p>Linux的文件调用权限分为三级︰文件所有者（Owner)、用户组（Group)、其它用户(Other Users)</p>
+<p>只有文件的所有者和超级用户可以修改文件或目录的权限</p>
+<p>要执行Shell脚本需要有对此脚本文件的执行权限，如果没有则不能执行</p>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164739518-66571149.png" alt="image" /></p>
+<p>chmod命令可以使用八进制数来指定权限</p>
+<p><strong>举例</strong>:</p>
+<ul>
+<li><code>chmod 777 bootStart.sh</code>为所有用户授予读、写、执行权限</li>
+<li><code>chmod 755 bootStart.sh</code>为文件拥有者授予读、写、执行权限，同组用户和其他用户授予读、执行权限</li>
+<li><code>chmod 210 bootstart.sh</code>为文件拥有者授予写权限，同组用户授予执行权限，其他用户没有任何权限</li>
+</ul>
+<p><strong>注意</strong>:三位数字分别代表不同用户的权限/</p>
+<ul>
+<li>第1位表示文件拥有者的权限</li>
+<li>第2位表示同组用户的权限</li>
+<li>第3位表示其他用户的权限</li>
+</ul>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164747415-1856910097.png" alt="image" /></p>
+<h3 id="设置静态ip"><a class="markdownIt-Anchor" href="#设置静态ip"></a> 设置静态ip</h3>
+<p>修改文件/etc/sysconfig/network-scripts/ifcfg-ens33，内容如下:</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">TYPE</span>=<span class="string">&quot;Ethernet&quot;</span></span><br><span class="line"><span class="attr">PROXY_METHOD</span>=<span class="string">&quot;none&quot;</span></span><br><span class="line"><span class="attr">BROWSER_ONLY</span>=<span class="string">&quot;no&quot;</span></span><br><span class="line"><span class="attr">BOOTPROTO</span>=<span class="string">&quot;static&quot;</span><span class="comment">#使用静态IP地址，默认为dhcp</span></span><br><span class="line"><span class="attr">IPADDR</span>=<span class="string">&quot;192.168.138.100&quot;</span><span class="comment">#设置的静态IP地址</span></span><br><span class="line"><span class="attr">NETMASK</span>=<span class="string">&quot;255.255.255.0&quot;</span><span class="comment">#子网掩码</span></span><br><span class="line"><span class="attr">GATEWAY</span>=<span class="string">&quot;192.168.138.2&quot;</span><span class="comment">#网关地址</span></span><br><span class="line"><span class="attr">DNS1</span>=<span class="string">&quot;192.168.138. 2&quot;</span><span class="comment">#DNS服务器</span></span><br><span class="line"><span class="attr">DEFROUTE</span>=<span class="string">&quot;yes&quot;</span></span><br><span class="line"><span class="attr">IPV4_FAILURE_FATAL</span>=<span class="string">&quot;no&quot;</span></span><br><span class="line"><span class="attr">IPV6INIT</span>=<span class="string">&quot;yes &quot;</span></span><br><span class="line"><span class="attr">IPV6_AUTOCONF</span>=<span class="string">&quot;yes&quot;</span></span><br><span class="line"><span class="attr">IPV6_DEFROUTE</span>=<span class="string">&quot;yes&quot;</span></span><br><span class="line"><span class="attr">IPV6_FAILURE_FATAL</span>=<span class="string">&quot;no&quot;</span></span><br><span class="line"><span class="attr">IPV6_ADDR_GEN_MODE</span>=<span class="string">&quot;stable-privacy&quot;</span></span><br><span class="line"><span class="attr">NAME</span>=<span class="string">&quot;ens33&quot;</span></span><br><span class="line"><span class="attr">UUID</span>=<span class="string">&quot;95b614cd-79b0-4755-be8d-99f1cca7271b&quot;</span></span><br><span class="line"><span class="attr">DEVICE</span>=<span class="string">&quot;ens33&quot;</span></span><br><span class="line"><span class="attr">ONBOOT</span>=<span class="string">&quot;yes&quot;</span><span class="comment">#是否开机启用</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220522164757410-1051230850.png" alt="image" /></p>
 ]]></content>
       <categories>
         <category>JAVA</category>
@@ -12628,6 +12707,134 @@ kill命令是Linux提供的用于结束进程的命令，-9表示强制结束</p
         <tag>MyBatis</tag>
         <tag>SSM</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>瑞吉外卖项目实战 - 优化篇01</title>
+    <url>/2023/02/28/JAVA/19ReggieProject02/</url>
+    <content><![CDATA[<h1 id="第八章-缓存优化"><a class="markdownIt-Anchor" href="#第八章-缓存优化"></a> 第八章 缓存优化</h1>
+<p><strong>问题说明</strong></p>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220523173028609-449458851.png" alt="image" /></p>
+<p>用户数量多，系统访问量大频繁访问数据库，系统性能下降，用户体验差</p>
+<h2 id="环境搭建"><a class="markdownIt-Anchor" href="#环境搭建"></a> 环境搭建</h2>
+<h3 id="maven坐标"><a class="markdownIt-Anchor" href="#maven坐标"></a> maven坐标</h3>
+<p>在项目的<code>pom.xml</code>文件中导入<code>spring data redis</code>的maven坐标</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Redis --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置文件"><a class="markdownIt-Anchor" href="#配置文件"></a> 配置文件</h3>
+<p>在项目的application.yml中加入redis相关配置：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">172.17</span><span class="number">.2</span><span class="number">.94</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root@123456</span></span><br><span class="line">    <span class="attr">database:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置类"><a class="markdownIt-Anchor" href="#配置类"></a> 配置类</h3>
+<p>在项目中加入配置类<code>RedisConfig</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedisConfig</span> <span class="keyword">extends</span> <span class="title class_">CachingConfigurerSupport</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> RedisTemplate&lt;Object,Object&gt; <span class="title function_">redisTemplate</span><span class="params">(RedisConnectionFactory connectionFactory)</span>&#123;</span><br><span class="line">        RedisTemplate&lt;Object,Object&gt; redisTemplate = <span class="keyword">new</span> <span class="title class_">RedisTemplate</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//默认的Key序列化器为: JdkSerializationRedisSerializer</span></span><br><span class="line">        redisTemplate.setKeySerializer(<span class="keyword">new</span> <span class="title class_">StringRedisSerializer</span>());</span><br><span class="line">        redisTemplate.setConnectionFactory( connectionFactory) ;</span><br><span class="line">        <span class="keyword">return</span> redisTemplate;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以用<code>StringRedisTemplate</code>就不用配置类</p>
+<h3 id="linux启动redis"><a class="markdownIt-Anchor" href="#linux启动redis"></a> linux启动redis</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/local/redis-4.0.0/src/redis-server /usr/local/redis-4.0.0/redis.conf</span><br></pre></td></tr></table></figure>
+<h2 id="缓存短信验证码"><a class="markdownIt-Anchor" href="#缓存短信验证码"></a> 缓存短信验证码</h2>
+<h3 id="实现思路"><a class="markdownIt-Anchor" href="#实现思路"></a> 实现思路</h3>
+<p>前面我们已经实现了移动端手机验证码登录，随机生成的验证码我们是保存在HttpSession中的。现在需要改造为将验证码缓存在Redis中，具体的实现思路如下:</p>
+<ol>
+<li>
+<p>在服务端<code>UserController</code>中注入<code>RedisTemplate</code>对象，用于操作<code>Redis</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> RedisTemplate redisTemplate;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在服务端UserController的sendMsg方法中，将随机生成的验证码缓存到Redis中，并设置有效期为5分钟</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将生成的验证码缓存到Redis中，并且设置有效期为5分钟</span></span><br><span class="line">redisTemplate.opsForValue().set(phone, code, <span class="number">5</span>, TimeUnit.MINUTES);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在服务端UserController的login方法中，从Redis中获取缓存的验证码，如果登录成功则删除Redis中的验证码。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 从Redis中获取缓存的验证码</span></span><br><span class="line"><span class="type">Object</span> <span class="variable">codeInSession</span> <span class="operator">=</span> redisTemplate.opsForValue().get(phone);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 登录业务代码....</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果用户登录成功，则删除Redis中缓存的验证码</span></span><br><span class="line">redisTemplate.delete(phone);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="缓存菜品数据"><a class="markdownIt-Anchor" href="#缓存菜品数据"></a> 缓存菜品数据</h2>
+<h3 id="实现思路-2"><a class="markdownIt-Anchor" href="#实现思路-2"></a> 实现思路</h3>
+<p>前面我们已经实现了移动端菜品查看功能，对应的服务端方法为DishController的list方法，此方法会根据前端提交的查询条件进行数据库查询操作。在高并发的情况下，频繁查询数据库会导致系统性能下降，服务端响应时间增长。现在需要对此方法进行缓存优化，提高系统的性能。</p>
+<p>具体的实现思路如下:</p>
+<ol>
+<li>
+<p>改造<code>DishController</code>的<code>list</code>方法，先从Redis中获取菜品数据，如果有则直接返回，无需查询数据库;如果没有则查询数据库，并将查询到的菜品数据放入Redis。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;DishDto&gt; dishDtoList = <span class="literal">null</span>;</span><br><span class="line"><span class="comment">// 动态的构造key</span></span><br><span class="line"><span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> <span class="string">&quot;dish_&quot;</span> + dish.getCategoryId() + <span class="string">&quot;_&quot;</span> + dish.getStatus();</span><br><span class="line"><span class="comment">// 从Redis中获取缓存数据，</span></span><br><span class="line">dishDtoList = (List&lt;DishDto&gt;) redisTemplate.opsForValue().get(key);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(dishDtoList != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 如果存在，直接返回，无需查询数据库</span></span><br><span class="line">    <span class="keyword">return</span> R.success(dishDtoList);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果不存在，需要查询数据库，</span></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="comment">// 将查询到的菜品数据缓存到Redis</span></span><br><span class="line">redisTemplate.opsForValue().set(key, dishDtoList, <span class="number">60</span>, TimeUnit.MINUTES);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>改造<code>DishController</code>的<code>save</code>和<code>update</code>方法，加入清理缓存的逻辑。保证数据库中的数据和Redis中的数据一致。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方法一：清理所有菜品缓存数据</span></span><br><span class="line"><span class="comment">//Set keys = redisTemplate.keys(&quot;dish_*&quot;);</span></span><br><span class="line"><span class="comment">//redisTemplate.delete(keys);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方法二：清理某个分类下面的菜品缓存数据</span></span><br><span class="line">String key=<span class="string">&quot;dish_&quot;</span> + dishDto.getCategoryId() + <span class="string">&quot;_&quot;</span> + dishDto.getStatus();</span><br><span class="line">redisTemplate.delete(key);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>注意</strong>：在使用缓存过程中，要注意<strong>保证数据库中的数据和缓存中的数据一致</strong>，如果数据库中的数据发生变化，需要及时清理缓存数据。</p>
+<h2 id="spring-cache"><a class="markdownIt-Anchor" href="#spring-cache"></a> Spring Cache</h2>
+<h3 id="spring-cache介绍"><a class="markdownIt-Anchor" href="#spring-cache介绍"></a> Spring Cache介绍</h3>
+<p>Spring cache是一个框架，实现了基于注解的缓存功能，只需要简单地加一个注解，就能实现缓存功能。</p>
+<p>Spring Cache提供了一层抽象，底层可以切换不同的cache实现。具体就是通过<code>CacheManager</code>接口来统一不同的缓存技术。</p>
+<p><code>CacheManager</code>是Spring提供的各种缓存技术抽象接口。</p>
+<p>针对不同的缓存技术需要实现不同的<code>CacheManager</code>:<br />
+<img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220523173040674-859737708.png" alt="image" /></p>
+<h3 id="spring-cache常用注解"><a class="markdownIt-Anchor" href="#spring-cache常用注解"></a> Spring Cache常用注解</h3>
+<p><img src="https://img2022.cnblogs.com/blog/2592691/202205/2592691-20220523173043578-1055601938.png" alt="image" /></p>
+<p>在spring boot项目中，使用缓存技术只需在项目中导入相关缓存技术的依赖包，并在启动类上使用<code>@EnableCaching</code>开启缓存支持即可。</p>
+<p>例如，使用Redis作为缓存技术，只需要导入<code>Spring data Redis</code>的maven坐标即可。</p>
+<h3 id="spring-cache使用方式"><a class="markdownIt-Anchor" href="#spring-cache使用方式"></a> Spring Cache使用方式</h3>
+<p>在<code>Spring Boot</code>项目中使用<code>Spring Cache</code>的操作步骤(使用redis缓存技术);</p>
+<p>1、导入maven坐标</p>
+<ul>
+<li><code>spring-boot-starter-data-redis</code>、<code>spring-boot-starter-cache</code></li>
+</ul>
+<p>2、配置<code>application.yml</code></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cache:</span></span><br><span class="line">    <span class="attr">redis:</span></span><br><span class="line">      <span class="attr">time-to-live:</span> <span class="number">1800000</span><span class="comment">#设置缓存有效期</span></span><br></pre></td></tr></table></figure>
+<p>3、在启动类上加入<code>@EnableCaching</code>注解，开启缓存注解功能</p>
+<p>4、在Controller的方法上加入<code>@Cacheable</code>、<code>@CacheEvict</code>等注解，进行缓存操作</p>
+<h2 id="缓存套餐数据"><a class="markdownIt-Anchor" href="#缓存套餐数据"></a> 缓存套餐数据</h2>
+<h3 id="实现思路-3"><a class="markdownIt-Anchor" href="#实现思路-3"></a> 实现思路</h3>
+<p>前面我们已经实现了移动端套餐查看功能，对应的服务端方法为SetmealController的list方法，此方法会根据前端提交的查询条件进行数据库查询操作。在高并发的情况下，频繁查询数据库会导致系统性能下降，服务端响应时间增长。现在需要对此方法进行缓存优化，提高系统的性能。</p>
+<p>具体的实现思路如下:</p>
+<ol>
+<li>导入<code>Spring Cache</code>和Redis相关maven坐标</li>
+<li>在<code>application.yml</code>中配置缓存数据的过期时间</li>
+<li>在启动类上加入<code>@EnableCaching</code>注解，开启缓存注解功能</li>
+<li>在<code>SetmealController</code>的list方法上加入<code>@Cacheable</code>注解</li>
+<li>在<code>SetmealController</code>的<code>save</code>和<code>delete</code>方法上加入<code>@CacheEvic</code>t注解</li>
+</ol>
+<h3 id="代码改造"><a class="markdownIt-Anchor" href="#代码改造"></a> 代码改造</h3>
+<p>在<code>pom.xml</code>文件中导入maven坐标:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-cache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在<code>application.yml</code>中配置缓存数据过期时间:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">cache:</span></span><br><span class="line">    <span class="attr">redis:</span></span><br><span class="line">        <span class="attr">time-to-live:</span> <span class="number">1800000</span> <span class="comment">#设置缓存数据过期时间</span></span><br></pre></td></tr></table></figure>
+<p>在启动类<code>@EnableCaching</code>注解</p>
+<p>在list方法上添加注解，实现在redis里添加缓存：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Cacheable(value = <span class="string">&quot;setmealCache&quot;</span>,key = <span class="string">&quot;#setmeal.categoryId+&#x27;_&#x27;+#setmeal.status&quot;</span>)</span></span><br></pre></td></tr></table></figure>
+<p>在update，add，delete方法上添加注解，清除缓存：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 修改后讲setmealCache分类下的所有缓存全部删除</span></span><br><span class="line"><span class="meta">@CacheEvict(value = <span class="string">&quot;setmealCache&quot;</span>,allEntries = true)</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：要让R实现Serializable接口（序列化），注解才能生效</p>
+<h1 id="第九章-读写分离"><a class="markdownIt-Anchor" href="#第九章-读写分离"></a> 第九章 读写分离</h1>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>SpringBoot</tag>
+        <tag>MySQL</tag>
+        <tag>Spring</tag>
+        <tag>MyBatis</tag>
+        <tag>SSM</tag>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode Hot100</title>
+    <url>/2023/03/02/LeetCode/LeetCodeHot100/</url>
+    <content><![CDATA[<h2 id="第一题两数之和"><a class="markdownIt-Anchor" href="#第一题两数之和"></a> 第一题：两数之和</h2>
+<p><a href="https://leetcode.cn/problems/two-sum/?favorite=2cktkvj"> 两数之和 </a></p>
+<h3 id="标签"><a class="markdownIt-Anchor" href="#标签"></a> 标签</h3>
+<p><code>数组</code>、<code>哈希表</code></p>
+<h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h3>
+<div class="tabs" id="c++"><ul class="nav-tabs"><li class="tab active"><a href="#c++-1">C++</a></li><li class="tab"><a href="#c++-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="c++-1"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i &lt; nums.<span class="built_in">size</span>() - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>;j&lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j] == target)&#123;</span><br><span class="line">                    arr.<span class="built_in">push_back</span>(i);</span><br><span class="line">                    arr.<span class="built_in">push_back</span>(j);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="c++-2"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] <span class="built_in">twoSum</span>(<span class="type">int</span>[] nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.length; i ++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; nums.length; j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] + nums[j] == target) </span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">int</span>[]&#123;i, j&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div></div>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
 </search>
