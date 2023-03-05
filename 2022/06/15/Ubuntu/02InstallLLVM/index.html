@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="下载llvm7.1.0源码  LLVM7.1.0 源码  在LLVM官网上下载，一般只需要下载这几个就可以了  然后将下载的压缩包传到虚拟机中，进行解压。  LLVM+Clang 环境搭建 首先在&#x2F;home&#x2F;user&#x2F;下面新建文件夹，存放刚下载的压缩包。（我这边下载的源码比较多，但是上面的四个是必须要有的）  进行解压，可以直接右键，也可以使用命令进行解压。解压好的如下图，  然后需要将所有的-">
+  <meta name="description" content="下载llvm7.1.0源码 LLVM7.1.0 源码  在LLVM官网上下载，一般只需要下载这几个就可以了  然后将下载的压缩包传到虚拟机中，进行解压。 LLVM+Clang 环境搭建首先在&#x2F;home&#x2F;user&#x2F;下面新建文件夹，存放刚下载的压缩包。（我这边下载的源码比较多，但是上面的四个是必须要有的）  进行解压，可以直接右键，也可以使用命令进行解压。解压好的如下图，  然后需要将所有的-7.1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu 安装LLVM7.1.0 和 Clang">
 <meta property="og:url" content="http://example.com/2022/06/15/Ubuntu/02InstallLLVM/index.html">
 <meta property="og:site_name" content="Atopos&#39;s Blog">
-<meta property="og:description" content="下载llvm7.1.0源码  LLVM7.1.0 源码  在LLVM官网上下载，一般只需要下载这几个就可以了  然后将下载的压缩包传到虚拟机中，进行解压。  LLVM+Clang 环境搭建 首先在&#x2F;home&#x2F;user&#x2F;下面新建文件夹，存放刚下载的压缩包。（我这边下载的源码比较多，但是上面的四个是必须要有的）  进行解压，可以直接右键，也可以使用命令进行解压。解压好的如下图，  然后需要将所有的-">
+<meta property="og:description" content="下载llvm7.1.0源码 LLVM7.1.0 源码  在LLVM官网上下载，一般只需要下载这几个就可以了  然后将下载的压缩包传到虚拟机中，进行解压。 LLVM+Clang 环境搭建首先在&#x2F;home&#x2F;user&#x2F;下面新建文件夹，存放刚下载的压缩包。（我这边下载的源码比较多，但是上面的四个是必须要有的）  进行解压，可以直接右键，也可以使用命令进行解压。解压好的如下图，  然后需要将所有的-7.1.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Ubuntu/InstallLLVM/image-20220615094757923.png">
 <meta property="og:image" content="http://example.com/img/Ubuntu/InstallLLVM/image-20220615095307426.png">
@@ -41,9 +41,9 @@
 <meta property="article:published_time" content="2022-06-15T04:55:22.000Z">
 <meta property="article:modified_time" content="2022-06-15T06:19:30.564Z">
 <meta property="article:author" content="Atopos·">
-<meta property="article:tag" content="LLVM">
 <meta property="article:tag" content="Ubuntu">
 <meta property="article:tag" content="疑难杂症">
+<meta property="article:tag" content="LLVM">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/Ubuntu/InstallLLVM/image-20220615094757923.png">
 
@@ -270,53 +270,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="下载llvm710源码"><a class="markdownIt-Anchor" href="#下载llvm710源码"></a> 下载<code>llvm7.1.0</code>源码</h2>
-<p><a target="_blank" rel="noopener" href="https://releases.llvm.org/download.html#7.1.0"> LLVM7.1.0 源码 </a></p>
+        <h2 id="下载llvm7-1-0源码"><a href="#下载llvm7-1-0源码" class="headerlink" title="下载llvm7.1.0源码"></a>下载<code>llvm7.1.0</code>源码</h2><p><a target="_blank" rel="noopener" href="https://releases.llvm.org/download.html#7.1.0"> LLVM7.1.0 源码 </a></p>
 <p>在<code>LLVM</code>官网上下载，一般只需要下载这几个就可以了</p>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615094757923.png" alt="image-20220615094757923" /></p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615094757923.png" alt="image-20220615094757923"></p>
 <p>然后将下载的压缩包传到虚拟机中，进行解压。</p>
-<h2 id="llvmclang-环境搭建"><a class="markdownIt-Anchor" href="#llvmclang-环境搭建"></a> LLVM+Clang 环境搭建</h2>
-<p>首先在<code>/home/user/</code>下面新建文件夹，存放刚下载的压缩包。（我这边下载的源码比较多，但是上面的四个是必须要有的）</p>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615095307426.png" alt="image-20220615095307426" /></p>
+<h2 id="LLVM-Clang-环境搭建"><a href="#LLVM-Clang-环境搭建" class="headerlink" title="LLVM+Clang 环境搭建"></a>LLVM+Clang 环境搭建</h2><p>首先在<code>/home/user/</code>下面新建文件夹，存放刚下载的压缩包。（我这边下载的源码比较多，但是上面的四个是必须要有的）</p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615095307426.png" alt="image-20220615095307426"></p>
 <p>进行解压，可以直接右键，也可以使用命令进行解压。解压好的如下图，</p>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615095458174.png" alt="image-20220615095458174" /></p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615095458174.png" alt="image-20220615095458174"></p>
 <p>然后需要将所有的<code>-7.1.0.src</code>去掉。</p>
 <ul>
 <li>另外需要将<code>cfe-7.1.0.src</code>改名为<code>clang</code>，并将<code>clang-tools-extra</code>放在<code>./clang/tools/</code>中</li>
 </ul>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615095757633.png" alt="image-20220615095757633" /></p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615095757633.png" alt="image-20220615095757633"></p>
 <ul>
 <li>将<code>clang</code>文件夹放在<code>./llvm/tools/</code>中</li>
 </ul>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615095925229.png" alt="image-20220615095925229" /></p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615095925229.png" alt="image-20220615095925229"></p>
 <ul>
 <li>将<code>compiler-rt</code>放在<code>./llvm/projects/</code>中，如果下载了其他源码，也可以放在这个位置</li>
 </ul>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615100040399.png" alt="image-20220615100040399" /></p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615100040399.png" alt="image-20220615100040399"></p>
 <ul>
 <li>在<code>./llvm/</code>目录下创建一个空的文件夹，命名为<code>build</code></li>
 </ul>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615100146090.png" alt="image-20220615100146090" /></p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615100146090.png" alt="image-20220615100146090"></p>
 <p>进入<code>build</code>目录下，进行后续操作。注意下面的所有操作均在<code>./llvm/build/</code>目录下进行</p>
-<h2 id="使用cmake进行源码编译"><a class="markdownIt-Anchor" href="#使用cmake进行源码编译"></a> 使用cmake进行源码编译</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake ../ -DCMAKE_BUILD_TYPE=Release</span><br></pre></td></tr></table></figure>
+<h2 id="使用cmake进行源码编译"><a href="#使用cmake进行源码编译" class="headerlink" title="使用cmake进行源码编译"></a>使用cmake进行源码编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake ../ -DCMAKE_BUILD_TYPE=Release</span><br></pre></td></tr></table></figure>
 <p>遇到如下情况，说明你的ubuntu还没有安装<code>cmake</code>，按照提示进行安装即可。</p>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615101035213.png" alt="image-20220615101035213" /></p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615101035213.png" alt="image-20220615101035213"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install cmake  <span class="comment"># 安装cmake</span></span><br></pre></td></tr></table></figure>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615101207022.png" alt="image-20220615101207022" /></p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615101207022.png" alt="image-20220615101207022"></p>
 <p>安装成功后继续指向上述命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake ../ -DCMAKE_BUILD_TYPE=Release</span><br></pre></td></tr></table></figure>
 <p>看到如下提示则编译成功</p>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615121643392.png" alt="image-20220615121643392" /></p>
-<h2 id="使用make编译链接源文件"><a class="markdownIt-Anchor" href="#使用make编译链接源文件"></a> 使用make编译链接源文件</h2>
-<p>继续执行<code>make</code>命令，这个过程比较慢，可以开多个线程<code>-j8</code></p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615121643392.png" alt="image-20220615121643392"></p>
+<h2 id="使用make编译链接源文件"><a href="#使用make编译链接源文件" class="headerlink" title="使用make编译链接源文件"></a>使用make编译链接源文件</h2><p>继续执行<code>make</code>命令，这个过程比较慢，可以开多个线程<code>-j8</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j8</span><br></pre></td></tr></table></figure>
-<p><img src="/img/Ubuntu/InstallLLVM/image-20220615101644724.png" alt="image-20220615101644724" /></p>
-<h2 id="进行安装"><a class="markdownIt-Anchor" href="#进行安装"></a> 进行安装</h2>
-<p>编译完成后使用<code>sudo make install</code>进行安装</p>
+<p><img src="/img/Ubuntu/InstallLLVM/image-20220615101644724.png" alt="image-20220615101644724"></p>
+<h2 id="进行安装"><a href="#进行安装" class="headerlink" title="进行安装"></a>进行安装</h2><p>编译完成后使用<code>sudo make install</code>进行安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-<h2 id="版本查看"><a class="markdownIt-Anchor" href="#版本查看"></a> 版本查看</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">llvm-config --version</span><br></pre></td></tr></table></figure>
+<h2 id="版本查看"><a href="#版本查看" class="headerlink" title="版本查看"></a>版本查看</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">llvm-config --version</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -371,9 +365,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/LLVM/" rel="tag"># LLVM</a>
               <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
               <a href="/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" rel="tag"># 疑难杂症</a>
+              <a href="/tags/LLVM/" rel="tag"># LLVM</a>
           </div>
 
         
@@ -447,7 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDllvm710%E6%BA%90%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text"> 下载llvm7.1.0源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#llvmclang-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text"> LLVM+Clang 环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8cmake%E8%BF%9B%E8%A1%8C%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91"><span class="nav-number">3.</span> <span class="nav-text"> 使用cmake进行源码编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8make%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text"> 使用make编译链接源文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85"><span class="nav-number">5.</span> <span class="nav-text"> 进行安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E6%9F%A5%E7%9C%8B"><span class="nav-number">6.</span> <span class="nav-text"> 版本查看</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDllvm7-1-0%E6%BA%90%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">下载llvm7.1.0源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LLVM-Clang-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text">LLVM+Clang 环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8cmake%E8%BF%9B%E8%A1%8C%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91"><span class="nav-number">3.</span> <span class="nav-text">使用cmake进行源码编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8make%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">使用make编译链接源文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85"><span class="nav-number">5.</span> <span class="nav-text">进行安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E6%9F%A5%E7%9C%8B"><span class="nav-number">6.</span> <span class="nav-text">版本查看</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -520,7 +514,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">654k</span>
+    <span title="站点总字数">655k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
@@ -581,6 +575,8 @@
 
 
 
+
+  
 
   
 

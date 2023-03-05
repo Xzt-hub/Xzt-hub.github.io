@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="题目  验证外星语词典   思路 暴力解法：将 words中的单词按照 order 的字典序进行排序后与原数组进行对比，若相同则返回 true，若存在不同则返回 false  题解 题解11234567891011121314151617181920212223242526272829class Solution &amp;#123;public:    bool isAlienSorted(vecto">
+  <meta name="description" content="题目 验证外星语词典  思路暴力解法：将 words中的单词按照 order 的字典序进行排序后与原数组进行对比，若相同则返回 true，若存在不同则返回 false 题解题解11234567891011121314151617181920212223242526272829class Solution &amp;#123;public:    bool isAlienSorted(vector&lt;s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="953.验证外星语词典">
 <meta property="og:url" content="http://example.com/2022/05/17/LeetCode/20220517-01/index.html">
 <meta property="og:site_name" content="Atopos&#39;s Blog">
-<meta property="og:description" content="题目  验证外星语词典   思路 暴力解法：将 words中的单词按照 order 的字典序进行排序后与原数组进行对比，若相同则返回 true，若存在不同则返回 false  题解 题解11234567891011121314151617181920212223242526272829class Solution &amp;#123;public:    bool isAlienSorted(vecto">
+<meta property="og:description" content="题目 验证外星语词典  思路暴力解法：将 words中的单词按照 order 的字典序进行排序后与原数组进行对比，若相同则返回 true，若存在不同则返回 false 题解题解11234567891011121314151617181920212223242526272829class Solution &amp;#123;public:    bool isAlienSorted(vector&lt;s">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-17T01:24:26.000Z">
 <meta property="article:modified_time" content="2022-05-17T01:28:43.930Z">
@@ -240,7 +240,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>902</span>
+              <span>903</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,21 +259,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/verifying-an-alien-dictionary/"> 验证外星语词典 </a></p>
-<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
-<p>暴力解法：将 <code>words</code>中的单词按照 <code>order</code> 的字典序进行排序后与原数组进行对比，若相同则返回 <code>true</code>，若存在不同则返回 <code>false</code></p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
-<div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#题解-1">题解1</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAlienSorted</span><span class="params">(vector&lt;string&gt;&amp; words, string order)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; hsp;</span><br><span class="line">        <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; order.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            hsp[order[i]] = num ++;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;string&gt; arr;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; words.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            arr.<span class="built_in">emplace_back</span>(words[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), [&amp;](string &amp;a, string &amp;b)&#123;</span><br><span class="line">            <span class="type">int</span> len_a = a.<span class="built_in">size</span>();</span><br><span class="line">            <span class="type">int</span> len_b = b.<span class="built_in">size</span>();</span><br><span class="line">            <span class="type">int</span> len = <span class="built_in">min</span>(len_a, len_b);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i] == b[i]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">return</span> hsp[a[i]] &lt; hsp[b[i]];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> len_a &lt; len_b;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] != words[i])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<div class="note info simple"><ul>
-<li>时间复杂度：<em>O(n * logn)</em>，其中 <em>n</em> 是数组中元素的个数</li>
-<li>空间复杂度：<em>O(n)</em>，需要另外一个数组保存排序后的words</li>
-</ul>
-</div>
-<div class="note success simple"><p>执行用时：8 ms, 在所有 C++ 提交中击败了28.37%的用户</p>
-<p>内存消耗：10.1 MB, 在所有 C++ 提交中击败了5.05%的用户</p>
-<p>通过测试用例：120 / 120</p>
-</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/verifying-an-alien-dictionary/"> 验证外星语词典 </a></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>暴力解法：将 <code>words</code>中的单词按照 <code>order</code> 的字典序进行排序后与原数组进行对比，若相同则返回 <code>true</code>，若存在不同则返回 <code>false</code></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAlienSorted</span><span class="params">(vector&lt;string&gt;&amp; words, string order)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; hsp;</span><br><span class="line">        <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; order.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            hsp[order[i]] = num ++;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;string&gt; arr;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; words.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            arr.<span class="built_in">emplace_back</span>(words[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), [&amp;](string &amp;a, string &amp;b)&#123;</span><br><span class="line">            <span class="type">int</span> len_a = a.<span class="built_in">size</span>();</span><br><span class="line">            <span class="type">int</span> len_b = b.<span class="built_in">size</span>();</span><br><span class="line">            <span class="type">int</span> len = <span class="built_in">min</span>(len_a, len_b);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i] == b[i]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">return</span> hsp[a[i]] &lt; hsp[b[i]];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> len_a &lt; len_b;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] != words[i])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(n \</em> logn)<em>，其中 </em>n* 是数组中元素的个数</li><li>空间复杂度：<em>O(n)</em>，需要另外一个数组保存排序后的words</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：8 ms, 在所有 C++ 提交中击败了28.37%的用户</p><p>内存消耗：10.1 MB, 在所有 C++ 提交中击败了5.05%的用户</p><p>通过测试用例：120 / 120</p>
+          </div></div></div></div>
 
     </div>
 
@@ -405,7 +400,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text"> 题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text"> 题解</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">题解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -478,7 +473,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">654k</span>
+    <span title="站点总字数">655k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
@@ -539,6 +534,8 @@
 
 
 
+
+  
 
   
 

@@ -264,84 +264,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="故障注入检测流程"><a class="markdownIt-Anchor" href="#故障注入检测流程"></a> 故障注入&amp;检测流程</h1>
-<h2 id="cpu故障注入检测流程"><a class="markdownIt-Anchor" href="#cpu故障注入检测流程"></a> CPU故障注入&amp;检测流程</h2>
-<h3 id="处理源程序"><a class="markdownIt-Anchor" href="#处理源程序"></a> 处理源程序</h3>
-<ol>
+        <h1 id="故障注入-amp-检测流程"><a href="#故障注入-amp-检测流程" class="headerlink" title="故障注入&amp;检测流程"></a>故障注入&amp;检测流程</h1><h2 id="CPU故障注入-amp-检测流程"><a href="#CPU故障注入-amp-检测流程" class="headerlink" title="CPU故障注入&amp;检测流程"></a>CPU故障注入&amp;检测流程</h2><h3 id="处理源程序"><a href="#处理源程序" class="headerlink" title="处理源程序"></a>处理源程序</h3><ol>
 <li><strong>将源代码转换成中间代码，划分了基本块</strong></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -S -g -emit-llvm dm_dist.c -o dm_dist.ll</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>**给中间代码添加全局变量：**调用<code>Pass</code> <code>AddGlobalSig.so</code></li>
+<ol>
+<li><strong>给中间代码添加全局变量：</strong>调用<code>Pass</code> <code>AddGlobalSig.so</code></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt -load ../AddGlobalSig.so -AddGlobalSig -S dm_dist.ll -o dm_dist.ll</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>**对每个基本块进行脆弱性分析；**并将结果输出至<code>allindex.txt</code>文件中</li>
+<ol>
+<li><strong>对每个基本块进行脆弱性分析；</strong>并将结果输出至<code>allindex.txt</code>文件中</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt -load ../Index.so -Index -disable-output dm_dist.ll 2&gt; allindex.txt</span><br></pre></td></tr></table></figure>
 <p><code>allindex.txt</code>文件里面的内容为（基本块号，每个基本块里的指令数量）</p>
-<ol start="4">
-<li>**执行排序程序，**将<code>allindex.txt</code>文件的内容按照基本块指令数量从小到大排序，并输出前n/3-1个基本块的块号至<code>index.txt</code></li>
+<ol>
+<li><strong>执行排序程序，</strong>将<code>allindex.txt</code>文件的内容按照基本块指令数量从小到大排序，并输出前n/3-1个基本块的块号至<code>index.txt</code></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pthon3 sort.py &gt; index.txt</span><br></pre></td></tr></table></figure>
-<ol start="5">
+<ol>
 <li><strong>将脆弱性高的基本块进行再拆分.</strong> 这里的<code>$line</code>是 <code>index.txt</code> 里面存放的值</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> `<span class="built_in">cat</span> index.txt`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	/home/yy2/Desktop/llvm/build/bin/opt -load /home/yy2/Desktop/llvm/build/lib/SplitBlock.so -SplitBlock -S -index <span class="variable">$line</span> dm_dist.ll -o dm_dist.ll</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<ol start="6">
+<ol>
 <li><strong>使用<code>CFCSS</code>对中间代码进行插桩</strong> 使用<code>Pass：CFCSS.so</code></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt -load ../CFCSS.so -CFCSS -S dm_dist.ll -o cfcss.ll</span><br></pre></td></tr></table></figure>
-<ol start="7">
+<ol>
 <li><strong>编译.ll文件生成可执行程序</strong></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang cfcss.ll -o dm_dist/dm_dist_cf</span><br></pre></td></tr></table></figure>
-<h3 id="故障注入"><a class="markdownIt-Anchor" href="#故障注入"></a> 故障注入</h3>
-<p><strong>调用<code>auto.sh</code>进行自动化注入</strong></p>
+<h3 id="故障注入"><a href="#故障注入" class="headerlink" title="故障注入"></a>故障注入</h3><p><strong>调用<code>auto.sh</code>进行自动化注入</strong></p>
 <p>$1 待注入程序    $2 程序的输入文件(不懂)    $3 运行次数   $4 p/r 故障注入方式  $5 守护进程检测时间间隔</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./auto.sh ../qt/TestProgram/dm_dist/dm_dist_cf input_small.dat <span class="string">&quot;2500&quot;</span> <span class="string">&quot;r&quot;</span> <span class="string">&quot;3&quot;</span></span><br></pre></td></tr></table></figure>
 <p>在<code>auto.sh</code>里面调用<code>gdb</code>工具进行故障注入。<code>start.py</code></p>
-<h3 id="结果分析"><a class="markdownIt-Anchor" href="#结果分析"></a> 结果分析</h3>
-<p>调用python文件进行结果分析:使用了<code>statistics.py</code></p>
+<h3 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h3><p>调用python文件进行结果分析:使用了<code>statistics.py</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 ../qt/CPUControl/fault_inject/statistics.py inject.output inject.correct</span><br></pre></td></tr></table></figure>
-<h2 id="寄存器故障注入检测流程"><a class="markdownIt-Anchor" href="#寄存器故障注入检测流程"></a> 寄存器故障注入&amp;检测流程</h2>
-<h3 id="标签扩展"><a class="markdownIt-Anchor" href="#标签扩展"></a> 标签扩展</h3>
-<ol>
+<h2 id="寄存器故障注入-amp-检测流程"><a href="#寄存器故障注入-amp-检测流程" class="headerlink" title="寄存器故障注入&amp;检测流程"></a>寄存器故障注入&amp;检测流程</h2><h3 id="标签扩展"><a href="#标签扩展" class="headerlink" title="标签扩展"></a>标签扩展</h3><ol>
 <li><strong>使用clang将源程序转化为中间代码</strong></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang dm.cpp --target=arm-v7-linux-gnueabi -emit-llvm -g -S -o dm.ll</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol>
 <li><strong>加固程序,给中间代码添加编号</strong></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt -load ../pass/build/libgenLLFIIndex/libgenLLFIIndex.so -genllfiindexpass -S dm.ll -o dm_id.ll</span><br></pre></td></tr></table></figure>
-<ol start="3">
+<ol>
 <li><strong>加固，通过冗余进行程序加固</strong></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt -load ../pass/build/libdmr/libdmr.so -eddi -select_set_file=../xzt_jcq/index.txt -S dm_id.ll -o dm_df.ll</span><br></pre></td></tr></table></figure>
-<h3 id="交叉编译"><a class="markdownIt-Anchor" href="#交叉编译"></a> 交叉编译</h3>
-<ol>
+<h3 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h3><ol>
 <li><strong>编译程序，生成链接文件</strong> 生成.o文件</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang dm_df.ll --target=arm-v7-linux-gnueabi -c -o dm_df.o</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol>
 <li><strong>链接程序，生成可执行文件</strong></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-gnueabi-gcc dm_df.o exec.o -static -o dm_df</span><br></pre></td></tr></table></figure>
-<h3 id="故障注入-2"><a class="markdownIt-Anchor" href="#故障注入-2"></a> 故障注入</h3>
-<p>通过<code>gem5</code>对可执行程序进行故障注入</p>
+<h3 id="故障注入-1"><a href="#故障注入-1" class="headerlink" title="故障注入"></a>故障注入</h3><p>通过<code>gem5</code>对可执行程序进行故障注入</p>
 <p>通过for循环执行n次命令，从而进行n次故障注入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">../res/gemFI/build/ARM/gem5.opt ../res/gemFI/configs/example/se.py -c dm_df</span><br></pre></td></tr></table></figure>
-<h3 id="结果分析-2"><a class="markdownIt-Anchor" href="#结果分析-2"></a> 结果分析</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./.statistics.py</span><br></pre></td></tr></table></figure>
-<h2 id="io故障注入检测流程"><a class="markdownIt-Anchor" href="#io故障注入检测流程"></a> IO故障注入&amp;检测流程</h2>
-<h3 id="加固"><a class="markdownIt-Anchor" href="#加固"></a> 加固</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-gnueabi-g++ ../qt/IO/benchmark/dm/ManagerTask.cpp ../Desktop/qt/IO/benchmark/dm/dm.cpp -static -g -o /../Desktop/qt/IO/benchmark/dm/IOFaultTolerance</span><br><span class="line">arm-linux-gnueabi-g++ ../Desktop/qt/IO/benchmark/dm/dm_dist.cpp ../Desktop/qt/IO/benchmark/dm/exec.cpp -static -g -o ../Desktop/qt/IO/benchmark/dm/dm_dist.out</span><br></pre></td></tr></table></figure>
-<h3 id="故障注入-3"><a class="markdownIt-Anchor" href="#故障注入-3"></a> 故障注入</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">../home/yy2/res/gemFI/build/ARM/gem5.opt /home/yy2/res/gemFI/configs/example/se.py -c </span><br><span class="line">../Desktop/qt/IO/benchmark/dm/dm.out</span><br><span class="line">../res/gemFI/build/ARM/gem5.opt /gemFI/configs/example/se.py -c ../Desktop/qt/IO/benchmark/dm/IOFaultTolerance</span><br></pre></td></tr></table></figure>
-<h3 id="结果分析-3"><a class="markdownIt-Anchor" href="#结果分析-3"></a> 结果分析</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python statistic.py <span class="comment">#调用的是/home/yy2/Desktop/qt/IO/benchmark/dm/fiwork/fi/golden/out.txt</span></span><br></pre></td></tr></table></figure>
-<h2 id="llvm-ir"><a class="markdownIt-Anchor" href="#llvm-ir"></a> LLVM IR</h2>
-<p>生成.ll文件</p>
+<h3 id="结果分析-1"><a href="#结果分析-1" class="headerlink" title="结果分析"></a>结果分析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./.statistics.py</span><br></pre></td></tr></table></figure>
+<h2 id="IO故障注入-amp-检测流程"><a href="#IO故障注入-amp-检测流程" class="headerlink" title="IO故障注入&amp;检测流程"></a>IO故障注入&amp;检测流程</h2><h3 id="加固"><a href="#加固" class="headerlink" title="加固"></a>加固</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-gnueabi-g++ ../qt/IO/benchmark/dm/ManagerTask.cpp ../Desktop/qt/IO/benchmark/dm/dm.cpp -static -g -o /../Desktop/qt/IO/benchmark/dm/IOFaultTolerance</span><br><span class="line">arm-linux-gnueabi-g++ ../Desktop/qt/IO/benchmark/dm/dm_dist.cpp ../Desktop/qt/IO/benchmark/dm/exec.cpp -static -g -o ../Desktop/qt/IO/benchmark/dm/dm_dist.out</span><br></pre></td></tr></table></figure>
+<h3 id="故障注入-2"><a href="#故障注入-2" class="headerlink" title="故障注入"></a>故障注入</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">../home/yy2/res/gemFI/build/ARM/gem5.opt /home/yy2/res/gemFI/configs/example/se.py -c </span><br><span class="line">../Desktop/qt/IO/benchmark/dm/dm.out</span><br><span class="line">../res/gemFI/build/ARM/gem5.opt /gemFI/configs/example/se.py -c ../Desktop/qt/IO/benchmark/dm/IOFaultTolerance</span><br></pre></td></tr></table></figure>
+<h3 id="结果分析-2"><a href="#结果分析-2" class="headerlink" title="结果分析"></a>结果分析</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python statistic.py <span class="comment">#调用的是/home/yy2/Desktop/qt/IO/benchmark/dm/fiwork/fi/golden/out.txt</span></span><br></pre></td></tr></table></figure>
+<h2 id="LLVM-IR"><a href="#LLVM-IR" class="headerlink" title="LLVM IR"></a>LLVM IR</h2><p>生成.ll文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">../Desktop/llvm/build/bin/clang -S -g -emit-llvm dm_dist.c -o dm_dist.ll</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -472,7 +457,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5%E6%A3%80%E6%B5%8B%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text"> 故障注入&amp;检测流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5%E6%A3%80%E6%B5%8B%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text"> CPU故障注入&amp;检测流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%BA%90%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 处理源程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 故障注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="nav-number">1.1.3.</span> <span class="nav-text"> 结果分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5%E6%A3%80%E6%B5%8B%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text"> 寄存器故障注入&amp;检测流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E6%89%A9%E5%B1%95"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 标签扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 交叉编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5-2"><span class="nav-number">1.2.3.</span> <span class="nav-text"> 故障注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90-2"><span class="nav-number">1.2.4.</span> <span class="nav-text"> 结果分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#io%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5%E6%A3%80%E6%B5%8B%E6%B5%81%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text"> IO故障注入&amp;检测流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%9B%BA"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 加固</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5-3"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 故障注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90-3"><span class="nav-number">1.3.3.</span> <span class="nav-text"> 结果分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#llvm-ir"><span class="nav-number">1.4.</span> <span class="nav-text"> LLVM IR</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5-amp-%E6%A3%80%E6%B5%8B%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">故障注入&amp;检测流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5-amp-%E6%A3%80%E6%B5%8B%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">CPU故障注入&amp;检测流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%BA%90%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">处理源程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5"><span class="nav-number">1.1.2.</span> <span class="nav-text">故障注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="nav-number">1.1.3.</span> <span class="nav-text">结果分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5-amp-%E6%A3%80%E6%B5%8B%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">寄存器故障注入&amp;检测流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E6%89%A9%E5%B1%95"><span class="nav-number">1.2.1.</span> <span class="nav-text">标签扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91"><span class="nav-number">1.2.2.</span> <span class="nav-text">交叉编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">故障注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90-1"><span class="nav-number">1.2.4.</span> <span class="nav-text">结果分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5-amp-%E6%A3%80%E6%B5%8B%E6%B5%81%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">IO故障注入&amp;检测流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%9B%BA"><span class="nav-number">1.3.1.</span> <span class="nav-text">加固</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">故障注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90-2"><span class="nav-number">1.3.3.</span> <span class="nav-text">结果分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LLVM-IR"><span class="nav-number">1.4.</span> <span class="nav-text">LLVM IR</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -545,7 +530,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">654k</span>
+    <span title="站点总字数">655k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
@@ -606,6 +591,8 @@
 
 
 
+
+  
 
   
 

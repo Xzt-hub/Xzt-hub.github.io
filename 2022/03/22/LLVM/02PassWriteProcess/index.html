@@ -268,31 +268,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="pass编写运行"><a class="markdownIt-Anchor" href="#pass编写运行"></a> Pass编写运行</h1>
-<h2 id="编写pass"><a class="markdownIt-Anchor" href="#编写pass"></a> 编写Pass</h2>
-<ol>
+        <h1 id="Pass编写运行"><a href="#Pass编写运行" class="headerlink" title="Pass编写运行"></a>Pass编写运行</h1><h2 id="编写Pass"><a href="#编写Pass" class="headerlink" title="编写Pass"></a>编写Pass</h2><ol>
 <li>在<code>llvm/lib/Transforms/</code>目录下新建文件夹，命名为<code>MyPass</code></li>
 </ol>
-<p><img src="/img/LLVM/Pass1.png" alt="Pass1" /></p>
-<ol start="2">
+<p><img src="/img/LLVM/Pass1.png" alt="Pass1"></p>
+<ol>
 <li>在<code>MyPass</code> 文件夹下创建两个文件，分别为<code>MyPass.cpp</code>、<code>CMakeLists.txt</code></li>
 </ol>
-<p><img src="/img/LLVM/Pass2.png" alt="image-20220102144652248" /></p>
-<ol start="3">
+<p><img src="/img/LLVM/Pass2.png" alt="image-20220102144652248"></p>
+<ol>
 <li>对<code>MyPass.cpp</code>以及<code>CMakeLists.txt</code>文件进行编写。</li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#MyPass.cpp</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Pass.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/IR/Function.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Support/raw_ostream.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;llvm/Analysis/LoopInfo.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> llvm;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEBUG_TYPE <span class="string">&quot;hello&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">MyPass</span> : <span class="keyword">public</span> FunctionPass&#123;</span><br><span class="line">        <span class="type">static</span> <span class="type">char</span> ID;</span><br><span class="line">        <span class="built_in">MyPass</span>() : <span class="built_in">FunctionPass</span>(ID)&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">runOnFunction</span><span class="params">(Function &amp;F)</span> <span class="keyword">override</span></span>&#123;</span><br><span class="line">            LoopInfo *LI = &amp;<span class="built_in">getAnalysis</span>&lt;LoopInfoWrapperPass&gt;().<span class="built_in">getLoopInfo</span>();</span><br><span class="line">            <span class="built_in">errs</span>()&lt;&lt;<span class="string">&quot;Function &quot;</span>&lt;&lt;F.<span class="built_in">getName</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">for</span>(Loop *L : *LI)</span><br><span class="line">                <span class="built_in">countBlocksInLoop</span>(L,<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">countBlocksInLoop</span><span class="params">(Loop *L,<span class="type">unsigned</span> nest)</span></span>&#123;</span><br><span class="line">            <span class="type">unsigned</span> num_Blocks=<span class="number">0</span>;</span><br><span class="line">            Loop::block_iterator bb;</span><br><span class="line">            <span class="keyword">for</span>(bb = L-&gt;<span class="built_in">block_begin</span>();bb!=L-&gt;<span class="built_in">block_end</span>();++bb)</span><br><span class="line">                num_Blocks++;</span><br><span class="line">            <span class="built_in">errs</span>()&lt;&lt;<span class="string">&quot;Loop level &quot;</span>&lt;&lt; nest &lt;&lt;<span class="string">&quot;has&quot;</span>&lt;&lt;num_Blocks&lt;&lt;<span class="string">&quot; blocks\n&quot;</span>;</span><br><span class="line">            std::vector&lt;Loop*&gt; subLoops = L-&gt;<span class="built_in">getSubLoops</span>();</span><br><span class="line">            Loop::iterator j,f;</span><br><span class="line">            <span class="keyword">for</span>(j = subLoops.<span class="built_in">begin</span>(),f=subLoops.<span class="built_in">end</span>();j!=f;++j)</span><br><span class="line">                <span class="built_in">countBlocksInLoop</span>(*j, nest+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">getAnalysisUsage</span><span class="params">(AnalysisUsage &amp;AU)</span> <span class="type">const</span> <span class="keyword">override</span></span>&#123;</span><br><span class="line">            AU.<span class="built_in">addRequired</span>&lt;LoopInfoWrapperPass&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> MyPass::ID=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">static</span> RegisterPass&lt;MyPass&gt; <span class="title">X</span><span class="params">(<span class="string">&quot;MyPass&quot;</span>,<span class="string">&quot;Function Block Count&quot;</span>,<span class="literal">false</span>,<span class="literal">false</span>)</span></span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">#</span>CMakeLists.txt</span><br><span class="line">cmake<span class="built_in">_</span>minimum<span class="built_in">_</span>required(VERSION 3.5)</span><br><span class="line"></span><br><span class="line">add<span class="built_in">_</span>llvm<span class="built_in">_</span>loadable<span class="built_in">_</span>module(MyPass</span><br><span class="line">	MyPass.cpp</span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
-<ol start="4">
+<ol>
 <li>对Transforms/文件夹下面的CMakeLists.txt文件进行修改。</li>
 </ol>
-<p><img src="/img/LLVM/Pass3.png" alt="image-20220102145118378" /></p>
-<h2 id="编译生成so文件"><a class="markdownIt-Anchor" href="#编译生成so文件"></a> 编译生成.so文件</h2>
-<p>在<code>llvm/build/</code>目录下面执行<code>make</code>指令，则会编译生成动态链接库<code>.so</code>文件，生成的文件在<code>llvm/build/lib/</code>目录下面。</p>
-<h2 id="编写测试程序"><a class="markdownIt-Anchor" href="#编写测试程序"></a> 编写测试程序</h2>
-<p>编写<code>.c</code>或<code>.cpp</code>文件，然后用<code>clang</code>工具对源程序进行编译，生成<code>LLVM IR</code>中间代码。</p>
-<h2 id="运行pass"><a class="markdownIt-Anchor" href="#运行pass"></a> 运行Pass</h2>
-<p>通过调用测试程序运行<code>Pass</code></p>
+<p><img src="/img/LLVM/Pass3.png" alt="image-20220102145118378"></p>
+<h2 id="编译生成-so文件"><a href="#编译生成-so文件" class="headerlink" title="编译生成.so文件"></a>编译生成.so文件</h2><p>在<code>llvm/build/</code>目录下面执行<code>make</code>指令，则会编译生成动态链接库<code>.so</code>文件，生成的文件在<code>llvm/build/lib/</code>目录下面。</p>
+<h2 id="编写测试程序"><a href="#编写测试程序" class="headerlink" title="编写测试程序"></a>编写测试程序</h2><p>编写<code>.c</code>或<code>.cpp</code>文件，然后用<code>clang</code>工具对源程序进行编译，生成<code>LLVM IR</code>中间代码。</p>
+<h2 id="运行Pass"><a href="#运行Pass" class="headerlink" title="运行Pass"></a>运行Pass</h2><p>通过调用测试程序运行<code>Pass</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt -load ../Desktop/llvm/build/lib/MyPass.so -MyPass -disable-output testPra.ll</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -423,7 +418,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pass%E7%BC%96%E5%86%99%E8%BF%90%E8%A1%8C"><span class="nav-number">1.</span> <span class="nav-text"> Pass编写运行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99pass"><span class="nav-number">1.1.</span> <span class="nav-text"> 编写Pass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90so%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text"> 编译生成.so文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text"> 编写测试程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cpass"><span class="nav-number">1.4.</span> <span class="nav-text"> 运行Pass</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pass%E7%BC%96%E5%86%99%E8%BF%90%E8%A1%8C"><span class="nav-number">1.</span> <span class="nav-text">Pass编写运行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99Pass"><span class="nav-number">1.1.</span> <span class="nav-text">编写Pass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90-so%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">编译生成.so文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text">编写测试程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8CPass"><span class="nav-number">1.4.</span> <span class="nav-text">运行Pass</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -496,7 +491,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">654k</span>
+    <span title="站点总字数">655k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
@@ -557,6 +552,8 @@
 
 
 
+
+  
 
   
 
