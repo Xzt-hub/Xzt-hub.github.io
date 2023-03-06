@@ -120,12 +120,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">75</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">76</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">55</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -273,6 +273,128 @@
 <li>Ubuntu 安装LLFI及所用的工具 <a target="_blank" rel="noopener" href="http://atopos-blog.cn/2022/06/25/Ubuntu/05InstallLLFI/">【传送门】</a> </li>
 <li>LLVM CFG控制流图可视化 <a target="_blank" rel="noopener" href="http://atopos-blog.cn/2022/07/04/Ubuntu/07drawCFG/">【传送门】</a></li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/06/Ubuntu/09InstallOMNET/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/06/Ubuntu/09InstallOMNET/" class="post-title-link" itemprop="url">Ubuntu18.04 下安装OMNET++</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-06 16:24:08 / 修改时间：21:59:51" itemprop="dateCreated datePublished" datetime="2023-03-06T16:24:08+08:00">2023-03-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" itemprop="url" rel="index"><span itemprop="name">疑难杂症</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>写在最前</strong>：根据博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/A_thing/article/details/127189478">UBuntu安装OMNET++ 安装教程-可行版</a> 进行安装，亲测可用！自己也记录一下。</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p><strong>OMNET++版本</strong>：版本有很多，这里选择的是OMNET++5.5.1，这里提供一个<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Z6AKPzY-3LjFlNKO1IkSng"> 百度网盘下载链接 </a>，密码(0mlm)。<a target="_blank" rel="noopener" href="https://omnetpp.org/download/old"> 官方下载链接 </a></p>
+<p><strong>Ubuntu系统</strong>：选择的版本是18.04。这里需要和自己准备安装的OMNET++版本对应，可以看安装教程，教程在下载的压缩包(/omnetpp-5.5.1/doc/InstallGuide.pdf)。直接看第五章即可</p>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><h3 id="Ubuntu配置"><a href="#Ubuntu配置" class="headerlink" title="Ubuntu配置"></a>Ubuntu配置</h3><p>需要安装VmTools（用于windows和ubuntu间互相复制文件以及VM虚拟机扩展全屏）：执行下面两行命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
+<p>安装完需要重启一下虚拟机，才有可以进行windows和ubuntu之间的复制。</p>
+<h3 id="安装镜像源"><a href="#安装镜像源" class="headerlink" title="安装镜像源"></a>安装镜像源</h3><p>在ubuntu中找到software update软件，选择setting，选择第一项Ubuntu software选项中的Download from改变镜像源，选择china，下面的镜像都可以，推荐选择清华镜像源：<code>http://mirrors.tuna.tsinghua.edu.cn/ubuntu</code>，更换完成后打开终端更新数据</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade <span class="comment"># 第一次可能会产生错误，再来一次就行</span></span><br></pre></td></tr></table></figure>
+<h3 id="OMNET依赖安装"><a href="#OMNET依赖安装" class="headerlink" title="OMNET依赖安装"></a>OMNET依赖安装</h3><p>完全是按照OMNET软件所原带的安装教程InstallGuide.pdf进行的。</p>
+<ol>
+<li><strong>解压安装包</strong>，需要进入压缩包所在的目录</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Desktop/</span><br><span class="line">tar -zxvf ./omnetpp-5.5.1-src-linux.tgz</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>更新数据</strong></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>进入解压的omnet文件夹中</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd omnetpp-5.5.1</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>安装依赖</strong>，将下列命令依次执行，需要注意，每次可能会出现安装不成功的情况，再运行依次即可。</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential gcc g++ bison flex perl </span><br><span class="line">sudo apt-get install python python3 qt5-default libqt5opengl5-dev tcl-dev tk-dev </span><br><span class="line">sudo apt-get install libxml2-dev zlib1g-dev default-jre doxygen graphviz libwebkitgtk-1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个命令可能执行不成功，但是经过测试，不执行这条命令好像也不影响</span></span><br><span class="line">sudo add-apt-repository ppa:ubuntugis/ppa</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openscenegraph-plugin-osgearth libosgearth-dev</span><br><span class="line">sudo apt-get install openmpi-bin libopenmpi-dev</span><br><span class="line">sudo apt-get install libpcap-dev</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>添加环境变量</strong>，同样需要再omnet-5.5.1文件夹中进行</li>
+</ol>
+<p>查看<code>/bin</code>的位置</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">. setenv <span class="comment"># 好像是打印出了当前所在的文件目录，我这里打印的是/home/xzt/Desktop/omnetpp-5.5.1/</span></span><br></pre></td></tr></table></figure>
+<p>系统添加环境</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>在打开的文件的最后一行添加下面的命令。文件位置<code>/home/xzt/Desktop/omnetpp-5.5.1/</code> 记得<strong>替换</strong>为自己的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/home/xzt/Desktop/omnetpp-5.5.1/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>重新加载<code>.bashrc</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>配置编译</strong>，依次执行下面两行命令</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./configure  <span class="comment"># ./configure后出现Good！则配置成功</span></span><br><span class="line">make  <span class="comment"># 等待时间会很长....</span></span><br></pre></td></tr></table></figure>
+<p><code>make</code>完成后在终端输入<code>omnetpp</code>，打开omnet软件可以运行示例，则完成安装！</p>
 
       
     </div>
@@ -608,7 +730,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-06 14:40:44" itemprop="dateModified" datetime="2023-03-06T14:40:44+08:00">2023-03-06</time>
+                <time title="修改时间：2023-03-06 15:20:20" itemprop="dateModified" datetime="2023-03-06T15:20:20+08:00">2023-03-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -630,14 +752,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.5k</span>
+              <span>6.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -905,7 +1027,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-04 15:14:54" itemprop="dateModified" datetime="2022-11-04T15:14:54+08:00">2022-11-04</time>
+                <time title="修改时间：2023-03-06 16:56:09" itemprop="dateModified" datetime="2023-03-06T16:56:09+08:00">2023-03-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -923,14 +1045,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -1064,101 +1186,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/27/JAVA/15Git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./img/head.jpg">
-      <meta itemprop="name" content="Atopos·">
-      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Atopos's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/27/JAVA/15Git/" class="post-title-link" itemprop="url">Git</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-27 19:06:25" itemprop="dateCreated datePublished" datetime="2022-10-27T19:06:25+08:00">2022-10-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-04 15:14:32" itemprop="dateModified" datetime="2022-11-04T15:14:32+08:00">2022-11-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文时学习Git相关命令、GitHub、Gitee、AcGit等相关操作。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/27/JAVA/15Git/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1230,7 +1257,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1243,7 +1270,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1287,12 +1314,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">656k</span>
+    <span title="站点总字数">661k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9:57</span>
+    <span title="站点阅读时长">10:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
