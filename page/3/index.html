@@ -720,7 +720,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-14 09:33:42" itemprop="dateModified" datetime="2022-10-14T09:33:42+08:00">2022-10-14</time>
+                <time title="修改时间：2023-03-07 08:57:39" itemprop="dateModified" datetime="2023-03-07T08:57:39+08:00">2023-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -757,28 +757,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Anaconda下载与安装"><a href="#Anaconda下载与安装" class="headerlink" title="Anaconda下载与安装"></a>Anaconda下载与安装</h2><h3 id="下载Anaconda"><a href="#下载Anaconda" class="headerlink" title="下载Anaconda"></a>下载Anaconda</h3><ul>
-<li>官方下载地址：<a target="_blank" rel="noopener" href="https://www.continuum.io/downloads">https://www.continuum.io/downloads</a></li>
-<li>清华大学开源镜像地址：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></li>
-</ul>
-<p>官方下载地址往往比较慢，这里较为推荐去清华开源镜像地址下载，选择好自己的操作系统和想要安装的软件版本就好了。</p>
-<p><img src="/img/Ubuntu/08InstallAnconda/image-20220712212728662.png" alt="image-20220712212728662"></p>
-<p>这里下载了<code>Anconda3-5.3.0-Linux-x86_64.sh</code></p>
-<h3 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h3><ul>
-<li>打开下载的文件所在位置</li>
-<li>运行安装<code>.sh</code>文件命令</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash Anaconda3-5.3.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
-<ul>
-<li>然后一路按Enter键查看安装说明</li>
-</ul>
-<h2 id="配置清华镜像源"><a href="#配置清华镜像源" class="headerlink" title="配置清华镜像源"></a>配置清华镜像源</h2><p>首先，输入命令 <code>conda config --show channels</code> 能够显示出所有channels的信息，一般是defaults的源，下载速度比较慢，不太友好，清华源镜像资源包齐全，下载速度，因此常配置成清华源。</p>
-<ul>
-<li>编辑文件<code>gedit ~/.condarc</code>，复制下面内容至文件中</li>
-</ul>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/Paddle/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/fastai/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line"></span><br><span class="line">show_channel_urls: true</span><br><span class="line">ssl_verify: false</span><br></pre></td></tr></table></figure>
-<p>配置好的镜像源写入anaconda3根目录的 <code>~/.condarc</code> 文件下，可以用命令 <code>cat ~/.condarc</code> 查看。<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">清华大学开源镜像 - Anaconda 镜像使用帮助</a> 中推荐生成的 <code>.condarc</code> 文件内容如下:</p>
-
+          <p>Ubuntu16.04 下Anaconda的安装与使用详细教程</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/21/Ubuntu/08InstallAnconda/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -820,10 +807,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-04 20:54:30 / 修改时间：21:13:51" itemprop="dateCreated datePublished" datetime="2022-07-04T20:54:30+08:00">2022-07-04</time>
+              <time title="创建时间：2022-07-04 20:54:30" itemprop="dateCreated datePublished" datetime="2022-07-04T20:54:30+08:00">2022-07-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-07 08:59:21" itemprop="dateModified" datetime="2023-03-07T08:59:21+08:00">2023-03-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -859,19 +852,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="安装组件"><a href="#安装组件" class="headerlink" title="安装组件"></a>安装组件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y graphviz-doc libgraphviz-dev graphviz</span><br></pre></td></tr></table></figure>
-<h2 id="示例程序"><a href="#示例程序" class="headerlink" title="示例程序"></a>示例程序</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// file test.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> x= <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> y = <span class="number">11</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> z = <span class="number">12</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">        z *= x * y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="生成LLVM-IR文件"><a href="#生成LLVM-IR文件" class="headerlink" title="生成LLVM IR文件"></a>生成<code>LLVM IR</code>文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -S -emit-llvm test.c -o test.ll</span><br></pre></td></tr></table></figure>
-<h2 id="调用控制流图"><a href="#调用控制流图" class="headerlink" title="调用控制流图"></a>调用控制流图</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt -dot-callgraph test.ll  <span class="comment"># 生成.dot文件</span></span><br></pre></td></tr></table></figure>
-<p><code>dot</code>文件会在当前目录下生成，不同版本的<code>llvm</code>可能<code>dot</code>文件的名字可能稍有不同，我使用的版本产生的dot文件是<code>callgraph.dot</code>。使用以下命令生成图片：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dot callgraph.dot -Tpng -o callgraph.png</span><br></pre></td></tr></table></figure>
-<p><img src="/img/Ubuntu/07drawCFG/callgraph.png" alt="callgraph"></p>
-<h2 id="函数控制流图"><a href="#函数控制流图" class="headerlink" title="函数控制流图"></a>函数控制流图</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt -dot-cfg test.ll</span><br></pre></td></tr></table></figure>
-<p><code>dot</code>文件会在当前目录下生成，不同版本的<code>llvm</code>可能<code>dot</code>文件的名字可能稍有不同，我使用的版本产生的dot文件是<code>cfg.main.dot</code>。使用以下命令生成图片：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dot cfg.main.dot -Tpng -o cfg.main.png  <span class="comment"># 生成图片</span></span><br></pre></td></tr></table></figure>
-<p>控制流图如下：</p>
-<p><img src="/img/Ubuntu/07drawCFG/cfg.main.png" alt="cfg.main"></p>
-
+          <p>Ubuntu16.04 LLVM CFG控制流图可视化</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/04/Ubuntu/07drawCFG/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1320,7 +1309,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-28 09:39:11" itemprop="dateModified" datetime="2022-06-28T09:39:11+08:00">2022-06-28</time>
+                <time title="修改时间：2023-03-07 08:59:07" itemprop="dateModified" datetime="2023-03-07T08:59:07+08:00">2023-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1361,39 +1350,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="LLFI使用步骤"><a href="#LLFI使用步骤" class="headerlink" title="LLFI使用步骤"></a>LLFI使用步骤</h2><h3 id="Complie编译生成中间代码"><a href="#Complie编译生成中间代码" class="headerlink" title="Complie编译生成中间代码"></a>Complie编译生成中间代码</h3><p>将源文件进行编译生成<code>.ll</code>格式的中间代码。</p>
-<ul>
-<li>输入：源程序（<code>C/C++程序</code>）</li>
-<li>输出：编译生成<code>.ll</code>文件或者<code>.bc</code>文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/LLFI-master/llvm/bin/clang -emit-llvm -S sample.c -o sample.ll</span><br><span class="line">~/LLFI-master/llvm/bin/clang -emit-llvm -c sample.c -o sample.bc</span><br></pre></td></tr></table></figure>
-<h3 id="Instrument工具插入回调函数"><a href="#Instrument工具插入回调函数" class="headerlink" title="Instrument工具插入回调函数"></a>Instrument工具插入回调函数</h3><p>在生成的中间代码(<code>.ll/.bc</code>文件)中插入回调函数，以进行分析和故障注入。可以在指定位置进行插入，指定位置是由<code>input.yaml</code>文件中指定要注入的故障确定。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/LLFI-master/llfi/bin/Instrucment --readable sample.ll</span><br><span class="line">~/LLFI-master/llfi/bin/Instrucment sample.bc</span><br></pre></td></tr></table></figure>
-<ul>
-<li>输入：编译生成的中间代码<code>.ll/.bc</code>，以及带有 <code>compileTime</code> 选项的 <code>input.yaml</code> 文件（没有在命令中体现，只需要将<code>input.yaml</code>和源代码放在同一目录下即可）</li>
-<li>输出：两个 <code>.ll</code>（或 <code>.bc</code>）文件分别用于分析和故障注入。这些文件将分别称为 <code>sample-profiling.ll</code> 和 <code>sample-faultinjection.ll</code>。还会生成相应的可执行文件 <code>sample-profiling.exe</code> 和 <code>sample-faultInjection.exe</code>。</li>
-</ul>
-<h3 id="Profiling-分析"><a href="#Profiling-分析" class="headerlink" title="Profiling 分析"></a>Profiling 分析</h3><p>为了获取步骤2中标识的<code>.ll</code>文件中指定位置的动态执行计数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/LLFI-master/llfi/bin/Profile ./llfi/sample-profiling.exe &lt;程序参数&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>输入：分析可执行文件<code>sample-profiling.exe</code>，和程序所需要的参数</li>
-<li>输出：<code>llfi-stat-profile.txt</code>，它是一个包含循环总数（即感兴趣的地方的执行实例）的文本文件，以及一个包含程序黄金输出的输出文件</li>
-</ul>
-<h3 id="Fault-Injection-故障注入"><a href="#Fault-Injection-故障注入" class="headerlink" title="Fault Injection 故障注入"></a>Fault Injection 故障注入</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/LLFI-master/llfi/bin/injectfault ./llfi/sample-faultinjection.exe &lt;程序参数&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>输入：<code>fault-injection</code> 可执行文件<code>sample-faultInjection.exe</code>，输入的<code>yaml</code> 文件填入运行时选项，尤其是<code>fault-injection</code> 运行次数和<code>faultinjector</code> 类型。此外，分析步骤 3 的输出。</li>
-<li>输出：故障注入实验的结果，以及注入的日志文件和生成的输出文件。应用程序写入 stderr 的任何错误消息也会被记录下来。</li>
-</ul>
-<h2 id="inpuy-yaml各指令含义"><a href="#inpuy-yaml各指令含义" class="headerlink" title="inpuy.yaml各指令含义"></a><code>inpuy.yaml</code>各指令含义</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">defaultTimeOut:</span> <span class="number">500</span> </span><br><span class="line"><span class="attr">compileOption:</span>  <span class="comment"># 定义LLFI的编译时选项</span></span><br><span class="line">    <span class="attr">instSelMethod:</span> <span class="comment"># 指令选择器</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">insttype:</span></span><br><span class="line">          <span class="attr">include:</span> </span><br><span class="line">            <span class="bullet">-</span> <span class="string">all</span></span><br><span class="line">          <span class="attr">exclude:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">ret</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">regSelMethod:</span> <span class="string">regloc</span> <span class="comment"># 寄存器选择器</span></span><br><span class="line">    <span class="attr">regloc:</span> <span class="string">dstreg</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">includeInjectionTrace:</span> <span class="comment"># 跟踪选项</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">forward</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">backward</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">tracingPropagation:</span> <span class="literal">True</span> <span class="comment"># trace dynamic instruction values.</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">tracingPropagationOption:</span></span><br><span class="line">        <span class="attr">maxTrace:</span> <span class="number">250</span> <span class="comment"># max number of instructions to trace during fault injection run</span></span><br><span class="line">        <span class="attr">debugTrace:</span> <span class="literal">True</span><span class="string">/False</span></span><br><span class="line">        <span class="attr">generateCDFG:</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="attr">runOption:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span></span><br><span class="line">        <span class="attr">numOfRuns:</span> <span class="number">3</span></span><br><span class="line">        <span class="attr">fi_type:</span> <span class="string">bitflip</span></span><br></pre></td></tr></table></figure>
-<h3 id="compileOption层次结构"><a href="#compileOption层次结构" class="headerlink" title="compileOption层次结构"></a><code>compileOption</code>层次结构</h3><blockquote>
-<p>定义了LLFI的编译时选项，包括指令选择器、寄存器选择器、跟踪选项等。指令选择器和寄存器选择器可以用于指定故障注入的范围，通过配置这两个选择器，用户可以限制可能发生故障的潜在位置。</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">compileOption:</span></span><br><span class="line">	<span class="comment">### 必须项目 ###</span></span><br><span class="line">    <span class="attr">instSelMethod:</span></span><br><span class="line">        <span class="string">&lt;content</span> <span class="string">of</span> <span class="string">inst</span> <span class="string">selector&gt;...</span></span><br><span class="line">    <span class="attr">regSelMethod:</span> <span class="string">&lt;content</span> <span class="string">of</span> <span class="string">reg</span> <span class="string">selector&gt;...</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">### 可选择项目 ###</span></span><br><span class="line">    <span class="attr">tracingPropagation:</span> <span class="literal">True</span><span class="string">/False</span></span><br><span class="line">    <span class="attr">tracingPropagationOption:</span></span><br><span class="line">		<span class="string">&lt;content</span> <span class="string">of</span> <span class="string">tracing</span> <span class="string">propagation</span> <span class="string">option&gt;</span></span><br><span class="line">	<span class="attr">includeInjectionTrace:</span></span><br><span class="line">	    <span class="bullet">-</span> <span class="string">forward</span></span><br><span class="line">	    <span class="bullet">-</span> <span class="string">backward</span></span><br></pre></td></tr></table></figure>
-<h4 id="instSelMethod"><a href="#instSelMethod" class="headerlink" title="instSelMethod"></a>instSelMethod</h4><blockquote>
-<p>定义指令选择器<strong>instSelMethod</strong>是定义指令选择器的块。它位于<strong><em>compileOption\</em></strong>的字典中。下面是这个块的结构：</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">instSelMethod:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&lt;insttype/funcname/customInstselector&gt;:</span></span><br><span class="line">      <span class="attr">include:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">&lt;inst</span> <span class="string">types/func</span> <span class="string">names/name</span> <span class="string">of</span> <span class="string">custom</span> <span class="string">inst</span> <span class="string">selector&gt;</span></span><br><span class="line">      <span class="attr">exclude:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">&lt;inst</span> <span class="string">types/func</span> <span class="string">names&gt;</span></span><br><span class="line">      <span class="attr">options:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">&lt;command</span> <span class="string">line</span> <span class="string">options</span> <span class="string">for</span> <span class="string">the</span> <span class="string">inst</span> <span class="string">selector&gt;</span></span><br></pre></td></tr></table></figure>
-
+          <p>Ubuntu16.04 LLFI 工具学习与使用</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/06/27/Ubuntu/06LLFIStudy/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
