@@ -5073,6 +5073,10 @@
 <h2 id="数组自定义排序"><a href="#数组自定义排序" class="headerlink" title="数组自定义排序"></a>数组自定义排序</h2><p>练习题目：<a href="https://leetcode.cn/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/">把数组排成最小的数</a></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[][] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">10</span>][<span class="number">2</span>];</span><br><span class="line">Arrays.sort(arr, <span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;<span class="type">int</span>[]&gt; &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">    publice <span class="type">int</span> <span class="title function_">compare</span><span class="params">(<span class="type">int</span>[] o1, <span class="type">int</span>[] o2)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (o1[<span class="number">0</span>] + o2[<span class="number">1</span>]) - (o2[<span class="number">0</span>] + o2[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="使用lambda表达式自定义排序规则"><a href="#使用lambda表达式自定义排序规则" class="headerlink" title="使用lambda表达式自定义排序规则"></a>使用lambda表达式自定义排序规则</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[][] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">10</span>][<span class="number">2</span>];</span><br><span class="line">Arrays.sort(arr, (o1, o2) -&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> (o1[<span class="number">0</span>] + o1[<span class="number">1</span>]) - (o2[<span class="number">0</span>] + o2[<span class="number">1</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="ArrayList去重"><a href="#ArrayList去重" class="headerlink" title="ArrayList去重"></a>ArrayList去重</h2><h3 id="通过LinkedHashSet进行去重，LinkedHashSet是有序不可重复的"><a href="#通过LinkedHashSet进行去重，LinkedHashSet是有序不可重复的" class="headerlink" title="通过LinkedHashSet进行去重，LinkedHashSet是有序不可重复的"></a>通过<code>LinkedHashSet</code>进行去重，<code>LinkedHashSet</code>是有序不可重复的</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">Set&lt;Integer&gt; set = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>&lt;&gt;(list); <span class="comment">// 去重，排序</span></span><br></pre></td></tr></table></figure>
+<h3 id="Java8新特性stream-的distinct-方法"><a href="#Java8新特性stream-的distinct-方法" class="headerlink" title="Java8新特性stream()的distinct()方法"></a>Java8新特性<code>stream()</code>的<code>distinct()</code>方法</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">List&lt;Integer&gt; newList = list.stream().distinct().collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
+<h3 id="使用contains-方法"><a href="#使用contains-方法" class="headerlink" title="使用contains()方法"></a>使用<code>contains()</code>方法</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">List&lt;Integer&gt; newList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(Integer x : list) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!newList.contains(x)) </span><br><span class="line">        newList.add(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用HashSet-无序唯一的特性"><a href="#利用HashSet-无序唯一的特性" class="headerlink" title="利用HashSet()无序唯一的特性"></a>利用<code>HashSet()</code>无序唯一的特性</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">List&lt;Integer&gt; newList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">Set&lt;Integer&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(Integer x : list) &#123;</span><br><span class="line">    <span class="keyword">if</span>(set.add(x)) </span><br><span class="line">        newList.add(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>JAVA</category>
@@ -6017,7 +6021,7 @@
 <h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><p><strong>Redis 使用的是单线程 + 多路 IO 复用技术</strong>：</p>
 <p>多路复用是指使用一个线程来检查多个文件描述符（Socket）的就绪状态，比如调用 select 和 poll 函数，传入多个文件描述符，如果有一个文件描述符就绪，则返回，否则阻塞直到超时。得到就绪状态后进行真正的操作可以在同一个线程里执行，也可以启动线程执行（比如使用线程池）。</p>
 <p><strong>串行 vs 多线程 + 锁（memcached） vs 单线程 + 多路 IO 复用 (Redis)</strong>（与 Memcache 三点不同：支持多数据类型，<strong>支持持久化</strong>，单线程 + 多路 IO 复用） 。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Redis 是需要安装在Linux系统中。并且要求系统中需要有C语言的环境gcc。</p>
+<h2 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h2><p>Redis 是需要安装在Linux系统中。并且要求系统中需要有C语言的环境gcc。</p>
 <p>此处选择的Linux版本为CentOS 7.</p>
 <p>Redis的官方王章地址：<a href="https://redis.io/">https://redis.io/</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y gcc tcl  <span class="comment"># 安装依赖</span></span><br><span class="line"></span><br><span class="line">tar -zxvf redis-6.2.6.tar.gz  <span class="comment"># 解压压缩包，压缩包从系统中下载</span></span><br><span class="line"><span class="built_in">cd</span> redis-6.2.6  <span class="comment"># 进入解压后的目录下</span></span><br><span class="line">make  <span class="comment"># 进行编译</span></span><br><span class="line">make install  <span class="comment"># 进行安装 默认安装目录 /usr/local/bin</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### Redis 命令</span></span><br><span class="line">redis-server <span class="comment"># 启动redis服务</span></span><br><span class="line">redis-cli <span class="comment"># 通过客户端连接redis</span></span><br></pre></td></tr></table></figure>
@@ -6044,6 +6048,50 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动</span></span><br><span class="line">systemctl start redis</span><br><span class="line"><span class="comment"># 停止</span></span><br><span class="line">systemctl stop redis</span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">systemctl restart redis</span><br><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">systemctl status redis</span><br></pre></td></tr></table></figure>
 <p>执行下面的命令可以让redis开机自启：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> redis</span><br></pre></td></tr></table></figure>
+<h2 id="Redis客户端"><a href="#Redis客户端" class="headerlink" title="Redis客户端"></a>Redis客户端</h2><p>安装完成Redis，我们就可以操作Redis，实现数据的CRUD了。这需要用到Redis客户端，包括：</p>
+<ul>
+<li>命令行客户端</li>
+<li>图形化桌面客户端</li>
+<li>编程客户端</li>
+</ul>
+<h3 id="Redis命令行客户端"><a href="#Redis命令行客户端" class="headerlink" title="Redis命令行客户端"></a>Redis命令行客户端</h3><p>Redis安装完成后就自带了命令行客户端：redis-cli，使用方式如下：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">redis-cli [options] [commonds]</span><br></pre></td></tr></table></figure>
+<p>其中常见的options有：</p>
+<ul>
+<li><code>-h 127.0.0.1</code>：指定要连接的redis节点的IP地址，默认是127.0.0.1</li>
+<li><code>-p 6379</code>：指定要连接的redis节点的端口，默认是6379</li>
+<li><code>-a 123321</code>：指定redis的访问密码 </li>
+</ul>
+<p>其中的commonds就是Redis的操作命令，例如：</p>
+<ul>
+<li><code>ping</code>：与redis服务端做心跳测试，服务端正常会返回<code>pong</code></li>
+</ul>
+<p>不指定commond时，会进入<code>redis-cli</code>的交互控制台：</p>
+<p><img src="16Redis6/image-20211211110439353.png" alt="image-20211211110439353"></p>
+<h3 id="图形化桌面客户端"><a href="#图形化桌面客户端" class="headerlink" title="图形化桌面客户端"></a>图形化桌面客户端</h3><p>GitHub上的大神编写了Redis的图形化桌面客户端，地址：<a href="https://github.com/uglide/RedisDesktopManager">https://github.com/uglide/RedisDesktopManager</a></p>
+<p>不过该仓库提供的是RedisDesktopManager的源码，并未提供windows安装包。</p>
+<p>在下面这个仓库可以找到安装包：<a href="https://github.com/lework/RedisDesktopManager-Windows/releases">https://github.com/lework/RedisDesktopManager-Windows/releases</a></p>
+<p><img src="16Redis6/image-20211211111351885.png" alt="image-20211211111351885"></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>在课前资料中可以找到Redis的图形化桌面客户端：</p>
+<p><img src="16Redis6/image-20211214154938770.png" alt="image-20211214154938770"></p>
+<p>解压缩后，运行安装程序即可安装：</p>
+<p><img src="16Redis6/image-20211214155123841.png" alt="image-20211214155123841"></p>
+<p>此处略。</p>
+<p>安装完成后，在安装目录下找到rdm.exe文件：</p>
+<p><img src="16Redis6/image-20211211110935819.png" alt="image-20211211110935819"></p>
+<p>双击即可运行：</p>
+<p><img src="16Redis6/image-20211214155406692.png" alt="image-20211214155406692"></p>
+<h4 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h4><p>点击左上角的<code>连接到Redis服务器</code>按钮：</p>
+<p><img src="16Redis6/image-20211214155424842.png" alt="image-20211214155424842"></p>
+<p>在弹出的窗口中填写Redis服务信息：</p>
+<p><img src="16Redis6/image-20211211111614483.png" alt="image-20211211111614483"></p>
+<p>点击确定后，在左侧菜单会出现这个链接：</p>
+<p><img src="16Redis6/image-20211214155804523.png" alt="image-20211214155804523"></p>
+<p>点击即可建立连接了：</p>
+<p><img src="16Redis6/image-20211214155849495.png" alt="image-20211214155849495"></p>
+<p>Redis默认有16个仓库，编号从0至15.  通过配置文件可以设置仓库数量，但是不超过16，并且不能自定义仓库名称。</p>
+<p>如果是基于redis-cli连接Redis服务，可以通过select命令来选择数据库：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 选择 0号库</span></span><br><span class="line">select 0</span><br></pre></td></tr></table></figure>
 <h1 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h1><h2 id="Redis-字符串String"><a href="#Redis-字符串String" class="headerlink" title="Redis 字符串String"></a>Redis 字符串String</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
 <li>String 是 Redis 最基本的类型，你可以理解成与 Memcached 一模一样的类型，一个 key 对应一个 value。</li>
 <li>String 类型是二进制安全的。意味着 Redis 的 string 可以包含任何数据。比如 jpg 图片或者序列化的对象。</li>
@@ -8848,9 +8896,10 @@
 <h2 id="创建项目后端"><a href="#创建项目后端" class="headerlink" title="创建项目后端"></a>创建项目后端</h2><ul>
 <li><code>https://start.spring.io/</code> 加载慢的话，可以换成：<code>https://start.aliyun.com</code></li>
 </ul>
-<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p><img src="SpringCourse/image-20220711085513041.png" alt="image-20220711085513041"></p>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>这边选项里的JDK最好选择<code>Oracle OpenJDk</code>的1.8，我选择了本地的会产生错误。</p>
+<p><img src="SpringCourse/image-20220711085513041.png" alt="image-20220711085513041"></p>
 <p>然后在下一页面只需要选择 <code>Web/Spring Web</code> 和 <code>Templa Engines/thymeleaf</code> 两个选项。</p>
-<h3 id="编写类"><a href="#编写类" class="headerlink" title="编写类"></a>编写类</h3><p><img src="SpringCourse/image-20220711085752419.png" alt="image-20220711085752419"></p>
+<h3 id="编写controller类"><a href="#编写controller类" class="headerlink" title="编写controller类"></a>编写controller类</h3><p><img src="SpringCourse/image-20220711085752419.png" alt="image-20220711085752419"></p>
 <p>则可以根据<code>localhost:8080/pk/index/</code>路径跳转至<code>index.html</code>页面</p>
 <h3 id="修改后端端口号"><a href="#修改后端端口号" class="headerlink" title="修改后端端口号"></a>修改后端端口号</h3><p>在<code>application.properties</code>文件中修改<code>server.port=8080</code>为<code>server.port=3000</code>，则访问路径变为：<code>localhost:3000</code></p>
 <h2 id="创建项目Web端与AcApp端"><a href="#创建项目Web端与AcApp端" class="headerlink" title="创建项目Web端与AcApp端"></a>创建项目Web端与AcApp端</h2><ul>
@@ -8870,7 +8919,7 @@
 <h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>然后<code>web</code>端需要再装依赖<code>jquery</code>和<code>bootstrap</code></p>
 <p><img src="SpringCourse/image-20220713205210434.png" alt="image-20220713205210434"></p>
 <h3 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h3><p><img src="SpringCourse/image-20220713205342173.png" alt="image-20220713205342173"></p>
-<h1 id="day04：创建菜单与游戏页面-1"><a href="#day04：创建菜单与游戏页面-1" class="headerlink" title="day04：创建菜单与游戏页面 1"></a>day04：创建菜单与游戏页面 1</h1><h2 id="Vue创建组件"><a href="#Vue创建组件" class="headerlink" title="Vue创建组件"></a>Vue创建组件</h2><p><strong>组件作用：</strong> 当所有页面都共享一部分内容时，可将该内容写为一个组件。</p>
+<h1 id="day04：创建菜单与游戏页面-1"><a href="#day04：创建菜单与游戏页面-1" class="headerlink" title="day04：创建菜单与游戏页面 1"></a>day04：创建菜单与游戏页面 1</h1><h2 id="Vue创建组件"><a href="#Vue创建组件" class="headerlink" title="Vue创建组件"></a>Vue创建组件</h2><h3 id="组件作用"><a href="#组件作用" class="headerlink" title="组件作用"></a>组件作用</h3><p>当所有页面都共享一部分内容时，可将该内容写为一个组件。</p>
 <p>在 <code>components/</code> 目录下创建。</p>
 <p><strong>注意：</strong>组件名称必须有两个字母大写，没有或只有一个会报错</p>
 <p><img src="SpringCourse/image-20220713210047829.png" alt="image-20220713210047829"></p>
@@ -10350,7 +10399,7 @@
   <entry>
     <title>LeetCode 每日一题</title>
     <url>/2023/03/05/LeetCode/DailyQuestion/</url>
-    <content><![CDATA[<h2 id="0305：使字符串平衡的最少删除次数"><a href="#0305：使字符串平衡的最少删除次数" class="headerlink" title="0305：使字符串平衡的最少删除次数"></a>0305：使字符串平衡的最少删除次数</h2><p><a href="https://leetcode.cn/problems/minimum-deletions-to-make-string-balanced/description/"> 使字符串平衡的最少删除次数 </a></p>
+    <content><![CDATA[<h2 id="0306：使字符串平衡的最少删除次数"><a href="#0306：使字符串平衡的最少删除次数" class="headerlink" title="0306：使字符串平衡的最少删除次数"></a>0306：使字符串平衡的最少删除次数</h2><p><a href="https://leetcode.cn/problems/minimum-deletions-to-make-string-balanced/description/"> 使字符串平衡的最少删除次数 </a></p>
 <h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p><code>栈</code>、<code>字符串</code>、<code>动态规划</code></p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><p>通过删除字符，是字符串达到平衡状态，主要有以下三种情况：</p>
 <ul>
@@ -10379,7 +10428,46 @@
 
 <div class="note success simple">
             <p>执行用时：72 ms, 在所有 C++ 提交中击败了77.94%的用户</p><p>内存消耗：22 MB, 在所有 C++ 提交中击败了57.84%的用户</p><p>通过测试用例：157 / 157个通过测试用例</p>
-          </div></div></div></div>]]></content>
+          </div></div></div></div>
+<h2 id="0307：花括号展开-II❗"><a href="#0307：花括号展开-II❗" class="headerlink" title="0307：花括号展开 II❗"></a>0307：花括号展开 II❗</h2><p><a href="https://leetcode.cn/problems/brace-expansion-ii/"> 花括号展开 II </a></p>
+<h3 id="标签-1"><a href="#标签-1" class="headerlink" title="标签"></a>标签</h3><p><code>栈</code>、<code>广度优先搜索</code>、<code>字符串</code>、<code>回溯</code></p>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><div class="tabs" id="花括号展开-ii"><ul class="nav-tabs"><li class="tab active"><a href="#花括号展开-ii-1">枚举</a></li></ul><div class="tab-content"><div class="tab-pane active" id="花括号展开-ii-1"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li><strong>时间复杂度</strong>：$O(n)$，其中<em>n</em>是字符串<em>s</em>的长度。</li><li><strong>空间复杂度</strong>：$O(1)$</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：54 ms, 在所有 Java 提交中击败了13.19%的用户</p><p>内存消耗：42.4 MB, 在所有 Java 提交中击败了32,41%的用户</p><p>通过测试用例：157 / 157个通过测试用例</p>
+          </div></div></div></div>
+<h2 id="0308：礼物的最大价值"><a href="#0308：礼物的最大价值" class="headerlink" title="0308：礼物的最大价值"></a>0308：礼物的最大价值</h2><p><a href="https://leetcode.cn/problems/li-wu-de-zui-da-jie-zhi-lcof/"> 礼物的最大价值 </a></p>
+<h3 id="标签-2"><a href="#标签-2" class="headerlink" title="标签"></a>标签</h3><p><code>数组</code>、<code>动态规划</code>、<code>矩阵</code></p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>使用动态规划</p>
+<p><strong>状态表示</strong>：<code>dp[i][j]</code> 表示从左上角走到<code>[i,j]</code>能拿的最大价值。</p>
+<p><strong>状态转移</strong>：</p>
+<ul>
+<li>从当前位置上面拿：<code>dp[i][j] = dp[i - 1][j] + grid[i][j]</code></li>
+<li>从当前位置左边拿：<code>dp[i][j] = dp[i][j - 1] + grid[i][j]</code></li>
+<li>最后取最大值即可：<code>dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]</code></li>
+</ul>
+<p>注意：需要考虑出界的问题。</p>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><div class="tabs" id="礼物的最大价值"><ul class="nav-tabs"><li class="tab active"><a href="#礼物的最大价值-1">Java</a></li><li class="tab"><a href="#礼物的最大价值-2">C++</a></li></ul><div class="tab-content"><div class="tab-pane active" id="礼物的最大价值-1"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxValue</span><span class="params">(<span class="type">int</span>[][] grid)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> grid.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> grid[<span class="number">0</span>].length;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[m][n];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; m; i ++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; n; j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &gt; <span class="number">0</span>) dp[i][j] = Math.max(dp[i][j], dp[i - <span class="number">1</span>][j]);</span><br><span class="line">                <span class="keyword">if</span>(j &gt; <span class="number">0</span>) dp[i][j] = Math.max(dp[i][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">                dp[i][j] += grid[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li><strong>时间复杂度</strong>：$O(m <em> n)$，其中</em>n*是矩阵grid的行数，m是矩阵grid的列数。</li><li><strong>空间复杂度</strong>：$O(m <em> n)$，其中</em>n*是矩阵grid的行数，m是矩阵grid的列数。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：4 ms, 在所有 Java 提交中击败了3.89%的用户</p><p>内存消耗：43.8 MB, 在所有 Java 提交中击败了79.16%的用户</p>
+          </div></div><div class="tab-pane" id="礼物的最大价值-2"><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxValue</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = grid.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> n = grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> dp[m][n];</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="built_in">sizeof</span>(dp));  <span class="comment">// 将数组初始化为0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i ++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &gt; <span class="number">0</span>) dp[i][j] = <span class="built_in">max</span>(dp[i][j], dp[i - <span class="number">1</span>][j]);</span><br><span class="line">                <span class="keyword">if</span>(j &gt; <span class="number">0</span>) dp[i][j] = <span class="built_in">max</span>(dp[i][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">                dp[i][j] += grid[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dp[m - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li><strong>时间复杂度</strong>：$O(m <em> n)$，其中</em>n*是矩阵grid的行数，m是矩阵grid的列数。</li><li><strong>空间复杂度</strong>：$O(m <em> n)$，其中</em>n*是矩阵grid的行数，m是矩阵grid的列数。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：0 ms, 在所有 Java 提交中击败了100%的用户</p><p>内存消耗：9 MB, 在所有 Java 提交中击败了53.92%的用户</p>
+          </div></div></div></div>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>C++将数组初始化为0或任意值：<code>memset(需要初始化的数组, 需要初始化的值, sizeof(数组名));</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="built_in">memset</span>(arr, <span class="number">0</span>, <span class="built_in">sizeof</span>(arr));</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -11134,6 +11222,10 @@
 </ol>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./configure  <span class="comment"># ./configure后出现Good！则配置成功</span></span><br><span class="line">make  <span class="comment"># 等待时间会很长....</span></span><br></pre></td></tr></table></figure>
 <p><code>make</code>完成后在终端输入<code>omnetpp</code>，打开omnet软件可以运行示例，则完成安装！</p>
+<ol>
+<li><strong>设置桌面图标</strong></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">make install-menu-item</span><br><span class="line"></span><br><span class="line">make install-desktop-icon</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>疑难杂症</category>
@@ -11141,6 +11233,106 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>OMNET++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AcWing SpringBoot项目实战01</title>
+    <url>/2023/03/07/AcWing/SpringBoot/01Course/</url>
+    <content><![CDATA[<h1 id="学习平台"><a href="#学习平台" class="headerlink" title="学习平台"></a>学习平台</h1><p><a href="https://www.acwing.com/activity/content/introduction/1877/"> AcWing SpringBoot框架课 </a></p>
+<h1 id="项目设计"><a href="#项目设计" class="headerlink" title="项目设计"></a>项目设计</h1><h2 id="项目说明"><a href="#项目说明" class="headerlink" title="项目说明"></a>项目说明</h2><p>本游戏是一个类似贪吃蛇的游戏，每一个对局会有两个玩家，两个玩家通过控制一条蛇向上、下、左、右四个方向行走，如果撞到自己、墙壁、敌人，则会判定失败。</p>
+<p>每个用户也可以通过编写代码实现自己的bot（类似于像机器人），代替自己进行操作。</p>
+<p>每局对战可以进行回放查看</p>
+<h2 id="项目名称"><a href="#项目名称" class="headerlink" title="项目名称"></a>项目名称</h2><p><strong>King Of Bots</strong>，简称 <strong>KOB</strong></p>
+<h2 id="项目包含的模块"><a href="#项目包含的模块" class="headerlink" title="项目包含的模块"></a>项目包含的模块</h2><p>这里按照可能需要的页面进行分块</p>
+<p><img src="01Course/image-20230307151203282.png" alt="image-20230307151203282"></p>
+<ul>
+<li>PK模块：匹配界面（微服务）、实况直播界面（<strong>WebSocket</strong>协议）、双人对战</li>
+<li>对局列表模块：对局列表界面、对局录像界面</li>
+<li>排行榜模块：Bot排行榜界面</li>
+<li>用户中心模块：注册界面、登录界面、我的Bot界面、每个Bot的详情界面</li>
+</ul>
+<h2 id="前后端分离模式"><a href="#前后端分离模式" class="headerlink" title="前后端分离模式"></a>前后端分离模式</h2><p><img src="01Course/image-20230307152827082.png" alt="image-20230307152827082"></p>
+<ul>
+<li><code>SpringBoot</code>实现后端</li>
+<li><code>Vue3</code>实现Web端和AcApp端</li>
+<li>数据库使用<code>MySQL</code></li>
+</ul>
+<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><h2 id="配置git环境"><a href="#配置git环境" class="headerlink" title="配置git环境"></a>配置git环境</h2><ol>
+<li>安装<code>Git Bash</code> <a href="https://gitforwindows.org/">https://gitforwindows.org/</a></li>
+<li>进入家目录生成密钥：执行命令<code>ssh-keygen</code></li>
+<li>在<code>Ac Git</code>上注册账号，<a href="https://git.acwing.com/"> Ac Git </a></li>
+<li>将<code>id_rsa.pub</code>的内容复制到<code>Ac Git</code>上</li>
+</ol>
+<h2 id="创建项目后端"><a href="#创建项目后端" class="headerlink" title="创建项目后端"></a>创建项目后端</h2><p><code>https://start.spring.io/</code> 加载慢的话，可以换成：<code>https://start.aliyun.com</code></p>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p><img src="01Course/image-20220711085513041.png" alt="image-20220711085513041"></p>
+<p>然后在下一页面只需要选择 <code>Web/Spring Web</code> 和 <code>Templa Engines/thymeleaf</code> 两个选项。</p>
+<h3 id="编写类"><a href="#编写类" class="headerlink" title="编写类"></a>编写类</h3><p><img src="01Course/image-20220711085752419.png" alt="image-20220711085752419"></p>
+<p>则可以根据<code>localhost:8080/pk/index/</code>路径跳转至<code>index.html</code>页面</p>
+<h3 id="修改后端端口号"><a href="#修改后端端口号" class="headerlink" title="修改后端端口号"></a>修改后端端口号</h3><p>在<code>application.properties</code>文件中修改<code>server.port=8080</code>为<code>server.port=3000</code>，则访问路径变为：<code>localhost:3000</code></p>
+<h2 id="创建项目Web端与AcApp端"><a href="#创建项目Web端与AcApp端" class="headerlink" title="创建项目Web端与AcApp端"></a>创建项目Web端与AcApp端</h2><ul>
+<li>vscode下载地址：<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li>Bootstrap官网地址：<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li>web端需要使用VSCode：<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li>vue安装：看讲义 <a href="https://www.acwing.com/file_system/file/content/whole/index/content/5639568/"> vue讲义 </a></li>
+</ul>
+<h3 id="创建vue项目"><a href="#创建vue项目" class="headerlink" title="创建vue项目"></a>创建vue项目</h3><p>创建<code>vue</code> 项目时，使用<code>Power Shell</code>进行创建，可以现在<code>Power Sehll</code>里进入需要创建的目录中，再打开<code>vue ui</code>进行项目创建。</p>
+<p><img src="01Course/image-20220713204639004.png" alt="image-20220713204639004"></p>
+<ul>
+<li>需要创建两个前端项目：<code>web</code> 和 <code>acapp</code></li>
+</ul>
+<p><img src="01Course/image-20220713204546107.png" alt="image-20220713204546107"></p>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>创建好项目后，需要安装插件：</p>
+<p><img src="01Course/image-20220713205101757.png" alt="image-20220713205101757"></p>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>然后<code>web</code>端需要再装依赖<code>jquery</code>和<code>bootstrap</code></p>
+<p><img src="01Course/image-20220713205210434.png" alt="image-20220713205210434"></p>
+<h3 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h3><p><img src="01Course/image-20220713205342173.png" alt="image-20220713205342173"></p>
+<h2 id="在SpringBoot中解决跨域问题"><a href="#在SpringBoot中解决跨域问题" class="headerlink" title="在SpringBoot中解决跨域问题"></a>在SpringBoot中解决跨域问题</h2><p>添加配置类：<code>CorsConfig.class</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kob.backend.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.*;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xzt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * 解决springBoot跨域问题相关配置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CorsConfig</span> <span class="keyword">implements</span> <span class="title class_">Filter</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest req, ServletResponse res, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line">        <span class="type">HttpServletResponse</span> <span class="variable">response</span> <span class="operator">=</span> (HttpServletResponse) res;</span><br><span class="line">        <span class="type">HttpServletRequest</span> <span class="variable">request</span> <span class="operator">=</span> (HttpServletRequest) req;</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">origin</span> <span class="operator">=</span> request.getHeader(<span class="string">&quot;Origin&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(origin!=<span class="literal">null</span>) &#123;</span><br><span class="line">            response.setHeader(<span class="string">&quot;Access-Control-Allow-Origin&quot;</span>, origin);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">headers</span> <span class="operator">=</span> request.getHeader(<span class="string">&quot;Access-Control-Request-Headers&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(headers!=<span class="literal">null</span>) &#123;</span><br><span class="line">            response.setHeader(<span class="string">&quot;Access-Control-Allow-Headers&quot;</span>, headers);</span><br><span class="line">            response.setHeader(<span class="string">&quot;Access-Control-Expose-Headers&quot;</span>, headers);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Allow-Methods&quot;</span>, <span class="string">&quot;*&quot;</span>);</span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Max-Age&quot;</span>, <span class="string">&quot;3600&quot;</span>);</span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Allow-Credentials&quot;</span>, <span class="string">&quot;true&quot;</span>);</span><br><span class="line"></span><br><span class="line">        chain.doFilter(request, response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(FilterConfig filterConfig)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destroy</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>AcWing</category>
+        <category>Course</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>SpringBoot</tag>
+        <tag>AcWing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AcWing SpringBoot项目实战02</title>
+    <url>/2023/03/07/AcWing/SpringBoot/02Course/</url>
+    <content><![CDATA[<h1 id="学习平台"><a href="#学习平台" class="headerlink" title="学习平台"></a>学习平台</h1><p><a href="https://www.acwing.com/activity/content/introduction/1877/"> AcWing SpringBoot框架课 </a></p>
+<h1 id="Vue组件介绍"><a href="#Vue组件介绍" class="headerlink" title="Vue组件介绍"></a>Vue组件介绍</h1><p><strong>组件作用：</strong> 当所有页面都共享一部分内容时，可将该内容写为一个组件。</p>
+<p>在 <code>components/</code> 目录下创建。</p>
+<p><strong>注意：</strong>组件名称必须有两个字母大写，没有或只有一个会报错</p>
+<p><img src="02Course/image-20220713210047829.png" alt="image-20220713210047829"></p>
+<ul>
+<li>每个<code>.vue</code>文件由三部分组成：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;  /* scoped的作用是在本页面写的css会加上随机字符串，不会影响别的页面 */</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="页面实现"><a href="#页面实现" class="headerlink" title="页面实现"></a>页面实现</h1><h2 id="页面设计"><a href="#页面设计" class="headerlink" title="页面设计"></a>页面设计</h2><p>效果图：</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/07/12/167993_a28e469f01-2a9d61c76c0c44bd5ddb30e4522148c.png" alt="2a9d61c76c0c44bd5ddb30e4522148c.png"></p>
+<h2 id="添加导航栏"><a href="#添加导航栏" class="headerlink" title="添加导航栏"></a>添加导航栏</h2><p>在 <a href="https://v5.bootcss.com/docs/components/navbar/">Bootstrap</a> 中搜索Navbar就可以找到各种样式的导航栏，选择其中一种即可。</p>
+<p>在<code>components/</code>目录下创建<code>NavBar.vue</code>组件，并修改组件中的一些名称信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;!-- bootstrap中复制的代码（导航栏样式） --&gt;</span><br><span class="line">&lt;nav class=&quot;navbar navbar-expand-lg bg-body-tertiary&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container-fluid&quot;&gt;</span><br><span class="line">    &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Navbar w/ text&lt;/a&gt;</span><br><span class="line">    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarText&quot; aria-controls=&quot;navbarText&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;</span><br><span class="line">      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarText&quot;&gt;</span><br><span class="line">      &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;</span><br><span class="line">        &lt;li class=&quot;nav-item&quot;&gt;</span><br><span class="line">          &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">        &lt;li class=&quot;nav-item&quot;&gt;</span><br><span class="line">          &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Features&lt;/a&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">        &lt;li class=&quot;nav-item&quot;&gt;</span><br><span class="line">          &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Pricing&lt;/a&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">      &lt;span class=&quot;navbar-text&quot;&gt;</span><br><span class="line">        Navbar text with an inline element</span><br><span class="line">      &lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/nav&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- scoped作用：在这个css样式里面加上一个随机字符串，这样就不会影响其他页面的css了 --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>在<code>App.vue</code>中导入该组件</p>
+<ul>
+<li>首先需要导入该组件<code>import NavBar from &#39;@/components/NavBar.vue&#39;</code></li>
+<li>因为使用的是bootstrap，所以需要导入bootstrap的css和js。<code>import &quot;bootstrap/dist/css/boostrap.min.css&quot;</code>、<code>import &quot;bootstrap/dist/js/bootstrap&quot;</code></li>
+<li>需要在<code>export default</code> 中声明该组件</li>
+<li>将该组件加入到<code>template</code>中</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- 编写html --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;NavBar/&gt;</span><br><span class="line">  &lt;router-view/&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 编写js --&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import NavBar from &#x27;@/components/NavBar.vue&#x27;</span><br><span class="line">import &quot;bootstrap/dist/css/boostrap.min.css&quot;</span><br><span class="line">import &quot;bootstrap/dist/js/bootstrap&quot;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    NavBar</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- 编写css --&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">  body&#123;</span><br><span class="line">    background-image: url(&quot;@/assets/background.png&quot;);</span><br><span class="line">    background-size: 100%;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>AcWing</category>
+        <category>Course</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>SpringBoot</tag>
+        <tag>AcWing</tag>
       </tags>
   </entry>
 </search>
