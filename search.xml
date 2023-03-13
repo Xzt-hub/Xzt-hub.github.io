@@ -10524,7 +10524,26 @@
           </div></div></div></div>
 <h3 id="知识点-2"><a href="#知识点-2" class="headerlink" title="知识点"></a>知识点</h3><p>java中将一个数组中的部分元素复制到另一个数组中方法：使用<code>Arrays.copyOfRange(orginalArray, startIndex, endIndex)</code>函数</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[] data = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="type">int</span>[] newData = Arrays.copyOfRange(data, <span class="number">2</span>, <span class="number">7</span>);</span><br></pre></td></tr></table></figure>
-]]></content>
+<h2 id="0312：统计子树中城市之间最大距离"><a href="#0312：统计子树中城市之间最大距离" class="headerlink" title="0312：统计子树中城市之间最大距离"></a>0312：统计子树中城市之间最大距离</h2><p><a href="https://leetcode.cn/problems/count-subtrees-with-max-distance-between-cities/"> 统计子树中城市之间最大距离 </a></p>
+<h3 id="标签-7"><a href="#标签-7" class="headerlink" title="标签"></a>标签</h3><p><code>位运算</code>、<code>树</code>、<code>动态规划</code>、<code>状态压缩</code>、<code>枚举</code></p>
+<h3 id="题解-7"><a href="#题解-7" class="headerlink" title="题解"></a>题解</h3><div class="tabs" id="统计子树中城市之间最大距离"><ul class="nav-tabs"><li class="tab active"><a href="#统计子树中城市之间最大距离-1">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="统计子树中城市之间最大距离-1"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li><strong>时间复杂度</strong>：$O(n)$，其中<em>n</em>是数组<em>array</em>的长度。</li><li><strong>空间复杂度</strong>：$O(n)$，哈希表的空间复杂度和前缀和数组</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：31 ms, 在所有 Java 提交中击败了8.49%的用户</p><p>内存消耗：60.9 MB, 在所有 Java 提交中击败了44.81%的用户</p>
+          </div></div></div></div>
+<h2 id="0313：赢得比赛需要的最少训练时长"><a href="#0313：赢得比赛需要的最少训练时长" class="headerlink" title="0313：赢得比赛需要的最少训练时长"></a>0313：赢得比赛需要的最少训练时长</h2><p><a href="https://leetcode.cn/problems/minimum-hours-of-training-to-win-a-competition/description/"> 赢得比赛需要的最少训练时长 </a></p>
+<h3 id="标签-8"><a href="#标签-8" class="headerlink" title="标签"></a>标签</h3><p><code>贪心</code>、<code>数组</code></p>
+<h3 id="题解-8"><a href="#题解-8" class="headerlink" title="题解"></a>题解</h3><div class="tabs" id="赢得比赛需要的最少训练时长"><ul class="nav-tabs"><li class="tab active"><a href="#赢得比赛需要的最少训练时长-1">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="赢得比赛需要的最少训练时长-1"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">minNumberOfHours</span><span class="params">(<span class="type">int</span> initialEnergy, <span class="type">int</span> initialExperience, <span class="type">int</span>[] energy, <span class="type">int</span>[] experience)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x : energy) &#123;</span><br><span class="line">            <span class="keyword">if</span>(initialEnergy &lt;= x) &#123;</span><br><span class="line">                res += (x - initialEnergy + <span class="number">1</span>);</span><br><span class="line">                initialEnergy += (x - initialEnergy + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            initialEnergy -= x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x : experience) &#123;</span><br><span class="line">            <span class="keyword">if</span>(initialExperience &lt;= x) &#123;</span><br><span class="line">                res += (x - initialExperience + <span class="number">1</span>);</span><br><span class="line">                initialExperience += (x - initialExperience + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            initialExperience += x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li><strong>时间复杂度</strong>：$O(n)$，其中<em>n</em>是数组<em>energy</em>的长度。</li><li><strong>空间复杂度</strong>：$O(1)$</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：0 ms, 在所有 Java 提交中击败了100%的用户</p><p>内存消耗：40.5 MB, 在所有 Java 提交中击败了94.61%的用户</p>
+          </div></div></div></div>]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
