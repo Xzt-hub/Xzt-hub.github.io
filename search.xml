@@ -10543,7 +10543,18 @@
 
 <div class="note success simple">
             <p>执行用时：0 ms, 在所有 Java 提交中击败了100%的用户</p><p>内存消耗：40.5 MB, 在所有 Java 提交中击败了94.61%的用户</p>
-          </div></div></div></div>]]></content>
+          </div></div></div></div>
+<h2 id="0314：给定行和列的和求可行矩阵"><a href="#0314：给定行和列的和求可行矩阵" class="headerlink" title="0314：给定行和列的和求可行矩阵"></a>0314：给定行和列的和求可行矩阵</h2><p><a href="https://leetcode.cn/problems/find-valid-matrix-given-row-and-column-sums/description/"> 给定行和列的和求可行矩阵 </a></p>
+<h3 id="标签-9"><a href="#标签-9" class="headerlink" title="标签"></a>标签</h3><p><code>数组</code>、<code>矩阵</code>、<code>贪心</code></p>
+<h3 id="题解-9"><a href="#题解-9" class="headerlink" title="题解"></a>题解</h3><div class="tabs" id="给定行和列的和求可行矩阵"><ul class="nav-tabs"><li class="tab active"><a href="#给定行和列的和求可行矩阵-1">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="给定行和列的和求可行矩阵-1"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[][] restoreMatrix(<span class="type">int</span>[] rowSum, <span class="type">int</span>[] colSum) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> rowSum.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> colSum.length;</span><br><span class="line">        <span class="type">int</span>[][] res = <span class="keyword">new</span> <span class="title class_">int</span>[m][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; m; i ++ )&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">row</span> <span class="operator">=</span> rowSum[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; n; j ++) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">col</span> <span class="operator">=</span> colSum[j];</span><br><span class="line">                <span class="type">int</span> <span class="variable">cnt</span> <span class="operator">=</span> Math.min(row, col);  <span class="comment">// 这个位置需要填写的值</span></span><br><span class="line">                res[i][j] = cnt;</span><br><span class="line">                row -= cnt;</span><br><span class="line">                colSum[j] -= cnt;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li><strong>时间复杂度</strong>：$O(mn)$，其中<em>m</em>是数组<em>rowSum</em>的长度，<em>n</em>是数组<em>colSum</em>的长度。</li><li><strong>空间复杂度</strong>：$O(mn)$，结果数组<em>res</em>的大小。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：4 ms, 在所有 Java 提交中击败了67.94%的用户</p><p>内存消耗：49.5 MB, 在所有 Java 提交中击败了35.11%的用户</p>
+          </div></div></div></div>
+]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
