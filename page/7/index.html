@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">81</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">82</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -188,6 +188,96 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/06/LeetCode/20220506-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/06/LeetCode/20220506-01/" class="post-title-link" itemprop="url">933.最近请求的次数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-06 09:22:31 / 修改时间：09:28:30" itemprop="dateCreated datePublished" datetime="2022-05-06T09:22:31+08:00">2022-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>603</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h4 id="最近的请求次数"><a href="#最近的请求次数" class="headerlink" title=" 最近的请求次数 "></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-recent-calls/"> 最近的请求次数 </a></h4><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>使用队列，每次将新的 t 加入队列，然后循环判断对头元素是否大于 t - 3000，若小于则出队，否则结束循环，最后返回队列中的元素个数即可。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RecentCounter</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> count;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; que;</span><br><span class="line">    <span class="built_in">RecentCounter</span>() &#123;</span><br><span class="line">        count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!que.<span class="built_in">empty</span>()) que.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">ping</span><span class="params">(<span class="type">int</span> t)</span> </span>&#123;</span><br><span class="line">        que.<span class="built_in">push</span>(t);</span><br><span class="line">        <span class="keyword">while</span>(que.<span class="built_in">front</span>() &lt; t - <span class="number">3000</span>)&#123;</span><br><span class="line">            que.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> que.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your RecentCounter object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * RecentCounter* obj = new RecentCounter();</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;ping(t);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是调用 ping 的次数</li><li>空间复杂度：<em>O(n)</em>，队列中元素的个数</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：144 ms, 在所有 C++ 提交中击败了32.54%的用户</p><p>内存消耗：56.1 MB, 在所有 C++ 提交中击败了24.97%的用户</p><p>通过测试用例：68 / 68</p>
+          </div></div></div></div>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1122,111 +1212,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/02/LeetCode/20220502-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./img/head.jpg">
-      <meta itemprop="name" content="Atopos·">
-      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Atopos's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/02/LeetCode/20220502-01/" class="post-title-link" itemprop="url">591.标签验证器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-05-02 09:29:25" itemprop="dateCreated datePublished" datetime="2022-05-02T09:29:25+08:00">2022-05-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-16 21:36:52" itemprop="dateModified" datetime="2022-10-16T21:36:52+08:00">2022-10-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/tag-validator/"> 标签验证器 </a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>如果当前字符为 <strong>&lt;</strong>，需要考虑下面四种情况：</p>
-<ul>
-<li>如果下一个字符为 <strong>/</strong>，那么说明我们遇到了一个结束标签。我们需要定位下一个 <strong>&gt;</strong> 的位置 <strong>j</strong>，此时 <code>code[i+2..j−1]</code> 就是该结束标签的名称。我们需要判断该名称与当前栈顶的名称是否匹配，如果匹配，说明名称的标签已经闭合，我们需要将当前栈顶的名称弹出。同时根据规则 <strong>1</strong>，我们需要保证整个 <strong>code</strong> 被闭合标签包围，因此如果栈中已经没有标签，但是 <strong>j</strong> 并不是 <strong>code</strong> 的末尾，那么说明后续还会有字符，它们不被闭合标签包围。</li>
-<li>如果下一个字符为 <strong>!</strong>，那么说明我们遇到了一个 <strong>cdata</strong>，我们需要继续往后读 77 个字符，判断其是否为 \texttt{[CDATA[}[CDATA[。在这之后，我们定位下一个 <strong>]]&gt;</strong> 的位置 <strong>j</strong>，此时 <code>code[i+9..j−1]</code> 就是 <strong>cdata</strong> 中的内容，它不需要被解析，所以我们也不必进行任何验证。需要注意的是，根据规则 <strong>1</strong>，栈中需要存在至少一个开放的标签。</li>
-<li>如果下一个字符为大写字母，那么说明我们遇到了一个开始标签。我们需要定位下一个 <strong>&gt;</strong> 的位置 <strong>j</strong>，此时 <code>code[i+2..j−1]</code> 就是该开始标签的名称。我们需要判断该名称是否恰好由 1 至 9 个大写字母组成，如果是，说明该标签合法，我们需要将该名称放入栈顶。</li>
-<li>除此之外，如果不存在下一个字符，或者下一个字符不属于上述三种情况，那么 <strong>code</strong> 是不合法的。</li>
-</ul>
-<p>如果当前的字符为其它字符，那么根据规则 1，栈中需要存在至少一个开放的标签。</p>
-<p>在遍历完成后，我们还需要保证此时栈中没有任何（还没有结束的）标签。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isValid</span><span class="params">(string code)</span> </span>&#123;</span><br><span class="line">        stack&lt;string&gt; stk;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, n = code.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(i &lt; n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(code[i] == <span class="string">&#x27;&lt;&#x27;</span>)&#123;  <span class="comment">// 当前字符为 &lt;</span></span><br><span class="line">                <span class="keyword">if</span>(i == n - <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(code[i + <span class="number">1</span>] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; code[i + <span class="number">1</span>] &lt;= <span class="string">&#x27;Z&#x27;</span>)&#123;  <span class="comment">// 下一个字符是大写字母</span></span><br><span class="line">                    <span class="type">int</span> j = code.<span class="built_in">find</span>(<span class="string">&#x27;&gt;&#x27;</span>, i);  <span class="comment">// 从i开始找，找到第一个 &gt;，并返回其下标</span></span><br><span class="line">                    <span class="keyword">if</span>(j == string::npos) <span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">// 不存在 &gt;</span></span><br><span class="line">                    string str = code.<span class="built_in">substr</span>(i + <span class="number">1</span>, j - i - <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span>(str.<span class="built_in">length</span>() &lt; <span class="number">1</span> || str.<span class="built_in">length</span>() &gt; <span class="number">9</span>) <span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">// 判断长度是否合法</span></span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt; str.<span class="built_in">size</span>(); k ++)&#123;  <span class="comment">// 判断是否全为大写字母</span></span><br><span class="line">                        <span class="keyword">if</span>(str[k] &lt; <span class="string">&#x27;A&#x27;</span> || str[k] &gt; <span class="string">&#x27;Z&#x27;</span>)</span><br><span class="line">                            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    stk.<span class="built_in">push</span>(str);</span><br><span class="line">                    i = j + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(code[i + <span class="number">1</span>] == <span class="string">&#x27;/&#x27;</span>)&#123;</span><br><span class="line">                    <span class="type">int</span> j = code.<span class="built_in">find</span>(<span class="string">&#x27;&gt;&#x27;</span>, i);</span><br><span class="line">                    <span class="keyword">if</span>(j == string::npos) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    string str = code.<span class="built_in">substr</span>(i + <span class="number">2</span>, j - i - <span class="number">2</span>);</span><br><span class="line">                    <span class="keyword">if</span>(stk.<span class="built_in">empty</span>() || stk.<span class="built_in">top</span>() != str) <span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">// 如果栈顶元素为空 或者 和栈顶元素不匹配</span></span><br><span class="line">                    stk.<span class="built_in">pop</span>();</span><br><span class="line">                    i = j + <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">if</span>(stk.<span class="built_in">empty</span>() &amp;&amp; i != n) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 如果栈为空，但是还没遍历到字符串末尾</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(code[i + <span class="number">1</span>] == <span class="string">&#x27;!&#x27;</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(stk.<span class="built_in">empty</span>()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    string str = code.<span class="built_in">substr</span>(i + <span class="number">2</span>, <span class="number">7</span>);  <span class="comment">// 往后读7个字符</span></span><br><span class="line">                    <span class="keyword">if</span>(str != <span class="string">&quot;[CDATA[&quot;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    <span class="type">int</span> j = code.<span class="built_in">find</span>(<span class="string">&quot;]]&gt;&quot;</span>, i);</span><br><span class="line">                    <span class="keyword">if</span>(j == string::npos) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    i = j + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(stk.<span class="built_in">empty</span>()) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 当前字符为其他字符，但是栈为空了，</span></span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stk.<span class="built_in">empty</span>(); <span class="comment">// 可能还存在栈最后还不空的情况</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 为 <em>code</em> 的长度，我们只需要对 <em>code</em> 进行一次遍历。</li><li>空间复杂度：<em>O(n)</em>，即为栈存储标签名称需要使用的空间。</li></ul>
-          </div>
-
-<div class="note success 执行结果">
-            <p>执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户</p><p>内存消耗：6.3 MB, 在所有 C++ 提交中击败了96.00%的用户</p><p>通过测试用例：260 / 260</p>
-          </div></div></div></div>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1298,7 +1283,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1355,12 +1340,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">760k</span>
+    <span title="站点总字数">786k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">11:31</span>
+    <span title="站点阅读时长">11:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
