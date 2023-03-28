@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">82</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">84</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -188,6 +188,250 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/02/LeetCode/20220502-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/02/LeetCode/20220502-02/" class="post-title-link" itemprop="url">34.在排序数组中查找元素的第一个和最后一个位置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-02 21:11:45 / 修改时间：21:20:40" itemprop="dateCreated datePublished" datetime="2022-05-02T21:11:45+08:00">2022-05-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>864</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/"> 在排序数组中查找元素的第一个和最后一个位置 </a></p>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p><code>二分查找模板</code></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>使用二分算法的两个模板分别可以求出元素出现的第一个位置和最后一个位置。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">if</span>(nums.<span class="built_in">size</span>() == <span class="number">0</span>)&#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(<span class="number">-1</span>);</span><br><span class="line">            res.<span class="built_in">push_back</span>(<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r)&#123;  <span class="comment">//第一个模板</span></span><br><span class="line">            <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= target) r = mid;</span><br><span class="line">            <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(nums[l] != target)&#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(<span class="number">-1</span>);</span><br><span class="line">            res.<span class="built_in">push_back</span>(<span class="number">-1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(l);</span><br><span class="line">            l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(l &lt; r)&#123;  <span class="comment">// 第二个模板</span></span><br><span class="line">                <span class="type">int</span> mid = (l + r + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(nums[mid] &lt;= target) l = mid;</span><br><span class="line">                <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res.<span class="built_in">push_back</span>(r);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(log n)</em>，其中 <em>n</em> 为数组的长度。二分查找的时间复杂度是<em>O(log n)</em>，一共执行两次，所以总的时间复杂度是<em>O(log n)</em></li><li>空间复杂度：<em>O(1)</em>，只需要常数空间存放若干变量</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：4 ms, 在所有 C++ 提交中击败了93.27%的用户</p><p>内存消耗：13.3 MB, 在所有 C++ 提交中击败了34.09%的用户</p><p>通过测试用例：88 / 88</p>
+          </div></div></div></div>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/02/LeetCode/291WeeklyCompetition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/02/LeetCode/291WeeklyCompetition/" class="post-title-link" itemprop="url">LeetCode 第291场周赛</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-02 12:09:46" itemprop="dateCreated datePublished" datetime="2022-05-02T12:09:46+08:00">2022-05-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-09 10:27:23" itemprop="dateModified" datetime="2022-05-09T10:27:23+08:00">2022-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/%E5%91%A8%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">周赛</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目-1：移除指定数字得到的最大结果"><a href="#题目-1：移除指定数字得到的最大结果" class="headerlink" title="题目 1：移除指定数字得到的最大结果"></a>题目 1：移除指定数字得到的最大结果</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-digit-from-number-to-maximize-result/"> 移除指定数字得到的最大结果 </a></p>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p><code>字符串</code></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>遍历一遍字符串，当遇到指定字符时，使用 <code>erase</code> 函数删除该字符，然后使用 <code>compare()</code>函数进行字符串比较，因为字符串的长度都是相等的，所以就相当于比较的是对应整型的大小。最后保存最大的即可。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">removeDigit</span><span class="params">(string number, <span class="type">char</span> digit)</span> </span>&#123;</span><br><span class="line">        string res = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; number.<span class="built_in">length</span>(); i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(number[i] == digit)&#123;</span><br><span class="line">                string str = number;  <span class="comment">// 用于临时保存原来的string</span></span><br><span class="line">                str.<span class="built_in">erase</span>(i, <span class="number">1</span>); <span class="comment">// 删除该字符，从i开始删除，删除1个字符</span></span><br><span class="line">                <span class="keyword">if</span>(res == <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">                    res = str;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(res.<span class="built_in">compare</span>(str) &lt; <span class="number">0</span>)&#123;  <span class="comment">// 比较字符串大小</span></span><br><span class="line">                    res = str;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(n ^ 2)</em>，其中 <em>n</em> 为 <em>number</em> 的长度，我们只需要对 <em>number</em> 进行一次遍历，但是<code>erase</code>函数的时间复杂度为<em>O(n)</em>。</li><li>空间复杂度：<em>O(n)</em>，即为存储标结果需要使用的空间。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户</p><p>内存消耗：6.4 MB, 在所有 C++ 提交中击败了100.00%的用户</p><p>通过测试用例：112 / 112</p>
+          </div></div></div></div>
+<h2 id="题目-2：必须拿起的最小连续卡牌数"><a href="#题目-2：必须拿起的最小连续卡牌数" class="headerlink" title="题目 2：必须拿起的最小连续卡牌数"></a>题目 2：必须拿起的最小连续卡牌数</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-consecutive-cards-to-pick-up/"> 必须拿起的最小连续卡牌数 </a></p>
+<h3 id="标签-1"><a href="#标签-1" class="headerlink" title="标签"></a>标签</h3><p><code>队列</code>、<code>哈希表</code></p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>使用队列存储元素，若将要加入的元素已经存在于队列中，则开始出队，知道队列中不存在该元素，然后和<code>res</code>比较大小，若<code>res</code>大于队列元素个数 加 2（因为此时当前元素还没加入，并且和其相同的元素也已经出队了，所以需要加 2）。然后将当前元素入队，继续往后遍历。</p>
+<p>判断当前元素是否存在于队列中需要使用<code>unordered_map&lt;int, int&gt;</code>哈希表进行存储，表示 K 在哈希表中的个数为 V 。</p>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumCardPickup</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; cards)</span> </span>&#123;</span><br><span class="line">        queue&lt;<span class="type">int</span>&gt; que; <span class="comment">// 队列</span></span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; hsp;  <span class="comment">// 哈希表</span></span><br><span class="line">        que.<span class="built_in">push</span>(cards[<span class="number">0</span>]);</span><br><span class="line">        hsp[cards[<span class="number">0</span>]] ++;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; cards.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">if</span>(hsp[cards[i]] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">while</span>(hsp[cards[i]] &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="type">int</span> top = que.<span class="built_in">front</span>();</span><br><span class="line">                    hsp[top] --;</span><br><span class="line">                    que.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(res == <span class="number">-1</span> || res &gt; (que.<span class="built_in">size</span>() + <span class="number">2</span>)) res = que.<span class="built_in">size</span>() + <span class="number">2</span>;</span><br><span class="line">                hsp[cards[i]] ++;</span><br><span class="line">                que.<span class="built_in">push</span>(cards[i++]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                hsp[cards[i]] ++;</span><br><span class="line">                que.<span class="built_in">push</span>(cards[i++]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 为 <em>cards</em> 的长度，我们只需要对 <em>cards</em> 进行一次遍历.</li><li>空间复杂度：<em>O(2 \</em> n)*，即为队列和哈希表所需要的空间。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：372 ms, 在所有 C++ 提交中击败了100.00%的用户</p><p>内存消耗：116.4 MB, 在所有 C++ 提交中击败了100.00%的用户</p><p>通过测试用例：78 / 78</p>
+          </div></div></div></div>
+<h2 id="题目-3：含最多-K-个可整除元素的子数组-⭐"><a href="#题目-3：含最多-K-个可整除元素的子数组-⭐" class="headerlink" title="题目 3：含最多 K 个可整除元素的子数组 ⭐"></a>题目 3：含最多 K 个可整除元素的子数组 ⭐</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/k-divisible-elements-subarrays/"> 含最多 K 个可整除元素的子数组 </a></p>
+<h3 id="标签-2"><a href="#标签-2" class="headerlink" title="标签"></a>标签</h3><p><code>哈希表</code>、<code>字符串</code></p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>对 <code>nums</code> 数组进行双重循环，第一重确定开始的位置<em>（0 ~ nums.size() - 1）</em> ，然后依次遍历数组，使用整型变量 <em>count</em> 记录出现能整除 <em>p</em> 的个数，当 <em>count</em> 大于 <em>k</em> 时，就跳出循环。否则将该元素转为字符串加入 <em>str</em> 中，<strong>注意</strong>  需要在每个数后面加个 <code>,</code>，是为了防止出现连续加入 1,9和直接加入19造成的歧义。最后将<em>str</em> 直接加入<code>unordered_map</code> 中进行去重。最后结果为<code>unordered_map</code>的个数。</p>
+<p>去重也可以使用<code>map&lt;vector&lt;int&gt;, int&gt;</code></p>
+<h3 id="unordered-map-和-map-的区别"><a href="#unordered-map-和-map-的区别" class="headerlink" title="unordered_map 和 map 的区别"></a>unordered_map 和 map 的区别</h3><ul>
+<li><code>map</code>，<code>set</code>底层是红黑树，有序的，存储的数据类型可以自定义，空间时间复杂度比较高</li>
+<li><code>unordered_map</code>，<code>unordered_set</code>底层实现的时哈希表，无序存储，查询、插入时间空间复杂度比较低（相较于上面两个），但是缺点就是数据类型只能是基本数据类型，比如：<code>int</code>，<code>char</code>，<code>float</code>，<code>string</code>等。</li>
+</ul>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">使用unordered_map</a></li><li class="tab"><a href="#题解-2">使用map</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countDistinct</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;string, <span class="type">int</span>&gt; hsp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i ++)&#123;</span><br><span class="line">            <span class="type">int</span> count = <span class="number">0</span>;  <span class="comment">// 记录能被p整除的个数</span></span><br><span class="line">            string str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i; j &lt; nums.<span class="built_in">size</span>(); j ++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j] % p == <span class="number">0</span>) count ++;</span><br><span class="line">                <span class="keyword">if</span>(count &gt; k) <span class="keyword">break</span>;</span><br><span class="line">                str += <span class="built_in">to_string</span>(nums[j]); <span class="comment">// 将整型转为string类型，并添加到str中</span></span><br><span class="line">                str += <span class="string">&quot;,&quot;</span>; <span class="comment">// 防止出现 1 9  和 19 一样的情况</span></span><br><span class="line">                hsp[str] ++;  <span class="comment">// 使用unordered_map进行去重</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; hsp.size() &lt;&lt; endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hsp.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(n ^ 2)</em>，其中 <em>n</em> 为 <em>nums</em> 的长度</li><li>空间复杂度：<em>O((1 + n) \</em> n / 2)<em>，即为 </em>unordered_map* 做多需要使用的空间。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：492 ms, 在所有 C++ 提交中击败了100.00%的用户</p><p>内存消耗：204.6 MB, 在所有 C++ 提交中击败了100.00%的用户</p><p>通过测试用例：129 / 129</p>
+          </div></div><div class="tab-pane" id="题解-2"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countDistinct</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">        map&lt;vector&lt;<span class="type">int</span>&gt;, <span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i ++)&#123;</span><br><span class="line">            <span class="type">int</span> count = <span class="number">0</span>;  <span class="comment">// 记录能被p整除的个数</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i; j &lt; nums.<span class="built_in">size</span>(); j ++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j] % p == <span class="number">0</span>) count ++;</span><br><span class="line">                <span class="keyword">if</span>(count &gt; k) <span class="keyword">break</span>;</span><br><span class="line">                res[<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(nums.<span class="built_in">begin</span>() + i, nums.<span class="built_in">begin</span>() + j + <span class="number">1</span>)] = <span class="number">1</span>; <span class="comment">// 添加入map</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; hsp.size() &lt;&lt; endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(n ^ 2)</em>，其中 <em>n</em> 为 <em>nums</em> 的长度</li><li>空间复杂度：<em>O((1 + n) \</em> n / 2)<em>，即为 </em>map* 做多需要使用的空间。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：1220 ms, 在所有 C++ 提交中击败了100.00%的用户</p><p>内存消耗：261 MB, 在所有 C++ 提交中击败了100.00%的用户</p><p>通过测试用例：129 / 129</p>
+          </div></div></div></div>
+<h2 id="题目-4：字符串的总引力-⭐⭐"><a href="#题目-4：字符串的总引力-⭐⭐" class="headerlink" title="题目 4：字符串的总引力 ⭐⭐"></a>题目 4：字符串的总引力 ⭐⭐</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/total-appeal-of-a-string/"> 字符串的总引力 </a></p>
+<h3 id="标签-3"><a href="#标签-3" class="headerlink" title="标签"></a>标签</h3><p><code>字符串</code>、<code>哈希表</code>、<code>动态规划</code></p>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>分类讨论：</p>
+<ul>
+<li>如果 <em>s[i]</em> 之前没有遇到过，那么致谢子串的引力值都会增加 1，这些子串的引力值之和会增加 i，再加上1，即 <em>s[i]</em> 单独组成的子串的引力值。</li>
+<li>如果 <em>s[i]</em> 之前遇到过，设其上次出现的下标为 <em>j</em>，那么向子串 <code>s[0...i - 1], s[1...i - 1], s[2...i - 1], ..., s[j...i - 1]</code> 的末尾添加<code>s[i]</code>后，这些子串的引力值是不会变化的，因为 <code>s[i]</code> 已经在 <code>s[j]</code> 出现过了；而子串<code>s[j + 1 .. i - 1], s[j + 2 .. i - 1], .. ,s[i - 1 .. i - 1]</code>由于不包含 <code>s[i]</code>,这些子串的引力值都会增加 1，因此有 <code>i - j - 1</code>个子串的引力值会增加 1，这些子串的引力值之和会增加 <code>i - j -1</code>，在加上 1，即 <code>s[i]</code> 单独组成的子串的引力值。</li>
+</ul>
+<h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">appealSum</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">pos</span><span class="params">(<span class="number">26</span>, <span class="number">-1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, sum = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> a = s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">            sum += i - pos[a];</span><br><span class="line">            res += sum;</span><br><span class="line">            pos[a] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 为 <em>s</em> 的长度。</li><li>空间复杂度：<em>O(∣Σ∣)</em>，其中 <em>∣Σ∣</em> 为字符集合的大小，本题中字符均为小写字母，所以 <em>∣Σ∣=26</em>。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：20 ms, 在所有 C++ 提交中击败了100.00%的用户</p><p>内存消耗：10.4 MB, 在所有 C++ 提交中击败了100.00%的用户</p><p>通过测试用例：76 / 76</p>
+          </div></div></div></div>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -984,196 +1228,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/22/LLVM/02PassWriteProcess/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./img/head.jpg">
-      <meta itemprop="name" content="Atopos·">
-      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Atopos's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/22/LLVM/02PassWriteProcess/" class="post-title-link" itemprop="url">LLVM Pass编写及运行</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-22 10:19:00" itemprop="dateCreated datePublished" datetime="2022-03-22T10:19:00+08:00">2022-03-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-01 14:46:01" itemprop="dateModified" datetime="2022-05-01T14:46:01+08:00">2022-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LLVM/" itemprop="url" rel="index"><span itemprop="name">LLVM</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>学习LLVM中Pass的编写过程。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/03/22/LLVM/02PassWriteProcess/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/22/LLVM/01faultInjection/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./img/head.jpg">
-      <meta itemprop="name" content="Atopos·">
-      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Atopos's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/22/LLVM/01faultInjection/" class="post-title-link" itemprop="url">故障注入&检测流程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-22 10:13:00" itemprop="dateCreated datePublished" datetime="2022-03-22T10:13:00+08:00">2022-03-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-21 13:54:31" itemprop="dateModified" datetime="2022-04-21T13:54:31+08:00">2022-04-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LLVM/" itemprop="url" rel="index"><span itemprop="name">LLVM</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>学习项目中故障注入以及故障检测流程所需要用到的指令。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/03/22/LLVM/01faultInjection/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1245,7 +1299,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1302,12 +1356,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">786k</span>
+    <span title="站点总字数">856k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">11:54</span>
+    <span title="站点阅读时长">12:58</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
