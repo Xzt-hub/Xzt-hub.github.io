@@ -10671,6 +10671,16 @@
 <div class="note success simple">
             <p>执行用时：44 ms, 在所有 Java 提交中击败了76.3%的用户</p><p>内存消耗：25.2 MB, 在所有 Java 提交中击败了38.58%的用户</p>
           </div></div></div></div>
+<h2 id="0329：统计字典序元音字符串的数目"><a href="#0329：统计字典序元音字符串的数目" class="headerlink" title="0329：统计字典序元音字符串的数目"></a>0329：统计字典序元音字符串的数目</h2><p><a href="https://leetcode.cn/problems/count-sorted-vowel-strings/description/"> 统计字典序元音字符串的数目 </a></p>
+<h3 id="标签-19"><a href="#标签-19" class="headerlink" title="标签"></a>标签</h3><p><code>数学</code>、<code>动态规划</code>、<code>组合数学</code></p>
+<h3 id="题解-19"><a href="#题解-19" class="headerlink" title="题解"></a>题解</h3><div class="tabs" id="无矛盾的最佳球队"><ul class="nav-tabs"><li class="tab active"><a href="#无矛盾的最佳球队-1">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="无矛盾的最佳球队-1"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="type">char</span>[] ch = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;i&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;u&#x27;</span>&#125;;</span><br><span class="line">    <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(<span class="type">int</span> n, StringBuilder str, <span class="type">int</span> npc)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(str.length() == n) &#123;</span><br><span class="line">            res ++;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> npc; i &lt; <span class="number">5</span>; i ++) &#123;</span><br><span class="line">            str.append(ch[i]);</span><br><span class="line">            dfs(n, str, i);</span><br><span class="line">            str.deleteCharAt(str.length() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">countVowelStrings</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        dfs(n, str, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li><strong>时间复杂度</strong>：$O(n * n)$。</li><li><strong>空间复杂度</strong>：$O(1)$，只需要常数级的空间。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：404 ms, 在所有 Java 提交中击败了5.58%的用户</p><p>内存消耗：38 MB, 在所有 Java 提交中击败了91.88%的用户</p>
+          </div></div></div></div>
 ]]></content>
       <categories>
         <category>LeetCode</category>
@@ -13097,6 +13107,181 @@
         <tag>JAVA</tag>
         <tag>SpringBoot</tag>
         <tag>AcWing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>复习笔记</title>
+    <url>/2023/03/02/JAVA/20ReviewNotes/</url>
+    <content><![CDATA[<h1 id="Java概念"><a href="#Java概念" class="headerlink" title="Java概念"></a>Java概念</h1><h2 id="Java的三大特性"><a href="#Java的三大特性" class="headerlink" title="Java的三大特性"></a>Java的三大特性</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><blockquote>
+<p>将类的某些信息隐藏在类内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。</p>
+</blockquote>
+<p><strong>解释</strong>：在一个类中，将一些成员变量设为<code>private</code>，而公开<code>public</code>一些方法供其他类调用对这些成员变量进行获取和修改。例如：<code>get</code>、<code>set</code>方法</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><blockquote>
+<p>子类拥有父类的所有属性和方法（除了private修饰的属性不能拥有）。从而实现了代码的复用。</p>
+</blockquote>
+<h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><p><code>class 子类名 extends 父类名 &#123;&#125;</code></p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a><strong>特点</strong></h4><p>java是单继承，一个类只能有一个直接父类，但是可以多级继承，属性和方法逐级叠加。</p>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>不能滥用继承，子类和父类之间必须满足 <code>is-a</code> 的逻辑关系（子类是父类中的一类）</li>
+<li><strong>子类必须调用父类的构造器，完成父类的初始化。</strong> 在子类的构造函数中会默认调用 <code>super()</code> 函数</li>
+<li>子类可以<strong>重写</strong>父类的方法</li>
+</ul>
+<h4 id="super和this"><a href="#super和this" class="headerlink" title="super和this"></a>super和this</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:center">区别点</th>
+<th style="text-align:center">this</th>
+<th style="text-align:center">super</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">访问属性</td>
+<td style="text-align:center">访问本类中的属性，若本类中没有此属性，则从父类中继续查找</td>
+<td style="text-align:center">访问父类中的属性</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">调查方法</td>
+<td style="text-align:center">访问本类中的方法，若本类中没有此方法，则从父类中继续查找</td>
+<td style="text-align:center">访问父类中的方法</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">调用构造器</td>
+<td style="text-align:center">调用本类的构造器，必须放在构造器首行</td>
+<td style="text-align:center">调用父类的构造器，必须放在子类构造器的首行</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">特殊</td>
+<td style="text-align:center">表示当前对象</td>
+<td style="text-align:center">子类中访问父类对象</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><blockquote>
+<p>使用父类引用接受,不同的子类的对象实例,父类引用调用相同的方法,根据子类不同的实例,产生不同的结果</p>
+<p>方法或对象具有多种形态。是面向对象的第三大特征，多态是建立在封装和继承的基础之上的。</p>
+</blockquote>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li>方法的多态：方法的<strong>重载和重写</strong>就体现多态</li>
+<li>对象的多态：<strong>一个对象的编译类型和运行类型可以不一致</strong>。例如：<code>Animal animal = new Dog()</code>，其中编译类型是Animal，运行类型是Dog。</li>
+</ul>
+<h4 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>两个类需要存在继承关系</li>
+<li>多态是<strong>向上转型</strong>。<ul>
+<li>本质：父类的引用指向子类对象</li>
+<li>语法：<code>父类类型 引用名 = new 子类类型()</code></li>
+<li>特点：编译类型看左边，运行类型看右边</li>
+</ul>
+</li>
+<li>多态<strong>向下转型</strong><ul>
+<li>语法：<code>子类类型 引用名 = (子类类型) 父类引用</code>；</li>
+<li>只能强转父类的引用，不能强转父类的对象</li>
+<li>要求父类的引用必须指向的是当前目标类型的对象</li>
+<li>可以调用子类类型中所有的成员日</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(); <span class="comment">// 向上转型</span></span><br><span class="line"><span class="type">Dog</span> <span class="variable">dog</span> <span class="operator">=</span> (Dog) animal; <span class="comment">// 向下转型</span></span><br><span class="line"></span><br><span class="line"><span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> (Cat) animal; <span class="comment">// 错误，animal原来是Dog类型，不能转为cat</span></span><br></pre></td></tr></table></figure>
+<h2 id="重写和重载"><a href="#重写和重载" class="headerlink" title="重写和重载"></a>重写和重载</h2><p>重写和重载是【方法多态性】的体现。</p>
+<h3 id="重载Overloading"><a href="#重载Overloading" class="headerlink" title="重载Overloading"></a>重载Overloading</h3><blockquote>
+<p>重载（overloading）是指在同一个类中定义多个同名方法，但是这些方法的参数列表必须不同。</p>
+<p>方法重载是让类统一的方式处理不同类型数据的一种手段。多个同名函数同时存在，具有不同的参数个数/类型。</p>
+</blockquote>
+<p>重载的时候，方法名需要相同，但是参数类型和个数不同，返回类型可以相同也可以不同。<strong>无法以返回类型作为重载函数的区分标准</strong>。</p>
+<h3 id="重写Override"><a href="#重写Override" class="headerlink" title="重写Override"></a>重写Override</h3><blockquote>
+<p>重写是指子类重新定义（覆盖）父类中的同名方法。子类中的方法名称、返回类型和参数列表必须与父类中的方法相同。</p>
+</blockquote>
+<p>需要注意的是：父类中<code>private</code>修饰的方法不能再子类中进行重写。</p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:center">区别点</th>
+<th style="text-align:center">重载Overloading</th>
+<th style="text-align:center">重写Override</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">定义</td>
+<td style="text-align:center">定义相同的方法名、参数不同</td>
+<td style="text-align:center">子类重写父类的方法</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">范围</td>
+<td style="text-align:center">在同一个类中</td>
+<td style="text-align:center">子类与父类之间</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">多态</td>
+<td style="text-align:center">编译时的多态性</td>
+<td style="text-align:center">运行时的多态性</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">参数</td>
+<td style="text-align:center">参数个数、参数类型、参数的顺序可以不同</td>
+<td style="text-align:center">重写父类子方法参数必须相同</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">修饰</td>
+<td style="text-align:center">对修饰范围没有要求</td>
+<td style="text-align:center">需要重写方法的修饰范围大于被重写方法的修饰范围</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><blockquote>
+<p>反射允许对封装类的字段（成员变量），成员方法和构造方法的信息进行变成访问。</p>
+</blockquote>
+<h3 id="反射的两个过程"><a href="#反射的两个过程" class="headerlink" title="反射的两个过程"></a>反射的两个过程</h3><ul>
+<li>获取封装类的信息。包括：字段、构造方法、成员方法。这里是通过<code>.class</code>文件进行获取的。</li>
+<li>解剖：将获取到的类中对应信息解剖出更详细的信息。包括如下内容。</li>
+</ul>
+<p><img src="20ReviewNotes/image-20230330094545990.png" alt="image-20230330094545990"></p>
+<h3 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h3><h4 id="获取class对象"><a href="#获取class对象" class="headerlink" title="获取class对象"></a>获取class对象</h4><ul>
+<li>源代码阶段：<code>Class.forName(&quot;全类名&quot;)</code>。全类名 = 包名 + 类名。最为常用</li>
+<li>加载阶段：<code>类名.class</code>。一般更多的当作参数进行传递。例如：<code>String.class</code></li>
+<li>运行阶段：<code>对象.getClass()</code>，当已经有了这个类的对象时才能使用。</li>
+</ul>
+<h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h2 id="Java代码可以一次编写、到处运行的原因"><a href="#Java代码可以一次编写、到处运行的原因" class="headerlink" title="Java代码可以一次编写、到处运行的原因"></a>Java代码可以一次编写、到处运行的原因</h2><p>JVM（Java虚拟机）时Java跨平台的关键。</p>
+<p>在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。</p>
+<p>同一份Java源代码在不同的平台上运行，它不需要做任何的改变，并且只需要编译一次。而编译好的字节码，是通过JVM这个中间的“桥梁”实现跨平台的，JVM是与平台相关的软件，它能将统一的字节码翻译成该平台的机器码。</p>
+<p>java代码的编译执行过程：<code>.java -- 编译 --&gt; .class -- JVm --&gt; 特定平台的机器码</code></p>
+<h3 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li>编译的结果是生成字节码、不是机器码，字节码不能直接运行，必须通过JVM翻译成机器码才能运行</li>
+<li>跨平台的是java代码，而不是JVM，JVM是用C/C++编写的，不同平台需要安装不同的JVM</li>
+</ol>
+<h2 id="Java的访问权限"><a href="#Java的访问权限" class="headerlink" title="Java的访问权限"></a>Java的访问权限</h2><p>Java提供了三种访问修饰符：<code>public</code>、<code>private</code>、<code>protected</code>，但是可以形成四种访问权限：<code>publice</code>、<code>default</code>、<code>protected</code>、<code>private</code>。default为不加任何访问修饰符。</p>
+<h3 id="修饰成员变量-成员方法"><a href="#修饰成员变量-成员方法" class="headerlink" title="修饰成员变量/成员方法"></a>修饰成员变量/成员方法</h3><ul>
+<li>private: 该成员可以被该类内部成员访问。</li>
+<li>default: 该成员可以被该类内部成员访问，也可以被同一包下的其他类访问。</li>
+<li>protected: 该成员可以被该类内部成员访问，也可以被同一包下的其他类访问，还能被它的子类访问。</li>
+<li>public: 该成员可以被任意包下，任意类的成员进行访问。</li>
+</ul>
+<h3 id="修饰类"><a href="#修饰类" class="headerlink" title="修饰类"></a>修饰类</h3><p>修饰类的时候只有两种访问权限：</p>
+<ul>
+<li>default: 该类可以被同一包下的其他类访问。</li>
+<li>public：该类可以被同一包下，任意类所访问。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>ReviewNotes</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
       </tags>
   </entry>
 </search>
