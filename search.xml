@@ -13111,7 +13111,7 @@
   </entry>
   <entry>
     <title>复习笔记</title>
-    <url>/2023/03/02/JAVA/20ReviewNotes/</url>
+    <url>/2023/03/30/JAVA/20ReviewNotes/</url>
     <content><![CDATA[<h1 id="Java概念"><a href="#Java概念" class="headerlink" title="Java概念"></a>Java概念</h1><h2 id="Java的三大特性"><a href="#Java的三大特性" class="headerlink" title="Java的三大特性"></a>Java的三大特性</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><blockquote>
 <p>将类的某些信息隐藏在类内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。</p>
 </blockquote>
@@ -13259,24 +13259,83 @@
 <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h2 id="Java代码可以一次编写、到处运行的原因"><a href="#Java代码可以一次编写、到处运行的原因" class="headerlink" title="Java代码可以一次编写、到处运行的原因"></a>Java代码可以一次编写、到处运行的原因</h2><p>JVM（Java虚拟机）时Java跨平台的关键。</p>
 <p>在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。</p>
 <p>同一份Java源代码在不同的平台上运行，它不需要做任何的改变，并且只需要编译一次。而编译好的字节码，是通过JVM这个中间的“桥梁”实现跨平台的，JVM是与平台相关的软件，它能将统一的字节码翻译成该平台的机器码。</p>
-<p>java代码的编译执行过程：<code>.java -- 编译 --&gt; .class -- JVm --&gt; 特定平台的机器码</code></p>
+<p>java代码的编译执行过程：<code>.java -- 编译 --&gt; .class -- JVM --&gt; 特定平台的机器码</code></p>
 <h3 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
 <li>编译的结果是生成字节码、不是机器码，字节码不能直接运行，必须通过JVM翻译成机器码才能运行</li>
-<li>跨平台的是java代码，而不是JVM，JVM是用C/C++编写的，不同平台需要安装不同的JVM</li>
+<li>跨平台的是Java代码，而不是JVM，JVM是用C/C++编写的，不同平台需要安装不同的JVM</li>
 </ol>
 <h2 id="Java的访问权限"><a href="#Java的访问权限" class="headerlink" title="Java的访问权限"></a>Java的访问权限</h2><p>Java提供了三种访问修饰符：<code>public</code>、<code>private</code>、<code>protected</code>，但是可以形成四种访问权限：<code>publice</code>、<code>default</code>、<code>protected</code>、<code>private</code>。default为不加任何访问修饰符。</p>
 <h3 id="修饰成员变量-成员方法"><a href="#修饰成员变量-成员方法" class="headerlink" title="修饰成员变量/成员方法"></a>修饰成员变量/成员方法</h3><ul>
-<li>private: 该成员可以被该类内部成员访问。</li>
-<li>default: 该成员可以被该类内部成员访问，也可以被同一包下的其他类访问。</li>
-<li>protected: 该成员可以被该类内部成员访问，也可以被同一包下的其他类访问，还能被它的子类访问。</li>
-<li>public: 该成员可以被任意包下，任意类的成员进行访问。</li>
+<li><code>private</code>: 该成员可以被该类内部成员访问。</li>
+<li><code>default</code>: 该成员可以被该类内部成员访问，也可以被同一包下的其他类访问。</li>
+<li><code>protected</code>: 该成员可以被该类内部成员访问，也可以被同一包下的其他类访问，还能被它的子类访问。</li>
+<li><code>public</code>: 该成员可以被任意包下，任意类的成员进行访问。</li>
 </ul>
 <h3 id="修饰类"><a href="#修饰类" class="headerlink" title="修饰类"></a>修饰类</h3><p>修饰类的时候只有两种访问权限：</p>
 <ul>
-<li>default: 该类可以被同一包下的其他类访问。</li>
-<li>public：该类可以被同一包下，任意类所访问。</li>
+<li><code>default</code>: 该类可以被同一包下的其他类访问。</li>
+<li><code>public</code>：该类可以被同一包下，任意类所访问。</li>
 </ul>
-]]></content>
+<h2 id="全局变量和局部变量的区别"><a href="#全局变量和局部变量的区别" class="headerlink" title="全局变量和局部变量的区别"></a>全局变量和局部变量的区别</h2><p>Java中没有真正的全局变量，对应的是成员变量。因此Java中的变量分为成员变量和局部变量</p>
+<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><ul>
+<li>定义在类的范围里。</li>
+<li>有默认的初始值</li>
+<li>没有被<code>static</code>修饰的成员变量也叫<strong>实例变量</strong>。存储在对象所在的堆内存中，生命周期和对象相同。</li>
+<li>被<code>static</code>修饰的成员变量也叫<strong>类变量</strong>。存储在方法区中，生命周期和当前类相同。</li>
+</ul>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><ul>
+<li>定义在方法里。</li>
+<li>没有默认初始值。</li>
+<li>存储于栈内存中，作用的范围结束，变量空间会自动释放。</li>
+</ul>
+<h2 id="Java为什么要有包装类"><a href="#Java为什么要有包装类" class="headerlink" title="Java为什么要有包装类"></a>Java为什么要有包装类</h2><p>Java语言是面向对象的语言，设计理念是“一切皆对象”。但8种基本数据类型出现了例外，为了解决这个问题，Java为每个基本数据类型都定义了一个对应的引用类型。这就是包装类。</p>
+<h2 id="自动装箱-amp-自动拆箱"><a href="#自动装箱-amp-自动拆箱" class="headerlink" title="自动装箱&amp;自动拆箱"></a>自动装箱&amp;自动拆箱</h2><p>自动装箱、自动拆箱是Java1.5提供的功能。</p>
+<ul>
+<li>自动装箱：可以把一个基本类型的数据直接赋值给对应的包装类型。是通过包装类的<code>valueOf()</code>实现的。</li>
+<li>自动拆箱：可以把一个包装类型的对象直接赋值给对应的基本类型。是通过包装类的<code>xxValue()</code>实现的。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">10</span>; <span class="comment">// 自动装箱  Integer i = valueOf(10);</span></span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> i; <span class="comment">// 自动拆箱  int b = i.intValue();</span></span><br></pre></td></tr></table></figure>
+<p>通过自动装箱、自动拆箱功能，可以大大简化基本类型变量和包装类对象之间的转换过程。比如，某个方法的参数类型为包装类型，调用时我们所持有的数据却是基本类型的值，则可以不做任何特殊的处理，直接将这个基本类型的值传入给方法即可。</p>
+<h2 id="int和Integer的区别，二者做-运算时的过程"><a href="#int和Integer的区别，二者做-运算时的过程" class="headerlink" title="int和Integer的区别，二者做==运算时的过程"></a>int和Integer的区别，二者做<code>==</code>运算时的过程</h2><p>int是基本数据类型，Integer是int的包装类。</p>
+<p>二者做<code>==</code>运算时，Integer会自动拆箱为int类型，然后进行比较。如果两个int值相等返回true，否则返回false</p>
+<h2 id="如何对Integer和Double类型判断相等"><a href="#如何对Integer和Double类型判断相等" class="headerlink" title="如何对Integer和Double类型判断相等"></a>如何对Integer和Double类型判断相等</h2><p>二者不能直接进行比较，包括：</p>
+<ul>
+<li>不能使用<code>==</code>进行比较，因为二者的数据类型不同。</li>
+<li>不能转为String进行比较，因为Double转为String后会存在小数点，这样永远不相等。</li>
+<li>不能使用<code>compareTo()</code>进行比较，他们都存在<code>compareTo</code>方法，但是该方法只能对相同类型进行比较。</li>
+</ul>
+<p>Integer和Double都继承于Number类型，而Number类型分别定义了将数字转为byte、short、int、long、float、double的方法。所以可以将Integer、Double先转为相同的基本数据类型（如double），然后使用<code>==</code>进行比较。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="type">Double</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">100.00</span>;</span><br><span class="line">System.out.println(i.doubleValue() == d.doubleValue());</span><br></pre></td></tr></table></figure>
+<h2 id="hashCode-和equals-的关系"><a href="#hashCode-和equals-的关系" class="headerlink" title="hashCode()和equals()的关系"></a><code>hashCode()</code>和<code>equals()</code>的关系</h2><p>hashCode()用于获取哈希码（散列码），equals()用于比较两个对象是否相等。</p>
+<ul>
+<li>如果两个对象相等，则它们必须拥有相同的哈希码</li>
+<li>如果两个对象拥有相同的哈希码，则他们未必相等。</li>
+</ul>
+<h2 id="为什么要重写hashCode-和equals"><a href="#为什么要重写hashCode-和equals" class="headerlink" title="为什么要重写hashCode()和equals()"></a>为什么要重写<code>hashCode()</code>和<code>equals()</code></h2><p>Object类提供的equals()方法默认是用<code>==</code>来进行比较的，也就是说只有两个对象是同一个对象时，才能返回相等的结果。而实际的业务中，我们通常的需求是，若两个不同的对象它们的内容是相同的，就认为它们相等。鉴于这种情况，Object类中equals()方法的默认实现是没有实用价值的，所以通常都要重写。</p>
+<p>由于<code>hashCode()</code>与<code>equals()</code>具有联动关系，所以<code>equals()</code>方法重写时，通常也要将<code>hashCode()</code>进行重写，使得这两个方法始终满足相关的约定。</p>
+<h2 id="和equals-的区别"><a href="#和equals-的区别" class="headerlink" title="==和equals()的区别"></a><code>==</code>和<code>equals()</code>的区别</h2><p><code>==</code>运算符</p>
+<ul>
+<li>作用于基本数据类型时：是比较两个数值是否相等。</li>
+<li>作用于引用数据类型时：是比较两个对象地内存地址是否相同，即判断他们是否为同一对象。</li>
+</ul>
+<p><code>equals()</code></p>
+<ul>
+<li>没有重写时，Object默认以<code>==</code>来实现，即比较两个对象地内存地址是否相同。</li>
+<li>进行重写后，一般按照对象的内容来进行比较，若两个对象内容相同则认为对象相等，否则认为对象不等。</li>
+</ul>
+<h2 id="String可以被继承吗"><a href="#String可以被继承吗" class="headerlink" title="String可以被继承吗"></a>String可以被继承吗</h2><p><code>String</code>类由<code>final</code>修饰，因此不能被继承。同时String类的对象不能修改。</p>
+<h3 id="String类的底层实现"><a href="#String类的底层实现" class="headerlink" title="String类的底层实现"></a>String类的底层实现</h3><ul>
+<li>Java 9之前字符串采用char[]数组来保存字符，即<code>private final char[] value</code></li>
+<li>Java 9做了改进，采用byte[]数组来保存字符，即<code>private final byte[] value</code></li>
+</ul>
+<h2 id="String和StringBuffer的区别"><a href="#String和StringBuffer的区别" class="headerlink" title="String和StringBuffer的区别"></a>String和StringBuffer的区别</h2><p>String类是<strong>不可变类</strong>，即一旦一个String对象被创建以后，包含在这个对象中的字符序列是不可改变的，直到这个对象被销毁。</p>
+<p>StringBuffer对象则<strong>代表一个字符序列可变的字符串</strong>，当一个StringBuffer被创建以后，通过StringBuffer提供的append()，insert()，reverse()，setCharAt()，setLength()等方法可以改变这个字符串对象的字符序列。一旦StringBuffer生成了最终想要的字符串，就可以调用它的toString()方法将其转换为一个String()对象。</p>
+<h2 id="StringBuffer和StringBuilder的区别"><a href="#StringBuffer和StringBuilder的区别" class="headerlink" title="StringBuffer和StringBuilder的区别"></a>StringBuffer和StringBuilder的区别</h2><p>StringBuffer、StringBuilder都代表可变的字符串对象，它们有共同的父类 <code>AbstractStringBuilder</code>，并且两个类的构造方法和成员方法也基本相同。不同的是:</p>
+<ul>
+<li>StringBuffer是线程安全的，</li>
+<li>而StringBuilder是非线程安全的，所以StringBuilder性能略高。一般情况下，要创建一个内容可变的字符串，建议优先考虑StringBuilder类。</li>
+</ul>
+<h2 id="初始化字符串的方式"><a href="#初始化字符串的方式" class="headerlink" title="初始化字符串的方式"></a>初始化字符串的方式</h2>]]></content>
       <categories>
         <category>ReviewNotes</category>
       </categories>
