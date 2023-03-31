@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2023/03/30/JAVA/20ReviewNotes/20ReviewNotes/image-20230330094545990.png">
 <meta property="article:published_time" content="2023-03-30T00:02:25.000Z">
-<meta property="article:modified_time" content="2023-03-30T03:22:03.952Z">
+<meta property="article:modified_time" content="2023-03-30T08:34:12.411Z">
 <meta property="article:author" content="Atopos·">
 <meta property="article:tag" content="JAVA">
 <meta name="twitter:card" content="summary">
@@ -221,7 +221,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-30 08:02:25 / 修改时间：11:22:03" itemprop="dateCreated datePublished" datetime="2023-03-30T08:02:25+08:00">2023-03-30</time>
+              <time title="创建时间：2023-03-30 08:02:25 / 修改时间：16:34:12" itemprop="dateCreated datePublished" datetime="2023-03-30T08:02:25+08:00">2023-03-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,14 +239,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.8k</span>
+              <span>7.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>7 分钟</span>
             </span>
             <div class="post-description">记录复习笔记</div>
 
@@ -403,11 +403,28 @@
 <li>加载阶段：<code>类名.class</code>。一般更多的当作参数进行传递。例如：<code>String.class</code></li>
 <li>运行阶段：<code>对象.getClass()</code>，当已经有了这个类的对象时才能使用。</li>
 </ul>
+<h2 id="类的五大成员"><a href="#类的五大成员" class="headerlink" title="类的五大成员"></a>类的五大成员</h2><ul>
+<li>属性：类中定义的成员变量</li>
+<li>方法：类中定义的成员方法。就是一些函数</li>
+<li>构造器：一种特殊的方法，该方法没有返回类型，并且方法名和类名相同。</li>
+<li>代码块：使用<code>&#123; &#125;</code>包围起来的方法体中，没有方法名，没有参数，只有方法体。</li>
+<li>内部类：一个类的内部又完整的嵌套了另一个类结构，被嵌套的类称为内部类（<code>inner class</code>），嵌套其他类的类称为外部类（<code>outer class</code>）。</li>
+</ul>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><blockquote>
+<p>代码块又称初始化块，属于类中的成员，类似于方法，将逻辑语句封装在方法体中，通过 <code>&#123;&#125;</code> 包围起来。但和方法不同，<strong>没有方法名，没有参数，只有方法体</strong>，而且不用通过对象或类显式调用，而是加载类时，或创建对象时隐式调用。</p>
+</blockquote>
+<p><strong>调用时机</strong>：在创建对象时隐士调用，换句话说，在调用构造函数时会先调用代码块，然后调用构造函数。</p>
+<h3 id="基本语法-1"><a href="#基本语法-1" class="headerlink" title="基本语法"></a>基本语法</h3><p><code>[修饰符] &#123; 代码 &#125;;</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Aniaml</span> &#123;</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;加载类的时候隐式调用&quot;</span>);	</span><br><span class="line">    &#125;  <span class="comment">// 当任何一个构造器被调用时都会优先调用代码块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>修饰符可以不写，写的话只能是<code>static</code></li>
+<li>使用<code>static</code>修饰的叫静态代码块，没有 <code>static</code> 修饰的叫普通代码块</li>
+</ul>
 <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h2 id="Java代码可以一次编写、到处运行的原因"><a href="#Java代码可以一次编写、到处运行的原因" class="headerlink" title="Java代码可以一次编写、到处运行的原因"></a>Java代码可以一次编写、到处运行的原因</h2><p>JVM（Java虚拟机）时Java跨平台的关键。</p>
 <p>在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。</p>
 <p>同一份Java源代码在不同的平台上运行，它不需要做任何的改变，并且只需要编译一次。而编译好的字节码，是通过JVM这个中间的“桥梁”实现跨平台的，JVM是与平台相关的软件，它能将统一的字节码翻译成该平台的机器码。</p>
 <p>java代码的编译执行过程：<code>.java -- 编译 --&gt; .class -- JVM --&gt; 特定平台的机器码</code></p>
-<h3 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<h3 id="注意事项-3"><a href="#注意事项-3" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
 <li>编译的结果是生成字节码、不是机器码，字节码不能直接运行，必须通过JVM翻译成机器码才能运行</li>
 <li>跨平台的是Java代码，而不是JVM，JVM是用C/C++编写的，不同平台需要安装不同的JVM</li>
 </ol>
@@ -482,7 +499,99 @@
 <li>StringBuffer是线程安全的，</li>
 <li>而StringBuilder是非线程安全的，所以StringBuilder性能略高。一般情况下，要创建一个内容可变的字符串，建议优先考虑StringBuilder类。</li>
 </ul>
-<h2 id="初始化字符串的方式"><a href="#初始化字符串的方式" class="headerlink" title="初始化字符串的方式"></a>初始化字符串的方式</h2>
+<h2 id="初始化字符串的方式"><a href="#初始化字符串的方式" class="headerlink" title="初始化字符串的方式"></a>初始化字符串的方式</h2><h3 id="使用new关键字"><a href="#使用new关键字" class="headerlink" title="使用new关键字"></a>使用<code>new</code>关键字</h3><p>String str = new String(“hello”);</p>
+<p>JVM会先使用常量池来管理”hello”直接量，再调用String类的构造器来创建一个新的String对象，新创建的String对象会被保存在堆内存中。</p>
+<h3 id="使用”hello”创建"><a href="#使用”hello”创建" class="headerlink" title="使用”hello”创建"></a>使用”hello”创建</h3><p>String str = “hello”;</p>
+<p>当Java程序直接使用”hello”的字符串直接量时，JVM将会使用常量池来管理这个字符串。</p>
+<p>显然，采用new的方式会多创建一个对象出来，会占用更多的内存，所以一般建议使用直接量的方式创建字符串。</p>
+<h2 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>接口是一种规范，对于接口的实现者而言，接口规定了实现者必须向外提供哪些服务；对于接口的调用者而言，接口规定了调用者可以调用哪些服务，以及如何调用这些服务。当在一个程序中使用接口时，接口是多个模块间的耦合标准；当在多个应用程序之间使用接口时，接口是多个程序之间的通信标准。</p>
+<p><strong>定义方法</strong>：<code>public interface 接口名 &#123; &#125;</code></p>
+<h4 id="注意事项-4"><a href="#注意事项-4" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>接口不能被实例化</li>
+<li>接口中所有方法时 <code>public</code> 方法，接口中抽象方法，可以不用 <code>abstract</code> 修饰</li>
+<li><strong>一个类可以同时实现多个接口</strong></li>
+<li>接口中的属性只能时 <code>final</code>，而且是 <code>public static final</code> 修饰符；例如：<code>int a = 1</code> 实际上是 <code>public static final int a = 1</code></li>
+<li>接口中的属性的访问形式：<code>接口名.属性名</code></li>
+<li>接口可以继承多个别的接口<code>interface A extends B, C &#123; &#125;</code></li>
+<li>接口的修饰符只能是 <code>public</code> 和默认，这点和类的修饰符是一样的</li>
+</ul>
+<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p>抽象类体现的是一种模板式设计。抽象类作为多个子类的抽象父类，可以被当成系统实现过程中的中间产品，这个中间产品已经实现了系统的部分功能，但这个产品依然不能当成最终产品，必须有更进一步的完善，这种完善可能有几种不同方式。</p>
+<p><strong>定义方法</strong>：<code>public abstract class 抽象类名 &#123; &#125;</code></p>
+<h3 id="区别-1"><a href="#区别-1" class="headerlink" title="区别"></a>区别</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:center">区别点</th>
+<th style="text-align:center">接口interface</th>
+<th style="text-align:center">抽象类abstract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">方法</td>
+<td style="text-align:center">只能包含抽象方法、静态方法、默认方法；不能为普通方法提供方法实现。</td>
+<td style="text-align:center">可以完全包含普通方法</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">成员变量</td>
+<td style="text-align:center">只能定义静态常量<code>public static final</code>，不能定义普通成员变量</td>
+<td style="text-align:center">可以定义普通成员变量，也可以定义静态常量</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">构造器</td>
+<td style="text-align:center">不包含构造器</td>
+<td style="text-align:center">可以包含构造器，用来让其子类调用这些构造器来完成属于首相类的初始化操作。</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">初始化块</td>
+<td style="text-align:center">不能包含初始化块</td>
+<td style="text-align:center">可以包含初始化块</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">继承/实现</td>
+<td style="text-align:center">可以实现多个接口</td>
+<td style="text-align:center">只能有一个父类包括抽象类</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="Java设计模式"><a href="#Java设计模式" class="headerlink" title="Java设计模式"></a>Java设计模式</h1><blockquote>
+<p>设计模式是在大量的实践中总结和理论化之后的优选的代码结构、编程风格、以及解决问题的思考方式。</p>
+</blockquote>
+<h2 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h2><blockquote>
+<p>就是采取一定的方法保证在整个软件系统中，对某个类只能存在一个对象实例，并且该类只提供一个取得对象实例的方法。</p>
+</blockquote>
+<h3 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h3><blockquote>
+<p>在加载类的时候就会创建对象，可能会造成对象创建了但是没有使用，造成资源浪费</p>
+</blockquote>
+<h4 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h4><ol>
+<li>构造方法私有化。这一步的目的是为了不让外部可以创建对象。</li>
+<li>类内部创建对象，创建的对象是<code>static</code>。</li>
+<li>向外暴露一个<strong>静态</strong>的<strong>公共</strong>方法，<code>getInstance()</code>。该静态的公共方法返回创建的对象。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">   	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>(<span class="string">&quot;大白&quot;</span>);  <span class="comment">// 2.类内部创建对象，用static修饰</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Aniaml</span><span class="params">(String name)</span> &#123;  <span class="comment">// 1.构造器私有化</span></span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Animal <span class="title function_">getInstance</span><span class="params">()</span> &#123;  <span class="comment">// 3.向外暴露一个方法用来获取创建的对象。static</span></span><br><span class="line">        <span class="keyword">return</span> animal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> Animal.getInstance(); <span class="comment">// 获取对象。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h3><blockquote>
+<p>在使用时创建对象，只有在用户使用<code>getInstance()</code>方法时才返回对象，后面再次调用时会返回上次创建的对象，从而保证了单例。</p>
+</blockquote>
+<h4 id="实现方法-1"><a href="#实现方法-1" class="headerlink" title="实现方法"></a>实现方法</h4><ol>
+<li>构造器私有化。</li>
+<li>定义一个<code>static</code>静态属性对象。</li>
+<li>定义一个<code>public</code>的<code>static</code>方法可以返回对象。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">   	<span class="keyword">private</span> <span class="keyword">static</span> Animal animal;  <span class="comment">// 2.类内部创建对象，用static修饰</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Aniaml</span><span class="params">(String name)</span> &#123;  <span class="comment">// 1.构造器私有化</span></span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Animal <span class="title function_">getInstance</span><span class="params">()</span> &#123;  <span class="comment">// 3.向外暴露一个方法用来获取创建的对象。static</span></span><br><span class="line">        <span class="keyword">if</span>(animal == <span class="literal">null</span>) </span><br><span class="line">            animal = <span class="keyword">new</span> <span class="title class_">Animal</span>(<span class="string">&quot;大白&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> animal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> Animal.getInstance(); <span class="comment">// 获取对象。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="饿汉式和懒汉式的区别"><a href="#饿汉式和懒汉式的区别" class="headerlink" title="饿汉式和懒汉式的区别"></a>饿汉式和懒汉式的区别</h3><ul>
+<li>最主要的区别是创建对象的<strong>时机不同</strong>，饿汉式是在类加载就创建了对象实例，而懒汉式是在使用时才创建</li>
+<li>饿汉式不存在线程安全问题，<strong>懒汉式存在线程安全问题</strong></li>
+<li><strong>饿汉式存在浪费资源的问题</strong>，懒汉式则不存在这个问题。和对象的创建时机有很大的关系</li>
+<li>在<code>javaSE</code>标准类中，<code>java.lang.Runtime</code> 就是经典的单例模式</li>
+</ul>
+
     </div>
 
     
@@ -607,7 +716,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">Java概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">Java的三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-number">1.1.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">1.1.2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#super%E5%92%8Cthis"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">super和this</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-number">1.1.3.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-1"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD"><span class="nav-number">1.2.</span> <span class="nav-text">重写和重载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%BD%BDOverloading"><span class="nav-number">1.2.1.</span> <span class="nav-text">重载Overloading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%86%99Override"><span class="nav-number">1.2.2.</span> <span class="nav-text">重写Override</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.3.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84"><span class="nav-number">1.3.</span> <span class="nav-text">反射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%BF%87%E7%A8%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">反射的两个过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96"><span class="nav-number">1.3.2.</span> <span class="nav-text">获取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96class%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">获取class对象</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E4%BB%A3%E7%A0%81%E5%8F%AF%E4%BB%A5%E4%B8%80%E6%AC%A1%E7%BC%96%E5%86%99%E3%80%81%E5%88%B0%E5%A4%84%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.1.</span> <span class="nav-text">Java代码可以一次编写、到处运行的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-2"><span class="nav-number">2.1.1.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="nav-number">2.2.</span> <span class="nav-text">Java的访问权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F-%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">修饰成员变量&#x2F;成员方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E7%B1%BB"><span class="nav-number">2.2.2.</span> <span class="nav-text">修饰类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.3.</span> <span class="nav-text">全局变量和局部变量的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F"><span class="nav-number">2.3.1.</span> <span class="nav-text">成员变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="nav-number">2.3.2.</span> <span class="nav-text">局部变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="nav-number">2.4.</span> <span class="nav-text">Java为什么要有包装类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1-amp-%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1"><span class="nav-number">2.5.</span> <span class="nav-text">自动装箱&amp;自动拆箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#int%E5%92%8CInteger%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E4%BA%8C%E8%80%85%E5%81%9A-%E8%BF%90%E7%AE%97%E6%97%B6%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">2.6.</span> <span class="nav-text">int和Integer的区别，二者做&#x3D;&#x3D;运算时的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9Integer%E5%92%8CDouble%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD%E7%9B%B8%E7%AD%89"><span class="nav-number">2.7.</span> <span class="nav-text">如何对Integer和Double类型判断相等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashCode-%E5%92%8Cequals-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">2.8.</span> <span class="nav-text">hashCode()和equals()的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashCode-%E5%92%8Cequals"><span class="nav-number">2.9.</span> <span class="nav-text">为什么要重写hashCode()和equals()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%92%8Cequals-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.10.</span> <span class="nav-text">&#x3D;&#x3D;和equals()的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97"><span class="nav-number">2.11.</span> <span class="nav-text">String可以被继承吗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String%E7%B1%BB%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.11.1.</span> <span class="nav-text">String类的底层实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E5%92%8CStringBuffer%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.12.</span> <span class="nav-text">String和StringBuffer的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuffer%E5%92%8CStringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.13.</span> <span class="nav-text">StringBuffer和StringBuilder的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">2.14.</span> <span class="nav-text">初始化字符串的方式</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">Java概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">Java的三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-number">1.1.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">1.1.2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#super%E5%92%8Cthis"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">super和this</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-number">1.1.3.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-1"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD"><span class="nav-number">1.2.</span> <span class="nav-text">重写和重载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%BD%BDOverloading"><span class="nav-number">1.2.1.</span> <span class="nav-text">重载Overloading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%86%99Override"><span class="nav-number">1.2.2.</span> <span class="nav-text">重写Override</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.3.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84"><span class="nav-number">1.3.</span> <span class="nav-text">反射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%BF%87%E7%A8%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">反射的两个过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96"><span class="nav-number">1.3.2.</span> <span class="nav-text">获取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96class%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">获取class对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E4%BA%94%E5%A4%A7%E6%88%90%E5%91%98"><span class="nav-number">1.4.</span> <span class="nav-text">类的五大成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">1.5.</span> <span class="nav-text">代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-2"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E4%BB%A3%E7%A0%81%E5%8F%AF%E4%BB%A5%E4%B8%80%E6%AC%A1%E7%BC%96%E5%86%99%E3%80%81%E5%88%B0%E5%A4%84%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.1.</span> <span class="nav-text">Java代码可以一次编写、到处运行的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-3"><span class="nav-number">2.1.1.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="nav-number">2.2.</span> <span class="nav-text">Java的访问权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F-%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">修饰成员变量&#x2F;成员方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E7%B1%BB"><span class="nav-number">2.2.2.</span> <span class="nav-text">修饰类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.3.</span> <span class="nav-text">全局变量和局部变量的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F"><span class="nav-number">2.3.1.</span> <span class="nav-text">成员变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="nav-number">2.3.2.</span> <span class="nav-text">局部变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="nav-number">2.4.</span> <span class="nav-text">Java为什么要有包装类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1-amp-%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1"><span class="nav-number">2.5.</span> <span class="nav-text">自动装箱&amp;自动拆箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#int%E5%92%8CInteger%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E4%BA%8C%E8%80%85%E5%81%9A-%E8%BF%90%E7%AE%97%E6%97%B6%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">2.6.</span> <span class="nav-text">int和Integer的区别，二者做&#x3D;&#x3D;运算时的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9Integer%E5%92%8CDouble%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD%E7%9B%B8%E7%AD%89"><span class="nav-number">2.7.</span> <span class="nav-text">如何对Integer和Double类型判断相等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashCode-%E5%92%8Cequals-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">2.8.</span> <span class="nav-text">hashCode()和equals()的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashCode-%E5%92%8Cequals"><span class="nav-number">2.9.</span> <span class="nav-text">为什么要重写hashCode()和equals()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%92%8Cequals-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.10.</span> <span class="nav-text">&#x3D;&#x3D;和equals()的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97"><span class="nav-number">2.11.</span> <span class="nav-text">String可以被继承吗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String%E7%B1%BB%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.11.1.</span> <span class="nav-text">String类的底层实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E5%92%8CStringBuffer%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.12.</span> <span class="nav-text">String和StringBuffer的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuffer%E5%92%8CStringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.13.</span> <span class="nav-text">StringBuffer和StringBuilder的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">2.14.</span> <span class="nav-text">初始化字符串的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8new%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">2.14.1.</span> <span class="nav-text">使用new关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E2%80%9Dhello%E2%80%9D%E5%88%9B%E5%BB%BA"><span class="nav-number">2.14.2.</span> <span class="nav-text">使用”hello”创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.15.</span> <span class="nav-text">接口和抽象类的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.15.1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-4"><span class="nav-number">2.15.1.1.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="nav-number">2.15.2.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB-1"><span class="nav-number">2.15.3.</span> <span class="nav-text">区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">Java设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">单例设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A5%BF%E6%B1%89%E5%BC%8F"><span class="nav-number">3.1.1.</span> <span class="nav-text">饿汉式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">实现方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%87%92%E6%B1%89%E5%BC%8F"><span class="nav-number">3.1.2.</span> <span class="nav-text">懒汉式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95-1"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">实现方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A5%BF%E6%B1%89%E5%BC%8F%E5%92%8C%E6%87%92%E6%B1%89%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.3.</span> <span class="nav-text">饿汉式和懒汉式的区别</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -680,12 +789,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">918k</span>
+    <span title="站点总字数">921k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:55</span>
+    <span title="站点阅读时长">13:57</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
