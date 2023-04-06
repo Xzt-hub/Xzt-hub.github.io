@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">86</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">87</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -188,6 +188,117 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/03/LeetCode/20220503-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./img/head.jpg">
+      <meta itemprop="name" content="Atopos·">
+      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Atopos's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/03/LeetCode/20220503-03/" class="post-title-link" itemprop="url">78.子集</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-03 20:31:35 / 修改时间：21:12:33" itemprop="dateCreated datePublished" datetime="2022-05-03T20:31:35+08:00">2022-05-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subsets/"> 子集 </a></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先确定需要的子数组的大小，（从 0 到 <code>nums.size()</code> 依次遍历），然后递归进行选择，每次递归都从上一个元素的下一位置开始，直到临时数组的大小等于当前确定的所需子数组的大小，将其加入结果数组。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">    <span class="comment">// x 当前需要子集的大小， npc 应该开始位置</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; nums, <span class="type">int</span> x, <span class="type">int</span> npc)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x == arr.<span class="built_in">size</span>())&#123; <span class="comment">// 当前子集的大小满足目前所需的大小</span></span><br><span class="line">            res.<span class="built_in">push_back</span>(arr);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = npc; i &lt; nums.<span class="built_in">size</span>(); i ++)&#123;  <span class="comment">// 从npc 开始遍历</span></span><br><span class="line">            arr.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">dfs</span>(nums, x, i + <span class="number">1</span>);</span><br><span class="line">            arr.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsets</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= nums.<span class="built_in">size</span>(); i++)&#123;  <span class="comment">// 遍历，i代表需要子集的大小，</span></span><br><span class="line">            <span class="built_in">dfs</span>(nums, i, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(n \</em> 2 ^ n)<em>，一共 </em>2 ^ n<em> 个状态，每种状态需要 O</em>(<em>n</em>) 的时间来构造子集。</li><li>空间复杂度：<em>O</em>(<em>n</em>)。临时数组 <em>arr</em> 的空间代价是 O<em>(</em>n<em>)，递归时栈空间的代价为 </em>O<em>(</em>n*)。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：4 ms, 在所有 C++ 提交中击败了43.18%的用户</p><p>内存消耗：7.6 MB, 在所有 C++ 提交中击败了13.53%的用户</p><p>通过测试用例：10 / 10</p>
+          </div></div></div></div>
+<h2 id="延伸题目"><a href="#延伸题目" class="headerlink" title="延伸题目"></a>延伸题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subsets-ii/"> 子集 II </a></p>
+<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><ul>
+<li>思路1：在上面的基础上，当满足条件时使用<code>map</code> 进行去重，若重复则不加入，反之则加入。（需要先排序）</li>
+<li>思路2：递归法实现子树枚举，在递归时，若发现没有选择上一个数，并且当前数字与上一个数字相同，则可以跳过当前生成的子集。</li>
+</ul>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">使用hash表</a></li><li class="tab"><a href="#题解-2">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    map&lt;vector&lt;<span class="type">int</span>&gt;, <span class="type">int</span>&gt; hsp;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; nums, <span class="type">int</span> x, <span class="type">int</span> npc)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr.<span class="built_in">size</span>() == x)&#123;</span><br><span class="line">            <span class="keyword">if</span>(hsp[arr] == <span class="number">1</span>) <span class="keyword">return</span>;  <span class="comment">//使用map进行判断是否有重复的</span></span><br><span class="line">            res.<span class="built_in">push_back</span>(arr);</span><br><span class="line">            hsp[arr] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = npc; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            arr.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">dfs</span>(nums, x, i + <span class="number">1</span>);</span><br><span class="line">            arr.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsetsWithDup</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= nums.<span class="built_in">size</span>(); i ++)&#123;</span><br><span class="line">            <span class="built_in">dfs</span>(nums, i, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(n \</em> 2 ^ n)<em>，一共 </em>2 ^ n<em> 个状态，每种状态需要 O</em>(<em>n</em>) 的时间来构造子集。</li><li>空间复杂度：<em>O</em>(<em>n</em>)。临时数组 <em>arr</em> 的空间代价是 O<em>(</em>n<em>)，递归时栈空间的代价为 </em>O<em>(</em>n*)。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：12 ms, 在所有 C++ 提交中击败了5.73%的用户</p><p>内存消耗：9.5 MB, 在所有 C++ 提交中击败了13.58%的用户</p><p>通过测试用例：20 / 20</p>
+          </div></div><div class="tab-pane" id="题解-2"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; nums, <span class="type">int</span> x, <span class="type">bool</span> pre)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x == nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(arr);</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">dfs</span>(nums, x + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">if</span>(!pre &amp;&amp; x &gt; <span class="number">0</span> &amp;&amp; nums[x] == nums[x - <span class="number">1</span>]) <span class="comment">// 上一个数和当前数相等，并且上一个数没有被加入</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        arr.<span class="built_in">push_back</span>(nums[x]);</span><br><span class="line">        <span class="built_in">dfs</span>(nums, x + <span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">        arr.<span class="built_in">pop_back</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsetsWithDup</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">dfs</span>(nums, <span class="number">0</span>, <span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<div class="note info simple">
+            <ul><li>时间复杂度：<em>O(n \</em> 2 ^ n)<em>，其中 </em>n<em> 是数组 </em>nums<em> 的长度。排序的时间复杂度为 </em>O(n * log n) <em>。最坏情况下 </em>nums<em> 中无重复元素，需要枚举其所有 </em>2 ^ n<em> 个子集，每个子集加入答案时需要拷贝一份，耗时 </em>O(n)<em> ，一共需要 </em>O(n * 2 ^ n) + O(n) = O(n * 2 ^ n)<em> 的时间来构造子集。由于在渐进意义上 </em>O(n * log n) <em> 小于</em>O(n * 2 ^ n)<em> ，故总的时间复杂度为 </em>O(n * 2 ^ n)*<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</li><li>空间复杂度：<em>O</em>(<em>n</em>)。临时数组 <em>arr</em> 的空间代价是 O<em>(</em>n<em>)，递归时栈空间的代价为 </em>O<em>(</em>n*)。</li></ul>
+          </div>
+
+<div class="note success simple">
+            <p>执行用时：4 ms, 在所有 C++ 提交中击败了54.66%的用户</p><p>内存消耗：15.6 MB, 在所有 C++ 提交中击败了5.03%的用户</p><p>通过测试用例：20 / 20</p>
+          </div></div></div></div>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1128,105 +1239,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/18/JAVA/01JavaBasic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./img/head.jpg">
-      <meta itemprop="name" content="Atopos·">
-      <meta itemprop="description" content="看得懂的书,请仔细看;看不懂的书,请硬着头皮看!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Atopos's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/18/JAVA/01JavaBasic/" class="post-title-link" itemprop="url">Java 基础入门 阶段1 & 阶段2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-04-18 10:23:00" itemprop="dateCreated datePublished" datetime="2022-04-18T10:23:00+08:00">2022-04-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-06 15:50:37" itemprop="dateModified" datetime="2022-06-06T15:50:37+08:00">2022-06-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA/%E9%98%B6%E6%AE%B51/" itemprop="url" rel="index"><span itemprop="name">阶段1</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>18k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>16 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>之前学习过java知识，但都只是会用，对一些概念及一些部分的注意事项不是很清楚，所以现在系统的过一遍java知识。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/18/JAVA/01JavaBasic/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1298,7 +1310,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1355,12 +1367,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">921k</span>
+    <span title="站点总字数">959k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:57</span>
+    <span title="站点阅读时长">14:32</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
