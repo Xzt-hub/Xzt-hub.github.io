@@ -27,11 +27,20 @@
 <meta property="og:site_name" content="Atopos&#39;s Blog">
 <meta property="og:description" content="记录复习笔记">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693088503/B6A769BBCE3D6116F2514841EA0AB92D">
+<meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693101962/911E67ED440AC5388F07D79E4988BD69">
+<meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693148945/E93917AAC699168036AF5C36393FFC04">
+<meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693162055/84DF5715E092FEF25762F5F53C547640">
+<meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693350499/FB148499A73DF0C97F7930BA0466170E">
+<meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693369847/12531E6FCCD03F60C46C9397E1DD8ACA">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201216230427546.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDM5ODY4Nw==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201216230452750.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDM5ODY4Nw==,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="article:published_time" content="2023-04-09T00:02:25.000Z">
-<meta property="article:modified_time" content="2023-04-09T13:58:28.156Z">
+<meta property="article:modified_time" content="2023-04-10T10:27:59.413Z">
 <meta property="article:author" content="Atopos·">
 <meta property="article:tag" content="JAVA">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693088503/B6A769BBCE3D6116F2514841EA0AB92D">
 
 <link rel="canonical" href="http://example.com/2023/04/09/JAVA/20-1ReviewNotes-MySQL/">
 
@@ -122,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">88</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">89</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -217,10 +226,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-04-09 08:02:25 / 修改时间：21:58:28" itemprop="dateCreated datePublished" datetime="2023-04-09T08:02:25+08:00">2023-04-09</time>
+              <time title="创建时间：2023-04-09 08:02:25" itemprop="dateCreated datePublished" datetime="2023-04-09T08:02:25+08:00">2023-04-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 18:27:59" itemprop="dateModified" datetime="2023-04-10T18:27:59+08:00">2023-04-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -237,14 +252,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.5k</span>
+              <span>8.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>7 分钟</span>
             </span>
             <div class="post-description">记录复习笔记</div>
 
@@ -324,7 +339,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, sex, age <span class="keyword">from</span> student <span class="keyword">where</span> age <span class="operator">&gt;</span> <span class="number">20</span>;</span><br><span class="line"><span class="keyword">select</span> name, sex, age a <span class="keyword">from</span> student <span class="keyword">where</span> a <span class="operator">&gt;</span> <span class="number">20</span>; # 可以使用别名，和上一条查询效果一致。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> name, sex <span class="keyword">from</span> student <span class="keyword">where</span> age <span class="operator">&gt;</span> <span class="number">20</span>;  # 正确。</span><br><span class="line"><span class="keyword">select</span> name, sex <span class="keyword">from</span> student <span class="keyword">having</span> age <span class="operator">&gt;</span> <span class="number">20</span>; # 报错。<span class="keyword">having</span>是根据查询结果进行过滤，查询结果中没有age字段。</span><br></pre></td></tr></table></figure>
 <h3 id="使用having查询的select语句执行顺序"><a href="#使用having查询的select语句执行顺序" class="headerlink" title="使用having查询的select语句执行顺序"></a>使用having查询的select语句执行顺序</h3><p>where（数据查询） —&gt;  group by（分组查询） —&gt; having（结果过滤） —&gt; order by（排序）</p>
 <h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><blockquote>
-<p>索引是一个单独的、存储在磁盘上的数据库结构，包含着对数据表里所有记录的引用指针。使用索引可以快速找出在某个或多个列中有一特定值的行，所有MySQL列类型都可以被索引，对相关列使用索引是提高查询操作速度的最佳途径。</p>
+<p>索引是一个<strong>单独的</strong>、<strong>存储在磁盘上的</strong>数据库结构，包含着对数据表里所有记录的引用指针。使用索引可以快速找出在某个或多个列中有一特定值的行，所有MySQL列类型都可以被索引，对相关列使用索引是提高查询操作速度的最佳途径。</p>
 </blockquote>
 <p>MySQL中索引的存储类型有两种：即<code>BTREE</code>和<code>HASH</code></p>
 <h2 id="索引的优点"><a href="#索引的优点" class="headerlink" title="索引的优点"></a>索引的优点</h2><ul>
@@ -376,6 +391,266 @@
 <h2 id="MySql什么时候需要加索引"><a href="#MySql什么时候需要加索引" class="headerlink" title="MySql什么时候需要加索引"></a>MySql什么时候需要加索引</h2><ul>
 <li>当唯一性是某个字段数据本身的特征时,需要指定唯一索引,使用唯一索引需能保证定义的列的数据完整性,以提高查询速度.</li>
 <li>在<strong>频翻进行排序或者分组的列</strong>(即进行group by或order by操作)的列上建立索引,如果待排序的列有多个,可以在这些列上建立组合索引.</li>
+</ul>
+<h2 id="只要创建了索引，就一定会使用索引吗？"><a href="#只要创建了索引，就一定会使用索引吗？" class="headerlink" title="只要创建了索引，就一定会使用索引吗？"></a>只要创建了索引，就一定会使用索引吗？</h2><p>答案是<strong>不一定</strong>。</p>
+<p>在使用组合索引的时候，如果没有遵从“最左前缀”的原则进行搜索，则索引是不起作用的。</p>
+<p>举例，假设在id、name、age字段上已经成功建立了一个名为MultiIdx的组合索引。索引行中按id、name、age的顺序存放，索引可以搜索id、（id,name）、（id, name, age）字段组合。如果列不构成索引最左面的前缀，那么MySQL不能使用局部索引，如（age）或者（name,age）组合则不能使用该索引查询。</p>
+<h2 id="怎么判断索引有没有生效"><a href="#怎么判断索引有没有生效" class="headerlink" title="怎么判断索引有没有生效"></a>怎么判断索引有没有生效</h2><p>可以使用explain语句查看索引是否正在使用。</p>
+<p>例如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="索引的设计原则"><a href="#索引的设计原则" class="headerlink" title="索引的设计原则"></a>索引的设计原则</h2><ol>
+<li><p>避免对经常更新的表进行过多的索引，并且索引中的列要尽可能的少。应该经常用于查询的字段创建索引，但要避免添加不必要的字段。</p>
+</li>
+<li><p>数据量小的表最好不要使用索引，由于数据较少，查询花费的时间可能比遍历索引的时间还要短，索引可能不会产生优化效果。</p>
+</li>
+<li><p>在条件表达式中经常用到的不同值较多的列上建立索引，在不同值很少的列上不要建立索引。</p>
+<p>比如在学生表的“性别”字段上只有“男”与“女”两个不同值，因此就无须建立索引，如果建立索引不但不会提高查询效率，反而会严重降低数据更新速度。</p>
+</li>
+<li><p>当唯一性是某种数据本身的特征时，指定唯一索引。使用唯一索引需能确保定义的列的数据完整性，以提高查询速度。</p>
+</li>
+<li><p>在频繁进行排序或分组（即进行group by或order by操作）的列上建立索引，如果待排序的列有多个，可以在这些列上建立组合索引。</p>
+</li>
+</ol>
+<h2 id="索引越多越好？"><a href="#索引越多越好？" class="headerlink" title="索引越多越好？"></a>索引越多越好？</h2><p>索引并不是越多越好，一个表中如果有大量的索引，不仅占用磁盘空间，还会影响insert，delete，update等语句的性能，因为在表中的数据更改时，索引也会进行调整。</p>
+<h2 id="哪些字段不适合创建索引"><a href="#哪些字段不适合创建索引" class="headerlink" title="哪些字段不适合创建索引"></a>哪些字段不适合创建索引</h2><ul>
+<li>频繁更新的字段不适合。</li>
+<li>where条件中用不到的字段不适合</li>
+<li>数据比较少的表不适合。</li>
+<li>数据重复且分布均匀的字段不适合，例如性别，真假值</li>
+<li>参与计算的列不适合。</li>
+</ul>
+<h2 id="索引的实现原理⭐"><a href="#索引的实现原理⭐" class="headerlink" title="索引的实现原理⭐"></a>索引的实现原理⭐</h2><blockquote>
+<p>在MySQL中，索引是在存储引擎层实现的，不同存储引擎对索引的实现方式是不同的，下面我们探讨一下MyISAM和InnoDB两个存储引擎的索引实现方式。</p>
+</blockquote>
+<h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><blockquote>
+<p>MyISAM引擎中使用B+树作为索引结构，叶节点的data域存放的是数据记录的地址。</p>
+</blockquote>
+<h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>虽然InnoDB也使用B+Tree作为索引结构，但具体实现方式却与MyISAM截然不同。区别如下：</p>
+<ul>
+<li>InnoDB的数据文件本身就是索引文件。</li>
+</ul>
+<p>MyISAM索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。而在InnoDB中，表数据文件本身就是按B+Tree组织的一个索引结构，这棵树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是主索引。</p>
+<p><strong>主键索引</strong></p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693088503/B6A769BBCE3D6116F2514841EA0AB92D" alt="img"></p>
+<p><strong>辅助索引</strong></p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693101962/911E67ED440AC5388F07D79E4988BD69" alt="img"></p>
+<ul>
+<li>InnoDB的辅助索引data域存储相应记录主键的值而不是地址。换句话说，InnoDB的所有辅助索引都引用主键作为data域。</li>
+</ul>
+<p><strong>主键索引</strong></p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693148945/E93917AAC699168036AF5C36393FFC04" alt="img"></p>
+<p><strong>辅助索引</strong></p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693162055/84DF5715E092FEF25762F5F53C547640" alt="img"></p>
+<h2 id="数据库索引的重构过程"><a href="#数据库索引的重构过程" class="headerlink" title="数据库索引的重构过程"></a>数据库索引的重构过程</h2><h3 id="重建索引的时间"><a href="#重建索引的时间" class="headerlink" title="重建索引的时间"></a>重建索引的时间</h3><ul>
+<li>表上频繁发生update，delete操作。</li>
+<li>表上发生了alter table…move操作。move操作导致了rowid变化。</li>
+</ul>
+<h3 id="怎么判断索引是否应该重建"><a href="#怎么判断索引是否应该重建" class="headerlink" title="怎么判断索引是否应该重建"></a>怎么判断索引是否应该重建</h3><ul>
+<li><p>一般看索引是否倾斜严重，是否浪费了空间，对索引结构进行结构分析。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">analyze index index_name validate structure;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在相同的session中查询index_stats表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> height, DEL_LF_ROWS<span class="operator">/</span>LF_ROWS <span class="keyword">from</span> index_stats;</span><br></pre></td></tr></table></figure>
+<p>当查询的height&gt;=4（索引的深度，即从根到叶节点的高度）或DEL_LF_ROWS/LF_ROWS&gt;0.2的情况下，就应该考虑重建该索引。</p>
+</li>
+</ul>
+<h3 id="如何重建索引"><a href="#如何重建索引" class="headerlink" title="如何重建索引"></a>如何重建索引</h3><ul>
+<li><p>drop原索引，然后再创建索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> index index_name;</span><br><span class="line"><span class="keyword">create</span> index index_name <span class="keyword">on</span> table_name (字段名);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接重建索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> index index_name rebuild;</span><br><span class="line"><span class="keyword">alter</span> index index_name rebuild online;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Mysql的索引为什么用B-树"><a href="#Mysql的索引为什么用B-树" class="headerlink" title="Mysql的索引为什么用B+树"></a>Mysql的索引为什么用B+树</h2><blockquote>
+<p>B+树由B树和索引顺序访问方法演化而来。它是为磁盘或其他直接存取辅助设备设计的一种平衡查找树，在B+树种，所有记录节点都是按键值的大小顺序存放在同一层的叶子节点，各叶子节点通过指针进行连接。</p>
+</blockquote>
+<p><img src="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693350499/FB148499A73DF0C97F7930BA0466170E" alt="img"></p>
+<p>B+树索引在数据库中的一个特点就是<strong>高扇出性</strong>，例如在InnoDB存储引擎中，每个页的大小为16KB。在数据库中，B+树的高度一般都在2～4层，这意味着查找某一键值最多只需要2到4次IO操作，这还不错。因为现在一般的磁盘每秒至少可以做100次IO操作，2～4次的IO操作意味着查询时间只需0.02～0.04秒。</p>
+<h2 id="联合索引的存储结构"><a href="#联合索引的存储结构" class="headerlink" title="联合索引的存储结构"></a>联合索引的存储结构</h2><p>从本质上来说，联合索引还是一棵B+树，不同的是联合索引的键值数量不是1，而是大于等于2，参考下图。</p>
+<p>只有在查询条件中使用了这些字段的左边字段时，索引才会被使用，所以使用联合索引时遵循<strong>最左前缀集合</strong>。</p>
+<p><img src="https://uploadfiles.nowcoder.com/images/20220224/4107856_1645693369847/12531E6FCCD03F60C46C9397E1DD8ACA" alt="img"></p>
+<h2 id="select-in语句中如何使用索引"><a href="#select-in语句中如何使用索引" class="headerlink" title="select in语句中如何使用索引"></a>select in语句中如何使用索引</h2><p>索引是否起作用，主要取决于字段类型：</p>
+<ul>
+<li>如果字段类型为字符串，需要给in查询中的数值与字符串值都需要添加引号，索引才能起作用。</li>
+<li>如果字段类型为int，则in查询中的值不需要添加引号，索引也会起作用。</li>
+</ul>
+<p>IN的字段，在联合索引中，按以上方法，也会起作用。</p>
+<h3 id="select-in语句"><a href="#select-in语句" class="headerlink" title="select in语句"></a>select in语句</h3><ul>
+<li>in常用于where表达式中，其作用是查询某个范围内的数据</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student <span class="keyword">where</span> id <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student <span class="keyword">where</span> id <span class="keyword">not</span> <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>in子查询</strong>，in列表项的值是不明确的，而可能是通过一个子查询得到的。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student <span class="keyword">where</span> use_id <span class="keyword">in</span> (<span class="keyword">select</span> id <span class="keyword">as</span> use_id <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> status <span class="operator">=</span> <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="模糊查询语句如何使用索引"><a href="#模糊查询语句如何使用索引" class="headerlink" title="模糊查询语句如何使用索引"></a>模糊查询语句如何使用索引</h2><p><code>mobile like &#39;%5678&#39;</code>不能使用索引，如果需要根据手机号后四位进行模糊查询，可以进行如下改造</p>
+<p><code>mobile_reverse like reverse(&#39;%5678&#39;)</code>。加入了冗余列mobile_reverse。为 mobile_reverse 列建立索引，</p>
+<h3 id="模糊查询like"><a href="#模糊查询like" class="headerlink" title="模糊查询like"></a>模糊查询like</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student <span class="keyword">where</span> name <span class="operator">=</span> &quot;谢%&quot;;</span><br></pre></td></tr></table></figure>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><blockquote>
+<p>事务可由一条非常简单的SQL语句组成，也可以由一组复杂的SQL语句组成，在事务中的操作，要么都不执行，要么都执行修改，这就是事务的目的，也是事务模型区别于文件系统的重要特征之一。</p>
+</blockquote>
+<p>只有DML语句（insert，update，delete）才会有事务这么一说，其他语句和事务无关！！！</p>
+<h2 id="事务需要遵循的四大特性"><a href="#事务需要遵循的四大特性" class="headerlink" title="事务需要遵循的四大特性"></a>事务需要遵循的四大特性</h2><blockquote>
+<p>事务需要遵循ACID四个特性。</p>
+</blockquote>
+<ul>
+<li>A（atomicity）：原子性，是指整个数据库事务是不可分割的工作单位。只有数据库事务中所有数据库操作都执行成功，整个事务才算执行成功。</li>
+<li>C（consistency）：一致性，是指事务讲数据库从一种状态转变为另一种一致的状态。在事务开始之前和事务结束之后，数据库的完整性约束并没有被破坏。</li>
+<li>I（isolation）：隔离性：事务的隔离性要求每个读写事务的对象与其他事务的操作对象都能相互分离，即该事务提交前对其他事务不可见。通常使用锁来实现。</li>
+<li>D（durability）：持久性，事务一旦提交，其结果就是永久性的，即使发生宕机等故障，数据库也能将数据恢复。保证了事务系统的高可靠性，而不是高可用性。</li>
+</ul>
+<h2 id="Mysql的事务隔离级别"><a href="#Mysql的事务隔离级别" class="headerlink" title="Mysql的事务隔离级别"></a>Mysql的事务隔离级别</h2><ul>
+<li>读未提交（read uncommitted）</li>
+</ul>
+<p>是事务之间最小限度的隔离，除了容易产生<strong>幻读</strong>和<strong>不能重复的读</strong>操作外，处于这个隔离级别的事务可以读到其他事务还没有提交的数据（<strong>脏读</strong>）。</p>
+<ul>
+<li>读提交（read committed）</li>
+</ul>
+<p>处于此级别的事务可以看到其他事务对数据的修改。也就是说，在事务处理期间，如果其他事务修改了相应的表，那么同一事务的多个select语句可能返回不同的结果。</p>
+<ul>
+<li>可重复读（repeatable read）</li>
+</ul>
+<p>当前正在执行事务的变化不能被外部看到。也就是说，在事务处理期间，如果其他事务修改了相应的表，那么同一事务的多个select语句返回相同的结果</p>
+<ul>
+<li>序列化（serializable）</li>
+</ul>
+<p>如果隔离级别为序列化，则用户之间通过一个接一个顺序的执行当前的事务，这种隔离级别提供了事务之间最大限度地隔离。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读未提交RU</td>
+<td>可能</td>
+<td>可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>读提交RC</td>
+<td>不可能</td>
+<td>可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>可重复读RR</td>
+<td>不可能</td>
+<td>不可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>序列化serializable</td>
+<td>不可能</td>
+<td>不可能</td>
+<td>不可能</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h3><blockquote>
+<p>脏读又称无效数据读出，一个事务读取了另外一个事务还没有提交的数据。</p>
+</blockquote>
+<p>例如：事务A中修改了表中某一行数据，但是还没有提交，此时事务B读取了事务A修改后的数据，之后事务A因为某种原因回滚了，则事务B读取到的数据就是脏数据。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>事务A</th>
+<th>事务B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>update student set age = 21 where id = 1;</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>select * from student where id = 1;</code></td>
+</tr>
+<tr>
+<td>Roll back; commit;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h3><blockquote>
+<p>不可重复读是指在同一个事务中，两次相同的查询返回了不同的结果。</p>
+</blockquote>
+<p>例如：事务A会读取两次数据，在第一次读取数据之后，事务B修改了该数据并提交，则事务A第二次读取数据时，得到了和第一次读取不一样的结果。</p>
+<p><img src="https://img-blog.csdnimg.cn/20201216230427546.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDM5ODY4Nw==,size_16,color_FFFFFF,t_70#pic_center" alt="不可重复读"></p>
+<h3 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a>幻读</h3><blockquote>
+<p>幻读是指同样的查询在整个事务过程中多次执行后，查询所得到的结果集是不一样。</p>
+<p>幻读也是指当事务不独立执行时，插入或删除另一个事务当前影响的数据而发生的一种类似幻觉的现象。</p>
+</blockquote>
+<p><strong>注意</strong>：不可重复读的重点是针对update，delete。而幻读的重点针对的是insert。</p>
+<p>例如：事务A将数据库中所有数据都删除的时候，但是事务B就在这个时候新插入了一条记录，当事务A删除结束后发现还有一条数据，就像发生了幻觉一样。这就叫幻读。</p>
+<p><img src="https://img-blog.csdnimg.cn/20201216230452750.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDM5ODY4Nw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="设置-amp-查看事务的隔离级别"><a href="#设置-amp-查看事务的隔离级别" class="headerlink" title="设置&amp;查看事务的隔离级别"></a>设置&amp;查看事务的隔离级别</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 设置全局的隔离级别为read uncommitted</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> transaction isolation level read uncommitted;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看隔离级别</span></span><br><span class="line"><span class="keyword">SELECT</span> @<span class="variable">@tx</span>_isolation</span><br></pre></td></tr></table></figure>
+<h2 id="Mysql的事务隔离级别-1"><a href="#Mysql的事务隔离级别-1" class="headerlink" title="Mysql的事务隔离级别"></a>Mysql的事务隔离级别</h2><p>InnoDB支持四种隔离级别：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读未提交RU</td>
+<td>可能</td>
+<td>可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>读提交RC</td>
+<td>不可能</td>
+<td>可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>可重复读RR</td>
+<td>不可能</td>
+<td>不可能</td>
+<td>不可能</td>
+</tr>
+<tr>
+<td>序列化serializable</td>
+<td>不可能</td>
+<td>不可能</td>
+<td>不可能</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="每种隔离级别的实现机制"><a href="#每种隔离级别的实现机制" class="headerlink" title="每种隔离级别的实现机制"></a>每种隔离级别的实现机制</h3><ul>
+<li>RU &amp; RC：</li>
+</ul>
+<p>通过<code>record lock</code>算法实现了行锁，但RU允许读取未提交的数据，所以存在脏读问题。RC允许读取提交数据，所以不存在脏读问题，但存在不可重复读的问题。</p>
+<ul>
+<li>RR</li>
+</ul>
+<p>使用<code>next-key lock</code>算法实现了行锁，并且不允许读取已提交的数据，所以解决了不可重复读的问题。该算法包含了<strong>间隙锁</strong>，会锁定一个范围，因此也解决了幻读的问题。</p>
+<ul>
+<li>serializable</li>
+</ul>
+<p>对每个select语句后自动加上<code>lock in share mode</code>，即为每个读取操作加上一个<strong>共享锁</strong>，因此在这个事务的隔离级别下，读占用了锁，对一致性的非锁定读不再予以支持。</p>
+<h2 id="如何实现可重复读-amp-如何解决幻读问题"><a href="#如何实现可重复读-amp-如何解决幻读问题" class="headerlink" title="如何实现可重复读&amp;如何解决幻读问题"></a>如何实现可重复读&amp;如何解决幻读问题</h2><p>MySQL的InnoDB引擎，在默认的REPEATABLE READ的隔离级别下，实现了可重复读，同时也解决了幻读问题。它使用<code>Next-Key Lock</code>算法实现了行锁，并且不允许读取已提交的数据，所以解决了不可重复读的问题。另外，该算法包含了间隙锁，会锁定一个范围，因此也解决了幻读的问题。</p>
+<h1 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h1><h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h1><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="数据库设计的三大范式"><a href="#数据库设计的三大范式" class="headerlink" title="数据库设计的三大范式"></a>数据库设计的三大范式</h2><blockquote>
+<p>目前关系型数据库有六种范式，一般来说，数据库只需要满足第三范式就行。</p>
+</blockquote>
+<ul>
+<li>第一范式（1NF）：</li>
 </ul>
 
     </div>
@@ -502,7 +777,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL"><span class="nav-number">1.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.1.</span> <span class="nav-text">基本语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E9%A1%B5%E8%AF%AD%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">数据库分页语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sql%E4%B8%AD%E7%9A%84%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">Sql中的聚合函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNT-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">COUNT()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#avg-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.2.</span> <span class="nav-text">avg()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sum-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">sum()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#max-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.4.</span> <span class="nav-text">max()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#min-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.5.</span> <span class="nav-text">min()函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E5%92%8C%E8%A1%A8%E6%98%AF%E6%80%8E%E4%B9%88%E5%85%B3%E8%81%94%E7%9A%84"><span class="nav-number">1.4.</span> <span class="nav-text">表和表是怎么关联的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.1.</span> <span class="nav-text">内连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.2.</span> <span class="nav-text">外连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">左外连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%B3%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">右外连接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E4%B8%80%E5%BC%A0%E8%A1%A8%E7%9A%84%E9%83%A8%E5%88%86%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E5%88%B0%E5%8F%A6%E4%B8%80%E5%BC%A0%E8%A1%A8"><span class="nav-number">1.5.</span> <span class="nav-text">将一张表的部分数据更新到另一张表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#where-%E5%92%8C-having%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.6.</span> <span class="nav-text">where 和 having的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8having%E6%9F%A5%E8%AF%A2%E7%9A%84select%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.6.1.</span> <span class="nav-text">使用having查询的select语句执行顺序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">2.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text">索引的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">2.2.</span> <span class="nav-text">索引的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">2.3.</span> <span class="nav-text">索引的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%9B%E5%BB%BA%E5%8F%8A%E4%BF%9D%E5%AD%98"><span class="nav-number">2.4.</span> <span class="nav-text">索引的创建及保存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8%E6%97%B6%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="nav-number">2.4.1.</span> <span class="nav-text">创建表时创建索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%B7%B2%E5%AD%98%E5%9C%A8%E7%9A%84%E8%A1%A8%E4%B8%8A%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="nav-number">2.4.2.</span> <span class="nav-text">在已存在的表上创建索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySql%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="nav-number">2.5.</span> <span class="nav-text">MySql什么时候需要加索引</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL"><span class="nav-number">1.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.1.</span> <span class="nav-text">基本语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E9%A1%B5%E8%AF%AD%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">数据库分页语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sql%E4%B8%AD%E7%9A%84%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">Sql中的聚合函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNT-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">COUNT()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#avg-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.2.</span> <span class="nav-text">avg()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sum-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">sum()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#max-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.4.</span> <span class="nav-text">max()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#min-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.5.</span> <span class="nav-text">min()函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E5%92%8C%E8%A1%A8%E6%98%AF%E6%80%8E%E4%B9%88%E5%85%B3%E8%81%94%E7%9A%84"><span class="nav-number">1.4.</span> <span class="nav-text">表和表是怎么关联的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.1.</span> <span class="nav-text">内连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.2.</span> <span class="nav-text">外连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">左外连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%B3%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">右外连接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E4%B8%80%E5%BC%A0%E8%A1%A8%E7%9A%84%E9%83%A8%E5%88%86%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E5%88%B0%E5%8F%A6%E4%B8%80%E5%BC%A0%E8%A1%A8"><span class="nav-number">1.5.</span> <span class="nav-text">将一张表的部分数据更新到另一张表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#where-%E5%92%8C-having%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.6.</span> <span class="nav-text">where 和 having的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8having%E6%9F%A5%E8%AF%A2%E7%9A%84select%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.6.1.</span> <span class="nav-text">使用having查询的select语句执行顺序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">2.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text">索引的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">2.2.</span> <span class="nav-text">索引的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">2.3.</span> <span class="nav-text">索引的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%9B%E5%BB%BA%E5%8F%8A%E4%BF%9D%E5%AD%98"><span class="nav-number">2.4.</span> <span class="nav-text">索引的创建及保存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8%E6%97%B6%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="nav-number">2.4.1.</span> <span class="nav-text">创建表时创建索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%B7%B2%E5%AD%98%E5%9C%A8%E7%9A%84%E8%A1%A8%E4%B8%8A%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="nav-number">2.4.2.</span> <span class="nav-text">在已存在的表上创建索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySql%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="nav-number">2.5.</span> <span class="nav-text">MySql什么时候需要加索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AA%E8%A6%81%E5%88%9B%E5%BB%BA%E4%BA%86%E7%B4%A2%E5%BC%95%EF%BC%8C%E5%B0%B1%E4%B8%80%E5%AE%9A%E4%BC%9A%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95%E5%90%97%EF%BC%9F"><span class="nav-number">2.6.</span> <span class="nav-text">只要创建了索引，就一定会使用索引吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD%E7%B4%A2%E5%BC%95%E6%9C%89%E6%B2%A1%E6%9C%89%E7%94%9F%E6%95%88"><span class="nav-number">2.7.</span> <span class="nav-text">怎么判断索引有没有生效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-number">2.8.</span> <span class="nav-text">索引的设计原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E8%B6%8A%E5%A4%9A%E8%B6%8A%E5%A5%BD%EF%BC%9F"><span class="nav-number">2.9.</span> <span class="nav-text">索引越多越好？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%AA%E4%BA%9B%E5%AD%97%E6%AE%B5%E4%B8%8D%E9%80%82%E5%90%88%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="nav-number">2.10.</span> <span class="nav-text">哪些字段不适合创建索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E2%AD%90"><span class="nav-number">2.11.</span> <span class="nav-text">索引的实现原理⭐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyISAM"><span class="nav-number">2.11.1.</span> <span class="nav-text">MyISAM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InnoDB"><span class="nav-number">2.11.2.</span> <span class="nav-text">InnoDB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95%E7%9A%84%E9%87%8D%E6%9E%84%E8%BF%87%E7%A8%8B"><span class="nav-number">2.12.</span> <span class="nav-text">数据库索引的重构过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%BB%BA%E7%B4%A2%E5%BC%95%E7%9A%84%E6%97%B6%E9%97%B4"><span class="nav-number">2.12.1.</span> <span class="nav-text">重建索引的时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD%E7%B4%A2%E5%BC%95%E6%98%AF%E5%90%A6%E5%BA%94%E8%AF%A5%E9%87%8D%E5%BB%BA"><span class="nav-number">2.12.2.</span> <span class="nav-text">怎么判断索引是否应该重建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%87%8D%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="nav-number">2.12.3.</span> <span class="nav-text">如何重建索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql%E7%9A%84%E7%B4%A2%E5%BC%95%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8B-%E6%A0%91"><span class="nav-number">2.13.</span> <span class="nav-text">Mysql的索引为什么用B+树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.14.</span> <span class="nav-text">联合索引的存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select-in%E8%AF%AD%E5%8F%A5%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95"><span class="nav-number">2.15.</span> <span class="nav-text">select in语句中如何使用索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#select-in%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.15.1.</span> <span class="nav-text">select in语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95"><span class="nav-number">2.16.</span> <span class="nav-text">模糊查询语句如何使用索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2like"><span class="nav-number">2.16.1.</span> <span class="nav-text">模糊查询like</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E9%9C%80%E8%A6%81%E9%81%B5%E5%BE%AA%E7%9A%84%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">3.1.</span> <span class="nav-text">事务需要遵循的四大特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql%E7%9A%84%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-number">3.2.</span> <span class="nav-text">Mysql的事务隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%8F%E8%AF%BB"><span class="nav-number">3.2.1.</span> <span class="nav-text">脏读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB"><span class="nav-number">3.2.2.</span> <span class="nav-text">不可重复读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%BB%E8%AF%BB"><span class="nav-number">3.2.3.</span> <span class="nav-text">幻读</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE-amp-%E6%9F%A5%E7%9C%8B%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-number">3.3.</span> <span class="nav-text">设置&amp;查看事务的隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql%E7%9A%84%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB-1"><span class="nav-number">3.4.</span> <span class="nav-text">Mysql的事务隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%8F%E7%A7%8D%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6"><span class="nav-number">3.4.1.</span> <span class="nav-text">每种隔离级别的实现机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB-amp-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%B9%BB%E8%AF%BB%E9%97%AE%E9%A2%98"><span class="nav-number">3.5.</span> <span class="nav-text">如何实现可重复读&amp;如何解决幻读问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%81"><span class="nav-number">4.</span> <span class="nav-text">锁</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">6.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E8%8C%83%E5%BC%8F"><span class="nav-number">6.1.</span> <span class="nav-text">数据库设计的三大范式</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -518,7 +793,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-count">89</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -575,12 +850,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">966k</span>
+    <span title="站点总字数">974k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:38</span>
+    <span title="站点阅读时长">14:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
