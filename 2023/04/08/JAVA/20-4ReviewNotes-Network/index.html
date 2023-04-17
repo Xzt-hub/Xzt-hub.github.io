@@ -20,22 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="题目 一次编辑  思路分类讨论：  当两个字符串相等时，直接返回 True 当两个字符串的长度相差超过2时，直接返回 False 当两个字符串长度相差为 1 时，则调用函数判断是否只存在一处编辑 当两个字符串长度相等时，遍历一遍字符串，判断每个位置的字符是否相等，若不相等的个数大于 1 时，则返回 False ，否则返回 True  题解题解1123456789101112131415161718">
+  <meta name="description" content="记录复习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面试题 01.05.一次编辑">
-<meta property="og:url" content="http://example.com/2022/05/13/LeetCode/20220513-01/index.html">
+<meta property="og:title" content="复习笔记 - 计算机网络">
+<meta property="og:url" content="http://example.com/2023/04/08/JAVA/20-4ReviewNotes-Network/index.html">
 <meta property="og:site_name" content="Atopos&#39;s Blog">
-<meta property="og:description" content="题目 一次编辑  思路分类讨论：  当两个字符串相等时，直接返回 True 当两个字符串的长度相差超过2时，直接返回 False 当两个字符串长度相差为 1 时，则调用函数判断是否只存在一处编辑 当两个字符串长度相等时，遍历一遍字符串，判断每个位置的字符是否相等，若不相等的个数大于 1 时，则返回 False ，否则返回 True  题解题解1123456789101112131415161718">
+<meta property="og:description" content="记录复习笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-13T01:24:08.000Z">
-<meta property="article:modified_time" content="2022-05-13T01:33:47.563Z">
+<meta property="article:published_time" content="2023-04-08T00:02:25.000Z">
+<meta property="article:modified_time" content="2023-04-14T07:34:49.518Z">
 <meta property="article:author" content="Atopos·">
-<meta property="article:tag" content="LeetCode">
-<meta property="article:tag" content="字符串">
-<meta property="article:tag" content="双指针">
+<meta property="article:tag" content="JAVA">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/05/13/LeetCode/20220513-01/">
+<link rel="canonical" href="http://example.com/2023/04/08/JAVA/20-4ReviewNotes-Network/">
 
 
 <script id="page-configurations">
@@ -48,7 +46,7 @@
   };
 </script>
 <link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css">
-  <title>面试题 01.05.一次编辑 | Atopos's Blog</title>
+  <title>复习笔记 - 计算机网络 | Atopos's Blog</title>
   
 
 
@@ -197,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/13/LeetCode/20220513-01/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/08/JAVA/20-4ReviewNotes-Network/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./img/head.jpg">
@@ -210,7 +208,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          面试题 01.05.一次编辑
+          复习笔记 - 计算机网络
         </h1>
 
         <div class="post-meta">
@@ -219,17 +217,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-05-13 09:24:08 / 修改时间：09:33:47" itemprop="dateCreated datePublished" datetime="2022-05-13T09:24:08+08:00">2022-05-13</time>
+              <time title="创建时间：2023-04-08 08:02:25" itemprop="dateCreated datePublished" datetime="2023-04-08T08:02:25+08:00">2023-04-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-14 15:34:49" itemprop="dateModified" datetime="2023-04-14T15:34:49+08:00">2023-04-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                  <a href="/categories/ReviewNotes/" itemprop="url" rel="index"><span itemprop="name">ReviewNotes</span></a>
                 </span>
             </span>
 
@@ -239,7 +243,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -248,6 +252,7 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>1 分钟</span>
             </span>
+            <div class="post-description">记录复习笔记</div>
 
         </div>
       </header>
@@ -258,23 +263,124 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/one-away-lcci/"> 一次编辑 </a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>分类讨论：</p>
-<ul>
-<li>当两个字符串相等时，直接返回 <code>True</code></li>
-<li>当两个字符串的长度相差超过2时，直接返回 <code>False</code></li>
-<li>当两个字符串长度相差为 1 时，则调用函数判断是否只存在一处编辑</li>
-<li>当两个字符串长度相等时，遍历一遍字符串，判断每个位置的字符是否相等，若不相等的个数大于 1 时，则返回 <code>False</code> ，否则返回 <code>True</code></li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><div class="tabs" id="题解"><ul class="nav-tabs"><li class="tab active"><a href="#题解-1">题解1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="题解-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// a 是较大的字符串，b是较小的字符串</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isDelete</span><span class="params">(string a, string b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; a.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            string str = a;</span><br><span class="line">            str.<span class="built_in">erase</span>(i, <span class="number">1</span>);  <span class="comment">// 删除一个字符</span></span><br><span class="line">            <span class="keyword">if</span>(str == b) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">oneEditAway</span><span class="params">(string first, string second)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> firstLen = first.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> secondLen = second.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(first == second) <span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">abs</span>(firstLen - secondLen) &gt; <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">abs</span>(firstLen - secondLen) == <span class="number">1</span>) &#123; <span class="comment">// 插入或者删除一个字符</span></span><br><span class="line">            <span class="keyword">if</span>(firstLen &gt; secondLen)</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">isDelete</span>(first, second);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">isDelete</span>(second, first);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; first.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(first[i] != second[i])&#123;</span><br><span class="line">                    num ++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> num == <span class="number">1</span> || num == <span class="number">0</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<div class="note info simple">
-            <ul><li>时间复杂度：<em>O(n)</em>，其中 <em>n</em> 是字符串的长度，最多遍历一遍字符串</li><li>空间复杂度：<em>O(n)</em>，判断是否删除时，需要找一个临时变量存储字符串</li></ul>
-          </div>
-
-<div class="note success simple">
-            <p>执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户</p><p>内存消耗：6.2 MB, 在所有 C++ 提交中击败了19.66%的用户</p><p>通过测试用例：1146 / 1146</p>
-          </div></div></div></div>
-
+        <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="七层网络体系结构"><a href="#七层网络体系结构" class="headerlink" title="七层网络体系结构"></a>七层网络体系结构</h2><blockquote>
+<p>分为七层的主要原因是为了支持异构网络的互联互通。</p>
+</blockquote>
+<h3 id="七层分别负责的内容"><a href="#七层分别负责的内容" class="headerlink" title="七层分别负责的内容"></a>七层分别负责的内容</h3><p>OSI模型把网络通信的工作分为七层，从下到上分别是：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>任务</th>
+<th>功能</th>
+<th>传输单位</th>
+<th>所实现的硬件</th>
+<th>协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>物理层</td>
+<td>透明的传输比特流</td>
+<td>为数据段设备提供传送数据通路</td>
+<td>比特</td>
+<td>集线器，中继器</td>
+<td></td>
+</tr>
+<tr>
+<td>数据链路层</td>
+<td>将网络层传输下来的IP数据组装成帧</td>
+<td>1.链路连接的建立，拆除和分离<br />2.帧定界和帧同步<br />3.差错检测</td>
+<td>帧</td>
+<td>交换机，网桥</td>
+<td>PPP，HDLC，STP，ARQ</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>1.将传输层传下来的报文段封装成分组<br />2.选择合适的路由，使得传输层传下来的分组能够交付到目的主机</td>
+<td>1.为传输层提供服务<br />2.组包和拆包<br />3.路由选择<br />4.拥塞控制</td>
+<td>数据段</td>
+<td>路由器</td>
+<td>ICMP,ARP,RARP,IP,IGMP,OSPF</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>负责主机中两个进程之间的通信</td>
+<td>1.为端到端连接提供可靠的服务<br />2.为端到端连接提供流量控制、差错控制、服务质量等管理服务</td>
+<td>报文段（TCP）或用户数据报（UDP）</td>
+<td></td>
+<td>TCP、UDP</td>
+</tr>
+<tr>
+<td>会话层</td>
+<td>不同主机上各进程间的对话</td>
+<td>管理主机间的会话进程，包括建立、管理以及终止进程间的会话。是一种端到端的服务</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>表示层</td>
+<td>负责处理在两个内部数据表示结构不同的通信系统之间交换信息的表示格式，为数据加密和解密以及为提高传输效率提供必需的数据压缩以及解压等功能。</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>应用层</td>
+<td>提供系统与用户的接口</td>
+<td>1.文件传输<br />2.访问和管理<br />3.电子邮件服务</td>
+<td></td>
+<td></td>
+<td>FTP、SMTP、POP3、HTTP、DNS、TELnet</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="五层网络体系结构"><a href="#五层网络体系结构" class="headerlink" title="五层网络体系结构"></a>五层网络体系结构</h2><blockquote>
+<p>五层网络体系结构分别是：应用层，运输层，网络层，数据链路层，物理层。</p>
+</blockquote>
+<p>从上到下分别是：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>功能</th>
+<th>协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应用层</td>
+<td>1.是体系结构中的最高。直接为用户的应用进程提供服务。<br />2.在因特网中的应用层协议很多，如支持万维网应用的HTTP协议，支持电子邮件的SMTP协议，支持文件传送的FTP协议等等。</td>
+<td></td>
+</tr>
+<tr>
+<td>运输层</td>
+<td>1.负责向两个主机中进程之间的通信提供服务。由于一个主机可同时运行多个进程，因此运输层有<strong>复用</strong>和<strong>分用</strong>的功能。<br />2.复用，就是多个应用层进程可同时使用下面运输层的服务。<br />3.分用，就是把收到的信息分别交付给上面应用层中相应的进程。</td>
+<td>1.<strong>传输控制协议TCP(Transmission Control Protocol)：</strong>面向连接的，数据传输的单位是报文段，能够提供可靠的交付。<br />2.<strong>用户数据包协议UDP(User Datagram Protocol)：</strong>无连接的，数据传输的单位是用户数据报，不保证提供可靠的交付，只能提供“尽最大努力交付”。</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>1.负责为分组交换网上的不同主机提供通信服务。在发送数据时，网络层把运输层残生的报文段或用户数据报封装成分组或包进行传送。在TCP/IP体系中，由于网络层使用IP协议，因此分组也叫做IP数据报，或简称为数据报。<br />2.选中合适的路由，使源主机运输层所传下来的分组，能够通过网络中的路由器找到目的主机。</td>
+<td>路由协议有：RIP，OSPF</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+<td>1.在两个相邻结点之间传送数据时，数据链路层将网络层交下来的IP数据报组装成帧(framing)，在两个相邻结点之间的链路上“透明”地传送帧中的数据。<br />2.每一帧包括数据和必要的控制信息(如同步信息、地址信息、差错控制等)。典型的帧长是几百字节到一千多字节。</td>
+<td></td>
+</tr>
+<tr>
+<td>物理层</td>
+<td>在物理层上所传数据的单位是比特。物理层的任务就是透明地传送比特流。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h1><h2 id="TCP-IP网络模型"><a href="#TCP-IP网络模型" class="headerlink" title="TCP/IP网络模型"></a>TCP/IP网络模型</h2>
     </div>
 
     
@@ -317,7 +423,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/05/13/LeetCode/20220513-01/" title="面试题 01.05.一次编辑">http://example.com/2022/05/13/LeetCode/20220513-01/</a>
+    <a href="http://example.com/2023/04/08/JAVA/20-4ReviewNotes-Network/" title="复习笔记 - 计算机网络">http://example.com/2023/04/08/JAVA/20-4ReviewNotes-Network/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -328,9 +434,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-              <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag"># 字符串</a>
-              <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag"># 双指针</a>
+              <a href="/tags/JAVA/" rel="tag"># JAVA</a>
           </div>
 
         
@@ -339,12 +443,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/05/12/AcWing/20220512-02/" rel="prev" title="3376.成绩排序2">
-      <i class="fa fa-chevron-left"></i> 3376.成绩排序2
+    <a href="/2023/04/04/JAVA/21Underlying/" rel="prev" title="源码学习">
+      <i class="fa fa-chevron-left"></i> 源码学习
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/05/14/LeetCode/20220514-01/" rel="next" title="82.删除排序链表中的重复元素 II">
-      82.删除排序链表中的重复元素 II <i class="fa fa-chevron-right"></i>
+    <a href="/2023/04/08/JAVA/20-3ReviewNotes-Spring/" rel="next" title="复习笔记 - Spring">
+      复习笔记 - Spring <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -404,7 +508,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">题解</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">七层网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E5%B1%82%E5%88%86%E5%88%AB%E8%B4%9F%E8%B4%A3%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">1.1.1.</span> <span class="nav-text">七层分别负责的内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E5%B1%82%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">五层网络体系结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-number">2.</span> <span class="nav-text">基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">TCP&#x2F;IP网络模型</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
