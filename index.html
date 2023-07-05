@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">59</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -292,7 +292,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/27/TODO/Java%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98&%E8%A7%A3%E7%AD%94/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/05/TODO/Java%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98&%E8%A7%A3%E7%AD%94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./img/head.jpg">
@@ -306,7 +306,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/06/27/TODO/Java%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98&%E8%A7%A3%E7%AD%94/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2023/07/05/TODO/Java%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98&%E8%A7%A3%E7%AD%94/" class="post-title-link" itemprop="url">Java面试问题&解答</a>
         </h2>
 
         <div class="post-meta">
@@ -315,16 +315,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-06-27 20:23:18" itemprop="dateCreated datePublished" datetime="2023-06-27T20:23:18+08:00">2023-06-27</time>
+              <time title="创建时间：2023-07-05 08:02:25 / 修改时间：11:20:37" itemprop="dateCreated datePublished" datetime="2023-07-05T08:02:25+08:00">2023-07-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-28 18:12:11" itemprop="dateModified" datetime="2023-06-28T18:12:11+08:00">2023-06-28</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ReviewNotes/" itemprop="url" rel="index"><span itemprop="name">ReviewNotes</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -332,14 +335,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>19k</span>
+              <span>33k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>17 分钟</span>
+              <span>30 分钟</span>
             </span>
 
         </div>
@@ -351,627 +354,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="Java中的集中基本数据类是什么？对应的包装类型是什么？各自占用多少字节？"><a href="#Java中的集中基本数据类是什么？对应的包装类型是什么？各自占用多少字节？" class="headerlink" title="Java中的集中基本数据类是什么？对应的包装类型是什么？各自占用多少字节？"></a>Java中的集中基本数据类是什么？对应的包装类型是什么？各自占用多少字节？</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>基本数据类型</th>
-<th>包装类</th>
-<th>占用字节</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>byte</code></td>
-<td><code>Byte</code></td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td><code>short</code></td>
-<td><code>Short</code></td>
-<td>2</td>
-<td>0</td>
-</tr>
-<tr>
-<td><code>int</code></td>
-<td><code>Integer</code></td>
-<td>4</td>
-<td>0</td>
-</tr>
-<tr>
-<td><code>long</code></td>
-<td><code>Long</code></td>
-<td>8</td>
-<td>0L</td>
-</tr>
-<tr>
-<td><code>char</code></td>
-<td><code>Character</code></td>
-<td>2</td>
-<td><code>&#39;u0000&#39;</code></td>
-</tr>
-<tr>
-<td><code>float</code></td>
-<td><code>Float</code></td>
-<td>4</td>
-<td>0f</td>
-</tr>
-<tr>
-<td><code>double</code></td>
-<td><code>Double</code></td>
-<td>8</td>
-<td>od</td>
-</tr>
-<tr>
-<td><code>boolean</code></td>
-<td><code>Boolean</code></td>
-<td>1</td>
-<td><code>false</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="String、StringBuilder、StringBuffer的区别是什么？"><a href="#String、StringBuilder、StringBuffer的区别是什么？" class="headerlink" title="String、StringBuilder、StringBuffer的区别是什么？"></a><code>String</code>、<code>StringBuilder</code>、<code>StringBuffer</code>的区别是什么？</h3><ul>
-<li><code>String</code>是<strong>不可变字符串</strong>，因为底层类和<code>char</code>数组都用<code>final</code>关键词进行修饰，一旦确定后就不能进行改变了。</li>
-<li><code>StringBuilder</code>和<code>StringBuffer</code>是<strong>可变长字符串</strong>，都继承自<code>AbstractStringBuilder</code>类。可以通过<code>append</code>、<code>insert</code>函数进行字符串修改。<strong>不同的是</strong>：<code>StringBuilder</code>不是线程安全的，而<code>StringBuffer</code>是线程安全的（对方法加了同步锁），因此<code>StringBuilder</code>效率更高一点。</li>
-</ul>
-<h3 id="String-s1-new-String-quot-abc-quot-这段代码创建了几个字符串对象？"><a href="#String-s1-new-String-quot-abc-quot-这段代码创建了几个字符串对象？" class="headerlink" title="String s1 = new String(&quot;abc&quot;);这段代码创建了几个字符串对象？"></a><code>String s1 = new String(&quot;abc&quot;);</code>这段代码创建了几个字符串对象？</h3><p><strong>会创建1或2个字符串对象</strong></p>
-<ul>
-<li>如果字符串常量池中不存在字符串对象”abc”的引用，那么它将首先<strong>在字符串常量池中创建</strong>，然后<strong>在堆空间中创建</strong>，因此将创建总共2个字符串对象。</li>
-<li>如果字符串常量池中已经存在字符串对象“abc”的引用，则只会在堆中创建一个字符串对象”abc”</li>
-</ul>
-<h3 id="和equals的区别？"><a href="#和equals的区别？" class="headerlink" title="==和equals的区别？"></a><code>==</code>和<code>equals</code>的区别？</h3><p><code>==</code>对于基本类型和引用类型的作用效果是不同的：</p>
-<ul>
-<li>对于基本数据类型来说，<code>==</code>比较的是值</li>
-<li>对于引用数据类型来说，<code>==</code>比较的是对象的内存地址</li>
-</ul>
-<blockquote>
-<p>因为 Java 只有值传递，所以，对于 == 来说，不管是比较基本数据类型，还是引用数据类型的变量，其本质比较的都是值，只是引用类型变量存的值是对象的地址。</p>
-</blockquote>
-<p><code>equals</code>不能用于判断基本类型的变量，只能用来判断两个对象是否相等。<code>equals</code>方法存在于<code>Object</code>类中，因此所有的类都有<code>equals</code>方法。</p>
-<ul>
-<li><p>当类没有重写<code>equals</code>方法时：使用<code>equals</code>比较两个对象，相当于使用<code>==</code>比较两个对象。使用的是默认<code>Object</code>类中的<code>equals</code>方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Object 类中的equals方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="built_in">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当前类重写了<code>equals</code>方法，一般我们都重写<code>equals</code>方法来比较两个类中的某些属性是否相等，如果相等就返回<code>true</code>。</p>
-</li>
-</ul>
-<h3 id="hashCode和equals的关系？"><a href="#hashCode和equals的关系？" class="headerlink" title="hashCode和equals的关系？"></a><code>hashCode</code>和<code>equals</code>的关系？</h3><p><code>hashCode</code>的作用是获取哈希码（<code>int</code>整数），也称散列码，这个哈希码的作用是确定该对象在哈希表中的索引位置。</p>
-<p>一般我们在重写<code>equals</code>方法时必须重写<code>hashCode</code>方法，原因是：</p>
-<p>两个相等的对象的<code>hashCode</code>值必须是相等。也就是说如果<code>equals</code>方法判断两个对象是相等的，那这两个对象的<code>hashCode</code>值也要相等。</p>
-<p><strong>总结：</strong></p>
-<ul>
-<li><code>equals</code>方法判断两个对象是相等的，那这两个对象的<code>hashCode</code>值也要相等。</li>
-<li>两个对象有相同的<code>hashCode</code>值，他们也不一定是相等的（哈希碰撞）。</li>
-</ul>
-<h3 id="包装类型的缓存机制？"><a href="#包装类型的缓存机制？" class="headerlink" title="包装类型的缓存机制？"></a>包装类型的缓存机制？</h3><p>Java 基本数据类型的包装类型的大部分都用到了<strong>缓存机制</strong>来提升性能。</p>
-<p><code>Byte</code>、<code>Short</code>、<code>Integer</code>和<code>Long</code>这4种包装类型默认创建了数值<code>[-128, 127]</code>的相应类型的缓存数据。<code>Character</code>创建了数值在<code>[0, 127]</code>范围的缓存数据，<code>Boolean</code>直接返回<code>True</code>or<code>False</code></p>
-<p>示例：为什么结果输出<code>false</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i1</span> <span class="operator">=</span> <span class="number">40</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">i2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">40</span>);</span><br><span class="line">System.out.println(i1 == i2);  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<p><code>Integer i1 = 40;</code>发生装箱，等价于<code>Integer i1 = Integer.valueOf(40)</code>。因此<code>i1</code>直接使用的是缓存中的对象。而<code>Integer i2 = new Integer(40);</code>会直接创建新的对象。所以<code>i1</code>和<code>i2</code>是两个不同的对象，结果返回<code>false</code>。</p>
-<h3 id="自动装箱与拆箱了解吗？原理是什么？"><a href="#自动装箱与拆箱了解吗？原理是什么？" class="headerlink" title="自动装箱与拆箱了解吗？原理是什么？"></a>自动装箱与拆箱了解吗？原理是什么？</h3><ul>
-<li>装箱：将基本类型用它们对应的引用类型包装起来。原理是调用包装类的<code>valueOf()</code>方法。</li>
-<li>拆箱：将包装类型转换为基本数据类型。原理是调用包装类的<code>xxxValue()</code>方法。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">10</span>;  <span class="comment">// 装箱，等价于 Integer i = Integer.valueOf(10);</span></span><br><span class="line"><span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> i; <span class="comment">// 拆箱， 等价于 int n = i.intValue();</span></span><br></pre></td></tr></table></figure>
-<p>注意：<strong>如果频繁拆装箱的话，也会严重影响系统的性能。我们应该尽量避免不必要的拆装箱操作。</strong></p>
-<h3 id="深拷贝和浅拷贝的区别了解吗？什么是引用拷贝？"><a href="#深拷贝和浅拷贝的区别了解吗？什么是引用拷贝？" class="headerlink" title="深拷贝和浅拷贝的区别了解吗？什么是引用拷贝？"></a>深拷贝和浅拷贝的区别了解吗？什么是引用拷贝？</h3><ul>
-<li>浅拷贝：会在堆上创建一个新的对象（区别引用拷贝的一点），不过，如果原对象内部的属性是引用类型的话，浅拷贝会直接复制内部对象的引用地址，也就是说拷贝对象和原对象共用同一个内部对象。</li>
-<li>深拷贝：会完全复制整个对象，包括这个对象所包含的内部对象。</li>
-<li>引用拷贝：就是两个不同的引用指向同一对象。</li>
-</ul>
-<p><img src="/img/Java面试问题&amp;解答/shallow&amp;deep-copy.png" alt="浅拷贝、深拷贝、引用拷贝示意图"></p>
-<h3 id="谈谈对Java注解的理解，解决了什么问题？❗"><a href="#谈谈对Java注解的理解，解决了什么问题？❗" class="headerlink" title="谈谈对Java注解的理解，解决了什么问题？❗"></a>谈谈对Java注解的理解，解决了什么问题？❗</h3><p><code>Annotation</code>（注解）是Java5开始引入的新特性，可以看作是一种特殊的注释，主要用于修饰类、方法或者变量，提供某些信息供程序在编译或者运行时使用。</p>
-<p>注解本质是一个继承了<code>Annotation</code>的特殊接口：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.METHOD)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.SOURCE)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Override &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Override</span> <span class="keyword">extends</span> <span class="title class_">Annotation</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Exception和Error有什么区别？"><a href="#Exception和Error有什么区别？" class="headerlink" title="Exception和Error有什么区别？"></a><code>Exception</code>和<code>Error</code>有什么区别？</h3><p>在Java中，所有的异常都有一个共同的祖先<code>java.lang</code>包中的<code>Throwable</code>类，<code>Throwable</code>有两个重要的子类：</p>
-<ul>
-<li><p><code>Exception</code>：程序本身可以处理的异常。可以通过<code>catch</code>进行捕获。<code>Exception</code>又可以分为两类：</p>
-<ul>
-<li><p><code>Checked Exception</code>：受检查异常，Java代码在<strong>编译</strong>过程中，如果受检查异常没有被<code>catch</code>或者<code>throws</code>关键字处理的话，就没办法通过编译。</p>
-<p>例如：<code>int i = 10 / 0;</code>如果不使用<code>catch</code>或者<code>throws</code>关键字进行处理则无法通过编译。</p>
-</li>
-<li><p><code>Unchecked Exception</code>：不受检查异常，Java代码在编译过程中吗，我们即使不处理不受检查异常也可以正常通过编译。</p>
-</li>
-</ul>
-</li>
-<li><p><code>Error</code>：程序无法处理的错误。这些异常发生时，Java 虚拟机（JVM）一般会选择线程终止。</p>
-</li>
-</ul>
-<h3 id="Java反射？反射有什么缺点？你是怎么理解反射的（为什么框架需要反射）？❗"><a href="#Java反射？反射有什么缺点？你是怎么理解反射的（为什么框架需要反射）？❗" class="headerlink" title="Java反射？反射有什么缺点？你是怎么理解反射的（为什么框架需要反射）？❗"></a>Java反射？反射有什么缺点？你是怎么理解反射的（为什么框架需要反射）？❗</h3><p>Java反射赋予了我们在运行时分析类以及执行类中方法的能力。通过反射可以获取任意一个类的所有属性和方法，还可以调用这些方法和属性。</p>
-<ul>
-<li>优点：让代码更加灵活、为各种框架提供开箱即用的功能提供了便利。</li>
-<li>缺点：存在安全问题，例如无视泛型参数的安全检查。性能较差。</li>
-</ul>
-<p>使用反射后，增加了程序的灵活性，避免将代码写死，降低了耦合性。</p>
-<h3 id="Java泛型了解吗？什么是类型擦除？介绍一下常用的通配符？❗"><a href="#Java泛型了解吗？什么是类型擦除？介绍一下常用的通配符？❗" class="headerlink" title="Java泛型了解吗？什么是类型擦除？介绍一下常用的通配符？❗"></a>Java泛型了解吗？什么是类型擦除？介绍一下常用的通配符？❗</h3><p><a target="_blank" rel="noopener" href="https://www.yuque.com/snailclimb/mf2z3k/ipqccd#acb25cb7"> 参考文档 </a></p>
-<p>泛型：是JDK5中引入的一个新特性，使用泛型参数，可以增强代码的可读性以及稳定性。</p>
-<p>泛型一般有三种使用方式：泛型类、泛型接口、泛型方法。</p>
-<h4 id="泛型擦除机制"><a href="#泛型擦除机制" class="headerlink" title="泛型擦除机制"></a>泛型擦除机制</h4><p>Java的泛型是伪泛型，因为Java在编译期间，所有的泛型信息都会被擦掉，这也就是通常所说的类型擦除。</p>
-<p>编译期间会动态的将泛型<code>T</code>擦除为<code>Object</code>，或者将<code>T extends xxx</code>擦除为其限定类型<code>xxx</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(List&lt;String&gt; list)</span> &#123; <span class="comment">// 因为下面“重写”，所以报错</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(List&lt;Integer&gt; list)</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>原因是：泛型擦除后，<code>List&lt;String&gt;</code>和<code>List&lt;Integer&gt;</code>在编译以后都变成了<code>List&lt;Object&gt;</code>。因此会报错。</p>
-<h4 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h4><p>泛型类型是固定的，某些场景下使用起来不太灵活，于是通配符就来了！通配符可以允许类型参数变化，用来解决泛型无法协变的问题。</p>
-<h5 id="通配符-和常用的泛型T有什么区别？"><a href="#通配符-和常用的泛型T有什么区别？" class="headerlink" title="通配符?和常用的泛型T有什么区别？"></a>通配符<code>?</code>和常用的泛型<code>T</code>有什么区别？</h5><ul>
-<li><code>T</code>可以用于声明变量或常量，<code>?</code>不行</li>
-<li><code>T</code>一般用于声明泛型类或方法，通配符<code>?</code>一般用于泛型方法的调用代码或形参。</li>
-<li><code>T</code>在编译期会被擦除为限定类型或<code>Object</code>，通配符用于捕获具体类型。</li>
-</ul>
-<h5 id="上边界通配符extends"><a href="#上边界通配符extends" class="headerlink" title="上边界通配符extends"></a>上边界通配符<code>extends</code></h5><p><code>List&lt;? extends Person&gt;</code>限制必须是<code>Person</code>的子类。</p>
-<h5 id="下边界通配符super"><a href="#下边界通配符super" class="headerlink" title="下边界通配符super"></a>下边界通配符<code>super</code></h5><p><code>LIst&lt;? super Employee&gt;</code>限制必须是<code>Employee</code>的父类。</p>
-<h5 id="extends-xxx和-super-xxx的区别？"><a href="#extends-xxx和-super-xxx的区别？" class="headerlink" title="? extends xxx和? super xxx的区别？"></a><code>? extends xxx</code>和<code>? super xxx</code>的区别？</h5><p>两者接收参数的范围不同。</p>
-<ul>
-<li><code>? extends xxx</code>声明的泛型参数只能调用<code>get()</code>方法返回<code>xxx</code>类型，调用<code>set()</code>报错。</li>
-<li><code>? super xxx</code>声明的泛型参数只能调用<code>set()</code>接收<code>xxx</code>类型，调用<code>get()</code>报错。</li>
-</ul>
-<p><code>T extends xxx</code>和<code>? extends xxx</code>的区别？</p>
-<ul>
-<li><code>T extends xxx</code>用于定义泛型类和方法，擦除后为<code>xxx</code>类型</li>
-<li><code>? extends xxx</code>用于声明方法形参，接收<code>xxx</code>和其子类类型。</li>
-</ul>
-<h3 id="内部类了解吗？匿名内部类了解吗？"><a href="#内部类了解吗？匿名内部类了解吗？" class="headerlink" title="内部类了解吗？匿名内部类了解吗？"></a>内部类了解吗？匿名内部类了解吗？</h3><p>内部类分为下面4种：</p>
-<ul>
-<li>成员内部类</li>
-<li>静态内部类</li>
-<li>局部（方法）内部类</li>
-<li>匿名内部类</li>
-</ul>
-<h3 id="BIO、NIO、AIO有什么区别？"><a href="#BIO、NIO、AIO有什么区别？" class="headerlink" title="BIO、NIO、AIO有什么区别？"></a>BIO、NIO、AIO有什么区别？</h3><ul>
-<li>BIO属于同步阻塞IO模型，应用程序发起read调用后，会一直阻塞，知道在内核把数据拷贝到用户空间。</li>
-<li>NIO：Java中的NIO可以看作是I/O多路复用模型。</li>
-<li>AIO：异步IO模型。</li>
-</ul>
-<h2 id="Java集合框架"><a href="#Java集合框架" class="headerlink" title="Java集合框架"></a>Java集合框架</h2><h3 id="说说List、Set、Map三者的区别？三者底层的数据结构？"><a href="#说说List、Set、Map三者的区别？三者底层的数据结构？" class="headerlink" title="说说List、Set、Map三者的区别？三者底层的数据结构？"></a>说说<code>List</code>、<code>Set</code>、<code>Map</code>三者的区别？三者底层的数据结构？</h3><ul>
-<li><code>List</code>：存储的元素是有序的，可以重复的。<ul>
-<li><code>ArrayList</code>：底层是<code>Object[]</code>数组。</li>
-<li><code>Vector</code>：底层是<code>Object[]</code> 数组。</li>
-<li><code>LinkedList</code>：双向链表（JDK1.6之前是循环链表，JDK1.7后取消了循环）</li>
-</ul>
-</li>
-<li><code>Set</code>：存储的元素是无序的，不可重复的。<ul>
-<li><code>HashSet</code>（无序，唯一）：基于<code>HashMap</code>实现的。底层使用<code>HashMap</code>来保存元素。</li>
-<li><code>LinkedHashSet</code>：是<code>HashSet</code>的子类，并且其内部是通过<code>LinkedHashMap</code>来实现的。</li>
-<li><code>TreeSet</code>（有序，唯一）：红黑树（自平衡的排序二叉树）</li>
-</ul>
-</li>
-<li><code>Map</code>：存储的是键值对（<code>key-value</code>），其中key是无序的，不能重复的；值是无序的，可以重复。灭个键最多映射到一个值。<ul>
-<li><code>HashMap</code>：JDK1.8之前<code>HashMap</code>由数组+链表组成的，数组是<code>HashMap</code>的主体，链表则主要是为了解决哈希冲突而存在的（“拉链法”解决冲突）。JDK1.8之后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认是8），会将链表转换为红黑树，以减少搜索时间。</li>
-<li><code>LinkedHashMap</code>：继承自<code>HashMap</code>，所以他的底层仍然是基于拉链式散列结构即由数组和链表或红黑树组成。另外，<code>LinkedHashMap</code>在上面结构的基础上，增加了一条双链表，使得上面的机构可以保证键值对的插入顺序。</li>
-<li><code>HashTable</code>：数组+链表组成的，数组是<code>HashTable</code>的主体，链表则是主要为了解决哈希冲突而存在的。</li>
-<li><code>TreeMap</code>：红黑树（自平衡的排序二叉树。</li>
-</ul>
-</li>
-</ul>
-<h3 id="有哪些集合是线程不安全的？怎么解决呢？"><a href="#有哪些集合是线程不安全的？怎么解决呢？" class="headerlink" title="有哪些集合是线程不安全的？怎么解决呢？"></a>有哪些集合是线程不安全的？怎么解决呢？</h3><p>线程不安全的集合：<code>HashMap</code>、<code>LinkedHashMap</code>、<code>TreeMap</code>、<code>HashSet</code>、<code>LinkedHashSet</code>、<code>TreeSet</code></p>
-<p>选用线程安全的集合：<code>ConcurrentHashMap</code>、<code>HashTable</code>和<code>ConcurrentHashSet</code>.</p>
-<h3 id="比较HashSet、LinkedHashSet、TreeSet三者的异同"><a href="#比较HashSet、LinkedHashSet、TreeSet三者的异同" class="headerlink" title="比较HashSet、LinkedHashSet、TreeSet三者的异同"></a>比较<code>HashSet</code>、<code>LinkedHashSet</code>、<code>TreeSet</code>三者的异同</h3><ul>
-<li>都是<code>Set</code>接口的实现类，都能保证元素唯一，并且都是线程不安全大的。</li>
-<li>三者的主要区别在于底层数据结构不同。<code>HashSet</code>的底层数据结构是哈希表（基于<code>HashMap</code>实现）。<code>LinkedHashMap</code>的底层数据结构是链表和哈希表，元素的插入和取出顺序满足FIFO。<code>TreeSet</code>底层数据结构是红黑树，元素是有序的，排序的方式有自然排序和定制排序。</li>
-<li>根据三者的底层实现，三种结构的使用场景也不相同。</li>
-</ul>
-<h3 id="HashMap和HashTable的区别？HashMap和HashSet的区别？HashMap和TreeMap的区别？"><a href="#HashMap和HashTable的区别？HashMap和HashSet的区别？HashMap和TreeMap的区别？" class="headerlink" title="HashMap和HashTable的区别？HashMap和HashSet的区别？HashMap和TreeMap的区别？"></a><code>HashMap</code>和<code>HashTable</code>的区别？<code>HashMap</code>和<code>HashSet</code>的区别？<code>HashMap</code>和<code>TreeMap</code>的区别？</h3><h4 id="HashMap和HashTable的区别？"><a href="#HashMap和HashTable的区别？" class="headerlink" title="HashMap和HashTable的区别？"></a><code>HashMap</code>和<code>HashTable</code>的区别？</h4><ul>
-<li><p><strong>线程是否安全</strong>：<code>HashMap</code>是非线程安全的，<code>HashTable</code>是线程安全的，因为<code>HashTable</code>内部的方法基本都经过<code>synchronized</code>修饰。（如果需要保证线程安全的话就使用<code>ConcurrentHashMap</code>）</p>
-</li>
-<li><p><strong>效率</strong>：因为线程安全的问题，<code>HashMap</code>要比<code>HashTable</code>效率高一点。另外，<code>HashTable</code>基本被淘汰，不要在代码中使用！！！</p>
-</li>
-<li><p><strong>对NULL key和Null value的支持</strong>：<code>HashMap</code>可以存储null的key和value，但null作为键只能有一个，null作为值可以有多个；<code>HashTable</code>不允许有null键和null值，否则会抛出<code>NullPointerException</code>。</p>
-</li>
-<li><p><strong>初始容量大小和每次扩容大小的不同</strong>：</p>
-<ul>
-<li><p>创建时如果不指定容量初始值，<code>HashTable</code>默认的初始大小为11，之后每次扩容，容量变为原来的<code>zn + 1</code>。<code>HashMap</code>默认的初始化大小为16。之后每次扩容，容量变为原来的2倍。</p>
-</li>
-<li><p>如果给定了容量初始值，那么<code>HashTable</code>会直接使用给定的大小，而<code>HashMap</code>会将其扩充为2的幂次方（<code>HashMap</code> 中的<code>tableSizeFor()</code>方法保证，下面给出了源代码）。也就是说 <code>HashMap</code> 总是使用 2 的幂作为哈希表的大小。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">HashMap</span><span class="params">(<span class="type">int</span> initialCapacity, <span class="type">float</span> loadFactor)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal initial capacity: &quot;</span> +</span><br><span class="line">                                           initialCapacity);</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &gt; MAXIMUM_CAPACITY)</span><br><span class="line">        initialCapacity = MAXIMUM_CAPACITY;</span><br><span class="line">    <span class="keyword">if</span> (loadFactor &lt;= <span class="number">0</span> || Float.isNaN(loadFactor))</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal load factor: &quot;</span> +</span><br><span class="line">                                           loadFactor);</span><br><span class="line">    <span class="built_in">this</span>.loadFactor = loadFactor;</span><br><span class="line">    <span class="built_in">this</span>.threshold = tableSizeFor(initialCapacity);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">HashMap</span><span class="params">(<span class="type">int</span> initialCapacity)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>(initialCapacity, DEFAULT_LOAD_FACTOR);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><strong>底层数据结构</strong>：JDK1.8以后的<code>HashMap</code>在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为8）时，将链表转化为红黑树（将链表转换成红黑树前会判断，如果当前数组的长度小于64，那么会选择先进行数组扩容，而不是转换成红黑树），以减少搜索时间。</p>
-</li>
-</ul>
-<h4 id="HashMap和HashSet的区别？"><a href="#HashMap和HashSet的区别？" class="headerlink" title="HashMap和HashSet的区别？"></a><code>HashMap</code>和<code>HashSet</code>的区别？</h4><p><code>HashSet</code> 底层就是基于 <code>HashMap</code> 实现的。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><code>HashMap</code></th>
-<th style="text-align:center"><code>HashSet</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">实现了<code>Map</code>接口</td>
-<td style="text-align:center">实现<code>Set</code>接口</td>
-</tr>
-<tr>
-<td style="text-align:center">存储键值对</td>
-<td style="text-align:center">进存储对象</td>
-</tr>
-<tr>
-<td style="text-align:center">调用<code>put()</code>向map中添加元素</td>
-<td style="text-align:center">调用<code>add</code>方法向<code>Set</code>中添加元素</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>HashMap</code>使用键（Key）计算<code>hashCode</code></td>
-<td style="text-align:center"><code>HashSet</code> 使用成员对象来计算 <code>hashcode</code> 值，对于两个对象来说 <code>hashcode</code> 可能相同，所以<code>equals()</code>方法用来判断对象的相等性</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h4 id="HashMap和TreeMap的区别？"><a href="#HashMap和TreeMap的区别？" class="headerlink" title="HashMap和TreeMap的区别？"></a><code>HashMap</code>和<code>TreeMap</code>的区别？</h4><p><code>TreeMap</code> 和<code>HashMap</code> 都继承自<code>AbstractMap</code> ，但是需要注意的是<code>TreeMap</code>它还实现了<code>NavigableMap</code>接口和<code>SortedMap</code> 接口。</p>
-<p>实现 <code>NavigableMap</code> 接口让 <code>TreeMap</code> 有了对集合内元素的搜索的能力。</p>
-<p>实现<code>SortedMap</code>接口让 <code>TreeMap</code> 有了对集合中的元素根据键排序的能力。默认是按 key 的升序排序，不过我们也可以指定排序的比较器。</p>
-<p>定制排序示例代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> shuang.kou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@createTime</span> 2020年06月15日 17:02:00</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(Integer age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        TreeMap&lt;Person, String&gt; treeMap = <span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Person&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Person person1, Person person2)</span> &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> person1.getAge() - person2.getAge();</span><br><span class="line">                <span class="keyword">return</span> Integer.compare(num, <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">3</span>), <span class="string">&quot;person1&quot;</span>);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">18</span>), <span class="string">&quot;person2&quot;</span>);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">35</span>), <span class="string">&quot;person3&quot;</span>);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">16</span>), <span class="string">&quot;person4&quot;</span>);</span><br><span class="line">        treeMap.entrySet().stream().forEach(personStringEntry -&gt; &#123;</span><br><span class="line">            System.out.println(personStringEntry.getValue());</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="HashMap的底层实现"><a href="#HashMap的底层实现" class="headerlink" title="HashMap的底层实现"></a><code>HashMap</code>的底层实现</h3><h4 id="JDK1-8之前"><a href="#JDK1-8之前" class="headerlink" title="JDK1.8之前"></a>JDK1.8之前</h4><p>底层实现是<strong>数组和链表</strong>结合在一起使用也就是链表散列。</p>
-<p><code>HashMap</code>通过key的<code>hashCode</code>经过<strong>扰动函数</strong>处理过后得到hash值，然后通过<code>(n - 1) &amp; hash</code>判断当前元素存放的位置（这里的n指的是数组的长度），如果当前位置存在元素的话，就判断该元素与要存入的元素的hash值以及key是否相同，如果相同的话，直接覆盖，不相同就通过拉链法解决冲突。</p>
-<p>这里的<strong>扰动函数</strong>就是<code>HashMap</code>的<code>hash</code>方法。使用<code>hash</code>方法也就是<strong>扰动函数</strong>是为了防止一些实现比较查的<code>hashCode()</code>方法，换句话说，使用<strong>扰动函数</strong>之后可以<strong>减少碰撞</strong>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扰动函数</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">hash</span><span class="params">(Object key)</span> &#123;</span><br><span class="line">    <span class="type">int</span> h;</span><br><span class="line">    <span class="comment">// key.hashCode()：返回散列值也就是hashcode</span></span><br><span class="line">    <span class="comment">// ^：按位异或</span></span><br><span class="line">    <span class="comment">// &gt;&gt;&gt;:无符号右移，忽略符号位，空位都以0补齐</span></span><br><span class="line">    <span class="keyword">return</span> (key == <span class="literal">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>拉链法</strong>：将链表和数组相结合。也就是说创建一个链表数组，数组中每一格就是一个链表。若遇到哈希冲突，则将冲突的值加到链表中即可。（类似于<strong>邻接表</strong>）</p>
-<h4 id="JDK1-8之后"><a href="#JDK1-8之后" class="headerlink" title="JDK1.8之后"></a>JDK1.8之后</h4><p>底层实现是<strong>数组和链表/红黑树</strong>。相比于JDK1.8之前主要实在解决哈希冲突时有了较大的变化：</p>
-<p>当链表长度大于阈值（默认是8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，会选择优先进行数组扩容，而不是转换成红黑树）时，将链表转化为红黑树，以减少搜索时间。</p>
-<h3 id="HashMap的长度为什么是2的幂次方？"><a href="#HashMap的长度为什么是2的幂次方？" class="headerlink" title="HashMap的长度为什么是2的幂次方？"></a><code>HashMap</code>的长度为什么是2的幂次方？</h3><p>为了能让 HashMap 存取高效，尽量较少碰撞，也就是要尽量把数据分配均匀。我们上面也讲到了过了，Hash 值的范围值-2147483648 到 2147483647，前后加起来大概 40 亿的映射空间，只要哈希函数映射得比较均匀松散，一般应用是很难出现碰撞的。但问题是一个 40 亿长度的数组，内存是放不下的。所以这个散列值是不能直接拿来用的。用之前还要先做对数组的长度取模运算，得到的余数才能用来要存放的位置也就是对应的数组下标。这个数组下标的计算方法是“ <code>(n - 1) &amp; hash</code>”。（n 代表数组长度）。这也就解释了 HashMap 的长度为什么是 2 的幂次方。</p>
-<p>重点来了：<strong>“取余(%)操作中如果除数是 2 的幂次则等价于与其除数减一的与(&amp;)操作（也就是说 hash%length == hash&amp;(length-1)的前提是 length 是 2 的 n 次方；）。”</strong> 并且 <strong>采用二进制位操作 &amp;，相对于%能够提高运算效率，这就解释了 HashMap 的长度为什么是 2 的幂次方。</strong></p>
-<h3 id="ConcurrentHashMap和HashTable的区别？"><a href="#ConcurrentHashMap和HashTable的区别？" class="headerlink" title="ConcurrentHashMap和HashTable的区别？"></a><code>ConcurrentHashMap</code>和<code>HashTable</code>的区别？</h3><p>主要体现在实现线程安全的方式上不同。</p>
-<ul>
-<li><strong>底层数据结构</strong>：JDK1.7的<code>ConcurrentHashMap</code>底层采用<strong>分段的数组+链表</strong>实现，JDK1.8采用的数据结构跟<code>HashMap1.8</code>的结构一样，<strong>数组+链表/红黑树</strong>。<code>HashTable</code>和JDK1.8之前的<code>HashMap</code>的底层数据结构类似都是采用<strong>数组+链表</strong>的形式，数组是<code>HashMap</code>的主体，链表则是为了解决哈希冲突而存在的。</li>
-<li><strong>实现线程安全的方式（重要）</strong>：<ul>
-<li>JDK1.7的<code>ConcurrentHashMap</code>对整个桶数组进行了分割分段（<code>Segment</code>，分段锁），每一把锁都只锁容器的一部分。</li>
-<li>JDK1.8的<code>ConcurrentHashMap</code>摒弃了<code>Segment</code>的概念，底层实现改为了<strong>数组+链表/红黑树</strong>。并发控制使用<code>synchornized</code>和CAS来操作。</li>
-<li><code>HashTable</code>（同一把锁）：使用<code>synchornized</code>来保证线程安全，效率非常低。</li>
-</ul>
-</li>
-</ul>
-<h3 id="ConcurrentHashMap线程安全的具体实现方式-底层具体实现？"><a href="#ConcurrentHashMap线程安全的具体实现方式-底层具体实现？" class="headerlink" title="ConcurrentHashMap线程安全的具体实现方式/底层具体实现？"></a><code>ConcurrentHashMap</code>线程安全的具体实现方式/底层具体实现？</h3><h4 id="JDK1-8之前-1"><a href="#JDK1-8之前-1" class="headerlink" title="JDK1.8之前"></a>JDK1.8之前</h4><p><img src="/img/Java面试问题&amp;解答/java7_concurrenthashmap.png" alt="Java7 ConcurrentHashMap 存储结构"></p>
-<p><strong><code>ConcurrentHashMap</code> 是由 <code>Segment</code> 数组结构和 <code>HashEntry</code> 数组结构组成</strong>。</p>
-<p><code>Segment</code> 继承了 <code>ReentrantLock</code>,所以 <code>Segment</code> 是一种<strong>可重入锁</strong>，扮演锁的角色。<code>HashEntry</code> 用于存储键值对数据。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Segment</span>&lt;K,V&gt; <span class="keyword">extends</span> <span class="title class_">ReentrantLock</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一个 <code>ConcurrentHashMap</code> 里包含一个 <code>Segment</code> 数组，<code>Segment</code> 的个数一旦<strong>初始化就不能改变</strong>。 <code>Segment</code> 数组的大小默认是 16，也就是说默认可以同时支持 16 个线程并发写。</p>
-<h4 id="JDK1-8之后-1"><a href="#JDK1-8之后-1" class="headerlink" title="JDK1.8之后"></a>JDK1.8之后</h4><p><img src="/img/Java面试问题&amp;解答/java8_concurrenthashmap.png" alt="Java8 ConcurrentHashMap 存储结构"></p>
-<p><code>ConcurrentHashMap</code>取消了<code>Segment</code>分段锁，采用了<code>Node + CAS + synchornized</code>来保证并发安全。</p>
-<p>Java 8 中，锁粒度更细，<code>synchronized</code> 只锁定当前链表或红黑二叉树的首节点，这样只要 hash 不冲突，就不会产生并发，就不会影响其他 Node 的读写，效率大幅提升。</p>
-<h2 id="JVM❗"><a href="#JVM❗" class="headerlink" title="JVM❗"></a>JVM❗</h2><h3 id="JVM内存结构"><a href="#JVM内存结构" class="headerlink" title="JVM内存结构"></a>JVM内存结构</h3><p>JVM内存结构呆滞分为五个部分：<strong>程序计数器、虚拟机栈、本地方法栈、堆和方法区</strong>。除此之外，还有由堆中引用的JVM外的直接内存。</p>
-<p><img src="/img/Java面试问题&amp;解答/JVM" alt="JVM内存结构"></p>
-<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>程序计数器是一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器。<strong>是线程私有的</strong>。字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等功能都需要依赖这个计数器来完成。</p>
-<h4 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h4><ul>
-<li>每个线程运行时所需要的内存，称为虚拟机栈。也是线程私有的。</li>
-<li>每个栈由多个栈帧（Frame）组成，对应着每次方法调用时所占用的内存。</li>
-<li>每个线程只能有一个活动栈帧，对应着当前正在执行的方法。</li>
-</ul>
-<p>可能抛出的异常：</p>
-<ul>
-<li>当线程请求的栈深度超过最大值，会抛出<code>StackOverflowError</code>异常，这种异常在无停止条件的递归情况下会发生。</li>
-<li>栈进行动态扩展时如果无法申请到足够内存，会抛出<code>OutOfMemoryError</code>异常。</li>
-</ul>
-<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>一些带有<code>native</code>关键字的方法就是需要JAVA去调用本地的C或者C++方法，因为JAVA有时候没法直接和操作系统底层交互，所以需要用到本地方法栈，服务于带<code>native</code>关键字的方法。</p>
-<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>所有对象都在这里分配内存，是垃圾收集的主要区域（“GC 堆”）。通过<code>new</code>关键字创建得对象会被放在堆内存。</p>
-<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
-<p>和堆一样不需要连续的内存，并且可以动态扩展，动态扩展失败一样会抛出 <code>OutOfMemoryError</code>异常。</p>
-<p><strong>运行时常量池</strong>：</p>
-<p>运行时常量池是方法区的一部分。常量池，就是一张表，虚拟机指令根据这张常量表找到要执行的类名、方法名、参数类型、字面量等信息。</p>
-<h3 id="JVM调优参数"><a href="#JVM调优参数" class="headerlink" title="JVM调优参数"></a>JVM调优参数</h3><p><a target="_blank" rel="noopener" href="https://javaguide.cn/java/jvm/jvm-parameters-intro.html"> 参考文档 </a></p>
-<h4 id="堆内存相关"><a href="#堆内存相关" class="headerlink" title="堆内存相关"></a>堆内存相关</h4><blockquote>
-<p>堆内存区域的唯一目的就是存放对象实例，几乎所有的对象实例以及数组都在这里分配内存。</p>
-</blockquote>
-<h5 id="显示指定堆内存-Xms和-Xmx"><a href="#显示指定堆内存-Xms和-Xmx" class="headerlink" title="显示指定堆内存-Xms和-Xmx"></a>显示指定堆内存<code>-Xms</code>和<code>-Xmx</code></h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-Xms&lt;heap size&gt;[unit]  <span class="comment"># 最小堆大小</span></span><br><span class="line">-Xmx&lt;heap size&gt;[unit]  <span class="comment"># 最大堆大小</span></span><br><span class="line">-Xms2G -Xmx5G</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>heap size</code>表示要初始化内存的具体大小</li>
-<li><code>unit</code>表示要初始化内存的单位。例如：g(GB)，m(MB)，k(KB)。</li>
-</ul>
-<h5 id="显示指定永久代-元空间的大小"><a href="#显示指定永久代-元空间的大小" class="headerlink" title="显示指定永久代/元空间的大小"></a>显示指定永久代/元空间的大小</h5><p>从Java8开始，如果我们没有指定Metaspace的大小，随着更多类的创建，虚拟机会耗尽所有可用的系统内存（永久代不会出现这种情况）。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-XX:MetaspaceSize=N <span class="comment"># 设置Metaspace的初始大小</span></span><br><span class="line">-XX:MaxMetaspaceSize=N <span class="comment"># 设置Metaspace的最大大小</span></span><br></pre></td></tr></table></figure>
-<h4 id="垃圾收集相关"><a href="#垃圾收集相关" class="headerlink" title="垃圾收集相关"></a>垃圾收集相关</h4><h5 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h5><p>JVM具有四种类型的GC实现：</p>
-<ul>
-<li>串行垃圾收集器：<code>-XX:UseSerialGC</code></li>
-<li>并行垃圾收集器：<code>-XX:UseParallelGC</code></li>
-<li>CMS垃圾收集器：<code>-XX:UseParNewGC</code></li>
-<li>G1垃圾收集器：<code>-XX:UseG1GC</code></li>
-</ul>
-<h5 id="GC日志记录"><a href="#GC日志记录" class="headerlink" title="GC日志记录"></a>GC日志记录</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 必选</span></span><br><span class="line"><span class="comment"># 打印基本 GC 信息</span></span><br><span class="line">-XX:+PrintGCDetails</span><br><span class="line">-XX:+PrintGCDateStamps</span><br><span class="line"><span class="comment"># 打印对象分布</span></span><br><span class="line">-XX:+PrintTenuringDistribution</span><br><span class="line"><span class="comment"># 打印堆数据</span></span><br><span class="line">-XX:+PrintHeapAtGC</span><br><span class="line"><span class="comment"># 打印Reference处理信息</span></span><br><span class="line"><span class="comment"># 强引用/弱引用/软引用/虚引用/finalize 相关的方法</span></span><br><span class="line">-XX:+PrintReferenceGC</span><br><span class="line"><span class="comment"># 打印STW时间</span></span><br><span class="line">-XX:+PrintGCApplicationStoppedTime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可选</span></span><br><span class="line"><span class="comment"># 打印safepoint信息，进入 STW 阶段之前，需要要找到一个合适的 safepoint</span></span><br><span class="line">-XX:+PrintSafepointStatistics</span><br><span class="line">-XX:PrintSafepointStatisticsCount=1</span><br><span class="line"></span><br><span class="line"><span class="comment"># GC日志输出的文件路径</span></span><br><span class="line">-Xloggc:/path/to/gc-%t.log</span><br><span class="line"><span class="comment"># 开启日志文件分割</span></span><br><span class="line">-XX:+UseGCLogFileRotation</span><br><span class="line"><span class="comment"># 最多分割几个文件，超过之后从头文件开始写</span></span><br><span class="line">-XX:NumberOfGCLogFiles=14</span><br><span class="line"><span class="comment"># 每个文件上限大小，超过就触发分割</span></span><br><span class="line">-XX:GCLogFileSize=50M</span><br></pre></td></tr></table></figure>
-<h3 id="什么是类加载？何时类加载？类加载流程？"><a href="#什么是类加载？何时类加载？类加载流程？" class="headerlink" title="什么是类加载？何时类加载？类加载流程？"></a>什么是类加载？何时类加载？类加载流程？</h3><h4 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h4><p>类从被加载到虚拟机内存中开始到卸载出内存开始，它的整个生命周期可以简单概括为7个阶段：加载（loading）、验证（Verification）、准备（Preparation）、解析（Resolution）、初始化（Initialization）、使用（Using）和卸载（Unloading）。其中前三个阶段可以统称为连接（Linking）。</p>
-<p><img src="/img/Java面试问题&amp;解答/lifecycle-of-a-class.png" alt="一个类的完整生命周期"></p>
-<h4 id="类加载流程"><a href="#类加载流程" class="headerlink" title="类加载流程"></a>类加载流程</h4><blockquote>
-<p>class文件需要加载到虚拟机中之后才能运行和使用。虚拟机加载这些class文件的步骤如下：</p>
-</blockquote>
-<p>系统加载Class类型的文件主要三步：<code>加载 -&gt; 连接 -&gt; 初始化</code>。连接过程又可以分为三步：<code>验证 -&gt; 准备 -&gt; 解析</code></p>
-<h5 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h5><p>类加载过程的第一步，主要完成以下工作：</p>
-<ol>
-<li>通过全类名获取定义此类的二进制字节流。</li>
-<li>将字节流所代表的静态存储结构转换为方法区的运行时数据结构。</li>
-<li>在内存中生成一个代表该类的<code>Class</code>对象，作为方法区这些数据的访问入口。</li>
-</ol>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><p><strong>验证是连接阶段的第一步，这一阶段的目的是确保Class文件的字节流中包含的信息符合《Java虚拟机规范》的全部约束要求，保证这些信息被当做代码运行后不会危害虚拟机自身的安全。</strong></p>
-<p>验证阶段主要由四个检验阶段组成：</p>
-<ul>
-<li>文件格式验证（Class文件格式检查）：验证字节流是否符合Class文件格式的规范。</li>
-<li>元数据验证（字节码语义检查）：对字节码描述的信息进行语义分析，以保证其描述的信息符合《Java虚拟机规范》的要求。</li>
-<li>字节码验证（程序语义检查）：通过数据流分析和控制流分析，确定程序语义是合法的，符合逻辑的。</li>
-<li>符号引用验证（类的正确性检查）：验证该类的正确性。</li>
-</ul>
-<h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><blockquote>
-<p>准备阶段是正式为类变量分配内存并设置类变量初始值的阶段。</p>
-</blockquote>
-<h5 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h5><blockquote>
-<p>解析阶段是虚拟机将常量池内的符号引用替换成直接引用的过程。</p>
-</blockquote>
-<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><blockquote>
-<p>初始化阶段是执行初始化方法<code>&lt;clinit&gt;()</code>方法的过程，是类加载的最后一步，这一步JVM才开始真正执行类中定义的Java程序代码（字节码）</p>
-</blockquote>
-<p><strong>虚拟机严格规范了有且只有5中情况下，必须对类进行初始化</strong></p>
-<ol>
-<li>当遇到<code>new</code>、<code>getstatic</code>、<code>putstatic</code>或<code>invokestatic</code>这4条字节码指令时。</li>
-<li>使用<code>java.lang.reflect</code>包的方法对类进行反射调用时。如：<code>Class.forname(&quot;...&quot;)</code>、<code>newInstance()</code>等等。</li>
-<li>初始化一个类，如果其父类还未初始化，则先触发该父类的初始化。</li>
-<li>当虚拟机启动时，用户需要定义一个要执行的主类（包含<code>main</code>方法的那个类），虚拟机会先初始化这个类。</li>
-<li><code>MethodHandle</code>和<code>VarHandle</code>可以看作是轻量级的反射调用机制。而要想使用这 2 个调用， 就必须先使用 <code>findStaticVarHandle</code> 来初始化要调用的类。</li>
-</ol>
-<h3 id="知道哪些类加载器？类加载器之间的关系？"><a href="#知道哪些类加载器？类加载器之间的关系？" class="headerlink" title="知道哪些类加载器？类加载器之间的关系？"></a>知道哪些类加载器？类加载器之间的关系？</h3><blockquote>
-<p>类加载器从 JDK 1.0 就出现了，最初只是为了满足 Java Applet（已经被淘汰） 的需要。后来，慢慢成为 Java 程序中的一个重要组成部分，赋予了 Java 类可以被动态加载到 JVM 中并执行的能力。</p>
-</blockquote>
-<p>类加载器的作用：</p>
-<ul>
-<li>类加载器是一个负责加载类的对象，用于实现类加载过程中<strong>加载</strong>这一步。</li>
-<li>每个Java类都有一个引用指向加载它的<code>ClassLoader</code>。</li>
-<li>数组类不是通过<code>ClassLoader</code>创建的（数组类没有对应的二进制字节流），是由JVM直接生成的。</li>
-</ul>
-<p>简单来说，<strong>类加载器的主要作用就是加载 Java 类的字节码（ <code>.class</code> 文件）到 JVM 中（在内存中生成一个代表该类的 <code>Class</code> 对象）。</strong></p>
-<p>JVM中内置了三个重要的<code>ClassLoader</code></p>
-<ol>
-<li><code>BootStrapClassLoader</code>（启动类加载器）：最顶层的加载类，由C++实现，通常表示为null，并且没有父级，主要用来加载JDk内部的核心类库（<code>%JAVA_HOME%/lib</code>目录下的<code>rt.jar</code>、<code>resources.jar</code>等jar包和类）以及被<code>-Xbootclasspath</code>参数指定的路径下的所有类。</li>
-<li><code>ExtenstionClassLoader</code>（扩展类加载器）：主要负责加载<code>%JRE_HOME%/lib/ext</code>目录下的jar包和类以及被<code>java.ext.dirs</code>系统变量所指定的路径下的所有类。</li>
-<li><code>AppClassLoader</code>（应用程序类加载器）：面向我们用户的加载器，负责加载当前应用classpath下的所有jar包和类。</li>
-</ol>
-<p><img src="/img/Java面试问题&amp;解答/class-loader-parents-delegation-model.png" alt="类加载器层次关系图"></p>
-<h3 id="类加载器的双亲委派了解吗？结合Tomcat说一下双亲委派（Tomcat如何打破双亲委托机制？）❗"><a href="#类加载器的双亲委派了解吗？结合Tomcat说一下双亲委派（Tomcat如何打破双亲委托机制？）❗" class="headerlink" title="类加载器的双亲委派了解吗？结合Tomcat说一下双亲委派（Tomcat如何打破双亲委托机制？）❗"></a>类加载器的双亲委派了解吗？结合Tomcat说一下双亲委派（Tomcat如何打破双亲委托机制？）❗</h3><p>双亲委派模型是用来明确哪个类加载器加载。</p>
-<blockquote>
-<p><code>ClassLoader</code>类使用委托模型来搜索类和资源。每个<code>ClassLoader</code>实例都有一个相关的父类加载器。需要查找类或资源时，<code>ClassLoader</code>实例会在试图亲自查找类或资源之前，将搜索类或资源的任务委托给其父类加载器。</p>
-</blockquote>
-<h3 id="为什么需要双亲委派？"><a href="#为什么需要双亲委派？" class="headerlink" title="为什么需要双亲委派？"></a>为什么需要双亲委派？</h3><p>双亲委派模型保证了Java程序的稳定运行，可以避免类的重复加载（JVM区分不同类的方式不仅仅根据类名，相同的类文件被不同的类加载器加载产生的是两个不同的类），也保证了Java的核心API不被篡改。</p>
-<h3 id="Java内存模型"><a href="#Java内存模型" class="headerlink" title="Java内存模型"></a>Java内存模型</h3><p><img src="/img/Java面试问题&amp;解答/20210226133909692.png" alt="20210226133909692"></p>
-<h3 id="栈中存放什么数据？堆中呢？"><a href="#栈中存放什么数据？堆中呢？" class="headerlink" title="栈中存放什么数据？堆中呢？"></a>栈中存放什么数据？堆中呢？</h3><ul>
-<li>虚拟机栈：存放方法、局部变量、运行数据。线程私有。</li>
-<li>本地方法栈：存储<code>Native</code>方法。线程私有。</li>
-<li>堆：存放所有创建的对象，数组。所有线程共享区域。</li>
-</ul>
-<h3 id="大对象放在哪个内存区域？"><a href="#大对象放在哪个内存区域？" class="headerlink" title="大对象放在哪个内存区域？"></a>大对象放在哪个内存区域？</h3><blockquote>
-<p>大对象就是需要大量连续内存空间的对象。比如：字符串、数组。</p>
-</blockquote>
-<p>大对象直接进入<strong>老年代</strong>主要是为了避免为大对象分配内存时由于分配担保机制带来的复制而降低效率。</p>
-<p>堆被划分为两个不同的区域：<strong>新生代</strong>（Young）（1/3堆空间）、<strong>老年代</strong>（Old）（2/3堆空间）。其中新生代（Young）又被划分为三个区域：Eden（8/10）、From Survivor（1/10）、To Survivor（1/10）。</p>
-<h3 id="堆区如何分类？"><a href="#堆区如何分类？" class="headerlink" title="堆区如何分类？"></a>堆区如何分类？</h3><p>在JDK7版本及JDK7版本之前，堆内存被通常分为下面三部分：</p>
-<ul>
-<li>新生代内存：占1/3堆空间。</li>
-<li>老生代内存：占2/3堆空间。</li>
-<li>永久代</li>
-</ul>
-<p>下图所示的<code>Eden</code>区、两个<code>Survivor</code>区S0和S1都属于新生代，中间一层属于老年代，最下面一层属于永久代。</p>
-<p><img src="/img/Java面试问题&amp;解答/hotspot-heap-structure.png" alt="堆内存结构"></p>
-<p><strong>JDK8版本之后PermGen（永久代）已经被Metaspace（元空间）取代，元空间使用的是直接内存。</strong></p>
-<h3 id="垃圾回收有哪些算法？"><a href="#垃圾回收有哪些算法？" class="headerlink" title="垃圾回收有哪些算法？"></a>垃圾回收有哪些算法？</h3><h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><blockquote>
-<p>标记-清除（Mark-and-Sweep）算法分为“标记”和“清除”阶段：首先标记出所有不需要回收的对象，在标记完成后统一回收掉所有没有被标记的对象。</p>
-</blockquote>
-<p>它是最基础的收集算法，后续的算法都是对其不足进行改进得到。这种垃圾收集算法会带来两个明显的问题：</p>
-<ul>
-<li><strong>效率问题</strong>：标记和清除两个过程效率都不高。</li>
-<li><strong>空间问题</strong>：标记清除后会产生大量不连续的内存碎片。</li>
-</ul>
-<p><img src="/img/Java面试问题&amp;解答/mark-and-sweep-garbage-collection-algorithm.png" alt="标记-清除算法"></p>
-<p>标记-清除过程：</p>
-<ol>
-<li>当一个对象被创建时，给一个标记位，假设为0/false。</li>
-<li>在标记阶段，我们将所有可达对象（或用户可以引用的对象）的标记位设置为1/true。</li>
-<li>扫描阶段清除的就是标记位0/false的对象。</li>
-</ol>
-<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>为了解决标记-清除算法的效率和内存碎片问题，复制（Copying）收集算法出现了。</p>
-<p>它可以将内存分为大小相同的两块，每次使用其中的一块。当这一块的内存使用完后，就将还存活的对象复制到另一块去，然后再把使用的空间一次清理掉。这样就使每次的内存回收都是对内存区间的一半进行回收。</p>
-<p><img src="/img/Java面试问题&amp;解答/copying-garbage-collection-algorithm.png" alt="复制算法"></p>
-<p>依然存在下面这些问题：</p>
-<ul>
-<li><strong>可用内存变小</strong>：可用内存缩小为原来的一半。</li>
-<li><strong>不适合老年代</strong>：如果存活对象数量比较大，复制性能会变得很差。</li>
-</ul>
-<h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><p>标记-整理（Mark-and-Compact）算法是根据老年代的特点提出的一种标记算法，标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象回收，而是让所有存活的对象向一端移动，然后直接清理掉端边界以外的内存。</p>
-<p><img src="/img/Java面试问题&amp;解答/mark-and-compact-garbage-collection-algorithm.png" alt="标记-整理算法"></p>
-<p>因为多了整理这一步，因此效率也不高，适合老年代这种回收频率不高的场景。</p>
-<h4 id="分代收集算法💡"><a href="#分代收集算法💡" class="headerlink" title="分代收集算法💡"></a>分代收集算法💡</h4><p>当前虚拟机的垃圾收集都采用分代收集算法，这种算法没有什么新的思想，只是根据对象存活周期的不同将内存分为几块。一般将 Java 堆分为新生代和老年代，这样我们就可以根据各个年代的特点选择合适的垃圾收集算法。</p>
-<p>比如<strong>在新生代中</strong>，每次收集都会有大量对象死去，所以可以选择”标记-复制“算法，只需要付出少量对象的复制成本就可以完成每次垃圾收集。而<strong>老年代</strong>的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择“标记-清除”或“标记-整理”算法进行垃圾收集。</p>
-<h3 id="GC的全部流程"><a href="#GC的全部流程" class="headerlink" title="GC的全部流程"></a>GC的全部流程</h3><h4 id="死亡对象判断"><a href="#死亡对象判断" class="headerlink" title="死亡对象判断"></a>死亡对象判断</h4><p>堆中几乎放着所有的对象实例，对堆垃圾回收前的第一步就是要判断哪些对象已经死亡（即不能再被任何途径使用的对象）。</p>
-<h5 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h5><p>给对象中添加一个引用计数器：</p>
-<ul>
-<li>每当有一个地方引用它，计算器就加1。</li>
-<li>当引用失败，计数器就减一。</li>
-<li>任何时候计数器为0的对象就是不可能再被使用的。</li>
-</ul>
-<p><strong>这个方法实现简单，效率高，但是目前主流的虚拟机中并没有选择这个算法来管理内存，其最主要的原因是它很难解决对象之间循环引用的问题。</strong></p>
-<p><img src="/img/Java面试问题&amp;解答/object-circular-reference.png" alt="对象之间循环引用"></p>
-<h5 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h5><p>这个算法的基本思想就是通过一系列的称为 <strong>“GC Roots”</strong> 的对象作为起点，从这些节点开始向下搜索，节点所走过的路径称为引用链，当一个对象到 GC Roots 没有任何引用链相连的话，则证明此对象是不可用的，需要被回收。</p>
-<p>下图中的 <code>Object 6 ~ Object 10</code> 之间虽有引用关系，但它们到 GC Roots 不可达，因此为需要被回收的对象。</p>
-<p><img src="/img/Java面试问题&amp;解答/jvm-gc-roots.png" alt="可达性分析算法"></p>
-<h4 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h4><p>参考上面的垃圾回收算法。</p>
-<h3 id="GC中老年代用什么回收方法？"><a href="#GC中老年代用什么回收方法？" class="headerlink" title="GC中老年代用什么回收方法？"></a>GC中老年代用什么回收方法？</h3><p>老年代中的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择<strong>“标记-清楚”</strong>或<strong>“标记-整理”</strong>算法进行垃圾回收。</p>
-<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="线程和进程的区别💡"><a href="#线程和进程的区别💡" class="headerlink" title="线程和进程的区别💡"></a>线程和进程的区别💡</h3><h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>进程是程序一次执行过程，是系统运行程序的最基本单位，因此进程是动态的。系统运行一个程序即是一个进程从创建，运行到消亡的过程。</p>
-<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>线程与进程相似，但<strong>线程是一个比进程更小的执行单位</strong>。一个进程在其执行的过程中可以产生多个线程。与进程不同的是同类的多个线程共享进程的<strong>堆</strong>和<strong>方法区</strong>资源。但每个线程有自己的<strong>程序计数器</strong>、<strong>虚拟机栈</strong>和<strong>本地方法栈</strong>，所以系统在产生一个线程，或是在各个线程之间作切换工作时，负担要比进程小得多，也正因为如此，线程也被称为<strong>轻量级进程</strong>。</p>
-<p><strong>一个 Java 程序的运行是 main 线程和多个其他线程同时运行。</strong></p>
-<h4 id="进程和线程的关系"><a href="#进程和线程的关系" class="headerlink" title="进程和线程的关系"></a>进程和线程的关系</h4><p><img src="/img/Java面试问题&amp;解答/java-runtime-data-areas-jdk1.8.png" alt="Java 运行时数据区域（JDK1.8 之后）"></p>
-<p>从上图可以看出：一个进程中可以有多个线程，多个线程共享进程的<strong>堆</strong>和<strong>方法区 (JDK1.8 之后的元空间)资源</strong>，但是每个线程有自己的<strong>程序计数器</strong>、<strong>虚拟机栈</strong> 和 <strong>本地方法栈</strong>。</p>
-<p><strong>总结：</strong> <strong>线程是进程划分成的更小的运行单位。线程和进程最大的不同在于基本上各进程是独立的，而各线程则不一定，因为同一进程中的线程极有可能会相互影响。线程执行开销小，但不利于资源的管理和保护；而进程正相反。</strong>💡</p>
-<h3 id="什么是上下文切换"><a href="#什么是上下文切换" class="headerlink" title="什么是上下文切换"></a>什么是上下文切换</h3><p>线程在执行过程中会有自己的运行条件和状态（也称上下文），比如程序计数器，栈信息等。当出现如下情况的时候，线程会从占用CPU状态中退出。</p>
-<ul>
-<li>主动让出CPU，比如调用了<code>sleep()</code>、<code>wait()</code>等。</li>
-<li>时间片用完，因为操作系统要防止一个线程或进程长时间占用CPU导致其他线程或进程饿死。</li>
-<li>调用了阻塞类型的系统中断。比如请求IO，线程被阻塞。</li>
-<li>被终止或结束运行。</li>
-</ul>
-<p>其中前三种都会发生线程切换，线程切换意味着要保存当前线程的上下文，留待线程下次占用CPU的时候恢复线程。并加载下一个将要占用CPU的线程上下文。这就是所谓的<strong>上下文切换</strong>。</p>
-<p>上下文切换是现代操作系统的基本功能，因其每次需要保存信息恢复信息，这将会占用 CPU，内存等系统资源进行处理，也就意味着效率会有一定损耗，如果频繁切换就会造成整体效率低下。</p>
-<h3 id="什么是线程死锁？如何避免死锁？"><a href="#什么是线程死锁？如何避免死锁？" class="headerlink" title="什么是线程死锁？如何避免死锁？"></a>什么是线程死锁？如何避免死锁？</h3><h4 id="线程死锁"><a href="#线程死锁" class="headerlink" title="线程死锁"></a>线程死锁</h4><p>多个线程同时阻塞，他们中的一个或者全部都在等待某个资源被释放。由于线程被无限期地阻塞，因此程序不可能正常终止。</p>
-<p><strong>死锁产生的四个条件</strong>：</p>
-<ul>
-<li><strong>互斥条件</strong>：一个资源每次只能被一个进程使用</li>
-<li><strong>请求与保持</strong>：一个进程因请求资源而阻塞时，对已获得的资源保持不放；</li>
-<li><strong>不剥夺条件</strong>：进程已获得的资源，在未使用完之前，不能强行剥夺；</li>
-<li><strong>循环等待条件</strong>：若干进程之间形成一种头尾相接的循环等待资源关系。</li>
-</ul>
-<p><img src="/img/Java面试问题&amp;解答/2019-4死锁1.png" alt="线程死锁示意图 "></p>
-<h4 id="如何预防和避免死锁"><a href="#如何预防和避免死锁" class="headerlink" title="如何预防和避免死锁"></a>如何预防和避免死锁</h4><p>预防死锁：破坏死锁的产生的必要条件即可。</p>
-<ul>
-<li><strong>破坏请求与保持条件</strong>：一次性申请所有的资源。</li>
-<li><strong>破坏不剥夺条件</strong>：占用部分资源的线程进一步申请其他资源时，如果申请不到，可以主动释放它占有的资源。</li>
-<li><strong>破坏循环等待条件</strong>：靠按序申请资源来预防。按某一顺序申请资源，释放资源则反序释放，</li>
-</ul>
-<p>避免死锁：</p>
-<p>在资源分配时，借助于算法（比如<strong>银行家算法</strong>）对资源分配进行计算评估，时期进入安全状态。</p>
-<h3 id="乐观锁和悲观锁了解吗？"><a href="#乐观锁和悲观锁了解吗？" class="headerlink" title="乐观锁和悲观锁了解吗？"></a>乐观锁和悲观锁了解吗？</h3><h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4><p>乐观锁总是假设最好的情况，认为共享资源每次被访问的时候不会出现问题，线程可以不停的执行，无需加锁也无需等待，只是在提交修改的时候区验证对应的资源（也就是数据）是否被其他线程修改。</p>
-<h4 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h4><p>悲观锁总是假设最坏的情况，认为共享资源每次被访问的时候就会出现问题（比如共享数据被修改），所以每次在获取资源操作的时候都会上锁，这样其他线程想拿这个资源就会阻塞直到锁被上一个持有者释放。也就是说：<strong>共享资源每次只给一个线程使用，其他线程阻塞，用完再把资源转让给其他线程。</strong></p>
-<p>像 Java 中<code>synchronized</code>和<code>ReentrantLock</code>等独占锁就是悲观锁思想的实现。</p>
-<h3 id="说说sleep-方法和wait-方法的区别和共同点"><a href="#说说sleep-方法和wait-方法的区别和共同点" class="headerlink" title="说说sleep()方法和wait()方法的区别和共同点"></a>说说<code>sleep()</code>方法和<code>wait()</code>方法的区别和共同点</h3><p><strong>共同点</strong>：两者都可以暂停线程的执行。</p>
-<p><strong>区别</strong>：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th><code>sleep()</code></th>
-<th><code>wait()</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>没有释放锁</td>
-<td>释放了锁</td>
-</tr>
-<tr>
-<td>通常用于线程间的交互/通信</td>
-<td>通常被用于暂停执行</td>
-</tr>
-<tr>
-<td>该方法执行完之后，线程会自动苏醒，也可以使用<code>wait(long timeout)</code>超时后线程会自动苏醒</td>
-<td>方法被调用后，线程不会自动苏醒，需要别的线程调用同一对象上的<code>notify()</code>或者<code>notifyAll()</code>方法。</td>
-</tr>
-<tr>
-<td>是<code>Thread</code>类的静态本地方法</td>
-<td>是<code>object</code>类的本地方法。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h4 id="拓展1：为什么wait-方法不定义在Thread中？"><a href="#拓展1：为什么wait-方法不定义在Thread中？" class="headerlink" title="拓展1：为什么wait()方法不定义在Thread中？"></a>拓展1：为什么<code>wait()</code>方法不定义在<code>Thread</code>中？</h4><p><code>wait()</code>是让获得对象锁的线程实现等待，会自动释放当前线程占有的对象锁。每个对象（<code>Object</code>）都拥有对象锁，既然要释放当前线程占有的对象锁并让其进入WAITING状态，自然是要操作对应的对象<code>Object</code>而非当前线程<code>Thread</code>。</p>
-<h4 id="拓展2：为什么sleep-方法定义在Thread中？"><a href="#拓展2：为什么sleep-方法定义在Thread中？" class="headerlink" title="拓展2：为什么sleep()方法定义在Thread中？"></a>拓展2：为什么<code>sleep()</code>方法定义在<code>Thread</code>中？</h4><p>因为<code>sleep()</code>是让当前线程暂停执行，不涉及到对象类，也不需要获得对象锁。</p>
-<h3 id="Java线程池有哪些参数？阻塞队列有几种？拒绝策略有几种？新线程添加的流程？❗"><a href="#Java线程池有哪些参数？阻塞队列有几种？拒绝策略有几种？新线程添加的流程？❗" class="headerlink" title="Java线程池有哪些参数？阻塞队列有几种？拒绝策略有几种？新线程添加的流程？❗"></a>Java线程池有哪些参数？阻塞队列有几种？拒绝策略有几种？新线程添加的流程？❗</h3><h3 id="实现Runnable接口和Collable接口的区别"><a href="#实现Runnable接口和Collable接口的区别" class="headerlink" title="实现Runnable接口和Collable接口的区别"></a>实现<code>Runnable</code>接口和<code>Collable</code>接口的区别</h3><h3 id="讲一下JMM（Java内存模型）。volatile关键字解决了什么问题？说说synchronized关键字和volatile关键字的区别。"><a href="#讲一下JMM（Java内存模型）。volatile关键字解决了什么问题？说说synchronized关键字和volatile关键字的区别。" class="headerlink" title="讲一下JMM（Java内存模型）。volatile关键字解决了什么问题？说说synchronized关键字和volatile关键字的区别。"></a>讲一下JMM（Java内存模型）。<code>volatile</code>关键字解决了什么问题？说说<code>synchronized</code>关键字和<code>volatile</code>关键字的区别。</h3><h3 id="AQS原理了解吗？AQS组件有哪些？"><a href="#AQS原理了解吗？AQS组件有哪些？" class="headerlink" title="AQS原理了解吗？AQS组件有哪些？"></a>AQS原理了解吗？AQS组件有哪些？</h3><h3 id="用过CountDownLatch吗？什么场景下用的？"><a href="#用过CountDownLatch吗？什么场景下用的？" class="headerlink" title="用过CountDownLatch吗？什么场景下用的？"></a>用过<code>CountDownLatch</code>吗？什么场景下用的？</h3><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="MySQL基础"><a href="#MySQL基础" class="headerlink" title="MySQL基础"></a>MySQL基础</h2><h3 id="非关系型数据库和关系型数据库的区别？"><a href="#非关系型数据库和关系型数据库的区别？" class="headerlink" title="非关系型数据库和关系型数据库的区别？"></a>非关系型数据库和关系型数据库的区别？</h3><h3 id="事务的四大特性"><a href="#事务的四大特性" class="headerlink" title="事务的四大特性"></a>事务的四大特性</h3><p>事务需要遵循ACID四个特性</p>
-<ul>
-<li>A（atomicity）<strong>原子性</strong>：是指整个数据库事务是不可分割的工作单位。只有使事务中所有的数据库操作都成功，整个事务的执行才算成功。</li>
-<li>C（consistency）<strong>一致性</strong>：一致性指事务将数据库从一种状态转变成另一种一致的状态。在事务开始之前和事务结束以后，数据库的完整性约束没有被破坏。</li>
-<li>I（isolation）<strong>隔离性</strong>：要求每个读写事务的对象与其他事务的操作对象能相互分离，即该事务提交对其他事务都不可见，通常使用锁来实现。</li>
-<li>D（durability）<strong>持久性</strong>：事务一旦提交，其结果就是永久性的，即使发生宕机，数据库也能将数据恢复。保证了事务系统的高可靠性，而不是高可用性。</li>
-</ul>
-<h3 id="MySQL事务隔离级别？默认是什么级别？"><a href="#MySQL事务隔离级别？默认是什么级别？" class="headerlink" title="MySQL事务隔离级别？默认是什么级别？"></a>MySQL事务隔离级别？默认是什么级别？</h3><p>SQL定义了四种隔离级别：</p>
-<ul>
-<li>读未提交RU（READ UNCOMMITTED）</li>
-<li>读提叫RC（READ COMMITTED）</li>
-<li>可重复读RR（REPEATABLE READ）。InnoDB存储引擎默认的支持隔离级别</li>
-<li>串行化（SERIALIZABLE）</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">隔离级别</th>
-<th style="text-align:center">脏读</th>
-<th style="text-align:center">不可重复读</th>
-<th style="text-align:center">幻读</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">读未提交RU</td>
-<td style="text-align:center">可能</td>
-<td style="text-align:center">可能</td>
-<td style="text-align:center">可能</td>
-</tr>
-<tr>
-<td style="text-align:center">读提交RC</td>
-<td style="text-align:center">不可能</td>
-<td style="text-align:center">可能</td>
-<td style="text-align:center">可能</td>
-</tr>
-<tr>
-<td style="text-align:center">可重复读RR</td>
-<td style="text-align:center">不可能</td>
-<td style="text-align:center">不可能</td>
-<td style="text-align:center">不可能</td>
-</tr>
-<tr>
-<td style="text-align:center">串行化</td>
-<td style="text-align:center">不可能</td>
-<td style="text-align:center">不可能</td>
-<td style="text-align:center">不可能</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>MySQL中，InnoDB存储引擎默认的隔离级别是可重复读RR。</p>
-<h3 id="乐观锁和悲观锁的区别"><a href="#乐观锁和悲观锁的区别" class="headerlink" title="乐观锁和悲观锁的区别"></a>乐观锁和悲观锁的区别</h3><h4 id="乐观锁-1"><a href="#乐观锁-1" class="headerlink" title="乐观锁"></a>乐观锁</h4><p>乐观锁总是假设最好的情况，认为共享资源每次被访问的时候不会出现问题，线程可以不停的执行，无需加锁也无需等待，只是在提交修改的时候区验证对应的资源（也就是数据）是否被其他线程修改。</p>
-<h4 id="悲观锁-1"><a href="#悲观锁-1" class="headerlink" title="悲观锁"></a>悲观锁</h4><p>悲观锁总是假设最坏的情况，认为共享资源每次被访问的时候就会出现问题（比如共享数据被修改），所以每次在获取资源操作的时候都会上锁，这样其他线程想拿这个资源就会阻塞直到锁被上一个持有者释放。也就是说：<strong>共享资源每次只给一个线程使用，其他线程阻塞，用完再把资源转让给其他线程。</strong></p>
-<p>像 Java 中<code>synchronized</code>和<code>ReentrantLock</code>等独占锁就是悲观锁思想的实现。</p>
-<p>使用场景不同</p>
-<ul>
-<li>悲观锁通常多用于写比较多的情况下（多写场景，竞争激烈），这样可以避免频繁失败和重试影响性能，悲观锁的开销是固定的。</li>
-<li>乐观锁通常多用于写比较少的情况下（多读场景，竞争比较少），这样可以避免频繁枷锁影响性能。</li>
-</ul>
-<h3 id="MySQL数据库两种存储引擎的区别"><a href="#MySQL数据库两种存储引擎的区别" class="headerlink" title="MySQL数据库两种存储引擎的区别"></a>MySQL数据库两种存储引擎的区别</h3><h4 id="MyISAM非聚集索引"><a href="#MyISAM非聚集索引" class="headerlink" title="MyISAM非聚集索引"></a>MyISAM非聚集索引</h4><h4 id="InnoDB聚集索引"><a href="#InnoDB聚集索引" class="headerlink" title="InnoDB聚集索引"></a>InnoDB聚集索引</h4><h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">区别</th>
-<th style="text-align:center">MyISAM</th>
-<th style="text-align:center">InnoDB</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">结构</td>
-<td style="text-align:center">每个MyISAM在磁盘上存储成三个文件（扩展名指出文件类型）。<code>.frm</code>文件存储表定义，也就是存储结构的信息。<code>.MYD</code>文件存放数据文件，<code>.MYI</code>存放索引文件。</td>
-<td style="text-align:center">表空间数据文件和他的日志文件。没有了<code>myd</code>和<code>myi</code>，只有<code>.idb</code>放了索引位置以及表的信息位置。</td>
-</tr>
-<tr>
-<td style="text-align:center">事务</td>
-<td style="text-align:center">强调的是性能，不提供事务支持</td>
-<td style="text-align:center">提供事务支持事务，外部键等高级数据库功能。</td>
-</tr>
-<tr>
-<td style="text-align:center">CRUD</td>
-<td style="text-align:center">查询很合适</td>
-<td style="text-align:center">增加或更新更合适，删除的时候，就是一行一行的删除。</td>
-</tr>
-<tr>
-<td style="text-align:center">表的具体行数</td>
-<td style="text-align:center"><code>select count(*) from table</code>，可以很好的读取</td>
-<td style="text-align:center">不保存表的具体行数，要扫描一遍整个表来计算有多少行</td>
-</tr>
-<tr>
-<td style="text-align:center">AUTO_INCREMENT</td>
-<td style="text-align:center">可以和其他字段一起建立联合索引</td>
-<td style="text-align:center">必须包含只有该字段的索引</td>
-</tr>
-<tr>
-<td style="text-align:center">全文索引</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">不支持</td>
-</tr>
-<tr>
-<td style="text-align:center">外键</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">支持</td>
-</tr>
-<tr>
-<td style="text-align:center">锁</td>
-<td style="text-align:center">表锁</td>
-<td style="text-align:center">提供行锁（执行一个SQL语句时MySQL不能确定要扫描的范围，同样会锁全表，例如：<code>update table set num=1 where name like &quot;%aaa%&quot;</code>）</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h2><h3 id="为什么索引能够提高查询速度？"><a href="#为什么索引能够提高查询速度？" class="headerlink" title="为什么索引能够提高查询速度？"></a>为什么索引能够提高查询速度？</h3><h3 id="聚集索引和非聚集索引的区别？非聚集索引一定回表查询码？"><a href="#聚集索引和非聚集索引的区别？非聚集索引一定回表查询码？" class="headerlink" title="聚集索引和非聚集索引的区别？非聚集索引一定回表查询码？"></a>聚集索引和非聚集索引的区别？非聚集索引一定回表查询码？</h3><h3 id="为什么不对表中的每一列创建一个索引呢？（使用索引一定能提高查询性能吗？）"><a href="#为什么不对表中的每一列创建一个索引呢？（使用索引一定能提高查询性能吗？）" class="headerlink" title="为什么不对表中的每一列创建一个索引呢？（使用索引一定能提高查询性能吗？）"></a>为什么不对表中的每一列创建一个索引呢？（使用索引一定能提高查询性能吗？）</h3><h3 id="索引底层的数据结构了解吗？Hash索引和B-数索引优劣分析"><a href="#索引底层的数据结构了解吗？Hash索引和B-数索引优劣分析" class="headerlink" title="索引底层的数据结构了解吗？Hash索引和B+数索引优劣分析"></a>索引底层的数据结构了解吗？Hash索引和B+数索引优劣分析</h3><h3 id="B-树做索引比红黑树好在哪里？"><a href="#B-树做索引比红黑树好在哪里？" class="headerlink" title="B+树做索引比红黑树好在哪里？"></a>B+树做索引比红黑树好在哪里？</h3><h3 id="最左前缀匹配原则了解吗？"><a href="#最左前缀匹配原则了解吗？" class="headerlink" title="最左前缀匹配原则了解吗？"></a>最左前缀匹配原则了解吗？</h3><h3 id="什么是覆盖索引"><a href="#什么是覆盖索引" class="headerlink" title="什么是覆盖索引"></a>什么是覆盖索引</h3><h2 id="MySQL进阶"><a href="#MySQL进阶" class="headerlink" title="MySQL进阶"></a>MySQL进阶</h2><h3 id="一条SQL语句在MySQL中如何执行的？"><a href="#一条SQL语句在MySQL中如何执行的？" class="headerlink" title="一条SQL语句在MySQL中如何执行的？"></a>一条SQL语句在MySQL中如何执行的？</h3><h3 id="explain命令了解吗？"><a href="#explain命令了解吗？" class="headerlink" title="explain命令了解吗？"></a><code>explain</code>命令了解吗？</h3><h3 id="简单说一下SQL调优思路"><a href="#简单说一下SQL调优思路" class="headerlink" title="简单说一下SQL调优思路"></a>简单说一下SQL调优思路</h3><h3 id="简单说一下大表优化的思路"><a href="#简单说一下大表优化的思路" class="headerlink" title="简单说一下大表优化的思路"></a>简单说一下大表优化的思路</h3><h3 id="分库分表了解吗？为什么要分库分表？有哪些常见的分库分表工具？（sharding-jdbc、TSharding、MyCAT…）"><a href="#分库分表了解吗？为什么要分库分表？有哪些常见的分库分表工具？（sharding-jdbc、TSharding、MyCAT…）" class="headerlink" title="分库分表了解吗？为什么要分库分表？有哪些常见的分库分表工具？（sharding-jdbc、TSharding、MyCAT…）"></a>分库分表了解吗？为什么要分库分表？有哪些常见的分库分表工具？（<code>sharding-jdbc</code>、<code>TSharding</code>、<code>MyCAT</code>…）</h3>
+          <p>记录复习笔记</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/07/05/TODO/Java%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98&%E8%A7%A3%E7%AD%94/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1828,7 +1219,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">59</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1877,7 +1268,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:23</span>
+    <span title="站点阅读时长">15:35</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
